@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**97 / 284 gotchas articled** (34%). Pack-only: **187**. Backlog (status `none`): **0**.
+**103 / 284 gotchas articled** (36%). Pack-only: **181**. Backlog (status `none`): **0**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 48 | 25 | 23 | 0 | 52% |
-| rigging-animation | 23 | 18 | 5 | 0 | 78% |
-| writing-gameplay | 122 | 20 | 102 | 0 | 16% |
-| building-ui | 26 | 11 | 15 | 0 | 42% |
+| rigging-animation | 23 | 19 | 4 | 0 | 83% |
+| writing-gameplay | 122 | 23 | 99 | 0 | 19% |
+| building-ui | 26 | 12 | 14 | 0 | 46% |
 | audio | 9 | 4 | 5 | 0 | 44% |
 | making-it-perform | 4 | 0 | 4 | 0 | 0% |
-| tooling-environment | 52 | 19 | 33 | 0 | 37% |
-| **Total** | **284** | **97** | **187** | **0** | **34%** |
+| tooling-environment | 52 | 20 | 32 | 0 | 38% |
+| **Total** | **284** | **103** | **181** | **0** | **36%** |
 
 ## Articled gotchas (skip-list)
 
@@ -62,8 +62,11 @@
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sbox-field-guide.vercel.app/fix/input-config-bindings) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sbox-field-guide.vercel.app/fix/input-config-bindings) |
 | `g-game-onawake-fires-synchronously-inside-component` | [/fix/component-lifecycle-onawake-onstart](https://sbox-field-guide.vercel.app/fix/component-lifecycle-onawake-onstart) |
+| `g-game-orient-flat-decal-box-hit-normal` | [/fix/orient-decal-to-hit-normal](https://sbox-field-guide.vercel.app/fix/orient-decal-to-hit-normal) |
 | `g-game-prefer-runtime-world-building-over-giant` | [/fix/four-object-scene-bootstrap](https://sbox-field-guide.vercel.app/fix/four-object-scene-bootstrap) |
 | `g-game-python-s-open-path-w-windows` | [/fix/powershell-mojibake-utf8](https://sbox-field-guide.vercel.app/fix/powershell-mojibake-utf8) |
+| `g-game-rigidbody-component-api` | [/fix/rigidbody-component-api](https://sbox-field-guide.vercel.app/fix/rigidbody-component-api) |
+| `g-game-rotation-fromyaw-angle-left` | [/fix/rotation-fromyaw-is-ccw](https://sbox-field-guide.vercel.app/fix/rotation-fromyaw-is-ccw) |
 | `g-game-runtime-meshes-mesh-model` | [/fix/heavy-work-no-hitches](https://sbox-field-guide.vercel.app/fix/heavy-work-no-hitches) |
 | `g-game-scene-getallcomponents-t-return-disabled-com` | [/fix/getallcomponents-skips-disabled](https://sbox-field-guide.vercel.app/fix/getallcomponents-skips-disabled) |
 | `g-game-scene-json-details` | [/fix/four-object-scene-bootstrap](https://sbox-field-guide.vercel.app/fix/four-object-scene-bootstrap) |
@@ -85,12 +88,14 @@
 | `g-rig-model-compiler-sanitizes` | [/fix/bone-name-dot-to-underscore](https://sbox-field-guide.vercel.app/fix/bone-name-dot-to-underscore) |
 | `g-rig-naturalistic-mocap-idles-don-t-loop` | [/fix/mixamo-retarget-custom-rig](https://sbox-field-guide.vercel.app/fix/mixamo-retarget-custom-rig) |
 | `g-rig-physics-shape-coords-same-unit-mesh` | [/fix/ragdoll-scripted-rig-npc](https://sbox-field-guide.vercel.app/fix/ragdoll-scripted-rig-npc) |
+| `g-rig-scripted-keyframes-keep-quaternion-keys-hemi` | [/fix/quaternion-hemisphere-continuity](https://sbox-field-guide.vercel.app/fix/quaternion-hemisphere-continuity) |
 | `g-rig-scripted-rig-npc-ragdoll-engine-physics` | [/fix/ragdoll-scripted-rig-npc](https://sbox-field-guide.vercel.app/fix/ragdoll-scripted-rig-npc) |
 | `g-rig-skinnedmodelrenderer-sequence-blending-bool` | [/fix/crossfade-without-animgraph](https://sbox-field-guide.vercel.app/fix/crossfade-without-animgraph) |
 | `g-rig-skinnedmodelrenderer-setik-animgraph-gated` | [/fix/setbonetransform-silently-noop](https://sbox-field-guide.vercel.app/fix/setbonetransform-silently-noop) |
 | `g-rig-transform-apply-scale-true-mixamo-armature` | [/fix/mixamo-retarget-custom-rig](https://sbox-field-guide.vercel.app/fix/mixamo-retarget-custom-rig) |
 | `g-rig-two-renderer-manual-cross-fade-wrong` | [/fix/crossfade-without-animgraph](https://sbox-field-guide.vercel.app/fix/crossfade-without-animgraph) |
 | `g-rig-vmdl-physics-node-schema-copy-citizen` | [/fix/ragdoll-scripted-rig-npc](https://sbox-field-guide.vercel.app/fix/ragdoll-scripted-rig-npc) |
+| `g-tool-angles-struct-fields-lowercase` | [/fix/angles-struct-lowercase-fields](https://sbox-field-guide.vercel.app/fix/angles-struct-lowercase-fields) |
 | `g-tool-boxcollider-center-scale-always` | [/fix/capsule-vs-box-collider-choice](https://sbox-field-guide.vercel.app/fix/capsule-vs-box-collider-choice) |
 | `g-tool-dotnet-build-warning-counts-lie-under` | [/fix/dotnet-build-vs-whitelist](https://sbox-field-guide.vercel.app/fix/dotnet-build-vs-whitelist) |
 | `g-tool-editor-compiler-crash-internally-nullreferen` | [/fix/stale-assembly-hotload](https://sbox-field-guide.vercel.app/fix/stale-assembly-hotload) |
@@ -121,6 +126,7 @@
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sbox-field-guide.vercel.app/fix/runtime-texture-ui-panel) |
 | `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sbox-field-guide.vercel.app/fix/building-sbox-hud) |
 | `g-ui-sync-owner-proxies-sync-syncflags` | [/fix/owner-simulated-networking](https://sbox-field-guide.vercel.app/fix/owner-simulated-networking) |
+| `g-ui-textentry-raw-html-input-house-control` | [/fix/textentry-not-html-input](https://sbox-field-guide.vercel.app/fix/textentry-not-html-input) |
 
 ## Pack-only gotchas (in the checklist, no full article)
 
@@ -204,7 +210,6 @@
 - `g-game-new-razor-scss-created`
 - `g-game-noclip-trace-based-kinematic-controller-stat`
 - `g-game-orbiting-physics-root-around-bar-makes`
-- `g-game-orient-flat-decal-box-hit-normal`
 - `g-game-over-world-ui-name-labels-health`
 - `g-game-play-mode-terrain-brush-s-lower`
 - `g-game-priority-flood-depression-fill-noisy-terrain`
@@ -212,10 +217,8 @@
 - `g-game-proof-grade-aimed-bot-grab-window`
 - `g-game-regenerating-strata-atlas-png-new-cell`
 - `g-game-rest-position-spacing-cannot-clear-swinging`
-- `g-game-rigidbody-component-api`
 - `g-game-rolling-slopes-idempotent-ground-snap-still`
 - `g-game-root-gameobject-named-editor-camera-bare`
-- `g-game-rotation-fromyaw-angle-left`
 - `g-game-runtime-world-root-torn-down-gameobject`
 - `g-game-s-box-edit-mode-envmapprobe-ambient`
 - `g-game-s-box-editor-s-mcp-server`
@@ -262,9 +265,7 @@
 - `g-rig-opt-additive-authoring-editing-read-riglib`
 - `g-rig-pace-looping-locomotion-clips-clip-s`
 - `g-rig-pair-procedural-whole-body-rotation-clip`
-- `g-rig-scripted-keyframes-keep-quaternion-keys-hemi`
 - `g-tool-aimed-bot-grabbing-through-scored-best`
-- `g-tool-angles-struct-fields-lowercase`
 - `g-tool-arch-slope-tilt-axis-rotate-about`
 - `g-tool-bar-s-release-aimed-within-spin`
 - `g-tool-blender-materials-clear-materials-new-name`
@@ -309,7 +310,6 @@
 - `g-ui-runtime-clipboard-api-reachable-game-code`
 - `g-ui-scenepanel-ui-3d-model-preview-world`
 - `g-ui-scss-import-shared-token-mixin-file`
-- `g-ui-textentry-raw-html-input-house-control`
 - `g-ui-write-inside-already-open-razor-code`
 
 ## Articles without a gotchas.md source (11)
