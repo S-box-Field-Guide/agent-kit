@@ -19,7 +19,7 @@ the relevant doc *before* it writes s&box code — see [`SKILL.md`](SKILL.md). T
 guide is structured so an agent can load just the doc it needs for the task at hand.
 
 ```bash
-git clone https://github.com/S-box-Field-Guide/agent-field-guide
+git clone https://github.com/S-box-Field-Guide/agent-kit
 # then point your agent's skills at it, or just browse the docs
 ```
 
