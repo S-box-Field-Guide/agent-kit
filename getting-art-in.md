@@ -1,7 +1,8 @@
 # Getting art in — skill pack
 
-> Lane pack. Load `_core.md` first, then this file. Denser than the articles by design;
-> when a bullet matches, open the matching `content/articles/<slug>.md`. Sanitized public
+> Lane pack. Load `_core.md` first, then this file. Denser than the full articles by design;
+> for a matching bullet's full write-up, follow that gotcha's article link in `coverage.md`
+> (full articles live on the Field Guide website, not in this pack). Sanitized public
 > advice; unconfirmed details marked `(needs verification)`. The sync appends new bullets here.
 
 ## Units, axes, and frames

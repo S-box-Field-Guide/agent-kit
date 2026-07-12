@@ -2,7 +2,8 @@
 
 > **This is the only always-load file.** It carries the cross-cutting rules that cause most
 > failures. Load this first, then load the one lane pack for your task (see `index.md`), then
-> open the matching full article under `content/articles/` when a bullet applies.
+> follow a bullet's article link in `coverage.md` for the full write-up (full articles live on
+> the Field Guide website, not in this pack).
 >
 > Sanitized public derivative of private field notes — engine-level, reproducible advice only.
 > Unconfirmed details are marked `(needs verification)`.

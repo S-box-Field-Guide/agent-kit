@@ -1,6 +1,6 @@
 # Gotcha coverage
 
-> **Generated from `content/coverage.json`.** Do not hand-edit. This is the human view of
+> **Generated from the coverage registry.** Do not hand-edit. This is the human view of
 > the authoritative skip-list: each source gotcha's `status` (`none` = backlog, `pack` =
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.

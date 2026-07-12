@@ -1,8 +1,8 @@
 # s&box Skill Pack — index
 
-> Load `_core.md` (always), then the one lane pack for your task. Open the full article
-> under `content/articles/<slug>.md` when a bullet matches. Coverage numbers come from
-> `content/coverage.json` (see `coverage.md` for the full skip-list).
+> Load `_core.md` (always), then the one lane pack for your task. For a bullet's full write-up,
+> follow its article link in `coverage.md` — full articles live on the Field Guide website, not
+> in this pack. `coverage.md` is the full coverage view and skip-list.
 
 | Lane | Pack file | Covers | Gotchas | Articled |
 |---|---|---|--:|--:|
