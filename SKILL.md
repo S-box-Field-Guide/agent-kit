@@ -10,7 +10,7 @@ description: >-
   "broke after publish".
 ---
 
-# s&box Field Guide — agent skill
+# s&box Agent Kit — agent skill
 
 You are working in **s&box**, Facepunch's C# game engine. This engine has many traps
 that compile clean but fail at runtime, publish, or in-editor. This skill is a

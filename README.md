@@ -1,4 +1,4 @@
-# s&box Field Guide
+# s&box Agent Kit
 
 **Real s&box gotchas from shipping games** — verified fixes, pipelines, and workarounds we hit while building, written down so you don't have to rediscover them.
 
@@ -12,7 +12,9 @@ A community collection of the miscellaneous stuff that costs you an afternoon. C
 
 **Read it.** Start with [`_core.md`](_core.md) — the handful of cross-cutting rules that
 cause most failures. Then load the one **lane pack** for your task ([`index.md`](index.md)
-has the map). Dip into the topic docs below for the deeper narrative on an area.
+has the map). Dip into the topic docs below for the deeper narrative on an area. Prefer a
+browsable, human-readable version? The [s&box Field Guide website](https://sbox-field-guide.vercel.app)
+is the companion to this pack.
 
 **Give it to your coding agent.** Clone this repo into your agent's skills so it reads
 the relevant doc *before* it writes s&box code — see [`SKILL.md`](SKILL.md). The whole
