@@ -1,0 +1,20 @@
+# s&box Skill Pack — index
+
+> Load `_core.md` (always), then the one lane pack for your task. Open the full article
+> under `content/articles/<slug>.md` when a bullet matches. Coverage numbers come from
+> `content/coverage.json` (see `coverage.md` for the full skip-list).
+
+| Lane | Pack file | Covers | Gotchas | Articled |
+|---|---|---|--:|--:|
+| Getting set up | `getting-set-up.md` | New project skeleton, compile verification. | 0 | 0 |
+| Getting art in | `getting-art-in.md` | Blender/AI mesh → in-game, correct scale & facing. | 39 | 23 |
+| Rigging & animation | `rigging-animation.md` | Blends, ragdolls, retargeting mocap. | 23 | 18 |
+| Writing gameplay | `writing-gameplay.md` | Components, movement, save/load, networking, runtime meshes. | 87 | 18 |
+| Building UI | `building-ui.md` | Razor HUD that re-renders. The BuildHash trap. | 22 | 11 |
+| Audio | `audio.md` | .sound events by hand, looping, 3D positional. | 9 | 4 |
+| Making it perform | `making-it-perform.md` | Triangle census, collider choice, density limits. | 4 | 0 |
+| Publishing & shipping | `publishing-shipping.md` | sbox.game store, the whitelist divergence. | 0 | 0 |
+| AI-assisted workflow | `ai-assisted-workflow.md` | Coordinating agents to build a game. | 0 | 0 |
+| Tooling & environment | `tooling-environment.md` | Windows/PowerShell/dotnet traps. | 50 | 18 |
+
+Always-load core rules: `_core.md`. Coverage / backlog: `coverage.md`.
