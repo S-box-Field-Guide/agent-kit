@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**113 / 284 gotchas articled** (40%). Pack-only: **171**. Backlog (status `none`): **0**.
+**114 / 284 gotchas articled** (40%). Pack-only: **170**. Backlog (status `none`): **0**.
 
 ## By lane
 
@@ -14,11 +14,11 @@
 | getting-art-in | 48 | 26 | 22 | 0 | 54% |
 | rigging-animation | 23 | 20 | 3 | 0 | 87% |
 | writing-gameplay | 122 | 27 | 95 | 0 | 22% |
-| building-ui | 26 | 14 | 12 | 0 | 54% |
+| building-ui | 26 | 15 | 11 | 0 | 58% |
 | audio | 9 | 5 | 4 | 0 | 56% |
 | making-it-perform | 4 | 1 | 3 | 0 | 25% |
 | tooling-environment | 52 | 20 | 32 | 0 | 38% |
-| **Total** | **284** | **113** | **171** | **0** | **40%** |
+| **Total** | **284** | **114** | **170** | **0** | **40%** |
 
 ## Articled gotchas (skip-list)
 
@@ -36,7 +36,7 @@
 | `g-art-disable-instance-shadows-renderer` | [/fix/disable-instance-shadows](https://sbox-field-guide.vercel.app/fix/disable-instance-shadows) |
 | `g-art-double-tint-flat-color-vmat-override` | [/fix/model-tint-flat-vmat-traps](https://sbox-field-guide.vercel.app/fix/model-tint-flat-vmat-traps) |
 | `g-art-flat-color-materials-constant-color-texturec` | [/fix/kenney-cc0-import](https://sbox-field-guide.vercel.app/fix/kenney-cc0-import) |
-| `g-art-high-key-chalky-bright-near-white` | [/fix/high-key-chalky-sky-needs-texture-and-tonemapping](https://sbox-field-guide.vercel.app/fix/high-key-chalky-sky-needs-texture-and-tonemapping) |
+| `g-art-high-key-chalky-bright-near-white` | [/fix/high-key-chalky-sky-setup](https://sbox-field-guide.vercel.app/fix/high-key-chalky-sky-setup) |
 | `g-art-instance-modelrenderer-tint-flat` | [/fix/model-tint-flat-vmat-traps](https://sbox-field-guide.vercel.app/fix/model-tint-flat-vmat-traps) |
 | `g-art-meters-authored-waypoint-position-arrays-aud` | [/fix/sbox-units-are-inches](https://sbox-field-guide.vercel.app/fix/sbox-units-are-inches) |
 | `g-art-meters-units-mixups-travel-packs-sweep` | [/fix/sbox-units-are-inches](https://sbox-field-guide.vercel.app/fix/sbox-units-are-inches) |
@@ -55,6 +55,7 @@
 | `g-audio-playing-sound-fully-static` | [/fix/playing-sound-static-api](https://sbox-field-guide.vercel.app/fix/playing-sound-static-api) |
 | `g-audio-sound-event-file-plain-json-author` | [/fix/authoring-sound-events-by-hand](https://sbox-field-guide.vercel.app/fix/authoring-sound-events-by-hand) |
 | `g-audio-soundevent-has-looping-field` | [/fix/soundevent-no-looping-field](https://sbox-field-guide.vercel.app/fix/soundevent-no-looping-field) |
+| `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sbox-field-guide.vercel.app/fix/white-noise-hash-terrain-shade) |
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sbox-field-guide.vercel.app/fix/four-object-scene-bootstrap) |
 | `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sbox-field-guide.vercel.app/fix/double-jump-set-velocity-directly) |
 | `g-game-edit-mode-gameobject` | [/fix/edit-mode-destroy-query-lag](https://sbox-field-guide.vercel.app/fix/edit-mode-destroy-query-lag) |
@@ -64,13 +65,12 @@
 | `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sbox-field-guide.vercel.app/fix/dotnet-build-misses-razor-errors) |
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sbox-field-guide.vercel.app/fix/input-config-bindings) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sbox-field-guide.vercel.app/fix/input-config-bindings) |
-| `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sbox-field-guide.vercel.app/fix/new-razor-scss-not-applied-until-restart) |
+| `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-hot-reloaded](https://sbox-field-guide.vercel.app/fix/new-razor-scss-not-hot-reloaded) |
 | `g-game-onawake-fires-synchronously-inside-component` | [/fix/component-lifecycle-onawake-onstart](https://sbox-field-guide.vercel.app/fix/component-lifecycle-onawake-onstart) |
 | `g-game-orient-flat-decal-box-hit-normal` | [/fix/orient-decal-to-hit-normal](https://sbox-field-guide.vercel.app/fix/orient-decal-to-hit-normal) |
 | `g-game-prefer-runtime-world-building-over-giant` | [/fix/four-object-scene-bootstrap](https://sbox-field-guide.vercel.app/fix/four-object-scene-bootstrap) |
 | `g-game-python-s-open-path-w-windows` | [/fix/powershell-mojibake-utf8](https://sbox-field-guide.vercel.app/fix/powershell-mojibake-utf8) |
 | `g-game-rigidbody-component-api` | [/fix/rigidbody-component-api](https://sbox-field-guide.vercel.app/fix/rigidbody-component-api) |
-| `g-game-rolling-slopes-idempotent-ground-snap-still` | [/fix/ground-snap-pops-on-rolling-slopes](https://sbox-field-guide.vercel.app/fix/ground-snap-pops-on-rolling-slopes) |
 | `g-game-rotation-fromyaw-angle-left` | [/fix/rotation-fromyaw-is-ccw](https://sbox-field-guide.vercel.app/fix/rotation-fromyaw-is-ccw) |
 | `g-game-runtime-meshes-mesh-model` | [/fix/heavy-work-no-hitches](https://sbox-field-guide.vercel.app/fix/heavy-work-no-hitches) |
 | `g-game-scene-getallcomponents-t-return-disabled-com` | [/fix/getallcomponents-skips-disabled](https://sbox-field-guide.vercel.app/fix/getallcomponents-skips-disabled) |
@@ -78,7 +78,7 @@
 | `g-game-session-reset-static-facades-component-their` | [/fix/component-lifecycle-onawake-onstart](https://sbox-field-guide.vercel.app/fix/component-lifecycle-onawake-onstart) |
 | `g-game-stylesheet-many-selectors-simultaneously-dec` | [/fix/font-size-glyph-corruption](https://sbox-field-guide.vercel.app/fix/font-size-glyph-corruption) |
 | `g-game-teleport-body-over-geometry-fixed-offset` | [/fix/kinematic-movement-startedsolid](https://sbox-field-guide.vercel.app/fix/kinematic-movement-startedsolid) |
-| `g-game-textentry-ontextedited-action-string` | [/fix/textentry-ontextedited-needs-block-lambda](https://sbox-field-guide.vercel.app/fix/textentry-ontextedited-needs-block-lambda) |
+| `g-game-there-public-action-analog-trigger-axis` | [/fix/no-analog-trigger-axis-api](https://sbox-field-guide.vercel.app/fix/no-analog-trigger-axis-api) |
 | `g-game-trace-api-works` | [/fix/kinematic-movement-startedsolid](https://sbox-field-guide.vercel.app/fix/kinematic-movement-startedsolid) |
 | `g-game-trace-based-kinematic-controller-has-collide` | [/fix/trace-kinematic-no-trigger](https://sbox-field-guide.vercel.app/fix/trace-kinematic-no-trigger) |
 | `g-game-trace-based-movement-trap-player-permanently` | [/fix/kinematic-movement-startedsolid](https://sbox-field-guide.vercel.app/fix/kinematic-movement-startedsolid) |
@@ -124,7 +124,8 @@
 | `g-tool-verify-compiles-editor` | [/fix/project-setup-skeleton](https://sbox-field-guide.vercel.app/fix/project-setup-skeleton) |
 | `g-tool-whitelist-http-may-call` | [/fix/dotnet-build-vs-whitelist](https://sbox-field-guide.vercel.app/fix/dotnet-build-vs-whitelist) |
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sbox-field-guide.vercel.app/fix/ui-frozen-buildhash) |
-| `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sbox-field-guide.vercel.app/fix/flex-grow-percentage-child-feedback-loop) |
+| `g-ui-draggable-slider-tracks-click-jump-drag` | [/fix/draggable-slider-click-drag](https://sbox-field-guide.vercel.app/fix/draggable-slider-click-drag) |
+| `g-ui-flex-grow-track-holding` | [/fix/flex-grow-slider-track-unstable](https://sbox-field-guide.vercel.app/fix/flex-grow-slider-track-unstable) |
 | `g-ui-gameobject-networkmode-defaults-snapshot` | [/fix/owner-simulated-networking](https://sbox-field-guide.vercel.app/fix/owner-simulated-networking) |
 | `g-ui-interface-based-scene-scans-unreliable` | [/fix/interface-scan-returns-nothing](https://sbox-field-guide.vercel.app/fix/interface-scan-returns-nothing) |
 | `g-ui-jetbrains-mono-consolas-shipped-s-box` | [/fix/engine-monospace-roboto-mono](https://sbox-field-guide.vercel.app/fix/engine-monospace-roboto-mono) |
@@ -173,7 +174,6 @@
 - `g-game-candidate-selector-s-nearest-reach-fallback`
 - `g-game-cell-hash-dither-elevation-band-edges`
 - `g-game-cell-minimum-depth-gate-flood-filled`
-- `g-game-cell-white-noise-hash-wrong-driver`
 - `g-game-citizen-animgraph-already-has-native-slide`
 - `g-game-citizen-clothing-folder-file-names-lie`
 - `g-game-climbable-stair-step-rises-1-1`
@@ -223,6 +223,7 @@
 - `g-game-proof-grade-aimed-bot-grab-window`
 - `g-game-regenerating-strata-atlas-png-new-cell`
 - `g-game-rest-position-spacing-cannot-clear-swinging`
+- `g-game-rolling-slopes-idempotent-ground-snap-still`
 - `g-game-root-gameobject-named-editor-camera-bare`
 - `g-game-runtime-world-root-torn-down-gameobject`
 - `g-game-s-box-edit-mode-envmapprobe-ambient`
@@ -246,7 +247,7 @@
 - `g-game-swim-voxel-world-narrow-river-triggers`
 - `g-game-swing-grab-anchor-needs-visible-dressing`
 - `g-game-system-array-clone-blocked`
-- `g-game-there-public-action-analog-trigger-axis`
+- `g-game-textentry-ontextedited-action-string`
 - `g-game-tower-platform-geometry-isolated-swing-web`
 - `g-game-trace-ground-snap-adds-fixed-offset`
 - `g-game-trace-hit-exposes-physics-body`
@@ -301,7 +302,6 @@
 - `g-tool-visual-pin-hands-feet-world-feature`
 - `g-ui-camera-screenshot-s-ui-overlay-renders`
 - `g-ui-client-local-screen-effect-fullscreen-fade`
-- `g-ui-draggable-slider-tracks-click-jump-drag`
 - `g-ui-editor-generated-csproj-gitignored`
 - `g-ui-freshly-scaffolded-project-s-code-assembly`
 - `g-ui-loose-json-under-assets`
