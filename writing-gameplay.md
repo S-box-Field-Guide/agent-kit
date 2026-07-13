@@ -1040,3 +1040,16 @@
  bypass — a project-side auto-enable hook is possible in principle (set
  `EditorPreferences.McpServerEnabled` from an `[EditorEvent.Frame]` once-guard in the Editor assembly)
  but is a persistence mechanism the owner must explicitly approve first.
+
+## Save / load
+
+- DTO classes + `Json.Serialize`/`Json.Deserialize<T>` + `FileSystem.Data.WriteAllText/ReadAllText/FileExists`.
+- Mark runtime-placed structures with a `PlacedBuildable { BuildId }` component;
+  save loop reads component state per GameObject, load loop respawns through the
+  same factory used for building — one spawn path, no drift.
+- Static world stays deterministic (fixed RNG seed) so only deltas need saving
+  (e.g. chopped-tree indices, not tree positions).
+- Missing JSON fields → C# defaults, so guard restored values (`x <= 0 ? 1f : x`)
+  and keep enums append-only. Autosave on the natural checkpoint (sleep).
+
+> _(Section restored 2026-07-13 from the pre-split code-patterns pack.)_
