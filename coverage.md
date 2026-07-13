@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**103 / 284 gotchas articled** (36%). Pack-only: **181**. Backlog (status `none`): **0**.
+**108 / 284 gotchas articled** (38%). Pack-only: **176**. Backlog (status `none`): **0**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 48 | 25 | 23 | 0 | 52% |
-| rigging-animation | 23 | 19 | 4 | 0 | 83% |
-| writing-gameplay | 122 | 23 | 99 | 0 | 19% |
-| building-ui | 26 | 12 | 14 | 0 | 46% |
-| audio | 9 | 4 | 5 | 0 | 44% |
-| making-it-perform | 4 | 0 | 4 | 0 | 0% |
+| rigging-animation | 23 | 20 | 3 | 0 | 87% |
+| writing-gameplay | 122 | 24 | 98 | 0 | 20% |
+| building-ui | 26 | 13 | 13 | 0 | 50% |
+| audio | 9 | 5 | 4 | 0 | 56% |
+| making-it-perform | 4 | 1 | 3 | 0 | 25% |
 | tooling-environment | 52 | 20 | 32 | 0 | 38% |
-| **Total** | **284** | **103** | **181** | **0** | **36%** |
+| **Total** | **284** | **108** | **176** | **0** | **38%** |
 
 ## Articled gotchas (skip-list)
 
@@ -51,9 +51,11 @@
 | `g-art-vmdl-rendermeshfile-compiles-clean-has-zero` | [/fix/model-no-collision](https://sbox-field-guide.vercel.app/fix/model-no-collision) |
 | `g-audio-event-string-full-resource-path-extension` | [/fix/custom-sound-wont-play](https://sbox-field-guide.vercel.app/fix/custom-sound-wont-play) |
 | `g-audio-mp3-valid-source-audio-asset-wav` | [/fix/authoring-sound-events-by-hand](https://sbox-field-guide.vercel.app/fix/authoring-sound-events-by-hand) |
+| `g-audio-playing-sound-fully-static` | [/fix/playing-sound-static-api](https://sbox-field-guide.vercel.app/fix/playing-sound-static-api) |
 | `g-audio-sound-event-file-plain-json-author` | [/fix/authoring-sound-events-by-hand](https://sbox-field-guide.vercel.app/fix/authoring-sound-events-by-hand) |
 | `g-audio-soundevent-has-looping-field` | [/fix/soundevent-no-looping-field](https://sbox-field-guide.vercel.app/fix/soundevent-no-looping-field) |
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sbox-field-guide.vercel.app/fix/four-object-scene-bootstrap) |
+| `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sbox-field-guide.vercel.app/fix/double-jump-set-velocity-directly) |
 | `g-game-edit-mode-gameobject` | [/fix/edit-mode-destroy-query-lag](https://sbox-field-guide.vercel.app/fix/edit-mode-destroy-query-lag) |
 | `g-game-flat-decal-geometry-clear-surface-below` | [/fix/runtime-world-building-helpers](https://sbox-field-guide.vercel.app/fix/runtime-world-building-helpers) |
 | `g-game-full-screen-hud-toasts-banners` | [/fix/building-sbox-hud](https://sbox-field-guide.vercel.app/fix/building-sbox-hud) |
@@ -76,6 +78,7 @@
 | `g-game-trace-api-works` | [/fix/kinematic-movement-startedsolid](https://sbox-field-guide.vercel.app/fix/kinematic-movement-startedsolid) |
 | `g-game-trace-based-kinematic-controller-has-collide` | [/fix/trace-kinematic-no-trigger](https://sbox-field-guide.vercel.app/fix/trace-kinematic-no-trigger) |
 | `g-game-trace-based-movement-trap-player-permanently` | [/fix/kinematic-movement-startedsolid](https://sbox-field-guide.vercel.app/fix/kinematic-movement-startedsolid) |
+| `g-perf-editor-embedded-play-mode-hard-capped` | [/fix/editor-play-mode-vsync-capped](https://sbox-field-guide.vercel.app/fix/editor-play-mode-vsync-capped) |
 | `g-rig-animated-models-use-modelmodifier` | [/fix/fbx-export-recipe](https://sbox-field-guide.vercel.app/fix/fbx-export-recipe) |
 | `g-rig-animgraph-heavier-alternative-needed-cross-f` | [/fix/crossfade-without-animgraph](https://sbox-field-guide.vercel.app/fix/crossfade-without-animgraph) |
 | `g-rig-blend-duration-comes-vmdl-s-clip` | [/fix/crossfade-without-animgraph](https://sbox-field-guide.vercel.app/fix/crossfade-without-animgraph) |
@@ -87,6 +90,7 @@
 | `g-rig-mixamo-mocap-retargets-onto-npc-lane` | [/fix/mixamo-retarget-custom-rig](https://sbox-field-guide.vercel.app/fix/mixamo-retarget-custom-rig) |
 | `g-rig-model-compiler-sanitizes` | [/fix/bone-name-dot-to-underscore](https://sbox-field-guide.vercel.app/fix/bone-name-dot-to-underscore) |
 | `g-rig-naturalistic-mocap-idles-don-t-loop` | [/fix/mixamo-retarget-custom-rig](https://sbox-field-guide.vercel.app/fix/mixamo-retarget-custom-rig) |
+| `g-rig-pace-looping-locomotion-clips-clip-s` | [/fix/pace-locomotion-clips-by-stride](https://sbox-field-guide.vercel.app/fix/pace-locomotion-clips-by-stride) |
 | `g-rig-physics-shape-coords-same-unit-mesh` | [/fix/ragdoll-scripted-rig-npc](https://sbox-field-guide.vercel.app/fix/ragdoll-scripted-rig-npc) |
 | `g-rig-scripted-keyframes-keep-quaternion-keys-hemi` | [/fix/quaternion-hemisphere-continuity](https://sbox-field-guide.vercel.app/fix/quaternion-hemisphere-continuity) |
 | `g-rig-scripted-rig-npc-ragdoll-engine-physics` | [/fix/ragdoll-scripted-rig-npc](https://sbox-field-guide.vercel.app/fix/ragdoll-scripted-rig-npc) |
@@ -123,6 +127,7 @@
 | `g-ui-name-classes-after-sandbox-built-ins` | [/fix/assembly-cs-globals-setup](https://sbox-field-guide.vercel.app/fix/assembly-cs-globals-setup) |
 | `g-ui-panelcomponent-overrides-ontreebuilt-ontreef` | [/fix/panelcomponent-ontreebuilt-lifecycle](https://sbox-field-guide.vercel.app/fix/panelcomponent-ontreebuilt-lifecycle) |
 | `g-ui-razor-files-go-global-namespace` | [/fix/assembly-cs-globals-setup](https://sbox-field-guide.vercel.app/fix/assembly-cs-globals-setup) |
+| `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sbox-field-guide.vercel.app/fix/ref-field-private-field-never-assigns) |
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sbox-field-guide.vercel.app/fix/runtime-texture-ui-panel) |
 | `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sbox-field-guide.vercel.app/fix/building-sbox-hud) |
 | `g-ui-sync-owner-proxies-sync-syncflags` | [/fix/owner-simulated-networking](https://sbox-field-guide.vercel.app/fix/owner-simulated-networking) |
@@ -156,7 +161,6 @@
 - `g-audio-ambient-emitters-kiosk-jingles`
 - `g-audio-elevenlabs-sfx-cost-character-cost-response`
 - `g-audio-elevenlabs-voices-npc-dialogue-use-tts`
-- `g-audio-playing-sound-fully-static`
 - `g-audio-speaker-line-cooldown`
 - `g-game-adding-sheer-mesa-cliff-terrain-silently`
 - `g-game-altitude-driven-biome-gradients`
@@ -182,7 +186,6 @@
 - `g-game-deterministic-content-hash-same-spec-same`
 - `g-game-dirty-chunk-remesh-seam-law`
 - `g-game-don-t-smooth-longitudinal-slip-adds`
-- `g-game-double-jump-set-velocity-z-directly`
 - `g-game-edit-mode-scene-trace-blind-runtime`
 - `g-game-editor-console-buffer-2000-entries-rolls`
 - `g-game-editor-mcp-editor-camera-screenshot-renders`
@@ -258,12 +261,10 @@
 - `g-game-which-movement-mode-surface-allow-gate`
 - `g-game-whitespace-immediately-adjacent-tag-expressi`
 - `g-perf-chunked-runtime-mesh-generator-regen-single`
-- `g-perf-editor-embedded-play-mode-hard-capped`
 - `g-perf-fps-probe-measurement-hygiene-through-mcp`
 - `g-perf-voxel-grain-cellsize-nearly-free-density`
 - `g-rig-new-npc-clip-add-humanoid-clips`
 - `g-rig-opt-additive-authoring-editing-read-riglib`
-- `g-rig-pace-looping-locomotion-clips-clip-s`
 - `g-rig-pair-procedural-whole-body-rotation-clip`
 - `g-tool-aimed-bot-grabbing-through-scored-best`
 - `g-tool-arch-slope-tilt-axis-rotate-about`
@@ -306,7 +307,6 @@
 - `g-ui-loose-json-under-assets`
 - `g-ui-mouse-visible-true-obsolete`
 - `g-ui-razor-collection-stateful-child-panels-don`
-- `g-ui-ref-field-bare-private-field-silently`
 - `g-ui-runtime-clipboard-api-reachable-game-code`
 - `g-ui-scenepanel-ui-3d-model-preview-world`
 - `g-ui-scss-import-shared-token-mixin-file`
