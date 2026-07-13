@@ -18,3 +18,20 @@
 | Tooling & environment | `tooling-environment.md` | Windows/PowerShell/dotnet traps. | 50 | 18 |
 
 Always-load core rules: `_core.md`. Coverage / backlog: `coverage.md`.
+
+## Guides (method syntheses)
+
+Long-form build-order runbooks — how to build a system properly, in what order.
+Full HTML also lives on the Field Guide site under `/guides`. These files are
+literal copies of `field-guide/content/guides/`.
+
+| Guide | File | Lanes |
+|---|---|---|
+| Standing up an agent-buildable s&box project | `guides/agent-buildable-project-setup.md` | getting-set-up · ai-assisted-workflow |
+| Agent test harness | `guides/agent-test-harness.md` | tooling-environment · ai-assisted-workflow |
+| Runtime terrain meshing | `guides/runtime-terrain-meshing.md` | writing-gameplay · making-it-perform |
+| Networking methods | `guides/networking-methods.md` | writing-gameplay |
+| Vehicle physics | `guides/vehicle-physics.md` | writing-gameplay |
+| Parkour movement | `guides/parkour-movement.md` | writing-gameplay |
+| Part-kit assembly | `guides/part-kit-assembly.md` | getting-art-in · writing-gameplay |
+| Delta-log save | `guides/delta-log-save.md` | writing-gameplay |
