@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**121 / 284 gotchas articled** (43%). Pack-only: **163**. Backlog (status `none`): **0**.
+**126 / 284 gotchas articled** (44%). Pack-only: **158**. Backlog (status `none`): **0**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 48 | 26 | 22 | 0 | 54% |
+| getting-art-in | 48 | 28 | 20 | 0 | 58% |
 | rigging-animation | 23 | 20 | 3 | 0 | 87% |
-| writing-gameplay | 122 | 32 | 90 | 0 | 26% |
+| writing-gameplay | 122 | 34 | 88 | 0 | 28% |
 | building-ui | 26 | 15 | 11 | 0 | 58% |
 | audio | 9 | 5 | 4 | 0 | 56% |
 | making-it-perform | 4 | 1 | 3 | 0 | 25% |
-| tooling-environment | 52 | 22 | 30 | 0 | 42% |
-| **Total** | **284** | **121** | **163** | **0** | **43%** |
+| tooling-environment | 52 | 23 | 29 | 0 | 44% |
+| **Total** | **284** | **126** | **158** | **0** | **44%** |
 
 ## Articled gotchas (skip-list)
 
@@ -44,9 +44,11 @@
 | `g-art-modelcollider-s-physics-hull-also-follow` | [/fix/capsule-vs-box-collider-choice](https://sbox-field-guide.vercel.app/fix/capsule-vs-box-collider-choice) |
 | `g-art-obj-importer-auto-converts-y-up` | [/fix/blender-headless-pipeline](https://sbox-field-guide.vercel.app/fix/blender-headless-pipeline) |
 | `g-art-prefer-hand-sized-boxcollider-s-over` | [/fix/capsule-vs-box-collider-choice](https://sbox-field-guide.vercel.app/fix/capsule-vs-box-collider-choice) |
+| `g-art-recovery-forge-delivery-fails` | [/fix/forge-failed-delivery-glb-recovery](https://sbox-field-guide.vercel.app/fix/forge-failed-delivery-glb-recovery) |
 | `g-art-s-box-load-raw-obj-glb` | [/fix/sbox-wont-load-obj-glb](https://sbox-field-guide.vercel.app/fix/sbox-wont-load-obj-glb) |
 | `g-art-s-box-units-inches` | [/fix/sbox-units-are-inches](https://sbox-field-guide.vercel.app/fix/sbox-units-are-inches) |
 | `g-art-scene-triangle-overload` | [/fix/decimating-ai-meshes](https://sbox-field-guide.vercel.app/fix/decimating-ai-meshes) |
+| `g-art-shaders-complex-shader-compiled` | [/fix/shader-template-field-discovery](https://sbox-field-guide.vercel.app/fix/shader-template-field-discovery) |
 | `g-art-vector3-right-0-1-0-x` | [/fix/vector3-right-is-negative-y](https://sbox-field-guide.vercel.app/fix/vector3-right-is-negative-y) |
 | `g-art-vmdl-material-remaps-map-both-names` | [/fix/sbox-wont-load-obj-glb](https://sbox-field-guide.vercel.app/fix/sbox-wont-load-obj-glb) |
 | `g-art-vmdl-rendermeshfile-compiles-clean-has-zero` | [/fix/model-no-collision](https://sbox-field-guide.vercel.app/fix/model-no-collision) |
@@ -59,6 +61,7 @@
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sbox-field-guide.vercel.app/fix/four-object-scene-bootstrap) |
 | `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sbox-field-guide.vercel.app/fix/double-jump-set-velocity-directly) |
 | `g-game-edit-mode-gameobject` | [/fix/edit-mode-destroy-query-lag](https://sbox-field-guide.vercel.app/fix/edit-mode-destroy-query-lag) |
+| `g-game-editor-viewport-auto-exposure-adapts-over` | [/fix/editor-auto-exposure-screenshot-diff](https://sbox-field-guide.vercel.app/fix/editor-auto-exposure-screenshot-diff) |
 | `g-game-flat-decal-geometry-clear-surface-below` | [/fix/runtime-world-building-helpers](https://sbox-field-guide.vercel.app/fix/runtime-world-building-helpers) |
 | `g-game-full-screen-hud-toasts-banners` | [/fix/building-sbox-hud](https://sbox-field-guide.vercel.app/fix/building-sbox-hud) |
 | `g-game-gamepad-bumper-gamepadcode-strings-switchlef` | [/fix/input-config-bindings](https://sbox-field-guide.vercel.app/fix/input-config-bindings) |
@@ -67,6 +70,7 @@
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sbox-field-guide.vercel.app/fix/input-config-bindings) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sbox-field-guide.vercel.app/fix/input-config-bindings) |
 | `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sbox-field-guide.vercel.app/fix/new-razor-scss-not-applied-until-restart) |
+| `g-game-noclip-trace-based-kinematic-controller-stat` | [/fix/noclip-trace-controller-state](https://sbox-field-guide.vercel.app/fix/noclip-trace-controller-state) |
 | `g-game-onawake-fires-synchronously-inside-component` | [/fix/component-lifecycle-onawake-onstart](https://sbox-field-guide.vercel.app/fix/component-lifecycle-onawake-onstart) |
 | `g-game-orient-flat-decal-box-hit-normal` | [/fix/orient-decal-to-hit-normal](https://sbox-field-guide.vercel.app/fix/orient-decal-to-hit-normal) |
 | `g-game-prefer-runtime-world-building-over-giant` | [/fix/four-object-scene-bootstrap](https://sbox-field-guide.vercel.app/fix/four-object-scene-bootstrap) |
@@ -116,6 +120,7 @@
 | `g-tool-engine-console-noise-normal` | [/fix/first-play-compile-checklist](https://sbox-field-guide.vercel.app/fix/first-play-compile-checklist) |
 | `g-tool-engine-ships-own-built-mcptool-s` | [/fix/engine-mcptool-source-reference](https://sbox-field-guide.vercel.app/fix/engine-mcptool-source-reference) |
 | `g-tool-everything-broke-once-during-agent-waves` | [/fix/stale-assembly-hotload](https://sbox-field-guide.vercel.app/fix/stale-assembly-hotload) |
+| `g-tool-facingyawoffset-mesh-facing-correction-swaps` | [/fix/facing-yaw-offset-axis-swap](https://sbox-field-guide.vercel.app/fix/facing-yaw-offset-axis-swap) |
 | `g-tool-hotload-csharp-edits-apply` | [/fix/editor-hotload-expectations](https://sbox-field-guide.vercel.app/fix/editor-hotload-expectations) |
 | `g-tool-kenney-s-own-nature-pack-drive` | [/fix/kenney-cc0-import](https://sbox-field-guide.vercel.app/fix/kenney-cc0-import) |
 | `g-tool-new-system-random-time-seeded-whitelisted` | [/fix/dotnet-build-vs-whitelist](https://sbox-field-guide.vercel.app/fix/dotnet-build-vs-whitelist) |
@@ -161,10 +166,8 @@
 - `g-art-model-top-ui-markers`
 - `g-art-modelrenderer-tint-multiplies-usable`
 - `g-art-pointlight-usable-game-component-even-siblin`
-- `g-art-recovery-forge-delivery-fails`
 - `g-art-regenerated-ai-textures-need-editor-kick`
 - `g-art-s-box-obj-import-plain-y`
-- `g-art-shaders-complex-shader-compiled`
 - `g-art-shaders-complex-shader-supports`
 - `g-art-tiling-ground-texture-will-repeat-across`
 - `g-art-trajectory-aim-previews-sample-arc-length`
@@ -201,7 +204,6 @@
 - `g-game-editor-console-buffer-2000-entries-rolls`
 - `g-game-editor-mcp-editor-camera-screenshot-renders`
 - `g-game-editor-mcp-port-editor-configurable-editor`
-- `g-game-editor-viewport-auto-exposure-adapts-over`
 - `g-game-first-person-hide-player-enumerate-every`
 - `g-game-flat-topped-mesas-heightfield-need-two`
 - `g-game-forge-tripo-vehicle-meshes-re-exported`
@@ -220,7 +222,6 @@
 - `g-game-mouse-visible-true-past`
 - `g-game-multiple-panelcomponent-s-gameobject-under-s`
 - `g-game-nearest-centerline-corridor-stamping-leaves`
-- `g-game-noclip-trace-based-kinematic-controller-stat`
 - `g-game-orbiting-physics-root-around-bar-makes`
 - `g-game-over-world-ui-name-labels-health`
 - `g-game-play-mode-terrain-brush-s-lower`
@@ -280,7 +281,6 @@
 - `g-tool-coplanar-overlay-ribbons-z-fight-give`
 - `g-tool-editor-ignores-external-edits-persisted-sett`
 - `g-tool-editor-mcp-server-s-enable-port`
-- `g-tool-facingyawoffset-mesh-facing-correction-swaps`
 - `g-tool-fixing-source-asset-always-trigger-recompile`
 - `g-tool-free-penned-ai-widening-public-wander`
 - `g-tool-hysteresis-lives-consumer-stateless-predicat`
