@@ -5,151 +5,155 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**126 / 284 gotchas articled** (44%). Pack-only: **158**. Backlog (status `none`): **0**.
+**130 / 284 gotchas articled** (46%). Pack-only: **154**. Backlog (status `none`): **0**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 48 | 28 | 20 | 0 | 58% |
+| getting-art-in | 48 | 29 | 19 | 0 | 60% |
 | rigging-animation | 23 | 20 | 3 | 0 | 87% |
-| writing-gameplay | 122 | 34 | 88 | 0 | 28% |
-| building-ui | 26 | 15 | 11 | 0 | 58% |
+| writing-gameplay | 122 | 35 | 87 | 0 | 29% |
+| building-ui | 26 | 16 | 10 | 0 | 62% |
 | audio | 9 | 5 | 4 | 0 | 56% |
 | making-it-perform | 4 | 1 | 3 | 0 | 25% |
-| tooling-environment | 52 | 23 | 29 | 0 | 44% |
-| **Total** | **284** | **126** | **158** | **0** | **44%** |
+| tooling-environment | 52 | 24 | 28 | 0 | 46% |
+| **Total** | **284** | **130** | **154** | **0** | **46%** |
 
 ## Articled gotchas (skip-list)
 
 | Gotcha id | Article |
 |---|---|
-| `g-art-animated-sub-parts-need-their-origin` | [/fix/blender-headless-pipeline](https://sbox-field-guide.vercel.app/fix/blender-headless-pipeline) |
-| `g-art-asset-paths-project-root-relative-forward` | [/fix/ai-generated-models](https://sbox-field-guide.vercel.app/fix/ai-generated-models) |
-| `g-art-baked-scale-vmdl-wrapper-s-import` | [/fix/ai-generated-models](https://sbox-field-guide.vercel.app/fix/ai-generated-models) |
-| `g-art-blender-rotation-sign-check` | [/fix/model-imported-wrong-facing](https://sbox-field-guide.vercel.app/fix/model-imported-wrong-facing) |
-| `g-art-blender-s-obj-exporter-export-materials` | [/fix/decimating-ai-meshes](https://sbox-field-guide.vercel.app/fix/decimating-ai-meshes) |
-| `g-art-bpy-ops-wm-obj` | [/fix/obj-export-face-order-nondeterministic](https://sbox-field-guide.vercel.app/fix/obj-export-face-order-nondeterministic) |
-| `g-art-capsulecollider-radius-start-end-follow-worl` | [/fix/scaled-collider-didnt-scale](https://sbox-field-guide.vercel.app/fix/scaled-collider-didnt-scale) |
-| `g-art-colliders-live-model-s-own-frame` | [/fix/model-imported-wrong-facing](https://sbox-field-guide.vercel.app/fix/model-imported-wrong-facing) |
-| `g-art-default-scene-gravity-2-2g` | [/fix/sbox-units-are-inches](https://sbox-field-guide.vercel.app/fix/sbox-units-are-inches) |
-| `g-art-disable-instance-shadows-renderer` | [/fix/disable-instance-shadows](https://sbox-field-guide.vercel.app/fix/disable-instance-shadows) |
-| `g-art-double-tint-flat-color-vmat-override` | [/fix/model-tint-flat-vmat-traps](https://sbox-field-guide.vercel.app/fix/model-tint-flat-vmat-traps) |
-| `g-art-flat-color-materials-constant-color-texturec` | [/fix/kenney-cc0-import](https://sbox-field-guide.vercel.app/fix/kenney-cc0-import) |
-| `g-art-high-key-chalky-bright-near-white` | [/fix/high-key-chalky-sky-needs-texture-and-tonemapping](https://sbox-field-guide.vercel.app/fix/high-key-chalky-sky-needs-texture-and-tonemapping) |
-| `g-art-instance-modelrenderer-tint-flat` | [/fix/model-tint-flat-vmat-traps](https://sbox-field-guide.vercel.app/fix/model-tint-flat-vmat-traps) |
-| `g-art-meters-authored-waypoint-position-arrays-aud` | [/fix/sbox-units-are-inches](https://sbox-field-guide.vercel.app/fix/sbox-units-are-inches) |
-| `g-art-meters-units-mixups-travel-packs-sweep` | [/fix/sbox-units-are-inches](https://sbox-field-guide.vercel.app/fix/sbox-units-are-inches) |
-| `g-art-model-facing-geometry-built` | [/fix/model-imported-wrong-facing](https://sbox-field-guide.vercel.app/fix/model-imported-wrong-facing) |
-| `g-art-modelcollider-s-physics-hull-also-follow` | [/fix/capsule-vs-box-collider-choice](https://sbox-field-guide.vercel.app/fix/capsule-vs-box-collider-choice) |
-| `g-art-obj-importer-auto-converts-y-up` | [/fix/blender-headless-pipeline](https://sbox-field-guide.vercel.app/fix/blender-headless-pipeline) |
-| `g-art-prefer-hand-sized-boxcollider-s-over` | [/fix/capsule-vs-box-collider-choice](https://sbox-field-guide.vercel.app/fix/capsule-vs-box-collider-choice) |
-| `g-art-recovery-forge-delivery-fails` | [/fix/forge-failed-delivery-glb-recovery](https://sbox-field-guide.vercel.app/fix/forge-failed-delivery-glb-recovery) |
-| `g-art-s-box-load-raw-obj-glb` | [/fix/sbox-wont-load-obj-glb](https://sbox-field-guide.vercel.app/fix/sbox-wont-load-obj-glb) |
-| `g-art-s-box-units-inches` | [/fix/sbox-units-are-inches](https://sbox-field-guide.vercel.app/fix/sbox-units-are-inches) |
-| `g-art-scene-triangle-overload` | [/fix/decimating-ai-meshes](https://sbox-field-guide.vercel.app/fix/decimating-ai-meshes) |
-| `g-art-shaders-complex-shader-compiled` | [/fix/shader-template-field-discovery](https://sbox-field-guide.vercel.app/fix/shader-template-field-discovery) |
-| `g-art-vector3-right-0-1-0-x` | [/fix/vector3-right-is-negative-y](https://sbox-field-guide.vercel.app/fix/vector3-right-is-negative-y) |
-| `g-art-vmdl-material-remaps-map-both-names` | [/fix/sbox-wont-load-obj-glb](https://sbox-field-guide.vercel.app/fix/sbox-wont-load-obj-glb) |
-| `g-art-vmdl-rendermeshfile-compiles-clean-has-zero` | [/fix/model-no-collision](https://sbox-field-guide.vercel.app/fix/model-no-collision) |
-| `g-audio-event-string-full-resource-path-extension` | [/fix/custom-sound-wont-play](https://sbox-field-guide.vercel.app/fix/custom-sound-wont-play) |
-| `g-audio-mp3-valid-source-audio-asset-wav` | [/fix/authoring-sound-events-by-hand](https://sbox-field-guide.vercel.app/fix/authoring-sound-events-by-hand) |
-| `g-audio-playing-sound-fully-static` | [/fix/playing-sound-static-api](https://sbox-field-guide.vercel.app/fix/playing-sound-static-api) |
-| `g-audio-sound-event-file-plain-json-author` | [/fix/authoring-sound-events-by-hand](https://sbox-field-guide.vercel.app/fix/authoring-sound-events-by-hand) |
-| `g-audio-soundevent-has-looping-field` | [/fix/soundevent-no-looping-field](https://sbox-field-guide.vercel.app/fix/soundevent-no-looping-field) |
-| `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sbox-field-guide.vercel.app/fix/white-noise-hash-terrain-shade) |
-| `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sbox-field-guide.vercel.app/fix/four-object-scene-bootstrap) |
-| `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sbox-field-guide.vercel.app/fix/double-jump-set-velocity-directly) |
-| `g-game-edit-mode-gameobject` | [/fix/edit-mode-destroy-query-lag](https://sbox-field-guide.vercel.app/fix/edit-mode-destroy-query-lag) |
-| `g-game-editor-viewport-auto-exposure-adapts-over` | [/fix/editor-auto-exposure-screenshot-diff](https://sbox-field-guide.vercel.app/fix/editor-auto-exposure-screenshot-diff) |
-| `g-game-flat-decal-geometry-clear-surface-below` | [/fix/runtime-world-building-helpers](https://sbox-field-guide.vercel.app/fix/runtime-world-building-helpers) |
-| `g-game-full-screen-hud-toasts-banners` | [/fix/building-sbox-hud](https://sbox-field-guide.vercel.app/fix/building-sbox-hud) |
-| `g-game-gamepad-bumper-gamepadcode-strings-switchlef` | [/fix/input-config-bindings](https://sbox-field-guide.vercel.app/fix/input-config-bindings) |
-| `g-game-greedy-voxel-mesher-colours-cliff-skirt` | [/fix/greedy-mesher-cliff-vertical-stripes](https://sbox-field-guide.vercel.app/fix/greedy-mesher-cliff-vertical-stripes) |
-| `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sbox-field-guide.vercel.app/fix/dotnet-build-misses-razor-errors) |
-| `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sbox-field-guide.vercel.app/fix/input-config-bindings) |
-| `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sbox-field-guide.vercel.app/fix/input-config-bindings) |
-| `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sbox-field-guide.vercel.app/fix/new-razor-scss-not-applied-until-restart) |
-| `g-game-noclip-trace-based-kinematic-controller-stat` | [/fix/noclip-trace-controller-state](https://sbox-field-guide.vercel.app/fix/noclip-trace-controller-state) |
-| `g-game-onawake-fires-synchronously-inside-component` | [/fix/component-lifecycle-onawake-onstart](https://sbox-field-guide.vercel.app/fix/component-lifecycle-onawake-onstart) |
-| `g-game-orient-flat-decal-box-hit-normal` | [/fix/orient-decal-to-hit-normal](https://sbox-field-guide.vercel.app/fix/orient-decal-to-hit-normal) |
-| `g-game-prefer-runtime-world-building-over-giant` | [/fix/four-object-scene-bootstrap](https://sbox-field-guide.vercel.app/fix/four-object-scene-bootstrap) |
-| `g-game-python-s-open-path-w-windows` | [/fix/powershell-mojibake-utf8](https://sbox-field-guide.vercel.app/fix/powershell-mojibake-utf8) |
-| `g-game-rigidbody-component-api` | [/fix/rigidbody-component-api](https://sbox-field-guide.vercel.app/fix/rigidbody-component-api) |
-| `g-game-rolling-slopes-idempotent-ground-snap-still` | [/fix/ground-snap-pops-on-rolling-slopes](https://sbox-field-guide.vercel.app/fix/ground-snap-pops-on-rolling-slopes) |
-| `g-game-rotation-fromyaw-angle-left` | [/fix/rotation-fromyaw-is-ccw](https://sbox-field-guide.vercel.app/fix/rotation-fromyaw-is-ccw) |
-| `g-game-runtime-meshes-mesh-model` | [/fix/heavy-work-no-hitches](https://sbox-field-guide.vercel.app/fix/heavy-work-no-hitches) |
-| `g-game-runtime-world-root-torn-down-gameobject` | [/fix/deferred-destroy-edit-mode-overlap](https://sbox-field-guide.vercel.app/fix/deferred-destroy-edit-mode-overlap) |
-| `g-game-scene-getallcomponents-t-return-disabled-com` | [/fix/getallcomponents-skips-disabled](https://sbox-field-guide.vercel.app/fix/getallcomponents-skips-disabled) |
-| `g-game-scene-json-details` | [/fix/four-object-scene-bootstrap](https://sbox-field-guide.vercel.app/fix/four-object-scene-bootstrap) |
-| `g-game-session-reset-static-facades-component-their` | [/fix/component-lifecycle-onawake-onstart](https://sbox-field-guide.vercel.app/fix/component-lifecycle-onawake-onstart) |
-| `g-game-stylesheet-many-selectors-simultaneously-dec` | [/fix/font-size-glyph-corruption](https://sbox-field-guide.vercel.app/fix/font-size-glyph-corruption) |
-| `g-game-teleport-body-over-geometry-fixed-offset` | [/fix/kinematic-movement-startedsolid](https://sbox-field-guide.vercel.app/fix/kinematic-movement-startedsolid) |
-| `g-game-textentry-ontextedited-action-string` | [/fix/textentry-ontextedited-needs-block-lambda](https://sbox-field-guide.vercel.app/fix/textentry-ontextedited-needs-block-lambda) |
-| `g-game-there-public-action-analog-trigger-axis` | [/fix/no-analog-trigger-axis-api](https://sbox-field-guide.vercel.app/fix/no-analog-trigger-axis-api) |
-| `g-game-trace-api-works` | [/fix/kinematic-movement-startedsolid](https://sbox-field-guide.vercel.app/fix/kinematic-movement-startedsolid) |
-| `g-game-trace-based-kinematic-controller-has-collide` | [/fix/trace-kinematic-no-trigger](https://sbox-field-guide.vercel.app/fix/trace-kinematic-no-trigger) |
-| `g-game-trace-based-movement-trap-player-permanently` | [/fix/kinematic-movement-startedsolid](https://sbox-field-guide.vercel.app/fix/kinematic-movement-startedsolid) |
-| `g-game-whitespace-immediately-adjacent-tag-expressi` | [/fix/razor-whitespace-tag-boundary-collapse](https://sbox-field-guide.vercel.app/fix/razor-whitespace-tag-boundary-collapse) |
-| `g-perf-editor-embedded-play-mode-hard-capped` | [/fix/editor-play-mode-vsync-capped](https://sbox-field-guide.vercel.app/fix/editor-play-mode-vsync-capped) |
-| `g-rig-animated-models-use-modelmodifier` | [/fix/fbx-export-recipe](https://sbox-field-guide.vercel.app/fix/fbx-export-recipe) |
-| `g-rig-animgraph-heavier-alternative-needed-cross-f` | [/fix/crossfade-without-animgraph](https://sbox-field-guide.vercel.app/fix/crossfade-without-animgraph) |
-| `g-rig-blend-duration-comes-vmdl-s-clip` | [/fix/crossfade-without-animgraph](https://sbox-field-guide.vercel.app/fix/crossfade-without-animgraph) |
-| `g-rig-blender-fbx-export-recipe-works` | [/fix/fbx-export-recipe](https://sbox-field-guide.vercel.app/fix/fbx-export-recipe) |
-| `g-rig-blender-s-obj-importer-puts-y` | [/fix/rigging-ai-generated-mesh](https://sbox-field-guide.vercel.app/fix/rigging-ai-generated-mesh) |
-| `g-rig-bone-heat-auto-weights-fail-wholesale` | [/fix/rigging-ai-generated-mesh](https://sbox-field-guide.vercel.app/fix/rigging-ai-generated-mesh) |
-| `g-rig-bone-procedural-override-setbonetransform-un` | [/fix/setbonetransform-silently-noop](https://sbox-field-guide.vercel.app/fix/setbonetransform-silently-noop) |
-| `g-rig-citizen-addon-source-vmdl-schema-reference` | [/fix/fbx-export-recipe](https://sbox-field-guide.vercel.app/fix/fbx-export-recipe) |
-| `g-rig-mixamo-mocap-retargets-onto-npc-lane` | [/fix/mixamo-retarget-custom-rig](https://sbox-field-guide.vercel.app/fix/mixamo-retarget-custom-rig) |
-| `g-rig-model-compiler-sanitizes` | [/fix/bone-name-dot-to-underscore](https://sbox-field-guide.vercel.app/fix/bone-name-dot-to-underscore) |
-| `g-rig-naturalistic-mocap-idles-don-t-loop` | [/fix/mixamo-retarget-custom-rig](https://sbox-field-guide.vercel.app/fix/mixamo-retarget-custom-rig) |
-| `g-rig-pace-looping-locomotion-clips-clip-s` | [/fix/pace-locomotion-clips-by-stride](https://sbox-field-guide.vercel.app/fix/pace-locomotion-clips-by-stride) |
-| `g-rig-physics-shape-coords-same-unit-mesh` | [/fix/ragdoll-scripted-rig-npc](https://sbox-field-guide.vercel.app/fix/ragdoll-scripted-rig-npc) |
-| `g-rig-scripted-keyframes-keep-quaternion-keys-hemi` | [/fix/quaternion-hemisphere-continuity](https://sbox-field-guide.vercel.app/fix/quaternion-hemisphere-continuity) |
-| `g-rig-scripted-rig-npc-ragdoll-engine-physics` | [/fix/ragdoll-scripted-rig-npc](https://sbox-field-guide.vercel.app/fix/ragdoll-scripted-rig-npc) |
-| `g-rig-skinnedmodelrenderer-sequence-blending-bool` | [/fix/crossfade-without-animgraph](https://sbox-field-guide.vercel.app/fix/crossfade-without-animgraph) |
-| `g-rig-skinnedmodelrenderer-setik-animgraph-gated` | [/fix/setbonetransform-silently-noop](https://sbox-field-guide.vercel.app/fix/setbonetransform-silently-noop) |
-| `g-rig-transform-apply-scale-true-mixamo-armature` | [/fix/mixamo-retarget-custom-rig](https://sbox-field-guide.vercel.app/fix/mixamo-retarget-custom-rig) |
-| `g-rig-two-renderer-manual-cross-fade-wrong` | [/fix/crossfade-without-animgraph](https://sbox-field-guide.vercel.app/fix/crossfade-without-animgraph) |
-| `g-rig-vmdl-physics-node-schema-copy-citizen` | [/fix/ragdoll-scripted-rig-npc](https://sbox-field-guide.vercel.app/fix/ragdoll-scripted-rig-npc) |
-| `g-tool-angles-struct-fields-lowercase` | [/fix/angles-struct-lowercase-fields](https://sbox-field-guide.vercel.app/fix/angles-struct-lowercase-fields) |
-| `g-tool-boxcollider-center-scale-always` | [/fix/capsule-vs-box-collider-choice](https://sbox-field-guide.vercel.app/fix/capsule-vs-box-collider-choice) |
-| `g-tool-deriving-visual-s-facing-horizontal-velocity` | [/fix/velocity-facing-pendulum-flip](https://sbox-field-guide.vercel.app/fix/velocity-facing-pendulum-flip) |
-| `g-tool-dotnet-build-warning-counts-lie-under` | [/fix/dotnet-build-vs-whitelist](https://sbox-field-guide.vercel.app/fix/dotnet-build-vs-whitelist) |
-| `g-tool-editor-compiler-crash-internally-nullreferen` | [/fix/stale-assembly-hotload](https://sbox-field-guide.vercel.app/fix/stale-assembly-hotload) |
-| `g-tool-engine-console-noise-normal` | [/fix/first-play-compile-checklist](https://sbox-field-guide.vercel.app/fix/first-play-compile-checklist) |
-| `g-tool-engine-ships-own-built-mcptool-s` | [/fix/engine-mcptool-source-reference](https://sbox-field-guide.vercel.app/fix/engine-mcptool-source-reference) |
-| `g-tool-everything-broke-once-during-agent-waves` | [/fix/stale-assembly-hotload](https://sbox-field-guide.vercel.app/fix/stale-assembly-hotload) |
-| `g-tool-facingyawoffset-mesh-facing-correction-swaps` | [/fix/facing-yaw-offset-axis-swap](https://sbox-field-guide.vercel.app/fix/facing-yaw-offset-axis-swap) |
-| `g-tool-hotload-csharp-edits-apply` | [/fix/editor-hotload-expectations](https://sbox-field-guide.vercel.app/fix/editor-hotload-expectations) |
-| `g-tool-kenney-s-own-nature-pack-drive` | [/fix/kenney-cc0-import](https://sbox-field-guide.vercel.app/fix/kenney-cc0-import) |
-| `g-tool-new-system-random-time-seeded-whitelisted` | [/fix/dotnet-build-vs-whitelist](https://sbox-field-guide.vercel.app/fix/dotnet-build-vs-whitelist) |
-| `g-tool-powershell-5-1-corrupts-utf-8` | [/fix/editing-razor-byte-safe](https://sbox-field-guide.vercel.app/fix/editing-razor-byte-safe) |
-| `g-tool-runtime-reflection-also-whitelist-banned` | [/fix/dotnet-build-vs-whitelist](https://sbox-field-guide.vercel.app/fix/dotnet-build-vs-whitelist) |
-| `g-tool-s-box-whitelist-enforced-editor-compiler` | [/fix/dotnet-build-vs-whitelist](https://sbox-field-guide.vercel.app/fix/dotnet-build-vs-whitelist) |
-| `g-tool-sbproj-org-valid-lowercase-package-ident` | [/fix/sbproj-title-ident-startup](https://sbox-field-guide.vercel.app/fix/sbproj-title-ident-startup) |
-| `g-tool-some-csharp-source-files-crlf` | [/fix/powershell-mojibake-utf8](https://sbox-field-guide.vercel.app/fix/powershell-mojibake-utf8) |
-| `g-tool-sounds-assets-compiled-after-session-started` | [/fix/custom-sound-wont-play](https://sbox-field-guide.vercel.app/fix/custom-sound-wont-play) |
-| `g-tool-stalled-steam-update-half-deletes-s` | [/fix/stalled-steam-update-recovery](https://sbox-field-guide.vercel.app/fix/stalled-steam-update-recovery) |
-| `g-tool-static-input-gates-leak-across-play` | [/fix/component-lifecycle-onawake-onstart](https://sbox-field-guide.vercel.app/fix/component-lifecycle-onawake-onstart) |
-| `g-tool-steam-update-s-box-engine-underneath` | [/fix/stale-assembly-hotload](https://sbox-field-guide.vercel.app/fix/stale-assembly-hotload) |
-| `g-tool-verify-compiles-editor` | [/fix/project-setup-skeleton](https://sbox-field-guide.vercel.app/fix/project-setup-skeleton) |
-| `g-tool-whitelist-http-may-call` | [/fix/dotnet-build-vs-whitelist](https://sbox-field-guide.vercel.app/fix/dotnet-build-vs-whitelist) |
-| `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sbox-field-guide.vercel.app/fix/ui-frozen-buildhash) |
-| `g-ui-draggable-slider-tracks-click-jump-drag` | [/fix/draggable-slider-click-drag](https://sbox-field-guide.vercel.app/fix/draggable-slider-click-drag) |
-| `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sbox-field-guide.vercel.app/fix/flex-grow-percentage-child-feedback-loop) |
-| `g-ui-gameobject-networkmode-defaults-snapshot` | [/fix/owner-simulated-networking](https://sbox-field-guide.vercel.app/fix/owner-simulated-networking) |
-| `g-ui-interface-based-scene-scans-unreliable` | [/fix/interface-scan-returns-nothing](https://sbox-field-guide.vercel.app/fix/interface-scan-returns-nothing) |
-| `g-ui-jetbrains-mono-consolas-shipped-s-box` | [/fix/engine-monospace-roboto-mono](https://sbox-field-guide.vercel.app/fix/engine-monospace-roboto-mono) |
-| `g-ui-json-serialize-deserialize-t` | [/fix/saveload-without-drift](https://sbox-field-guide.vercel.app/fix/saveload-without-drift) |
-| `g-ui-name-classes-after-sandbox-built-ins` | [/fix/assembly-cs-globals-setup](https://sbox-field-guide.vercel.app/fix/assembly-cs-globals-setup) |
-| `g-ui-panelcomponent-overrides-ontreebuilt-ontreef` | [/fix/panelcomponent-ontreebuilt-lifecycle](https://sbox-field-guide.vercel.app/fix/panelcomponent-ontreebuilt-lifecycle) |
-| `g-ui-razor-files-go-global-namespace` | [/fix/assembly-cs-globals-setup](https://sbox-field-guide.vercel.app/fix/assembly-cs-globals-setup) |
-| `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sbox-field-guide.vercel.app/fix/ref-field-private-field-never-assigns) |
-| `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sbox-field-guide.vercel.app/fix/runtime-texture-ui-panel) |
-| `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sbox-field-guide.vercel.app/fix/building-sbox-hud) |
-| `g-ui-sync-owner-proxies-sync-syncflags` | [/fix/owner-simulated-networking](https://sbox-field-guide.vercel.app/fix/owner-simulated-networking) |
-| `g-ui-textentry-raw-html-input-house-control` | [/fix/textentry-not-html-input](https://sbox-field-guide.vercel.app/fix/textentry-not-html-input) |
+| `g-art-animated-sub-parts-need-their-origin` | [/fix/blender-headless-pipeline](https://sboxguide.dev/fix/blender-headless-pipeline) |
+| `g-art-asset-paths-project-root-relative-forward` | [/fix/ai-generated-models](https://sboxguide.dev/fix/ai-generated-models) |
+| `g-art-baked-scale-vmdl-wrapper-s-import` | [/fix/ai-generated-models](https://sboxguide.dev/fix/ai-generated-models) |
+| `g-art-blender-rotation-sign-check` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
+| `g-art-blender-s-obj-exporter-export-materials` | [/fix/decimating-ai-meshes](https://sboxguide.dev/fix/decimating-ai-meshes) |
+| `g-art-bpy-ops-wm-obj` | [/fix/obj-export-face-order-nondeterministic](https://sboxguide.dev/fix/obj-export-face-order-nondeterministic) |
+| `g-art-capsulecollider-radius-start-end-follow-worl` | [/fix/scaled-collider-didnt-scale](https://sboxguide.dev/fix/scaled-collider-didnt-scale) |
+| `g-art-colliders-live-model-s-own-frame` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
+| `g-art-default-scene-gravity-2-2g` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
+| `g-art-disable-instance-shadows-renderer` | [/fix/disable-instance-shadows](https://sboxguide.dev/fix/disable-instance-shadows) |
+| `g-art-double-tint-flat-color-vmat-override` | [/fix/model-tint-flat-vmat-traps](https://sboxguide.dev/fix/model-tint-flat-vmat-traps) |
+| `g-art-flat-color-materials-constant-color-texturec` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
+| `g-art-high-key-chalky-bright-near-white` | [/fix/high-key-chalky-sky-needs-texture-and-tonemapping](https://sboxguide.dev/fix/high-key-chalky-sky-needs-texture-and-tonemapping) |
+| `g-art-instance-modelrenderer-tint-flat` | [/fix/model-tint-flat-vmat-traps](https://sboxguide.dev/fix/model-tint-flat-vmat-traps) |
+| `g-art-meters-authored-waypoint-position-arrays-aud` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
+| `g-art-meters-units-mixups-travel-packs-sweep` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
+| `g-art-model-facing-geometry-built` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
+| `g-art-modelcollider-s-physics-hull-also-follow` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
+| `g-art-obj-importer-auto-converts-y-up` | [/fix/blender-headless-pipeline](https://sboxguide.dev/fix/blender-headless-pipeline) |
+| `g-art-prefer-hand-sized-boxcollider-s-over` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
+| `g-art-recovery-forge-delivery-fails` | [/fix/forge-failed-delivery-glb-recovery](https://sboxguide.dev/fix/forge-failed-delivery-glb-recovery) |
+| `g-art-s-box-load-raw-obj-glb` | [/fix/sbox-wont-load-obj-glb](https://sboxguide.dev/fix/sbox-wont-load-obj-glb) |
+| `g-art-s-box-units-inches` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
+| `g-art-scene-triangle-overload` | [/fix/decimating-ai-meshes](https://sboxguide.dev/fix/decimating-ai-meshes) |
+| `g-art-shaders-complex-shader-compiled` | [/fix/shader-template-field-discovery](https://sboxguide.dev/fix/shader-template-field-discovery) |
+| `g-art-trajectory-aim-previews-sample-arc-length` | [/fix/trajectory-preview-arc-length-sampling](https://sboxguide.dev/fix/trajectory-preview-arc-length-sampling) |
+| `g-art-vector3-right-0-1-0-x` | [/fix/vector3-right-is-negative-y](https://sboxguide.dev/fix/vector3-right-is-negative-y) |
+| `g-art-vmdl-material-remaps-map-both-names` | [/fix/sbox-wont-load-obj-glb](https://sboxguide.dev/fix/sbox-wont-load-obj-glb) |
+| `g-art-vmdl-rendermeshfile-compiles-clean-has-zero` | [/fix/model-no-collision](https://sboxguide.dev/fix/model-no-collision) |
+| `g-audio-event-string-full-resource-path-extension` | [/fix/custom-sound-wont-play](https://sboxguide.dev/fix/custom-sound-wont-play) |
+| `g-audio-mp3-valid-source-audio-asset-wav` | [/fix/authoring-sound-events-by-hand](https://sboxguide.dev/fix/authoring-sound-events-by-hand) |
+| `g-audio-playing-sound-fully-static` | [/fix/playing-sound-static-api](https://sboxguide.dev/fix/playing-sound-static-api) |
+| `g-audio-sound-event-file-plain-json-author` | [/fix/authoring-sound-events-by-hand](https://sboxguide.dev/fix/authoring-sound-events-by-hand) |
+| `g-audio-soundevent-has-looping-field` | [/fix/soundevent-no-looping-field](https://sboxguide.dev/fix/soundevent-no-looping-field) |
+| `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sboxguide.dev/fix/white-noise-hash-terrain-shade) |
+| `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
+| `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
+| `g-game-edit-mode-gameobject` | [/fix/edit-mode-destroy-query-lag](https://sboxguide.dev/fix/edit-mode-destroy-query-lag) |
+| `g-game-editor-viewport-auto-exposure-adapts-over` | [/fix/editor-auto-exposure-screenshot-diff](https://sboxguide.dev/fix/editor-auto-exposure-screenshot-diff) |
+| `g-game-flat-decal-geometry-clear-surface-below` | [/fix/runtime-world-building-helpers](https://sboxguide.dev/fix/runtime-world-building-helpers) |
+| `g-game-full-screen-hud-toasts-banners` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
+| `g-game-gamepad-bumper-gamepadcode-strings-switchlef` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
+| `g-game-greedy-voxel-mesher-colours-cliff-skirt` | [/fix/greedy-mesher-cliff-vertical-stripes](https://sboxguide.dev/fix/greedy-mesher-cliff-vertical-stripes) |
+| `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) |
+| `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
+| `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
+| `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sboxguide.dev/fix/new-razor-scss-not-applied-until-restart) |
+| `g-game-noclip-trace-based-kinematic-controller-stat` | [/fix/noclip-trace-controller-state](https://sboxguide.dev/fix/noclip-trace-controller-state) |
+| `g-game-onawake-fires-synchronously-inside-component` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
+| `g-game-orient-flat-decal-box-hit-normal` | [/fix/orient-decal-to-hit-normal](https://sboxguide.dev/fix/orient-decal-to-hit-normal) |
+| `g-game-prefer-runtime-world-building-over-giant` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
+| `g-game-python-s-open-path-w-windows` | [/fix/powershell-mojibake-utf8](https://sboxguide.dev/fix/powershell-mojibake-utf8) |
+| `g-game-rigidbody-component-api` | [/fix/rigidbody-component-api](https://sboxguide.dev/fix/rigidbody-component-api) |
+| `g-game-rolling-slopes-idempotent-ground-snap-still` | [/fix/ground-snap-pops-on-rolling-slopes](https://sboxguide.dev/fix/ground-snap-pops-on-rolling-slopes) |
+| `g-game-rotation-fromyaw-angle-left` | [/fix/rotation-fromyaw-is-ccw](https://sboxguide.dev/fix/rotation-fromyaw-is-ccw) |
+| `g-game-runtime-meshes-mesh-model` | [/fix/heavy-work-no-hitches](https://sboxguide.dev/fix/heavy-work-no-hitches) |
+| `g-game-runtime-world-root-torn-down-gameobject` | [/fix/deferred-destroy-edit-mode-overlap](https://sboxguide.dev/fix/deferred-destroy-edit-mode-overlap) |
+| `g-game-scene-getallcomponents-t-return-disabled-com` | [/fix/getallcomponents-skips-disabled](https://sboxguide.dev/fix/getallcomponents-skips-disabled) |
+| `g-game-scene-json-details` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
+| `g-game-session-reset-static-facades-component-their` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
+| `g-game-single-tick-groundcheck-flicker-re-fires` | [/fix/single-tick-ground-flicker-landing-vfx](https://sboxguide.dev/fix/single-tick-ground-flicker-landing-vfx) |
+| `g-game-stylesheet-many-selectors-simultaneously-dec` | [/fix/font-size-glyph-corruption](https://sboxguide.dev/fix/font-size-glyph-corruption) |
+| `g-game-teleport-body-over-geometry-fixed-offset` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
+| `g-game-textentry-ontextedited-action-string` | [/fix/textentry-ontextedited-needs-block-lambda](https://sboxguide.dev/fix/textentry-ontextedited-needs-block-lambda) |
+| `g-game-there-public-action-analog-trigger-axis` | [/fix/no-analog-trigger-axis-api](https://sboxguide.dev/fix/no-analog-trigger-axis-api) |
+| `g-game-trace-api-works` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
+| `g-game-trace-based-kinematic-controller-has-collide` | [/fix/trace-kinematic-no-trigger](https://sboxguide.dev/fix/trace-kinematic-no-trigger) |
+| `g-game-trace-based-movement-trap-player-permanently` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
+| `g-game-whitespace-immediately-adjacent-tag-expressi` | [/fix/razor-whitespace-tag-boundary-collapse](https://sboxguide.dev/fix/razor-whitespace-tag-boundary-collapse) |
+| `g-perf-editor-embedded-play-mode-hard-capped` | [/fix/editor-play-mode-vsync-capped](https://sboxguide.dev/fix/editor-play-mode-vsync-capped) |
+| `g-rig-animated-models-use-modelmodifier` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
+| `g-rig-animgraph-heavier-alternative-needed-cross-f` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
+| `g-rig-blend-duration-comes-vmdl-s-clip` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
+| `g-rig-blender-fbx-export-recipe-works` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
+| `g-rig-blender-s-obj-importer-puts-y` | [/fix/rigging-ai-generated-mesh](https://sboxguide.dev/fix/rigging-ai-generated-mesh) |
+| `g-rig-bone-heat-auto-weights-fail-wholesale` | [/fix/rigging-ai-generated-mesh](https://sboxguide.dev/fix/rigging-ai-generated-mesh) |
+| `g-rig-bone-procedural-override-setbonetransform-un` | [/fix/setbonetransform-silently-noop](https://sboxguide.dev/fix/setbonetransform-silently-noop) |
+| `g-rig-citizen-addon-source-vmdl-schema-reference` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
+| `g-rig-mixamo-mocap-retargets-onto-npc-lane` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
+| `g-rig-model-compiler-sanitizes` | [/fix/bone-name-dot-to-underscore](https://sboxguide.dev/fix/bone-name-dot-to-underscore) |
+| `g-rig-naturalistic-mocap-idles-don-t-loop` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
+| `g-rig-pace-looping-locomotion-clips-clip-s` | [/fix/pace-locomotion-clips-by-stride](https://sboxguide.dev/fix/pace-locomotion-clips-by-stride) |
+| `g-rig-physics-shape-coords-same-unit-mesh` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
+| `g-rig-scripted-keyframes-keep-quaternion-keys-hemi` | [/fix/quaternion-hemisphere-continuity](https://sboxguide.dev/fix/quaternion-hemisphere-continuity) |
+| `g-rig-scripted-rig-npc-ragdoll-engine-physics` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
+| `g-rig-skinnedmodelrenderer-sequence-blending-bool` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
+| `g-rig-skinnedmodelrenderer-setik-animgraph-gated` | [/fix/setbonetransform-silently-noop](https://sboxguide.dev/fix/setbonetransform-silently-noop) |
+| `g-rig-transform-apply-scale-true-mixamo-armature` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
+| `g-rig-two-renderer-manual-cross-fade-wrong` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
+| `g-rig-vmdl-physics-node-schema-copy-citizen` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
+| `g-tool-angles-struct-fields-lowercase` | [/fix/angles-struct-lowercase-fields](https://sboxguide.dev/fix/angles-struct-lowercase-fields) |
+| `g-tool-boxcollider-center-scale-always` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
+| `g-tool-deriving-visual-s-facing-horizontal-velocity` | [/fix/velocity-facing-pendulum-flip](https://sboxguide.dev/fix/velocity-facing-pendulum-flip) |
+| `g-tool-dotnet-build-warning-counts-lie-under` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
+| `g-tool-editor-compiler-crash-internally-nullreferen` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
+| `g-tool-engine-console-noise-normal` | [/fix/first-play-compile-checklist](https://sboxguide.dev/fix/first-play-compile-checklist) |
+| `g-tool-engine-ships-own-built-mcptool-s` | [/fix/engine-mcptool-source-reference](https://sboxguide.dev/fix/engine-mcptool-source-reference) |
+| `g-tool-everything-broke-once-during-agent-waves` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
+| `g-tool-facingyawoffset-mesh-facing-correction-swaps` | [/fix/facing-yaw-offset-axis-swap](https://sboxguide.dev/fix/facing-yaw-offset-axis-swap) |
+| `g-tool-fixing-source-asset-always-trigger-recompile` | [/fix/failed-asset-recompile-stale-cache](https://sboxguide.dev/fix/failed-asset-recompile-stale-cache) |
+| `g-tool-hotload-csharp-edits-apply` | [/fix/editor-hotload-expectations](https://sboxguide.dev/fix/editor-hotload-expectations) |
+| `g-tool-kenney-s-own-nature-pack-drive` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
+| `g-tool-new-system-random-time-seeded-whitelisted` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
+| `g-tool-powershell-5-1-corrupts-utf-8` | [/fix/editing-razor-byte-safe](https://sboxguide.dev/fix/editing-razor-byte-safe) |
+| `g-tool-runtime-reflection-also-whitelist-banned` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
+| `g-tool-s-box-whitelist-enforced-editor-compiler` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
+| `g-tool-sbproj-org-valid-lowercase-package-ident` | [/fix/sbproj-title-ident-startup](https://sboxguide.dev/fix/sbproj-title-ident-startup) |
+| `g-tool-some-csharp-source-files-crlf` | [/fix/powershell-mojibake-utf8](https://sboxguide.dev/fix/powershell-mojibake-utf8) |
+| `g-tool-sounds-assets-compiled-after-session-started` | [/fix/custom-sound-wont-play](https://sboxguide.dev/fix/custom-sound-wont-play) |
+| `g-tool-stalled-steam-update-half-deletes-s` | [/fix/stalled-steam-update-recovery](https://sboxguide.dev/fix/stalled-steam-update-recovery) |
+| `g-tool-static-input-gates-leak-across-play` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
+| `g-tool-steam-update-s-box-engine-underneath` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
+| `g-tool-verify-compiles-editor` | [/fix/project-setup-skeleton](https://sboxguide.dev/fix/project-setup-skeleton) |
+| `g-tool-whitelist-http-may-call` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
+| `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
+| `g-ui-draggable-slider-tracks-click-jump-drag` | [/fix/draggable-slider-click-drag](https://sboxguide.dev/fix/draggable-slider-click-drag) |
+| `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sboxguide.dev/fix/flex-grow-percentage-child-feedback-loop) |
+| `g-ui-gameobject-networkmode-defaults-snapshot` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
+| `g-ui-interface-based-scene-scans-unreliable` | [/fix/interface-scan-returns-nothing](https://sboxguide.dev/fix/interface-scan-returns-nothing) |
+| `g-ui-jetbrains-mono-consolas-shipped-s-box` | [/fix/engine-monospace-roboto-mono](https://sboxguide.dev/fix/engine-monospace-roboto-mono) |
+| `g-ui-json-serialize-deserialize-t` | [/fix/saveload-without-drift](https://sboxguide.dev/fix/saveload-without-drift) |
+| `g-ui-name-classes-after-sandbox-built-ins` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
+| `g-ui-panelcomponent-overrides-ontreebuilt-ontreef` | [/fix/panelcomponent-ontreebuilt-lifecycle](https://sboxguide.dev/fix/panelcomponent-ontreebuilt-lifecycle) |
+| `g-ui-razor-files-go-global-namespace` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
+| `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sboxguide.dev/fix/ref-field-private-field-never-assigns) |
+| `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sboxguide.dev/fix/runtime-texture-ui-panel) |
+| `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
+| `g-ui-sync-owner-proxies-sync-syncflags` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
+| `g-ui-textentry-raw-html-input-house-control` | [/fix/textentry-not-html-input](https://sboxguide.dev/fix/textentry-not-html-input) |
+| `g-ui-write-inside-already-open-razor-code` | [/fix/nested-razor-code-block-rz1010](https://sboxguide.dev/fix/nested-razor-code-block-rz1010) |
 
 ## Pack-only gotchas (in the checklist, no full article)
 
@@ -170,7 +174,6 @@
 - `g-art-s-box-obj-import-plain-y`
 - `g-art-shaders-complex-shader-supports`
 - `g-art-tiling-ground-texture-will-repeat-across`
-- `g-art-trajectory-aim-previews-sample-arc-length`
 - `g-art-vmat-essentials-shader-shaders`
 - `g-art-yaw-rotated-rectangle-s-axis-aligned`
 - `g-audio-ambient-emitters-kiosk-jingles`
@@ -237,7 +240,6 @@
 - `g-game-scaled-citizen-foot-slides-unless-feed`
 - `g-game-sea-level-slider-nothing-until-exceeds`
 - `g-game-shared-multi-agent-working-tree`
-- `g-game-single-tick-groundcheck-flicker-re-fires`
 - `g-game-size-step-up-step-down-glue`
 - `g-game-slide-slope-logic-stepped-coarse-collision`
 - `g-game-snap-ground-detach-air-slide-free`
@@ -281,7 +283,6 @@
 - `g-tool-coplanar-overlay-ribbons-z-fight-give`
 - `g-tool-editor-ignores-external-edits-persisted-sett`
 - `g-tool-editor-mcp-server-s-enable-port`
-- `g-tool-fixing-source-asset-always-trigger-recompile`
 - `g-tool-free-penned-ai-widening-public-wander`
 - `g-tool-hysteresis-lives-consumer-stateless-predicat`
 - `g-tool-input-press-consumed-bottom-fixed-tick`
@@ -310,7 +311,6 @@
 - `g-ui-runtime-clipboard-api-reachable-game-code`
 - `g-ui-scenepanel-ui-3d-model-preview-world`
 - `g-ui-scss-import-shared-token-mixin-file`
-- `g-ui-write-inside-already-open-razor-code`
 
 ## Articles without a gotchas.md source (11)
 
