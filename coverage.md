@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**130 / 284 gotchas articled** (46%). Pack-only: **154**. Backlog (status `none`): **0**.
+**136 / 284 gotchas articled** (48%). Pack-only: **148**. Backlog (status `none`): **0**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 48 | 29 | 19 | 0 | 60% |
 | rigging-animation | 23 | 20 | 3 | 0 | 87% |
-| writing-gameplay | 122 | 35 | 87 | 0 | 29% |
-| building-ui | 26 | 16 | 10 | 0 | 62% |
+| writing-gameplay | 122 | 39 | 83 | 0 | 32% |
+| building-ui | 26 | 17 | 9 | 0 | 65% |
 | audio | 9 | 5 | 4 | 0 | 56% |
 | making-it-perform | 4 | 1 | 3 | 0 | 25% |
-| tooling-environment | 52 | 24 | 28 | 0 | 46% |
-| **Total** | **284** | **130** | **154** | **0** | **46%** |
+| tooling-environment | 52 | 25 | 27 | 0 | 48% |
+| **Total** | **284** | **136** | **148** | **0** | **48%** |
 
 ## Articled gotchas (skip-list)
 
@@ -59,16 +59,19 @@
 | `g-audio-sound-event-file-plain-json-author` | [/fix/authoring-sound-events-by-hand](https://sboxguide.dev/fix/authoring-sound-events-by-hand) |
 | `g-audio-soundevent-has-looping-field` | [/fix/soundevent-no-looping-field](https://sboxguide.dev/fix/soundevent-no-looping-field) |
 | `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sboxguide.dev/fix/white-noise-hash-terrain-shade) |
+| `g-game-component-active-real-inherited-member` | [/fix/component-active-naming-shadow](https://sboxguide.dev/fix/component-active-naming-shadow) |
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
 | `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-edit-mode-gameobject` | [/fix/edit-mode-destroy-query-lag](https://sboxguide.dev/fix/edit-mode-destroy-query-lag) |
 | `g-game-editor-viewport-auto-exposure-adapts-over` | [/fix/editor-auto-exposure-screenshot-diff](https://sboxguide.dev/fix/editor-auto-exposure-screenshot-diff) |
+| `g-game-first-person-hide-player-enumerate-every` | [/fix/first-person-hide-all-renderers](https://sboxguide.dev/fix/first-person-hide-all-renderers) |
 | `g-game-flat-decal-geometry-clear-surface-below` | [/fix/runtime-world-building-helpers](https://sboxguide.dev/fix/runtime-world-building-helpers) |
 | `g-game-full-screen-hud-toasts-banners` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-game-gamepad-bumper-gamepadcode-strings-switchlef` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-greedy-voxel-mesher-colours-cliff-skirt` | [/fix/greedy-mesher-cliff-vertical-stripes](https://sboxguide.dev/fix/greedy-mesher-cliff-vertical-stripes) |
 | `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) |
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
+| `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/jump-silently-noop-double-jump](https://sboxguide.dev/fix/jump-silently-noop-double-jump) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sboxguide.dev/fix/new-razor-scss-not-applied-until-restart) |
 | `g-game-noclip-trace-based-kinematic-controller-stat` | [/fix/noclip-trace-controller-state](https://sboxguide.dev/fix/noclip-trace-controller-state) |
@@ -86,6 +89,7 @@
 | `g-game-session-reset-static-facades-component-their` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-game-single-tick-groundcheck-flicker-re-fires` | [/fix/single-tick-ground-flicker-landing-vfx](https://sboxguide.dev/fix/single-tick-ground-flicker-landing-vfx) |
 | `g-game-stylesheet-many-selectors-simultaneously-dec` | [/fix/font-size-glyph-corruption](https://sboxguide.dev/fix/font-size-glyph-corruption) |
+| `g-game-system-array-clone-blocked` | [/fix/array-clone-blocked-whitelist](https://sboxguide.dev/fix/array-clone-blocked-whitelist) |
 | `g-game-teleport-body-over-geometry-fixed-offset` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
 | `g-game-textentry-ontextedited-action-string` | [/fix/textentry-ontextedited-needs-block-lambda](https://sboxguide.dev/fix/textentry-ontextedited-needs-block-lambda) |
 | `g-game-there-public-action-analog-trigger-axis` | [/fix/no-analog-trigger-axis-api](https://sboxguide.dev/fix/no-analog-trigger-axis-api) |
@@ -126,6 +130,7 @@
 | `g-tool-fixing-source-asset-always-trigger-recompile` | [/fix/failed-asset-recompile-stale-cache](https://sboxguide.dev/fix/failed-asset-recompile-stale-cache) |
 | `g-tool-hotload-csharp-edits-apply` | [/fix/editor-hotload-expectations](https://sboxguide.dev/fix/editor-hotload-expectations) |
 | `g-tool-kenney-s-own-nature-pack-drive` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
+| `g-tool-model-load-missing-vmdl-return-error` | [/fix/model-load-missing-returns-error-mesh](https://sboxguide.dev/fix/model-load-missing-returns-error-mesh) |
 | `g-tool-new-system-random-time-seeded-whitelisted` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-powershell-5-1-corrupts-utf-8` | [/fix/editing-razor-byte-safe](https://sboxguide.dev/fix/editing-razor-byte-safe) |
 | `g-tool-runtime-reflection-also-whitelist-banned` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
@@ -141,6 +146,7 @@
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
 | `g-ui-draggable-slider-tracks-click-jump-drag` | [/fix/draggable-slider-click-drag](https://sboxguide.dev/fix/draggable-slider-click-drag) |
 | `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sboxguide.dev/fix/flex-grow-percentage-child-feedback-loop) |
+| `g-ui-freshly-scaffolded-project-s-code-assembly` | [/fix/scaffold-missing-global-usings](https://sboxguide.dev/fix/scaffold-missing-global-usings) |
 | `g-ui-gameobject-networkmode-defaults-snapshot` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
 | `g-ui-interface-based-scene-scans-unreliable` | [/fix/interface-scan-returns-nothing](https://sboxguide.dev/fix/interface-scan-returns-nothing) |
 | `g-ui-jetbrains-mono-consolas-shipped-s-box` | [/fix/engine-monospace-roboto-mono](https://sboxguide.dev/fix/engine-monospace-roboto-mono) |
@@ -195,7 +201,6 @@
 - `g-game-collider-co-moves-swing-arc-invisible`
 - `g-game-collision-fidelity-cellsize`
 - `g-game-compile-status-returns-isbuilding-compilers`
-- `g-game-component-active-real-inherited-member`
 - `g-game-constant-face-atlas-uv-positive-trick`
 - `g-game-containment-settle-lowers-water-alternated-m`
 - `g-game-decal-box-splatted-projectile-s-raw`
@@ -207,7 +212,6 @@
 - `g-game-editor-console-buffer-2000-entries-rolls`
 - `g-game-editor-mcp-editor-camera-screenshot-renders`
 - `g-game-editor-mcp-port-editor-configurable-editor`
-- `g-game-first-person-hide-player-enumerate-every`
 - `g-game-flat-topped-mesas-heightfield-need-two`
 - `g-game-forge-tripo-vehicle-meshes-re-exported`
 - `g-game-freshly-generated-vmat-vmdl`
@@ -216,7 +220,6 @@
 - `g-game-hex-hash-constant-top-bit-set`
 - `g-game-invisible-grab-point-registration-phantom-sp`
 - `g-game-jet-ski-single-point-buoyancy-grid`
-- `g-game-jump-controller-clamps-against-rising-veloci`
 - `g-game-land-vehicle-needs-hard-deck-drowned`
 - `g-game-low-frequency-mountain-mass-mask-wavelength`
 - `g-game-mcp-camera-screenshot-captures-engine-s`
@@ -253,7 +256,6 @@
 - `g-game-suspension-forces-along-contact-normal-body`
 - `g-game-swim-voxel-world-narrow-river-triggers`
 - `g-game-swing-grab-anchor-needs-visible-dressing`
-- `g-game-system-array-clone-blocked`
 - `g-game-tower-platform-geometry-isolated-swing-web`
 - `g-game-trace-ground-snap-adds-fixed-offset`
 - `g-game-trace-hit-exposes-physics-body`
@@ -286,7 +288,6 @@
 - `g-tool-free-penned-ai-widening-public-wander`
 - `g-tool-hysteresis-lives-consumer-stateless-predicat`
 - `g-tool-input-press-consumed-bottom-fixed-tick`
-- `g-tool-model-load-missing-vmdl-return-error`
 - `g-tool-nearest-best-pickers-need-honest-empty`
 - `g-tool-publish-live-mutable-static-lists-frame`
 - `g-tool-pure-nearest-target-selection-re-grabs`
@@ -304,7 +305,6 @@
 - `g-ui-camera-screenshot-s-ui-overlay-renders`
 - `g-ui-client-local-screen-effect-fullscreen-fade`
 - `g-ui-editor-generated-csproj-gitignored`
-- `g-ui-freshly-scaffolded-project-s-code-assembly`
 - `g-ui-loose-json-under-assets`
 - `g-ui-mouse-visible-true-obsolete`
 - `g-ui-razor-collection-stateful-child-panels-don`
