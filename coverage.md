@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**136 / 284 gotchas articled** (48%). Pack-only: **148**. Backlog (status `none`): **0**.
+**140 / 512 gotchas articled** (27%). Pack-only: **156**. Backlog (status `none`): **216**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 48 | 29 | 19 | 0 | 60% |
-| rigging-animation | 23 | 20 | 3 | 0 | 87% |
-| writing-gameplay | 122 | 39 | 83 | 0 | 32% |
-| building-ui | 26 | 17 | 9 | 0 | 65% |
-| audio | 9 | 5 | 4 | 0 | 56% |
-| making-it-perform | 4 | 1 | 3 | 0 | 25% |
-| tooling-environment | 52 | 25 | 27 | 0 | 48% |
-| **Total** | **284** | **136** | **148** | **0** | **48%** |
+| getting-art-in | 67 | 29 | 19 | 19 | 43% |
+| rigging-animation | 29 | 20 | 3 | 6 | 69% |
+| writing-gameplay | 244 | 41 | 84 | 119 | 17% |
+| building-ui | 44 | 18 | 12 | 14 | 41% |
+| audio | 11 | 5 | 5 | 1 | 45% |
+| making-it-perform | 7 | 1 | 3 | 3 | 14% |
+| tooling-environment | 110 | 26 | 30 | 54 | 24% |
+| **Total** | **512** | **140** | **156** | **216** | **27%** |
 
 ## Articled gotchas (skip-list)
 
@@ -61,6 +61,7 @@
 | `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sboxguide.dev/fix/white-noise-hash-terrain-shade) |
 | `g-game-component-active-real-inherited-member` | [/fix/component-active-naming-shadow](https://sboxguide.dev/fix/component-active-naming-shadow) |
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
+| `g-game-dedicated-server-unpublished-package-join-fails` | [/fix/dedicated-server-unpublished-package-join-fails](https://sboxguide.dev/fix/dedicated-server-unpublished-package-join-fails) |
 | `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-edit-mode-gameobject` | [/fix/edit-mode-destroy-query-lag](https://sboxguide.dev/fix/edit-mode-destroy-query-lag) |
 | `g-game-editor-viewport-auto-exposure-adapts-over` | [/fix/editor-auto-exposure-screenshot-diff](https://sboxguide.dev/fix/editor-auto-exposure-screenshot-diff) |
@@ -71,10 +72,11 @@
 | `g-game-greedy-voxel-mesher-colours-cliff-skirt` | [/fix/greedy-mesher-cliff-vertical-stripes](https://sboxguide.dev/fix/greedy-mesher-cliff-vertical-stripes) |
 | `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) |
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
-| `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/jump-silently-noop-double-jump](https://sboxguide.dev/fix/jump-silently-noop-double-jump) |
+| `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sboxguide.dev/fix/new-razor-scss-not-applied-until-restart) |
 | `g-game-noclip-trace-based-kinematic-controller-stat` | [/fix/noclip-trace-controller-state](https://sboxguide.dev/fix/noclip-trace-controller-state) |
+| `g-game-null-check-misses-destroyed-target-nre` | [/fix/null-check-misses-destroyed-isvalid](https://sboxguide.dev/fix/null-check-misses-destroyed-isvalid) |
 | `g-game-onawake-fires-synchronously-inside-component` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-game-orient-flat-decal-box-hit-normal` | [/fix/orient-decal-to-hit-normal](https://sboxguide.dev/fix/orient-decal-to-hit-normal) |
 | `g-game-prefer-runtime-world-building-over-giant` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
@@ -140,12 +142,14 @@
 | `g-tool-sounds-assets-compiled-after-session-started` | [/fix/custom-sound-wont-play](https://sboxguide.dev/fix/custom-sound-wont-play) |
 | `g-tool-stalled-steam-update-half-deletes-s` | [/fix/stalled-steam-update-recovery](https://sboxguide.dev/fix/stalled-steam-update-recovery) |
 | `g-tool-static-input-gates-leak-across-play` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
+| `g-tool-static-registry-survives-play-restart-gate-on-live-objects` | [/fix/static-registry-survives-play-restart](https://sboxguide.dev/fix/static-registry-survives-play-restart) |
 | `g-tool-steam-update-s-box-engine-underneath` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
 | `g-tool-verify-compiles-editor` | [/fix/project-setup-skeleton](https://sboxguide.dev/fix/project-setup-skeleton) |
 | `g-tool-whitelist-http-may-call` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
 | `g-ui-draggable-slider-tracks-click-jump-drag` | [/fix/draggable-slider-click-drag](https://sboxguide.dev/fix/draggable-slider-click-drag) |
 | `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sboxguide.dev/fix/flex-grow-percentage-child-feedback-loop) |
+| `g-ui-font-glyph-corruption-is-cumulative-text-count-not-just-font-size` | [/fix/font-glyph-corruption-cumulative-text-count](https://sboxguide.dev/fix/font-glyph-corruption-cumulative-text-count) |
 | `g-ui-freshly-scaffolded-project-s-code-assembly` | [/fix/scaffold-missing-global-usings](https://sboxguide.dev/fix/scaffold-missing-global-usings) |
 | `g-ui-gameobject-networkmode-defaults-snapshot` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
 | `g-ui-interface-based-scene-scans-unreliable` | [/fix/interface-scan-returns-nothing](https://sboxguide.dev/fix/interface-scan-returns-nothing) |
@@ -186,6 +190,7 @@
 - `g-audio-elevenlabs-sfx-cost-character-cost-response`
 - `g-audio-elevenlabs-voices-npc-dialogue-use-tts`
 - `g-audio-speaker-line-cooldown`
+- `g-audio-voice-input-action-not-universal`
 - `g-game-adding-sheer-mesa-cliff-terrain-silently`
 - `g-game-altitude-driven-biome-gradients`
 - `g-game-arcade-raycast-car-stepped-voxel-terrain`
@@ -228,6 +233,7 @@
 - `g-game-mouse-visible-true-past`
 - `g-game-multiple-panelcomponent-s-gameobject-under-s`
 - `g-game-nearest-centerline-corridor-stamping-leaves`
+- `g-game-networkspawn-owner-sim-host-onactive`
 - `g-game-orbiting-physics-root-around-bar-makes`
 - `g-game-over-world-ui-name-labels-health`
 - `g-game-play-mode-terrain-brush-s-lower`
@@ -277,14 +283,17 @@
 - `g-rig-pair-procedural-whole-body-rotation-clip`
 - `g-tool-aimed-bot-grabbing-through-scored-best`
 - `g-tool-arch-slope-tilt-axis-rotate-about`
+- `g-tool-array-clone-whitelist-forbidden`
 - `g-tool-bar-s-release-aimed-within-spin`
 - `g-tool-blender-materials-clear-materials-new-name`
 - `g-tool-build-time-tag-scans-blind-children`
 - `g-tool-camera-switches-focus-target-follow-distance`
 - `g-tool-copied-trace-exclusion-filters-invert-meanin`
 - `g-tool-coplanar-overlay-ribbons-z-fight-give`
+- `g-tool-cross-assembly-hotreload-missingmethod`
 - `g-tool-editor-ignores-external-edits-persisted-sett`
 - `g-tool-editor-mcp-server-s-enable-port`
+- `g-tool-filesystem-data-multifile-api-whitelisted`
 - `g-tool-free-penned-ai-widening-public-wander`
 - `g-tool-hysteresis-lives-consumer-stateless-predicat`
 - `g-tool-input-press-consumed-bottom-fixed-tick`
@@ -304,12 +313,15 @@
 - `g-tool-visual-pin-hands-feet-world-feature`
 - `g-ui-camera-screenshot-s-ui-overlay-renders`
 - `g-ui-client-local-screen-effect-fullscreen-fade`
+- `g-ui-css-keyframes-animation-supported`
+- `g-ui-defer-overlay-before-sync-blocking-call`
 - `g-ui-editor-generated-csproj-gitignored`
 - `g-ui-loose-json-under-assets`
 - `g-ui-mouse-visible-true-obsolete`
 - `g-ui-razor-collection-stateful-child-panels-don`
 - `g-ui-runtime-clipboard-api-reachable-game-code`
 - `g-ui-scenepanel-ui-3d-model-preview-world`
+- `g-ui-screenpanel-zindex-cross-panel-stacking`
 - `g-ui-scss-import-shared-token-mixin-file`
 
 ## Articles without a gotchas.md source (11)

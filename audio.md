@@ -64,3 +64,10 @@
   8f` check + a monotonic `_lineCount` fed into Sfx.PlayVaried's seed, so a spotted→pursue→lost
   flurry (guard) or surprise→delight→phone flurry (visitor) never machine-guns dialogue and two
   speakers don't sound identical. No RNG — deterministic pitch wobble.
+- **The built-in `"Voice"` InputAction is NOT in every project's `Input.config`** — the
+  `Sandbox.Voice` component defaults `PushToTalkInput = "voice"`, but if the project shipped
+  without a matching `"Voice"` action, push-to-talk silently does nothing (no error, no log).
+  Fix: add `{ "Name": "Voice", "GroupName": "Actions", "KeyboardCode": "<key>" }` to
+  `ProjectSettings/Input.config` and set `voice.PushToTalkInput = "Voice"` explicitly. Editor
+  restart required for input config changes to register. Always grep `Input.config` before
+  assuming the default binds to anything.

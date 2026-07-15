@@ -198,3 +198,19 @@
  in the right-anchored panels specifically (it isn't). Fix: request `camera_screenshot` at the same
  resolution as the actual primary monitor/game window (`[System.Windows.Forms.Screen]::PrimaryScreen.Bounds`
  in PowerShell if unknown) before concluding a right/bottom-anchored panel failed to render.
+- **`ScreenPanel.ZIndex` controls stacking BETWEEN separate ScreenPanel GameObjects** — set
+  it high (e.g. `99999`) to force a full-screen overlay on top of other HUD panels. Each HUD
+  component gets its own ScreenPanel GameObject (the "two PanelComponents under one
+  ScreenPanel leaves the second unrendered" rule), and paint order between those roots is not
+  guaranteed by creation order. The engine's own `SceneTransition` uses `ZIndex = 99999`.
+- **To show a loading overlay before a synchronous blocking call, defer the blocking work a
+  couple frames.** A razor `onclick` that flips an overlay flag and then immediately runs a
+  multi-second synchronous job blocks the main thread before the render pass — the overlay is
+  only visible after the freeze (i.e. never). Fix: the click shows the overlay and sets a
+  small frame countdown; `OnUpdate` decrements it and runs the blocking work only when it hits
+  0, guaranteeing the overlay painted first.
+- **CSS `@keyframes` + `animation:` shorthand work in s&box razor SCSS** — a spinner needs no
+  per-frame re-render. The engine's own menu addon uses them (`animation: rotation 1s linear
+  infinite;` + `@keyframes rotation { … }`). Do NOT drive a loading spinner from a BuildHash
+  frame counter; that re-renders the panel every frame. Caveat: SCSS is compiled by the
+  editor/runtime, NOT by `dotnet build`, so a keyframes typo is invisible headlessly.

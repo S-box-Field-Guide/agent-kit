@@ -344,3 +344,19 @@
  files with `dotnet build … | grep ": error" | grep -v "\\<other-scope>\\"` (empty = yours are
  clean); do NOT "fix" the other agent's file — the owning agent completes it (it did, and the tree
  went green).
+- **Adding a `public` method to the GAME assembly and calling it from the EDITOR-tools
+  assembly in the SAME hot-reload pass throws `MissingMethodException`** — even though
+  `compile_status` is all-green and `dotnet build` is 0/0. The running editor assembly
+  re-JIT'd against a stale copy of the game assembly that predated the new method. Fix:
+  restart Play (a fresh Play session loads both assemblies together); the exception is
+  transient to the cross-assembly hot-reload seam only.
+- **`Array.Clone()` is NOT whitelisted in the game assembly** — `(short[])arr.Clone()`
+  compiles headlessly but fails the in-editor compile with `SB1000 'System.Array.Clone()' is
+  not allowed when whitelist is enabled`. The old assembly silently keeps running. Fix: use
+  `var copy = new short[a.Length]; System.Array.Copy(a, copy, a.Length);` — `Array.Copy` IS
+  whitelisted. Always check `compile_status` after a game-assembly edit.
+- **The `FileSystem.Data` multi-file API surface is whitelist-clean and works at runtime for
+  a named-slot save system:** `WriteAllText`, `ReadAllText`, `FileExists`, `DeleteFile`,
+  `DirectoryExists`, `CreateDirectory`, `FindFile(dir, "*.json")` all compile in-editor AND
+  execute. Paths are relative to the project data root; sub-dirs like `saves/<slug>.json`
+  work. Sanitize any user-derived slug (drop `/ \ .`) to prevent path traversal.

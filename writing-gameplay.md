@@ -92,6 +92,12 @@
  leaves flag and registry disagreeing → the guarded loop never restarts; reset the flag and
  the registry at the same boundary.
 
+- **Owner-simulated character spawn: implement `INetworkListener.OnActive(Connection)` on a
+  host component and `go.NetworkSpawn(channel)` there.** `OnActive` fires for the host's OWN
+  connection (#0) too (so the host gets a character), but `OnDisconnected` does NOT fire when
+  the host itself leaves — only when a remote peer drops. The engine calls
+  `INetworkListener` methods only on the host, so no `Networking.IsHost` guard is needed.
+
 ## Runtime & movement
 
 - **A collider that co-moves with a swing arc is an invisible wall the swing hits every

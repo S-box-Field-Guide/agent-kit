@@ -21,17 +21,15 @@ Always-load core rules: `_core.md`. Coverage / backlog: `coverage.md`.
 
 ## Guides (method syntheses)
 
-Long-form build-order runbooks — how to build a system properly, in what order.
-Full HTML also lives on the Field Guide site under `/guides`. These files are
-literal copies of `field-guide/content/guides/`.
+Long-form build-order guides for common systems. These are the "how do I architect X" complement to the fix-level bullets above.
 
-| Guide | File | Lanes |
+| Guide | File | Covers |
 |---|---|---|
-| Standing up an agent-buildable s&box project | `guides/agent-buildable-project-setup.md` | getting-set-up · ai-assisted-workflow |
-| Agent test harness | `guides/agent-test-harness.md` | tooling-environment · ai-assisted-workflow |
-| Runtime terrain meshing | `guides/runtime-terrain-meshing.md` | writing-gameplay · making-it-perform |
-| Networking methods | `guides/networking-methods.md` | writing-gameplay |
-| Vehicle physics | `guides/vehicle-physics.md` | writing-gameplay |
-| Parkour movement | `guides/parkour-movement.md` | writing-gameplay |
-| Part-kit assembly | `guides/part-kit-assembly.md` | getting-art-in · writing-gameplay |
-| Delta-log save | `guides/delta-log-save.md` | writing-gameplay |
+| Agent test harness | `guides/agent-test-harness.md` | MCP-driven in-editor playtest automation |
+| Runtime terrain meshing | `guides/runtime-terrain-meshing.md` | Voxel heightfield meshing, decimation, LOD |
+| Networking methods | `guides/networking-methods.md` | Deterministic spec-replication, host authority |
+| Vehicle physics | `guides/vehicle-physics.md` | Arcade raycast car on voxel terrain |
+| Parkour movement | `guides/parkour-movement.md` | Wall-run, climb, vault on a trace-mover |
+| Part-kit assembly | `guides/part-kit-assembly.md` | Modular vehicle damage via part-kit manifests |
+| Delta-log save | `guides/delta-log-save.md` | Append-only delta save for large procedural worlds |
+| Voice proximity chat | `guides/voice-proximity-chat.md` | Built-in Sandbox.Voice for proximity PTT |
