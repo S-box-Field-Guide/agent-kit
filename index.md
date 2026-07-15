@@ -34,3 +34,4 @@ Long-form build-order guides for common systems. These are the "how do I archite
 | Delta-log save | `guides/delta-log-save.md` | Append-only delta save for large procedural worlds |
 | Voice proximity chat | `guides/voice-proximity-chat.md` | Built-in Sandbox.Voice for proximity PTT |
 | P2P peer-hosted servers | `guides/p2p-peer-hosted-servers.md` | Player-hosted multiplayer: lobby, invite codes, join handshake |
+| Performance investigation | `guides/performance-investigation.md` | Measure-first FPS investigation, isolation matrix |

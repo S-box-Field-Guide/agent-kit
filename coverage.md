@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**155 / 527 gotchas articled** (29%). Pack-only: **166**. Backlog (status `none`): **206**.
+**155 / 527 gotchas articled** (29%). Pack-only: **168**. Backlog (status `none`): **204**.
 
 ## By lane
 
@@ -14,11 +14,11 @@
 | getting-art-in | 68 | 29 | 19 | 20 | 43% |
 | rigging-animation | 29 | 20 | 3 | 6 | 69% |
 | writing-gameplay | 249 | 52 | 87 | 110 | 21% |
-| building-ui | 50 | 21 | 16 | 13 | 42% |
+| building-ui | 50 | 21 | 17 | 12 | 42% |
 | audio | 11 | 5 | 5 | 1 | 45% |
 | making-it-perform | 7 | 1 | 3 | 3 | 14% |
-| tooling-environment | 113 | 27 | 33 | 53 | 24% |
-| **Total** | **527** | **155** | **166** | **206** | **29%** |
+| tooling-environment | 113 | 27 | 34 | 52 | 24% |
+| **Total** | **527** | **155** | **168** | **204** | **29%** |
 
 ## Articled gotchas (skip-list)
 
@@ -305,6 +305,7 @@
 - `g-tool-bar-s-release-aimed-within-spin`
 - `g-tool-blender-materials-clear-materials-new-name`
 - `g-tool-build-time-tag-scans-blind-children`
+- `g-tool-camera-screenshot-misses-modal-card`
 - `g-tool-camera-switches-focus-target-follow-distance`
 - `g-tool-copied-trace-exclusion-filters-invert-meanin`
 - `g-tool-coplanar-overlay-ribbons-z-fight-give`
@@ -343,6 +344,7 @@
 - `g-ui-mouse-visible-true-obsolete`
 - `g-ui-overflow-scroll-panel-breaks-even-with-minheight-pins`
 - `g-ui-razor-collection-stateful-child-panels-don`
+- `g-ui-razor-loose-png-blank-in-package`
 - `g-ui-runtime-clipboard-api-reachable-game-code`
 - `g-ui-scenepanel-ui-3d-model-preview-world`
 - `g-ui-screenpanel-zindex-cross-panel-stacking`

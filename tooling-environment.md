@@ -380,3 +380,9 @@
   never appear. This is a render-pass artifact of the modal sub-layer, not layout. Workaround:
   bind the asset-under-test to an always-visible base HUD element (which does composite),
   screenshot that, then revert.
+- **The editor MCP `camera_screenshot {includeUi:true}` captures base HUD panel elements fine
+  but DROPS a centered full-screen modal card** — even one on the same ScreenPanel. The
+  backdrop's dim/blur composites (the scene visibly dims) but the card and all its children
+  never appear. This is a render-pass artifact of the modal sub-layer, not layout. Workaround:
+  bind the asset-under-test to an always-visible base HUD element (which does composite),
+  screenshot that, then revert.

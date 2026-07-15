@@ -1107,3 +1107,30 @@
   frame.** Any branch on `IsActive` immediately after `CreateLobby` takes the wrong path.
   Gate on your own synchronous mode enum (set on the same frame). Also: a session-END path
   must un-possess the character (`ExitCharacter()`) to restore the pre-session view.
+- **An overhead UI element (name tag, health bar) anchored to a per-player gameplay field
+  FREEZES over a remote player's spawn position while their model walks away** — if that
+  field is not `[Sync]` and written only inside the owner's `OnFixedUpdate`. A proxy never
+  runs the owner's tick, so the field is stuck at spawn. Fix: anchor off the live networked
+  transform (`WorldPosition`), which is replicated and engine-interpolated.
+- **A `[Sync(SyncFlags.FromHost)]` field on a runtime-created singleton does NOT replicate
+  unless that object is `NetworkSpawn`ed.** A `Scene.CreateObject()` singleton has no
+  cross-peer identity even with `NetworkMode.Snapshot`. `GameObject.Network.Active == false`
+  and the field never crosses the wire. Fix: host-`NetworkSpawn()` the singleton; the joining
+  client receives the host's networked proxy instead of creating its own local copy.
+- **On the host, spawning a joiner's character clobbers the host's camera-target singleton:**
+  `Components.Create` runs BEFORE `NetworkSpawn(owner)`, so `IsProxy == false` at create time
+  and an `OnEnabled` that claims `static Instance` behind `if (!IsProxy)` grabs the joiner's
+  body. Fix: re-resolve the claim at the first `OnFixedUpdate`, where `IsProxy` is trustworthy.
+- **A joining client's static join state (invite code, mode) gets WIPED by the networked scene
+  handoff:** `Networking.Connect` loads the host's scene, the bootstrap creates a new instance,
+  and its `OnEnabled` "reset for a fresh session" runs before the join handshake sends those
+  values. Fix: make `OnEnabled` reconstruct-not-reset when already connected as a non-host.
+  Test blind spot: `-joinlocal` never sets a code pre-handoff, so it can't catch this.
+- **A PUBLISHED-build client join RELOADS the game assembly, wiping ALL statics** — the
+  reconstruct-not-reset fix has nothing to reconstruct from. Fix: persist join intent to
+  `FileSystem.Data` before `Networking.Connect`; restore from disk after the reload, gated
+  on a freshness window. Only a real cross-machine published join exercises this path.
+- **`Networking.CreateLobby()` is ASYNC — `Networking.IsActive` is still false on the same
+  frame.** Any branch on `IsActive` immediately after `CreateLobby` takes the wrong path.
+  Gate on your own synchronous mode enum (set on the same frame). Also: a session-END path
+  must un-possess the character (`ExitCharacter()`) to restore the pre-session view.

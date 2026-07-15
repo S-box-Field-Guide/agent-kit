@@ -243,3 +243,10 @@
   string (Assets-relative, no `assets/` prefix, `*` spans `/`): e.g. `"ui/cars/*.png"`. The
   wildcard matches the loose disk path, not the normalized asset path. Same mechanism as any
   other loose resource file — see the "Loose resource files don't auto-publish" article.
+- **A razor `background-image: url('ui/foo.png')` (any loose PNG/JPG a ScreenPanel references)
+  renders in the editor but goes BLANK in the published package.** ScreenPanel CSS image URLs
+  load loose image files from the mounted filesystem, so they work in-editor; but loose
+  (non-compiled) images are NOT auto-shipped. Fix: add the disk glob to the sbproj `"Resources"`
+  string (Assets-relative, no `assets/` prefix, `*` spans `/`): e.g. `"ui/cars/*.png"`. The
+  wildcard matches the loose disk path, not the normalized asset path. Same mechanism as any
+  other loose resource file — see the "Loose resource files don't auto-publish" article.
