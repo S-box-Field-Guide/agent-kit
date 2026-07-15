@@ -214,3 +214,19 @@
   infinite;` + `@keyframes rotation { … }`). Do NOT drive a loading spinner from a BuildHash
   frame counter; that re-renders the panel every frame. Caveat: SCSS is compiled by the
   editor/runtime, NOT by `dotnet build`, so a keyframes typo is invisible headlessly.
+- **`border-style: solid` is a PARSE ERROR in s&box SCSS** — and because an invalid
+  property aborts the whole stylesheet, one stray `border-style` makes the entire panel
+  render with zero size (invisible, not just unbordered). s&box UI borders are always
+  solid; there is no `border-style` property. Declare the border with `border-width` +
+  `border-color` (or the `border: Npx solid <color>` shorthand) and never a separate
+  `border-style`.
+- **`Sandbox.UI.Clipboard.SetText(string)` is reachable from game code and is
+  whitelist-clean** (engine 26.07.08e). It lives in `Sandbox.UI` inside
+  `Sandbox.Engine.dll`. A game-assembly component can call it directly — no editor
+  bridge needed for copy-to-clipboard features.
+- **A world-tracking label (name tag over a player's head) is best done as a
+  screen-space Razor chip positioned each frame at
+  `CameraComponent.PointToScreenNormal(worldPos, out behind)` — not a WorldPanel.**
+  You must project through the active gameplay camera, not `Scene.Camera` (which
+  resolves to a transient editor camera clone in play mode and mis-projects the label
+  off-target).

@@ -1059,3 +1059,21 @@
   and keep enums append-only. Autosave on the natural checkpoint (sleep).
 
 > _(Section restored 2026-07-13 from the pre-split code-patterns pack.)_
+
+- **`Sandbox.Input.EscapePressed` is a real public get/set bool** — read it to detect
+  Escape, and set it `false` to consume the press so the engine doesn't route to its own
+  pause menu. Verified in the SDK's `Sandbox.Engine.xml` with both `get_EscapePressed` and
+  `set_EscapePressed` accessors. Use this for in-game close/back, not an `Input.config`
+  bind (editor-reserved keys silently swallow `Input.config` Escape bindings).
+- **A ground-vehicle "top speed" telemetry field computed from 3D rigidbody velocity
+  length balloons into free-fall speed** when the car drives off the edge of a finite
+  ground collider. A plausible-looking `maxSpeedMs=165` was actually the car plummeting
+  off the runway — `speed = Velocity.Length` includes the Y (gravity) axis. Fix: report
+  `Velocity with { z = 0 }.Length` for a surface-clamped reading. Better: compute and log
+  *both* and flag if they diverge (divergence = the car is airborne or off-world).
+- **To exercise the full networked-spawn path with one peer (no second machine),** call
+  `Networking.CreateLobby(new LobbyConfig())` from an editor MCP tool through a
+  game-assembly static bridge — never call `CreateLobby` from the editor tool thread; it
+  must run on the game main thread (consume the request in a play-mode component's
+  `OnUpdate`). This sets `Networking.IsActive` true and runs the real spawn/sync path,
+  letting you verify component creation order and `[Sync]` wiring without a second peer.

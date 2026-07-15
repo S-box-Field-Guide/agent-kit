@@ -360,3 +360,17 @@
   `DirectoryExists`, `CreateDirectory`, `FindFile(dir, "*.json")` all compile in-editor AND
   execute. Paths are relative to the project data root; sub-dirs like `saves/<slug>.json`
   work. Sanitize any user-derived slug (drop `/ \ .`) to prevent path traversal.
+- **`editor_status` over the editor MCP can transiently return `Project: null` while
+  mid-hotload** (right after a source change compiles). An identity-probing harness then
+  aborts with a false "wrong port / wrong project" even though the port and project are
+  correct. Fix: treat a null Project as "editor busy", wait ~10–15 s and re-probe before
+  concluding wrong-port; only a different non-null project name means wrong port.
+- **On Windows, invoking `python3` from a project tool aborts with exit 49** ("Python
+  was not found; run without arguments to install from the Microsoft Store") even though
+  Python is installed and on PATH — `python3` resolves to the WindowsApps App Execution
+  Alias shim, not the real interpreter. Use `python` or the launcher `py` instead.
+- **Porting a `.cs` file into another s&box project with its doc comments intact: a
+  `<see cref="TypeYouDidNotCopy"/>` in an XML `///` comment emits CS1574** ("XML comment
+  has cref attribute that could not be resolved") — which quietly fails a "0 warnings"
+  acceptance gate even though the code is correct. Grep ported files for `cref=` and
+  strip or redirect references to types you didn't copy.

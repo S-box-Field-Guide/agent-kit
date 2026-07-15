@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**140 / 512 gotchas articled** (27%). Pack-only: **156**. Backlog (status `none`): **216**.
+**144 / 512 gotchas articled** (28%). Pack-only: **165**. Backlog (status `none`): **203**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 67 | 29 | 19 | 19 | 43% |
 | rigging-animation | 29 | 20 | 3 | 6 | 69% |
-| writing-gameplay | 244 | 41 | 84 | 119 | 17% |
-| building-ui | 44 | 18 | 12 | 14 | 41% |
+| writing-gameplay | 244 | 43 | 87 | 114 | 18% |
+| building-ui | 44 | 19 | 15 | 10 | 43% |
 | audio | 11 | 5 | 5 | 1 | 45% |
 | making-it-perform | 7 | 1 | 3 | 3 | 14% |
-| tooling-environment | 110 | 26 | 30 | 54 | 24% |
-| **Total** | **512** | **140** | **156** | **216** | **27%** |
+| tooling-environment | 110 | 27 | 33 | 50 | 25% |
+| **Total** | **512** | **144** | **165** | **203** | **28%** |
 
 ## Articled gotchas (skip-list)
 
@@ -64,6 +64,7 @@
 | `g-game-dedicated-server-unpublished-package-join-fails` | [/fix/dedicated-server-unpublished-package-join-fails](https://sboxguide.dev/fix/dedicated-server-unpublished-package-join-fails) |
 | `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-edit-mode-gameobject` | [/fix/edit-mode-destroy-query-lag](https://sboxguide.dev/fix/edit-mode-destroy-query-lag) |
+| `g-game-editor-captures-play-hotkeys` | [/fix/editor-captures-play-hotkeys](https://sboxguide.dev/fix/editor-captures-play-hotkeys) |
 | `g-game-editor-viewport-auto-exposure-adapts-over` | [/fix/editor-auto-exposure-screenshot-diff](https://sboxguide.dev/fix/editor-auto-exposure-screenshot-diff) |
 | `g-game-first-person-hide-player-enumerate-every` | [/fix/first-person-hide-all-renderers](https://sboxguide.dev/fix/first-person-hide-all-renderers) |
 | `g-game-flat-decal-geometry-clear-surface-below` | [/fix/runtime-world-building-helpers](https://sboxguide.dev/fix/runtime-world-building-helpers) |
@@ -91,6 +92,7 @@
 | `g-game-session-reset-static-facades-component-their` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-game-single-tick-groundcheck-flicker-re-fires` | [/fix/single-tick-ground-flicker-landing-vfx](https://sboxguide.dev/fix/single-tick-ground-flicker-landing-vfx) |
 | `g-game-stylesheet-many-selectors-simultaneously-dec` | [/fix/font-size-glyph-corruption](https://sboxguide.dev/fix/font-size-glyph-corruption) |
+| `g-game-sync-component-created-after-networkspawn-never-pairs` | [/fix/sync-component-after-networkspawn-never-pairs](https://sboxguide.dev/fix/sync-component-after-networkspawn-never-pairs) |
 | `g-game-system-array-clone-blocked` | [/fix/array-clone-blocked-whitelist](https://sboxguide.dev/fix/array-clone-blocked-whitelist) |
 | `g-game-teleport-body-over-geometry-fixed-offset` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
 | `g-game-textentry-ontextedited-action-string` | [/fix/textentry-ontextedited-needs-block-lambda](https://sboxguide.dev/fix/textentry-ontextedited-needs-block-lambda) |
@@ -144,6 +146,7 @@
 | `g-tool-static-input-gates-leak-across-play` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-tool-static-registry-survives-play-restart-gate-on-live-objects` | [/fix/static-registry-survives-play-restart](https://sboxguide.dev/fix/static-registry-survives-play-restart) |
 | `g-tool-steam-update-s-box-engine-underneath` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
+| `g-tool-structural-razor-edit-hotload-wedge-deregisters-toolset` | [/fix/structural-razor-hotload-deregisters-toolset](https://sboxguide.dev/fix/structural-razor-hotload-deregisters-toolset) |
 | `g-tool-verify-compiles-editor` | [/fix/project-setup-skeleton](https://sboxguide.dev/fix/project-setup-skeleton) |
 | `g-tool-whitelist-http-may-call` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
@@ -157,6 +160,7 @@
 | `g-ui-json-serialize-deserialize-t` | [/fix/saveload-without-drift](https://sboxguide.dev/fix/saveload-without-drift) |
 | `g-ui-name-classes-after-sandbox-built-ins` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
 | `g-ui-panelcomponent-overrides-ontreebuilt-ontreef` | [/fix/panelcomponent-ontreebuilt-lifecycle](https://sboxguide.dev/fix/panelcomponent-ontreebuilt-lifecycle) |
+| `g-ui-razor-computed-text-renders-blank-or-blocks-density` | [/fix/razor-text-renders-blank-density-modes](https://sboxguide.dev/fix/razor-text-renders-blank-density-modes) |
 | `g-ui-razor-files-go-global-namespace` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
 | `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sboxguide.dev/fix/ref-field-private-field-never-assigns) |
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sboxguide.dev/fix/runtime-texture-ui-panel) |
@@ -223,6 +227,7 @@
 - `g-game-greedy-meshing-delivers-1`
 - `g-game-ground-vehicle-fall-through-audit-coarse`
 - `g-game-hex-hash-constant-top-bit-set`
+- `g-game-input-escapepressed-real-getset-consumable`
 - `g-game-invisible-grab-point-registration-phantom-sp`
 - `g-game-jet-ski-single-point-buoyancy-grid`
 - `g-game-land-vehicle-needs-hard-deck-drowned`
@@ -253,6 +258,7 @@
 - `g-game-slide-slope-logic-stepped-coarse-collision`
 - `g-game-snap-ground-detach-air-slide-free`
 - `g-game-snow-climate-band-gate-absolute-altitude`
+- `g-game-solo-lobby-selftest-bridge`
 - `g-game-spawn-raycast-car-suspension-equilibrium-hei`
 - `g-game-spin-bar-s-release-aim-within`
 - `g-game-standing-still-bounce-fall-through-audit`
@@ -269,6 +275,7 @@
 - `g-game-translucent-water-film-over-bright-warm`
 - `g-game-two-special-case-water-rules-correct`
 - `g-game-two-water-audits-conflict-sea-boundary`
+- `g-game-vehicle-topspeed-telemetry-freefall-offworld`
 - `g-game-verified-up-facing-winding-c-b`
 - `g-game-verify-mesh-import-scale-pipeline-engine`
 - `g-game-visual-adjacency-laws-x-read-touching`
@@ -293,11 +300,13 @@
 - `g-tool-cross-assembly-hotreload-missingmethod`
 - `g-tool-editor-ignores-external-edits-persisted-sett`
 - `g-tool-editor-mcp-server-s-enable-port`
+- `g-tool-editor-status-null-mid-hotload`
 - `g-tool-filesystem-data-multifile-api-whitelisted`
 - `g-tool-free-penned-ai-widening-public-wander`
 - `g-tool-hysteresis-lives-consumer-stateless-predicat`
 - `g-tool-input-press-consumed-bottom-fixed-tick`
 - `g-tool-nearest-best-pickers-need-honest-empty`
+- `g-tool-ported-cs-file-see-cref-to-dropped-type-cs1574`
 - `g-tool-publish-live-mutable-static-lists-frame`
 - `g-tool-pure-nearest-target-selection-re-grabs`
 - `g-tool-reusing-another-project-s-assets-copy`
@@ -311,8 +320,11 @@
 - `g-tool-third-person-camera-occlusion-ease-asymmetri`
 - `g-tool-threshold-pair-event-detectors-die-smooth`
 - `g-tool-visual-pin-hands-feet-world-feature`
+- `g-tool-windows-python3-store-alias`
+- `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet`
 - `g-ui-camera-screenshot-s-ui-overlay-renders`
 - `g-ui-client-local-screen-effect-fullscreen-fade`
+- `g-ui-clipboard-settext-game-reachable-whitelist-clean`
 - `g-ui-css-keyframes-animation-supported`
 - `g-ui-defer-overlay-before-sync-blocking-call`
 - `g-ui-editor-generated-csproj-gitignored`
@@ -323,6 +335,7 @@
 - `g-ui-scenepanel-ui-3d-model-preview-world`
 - `g-ui-screenpanel-zindex-cross-panel-stacking`
 - `g-ui-scss-import-shared-token-mixin-file`
+- `g-ui-worldspace-nametag-screenprojected-camera`
 
 ## Articles without a gotchas.md source (11)
 
