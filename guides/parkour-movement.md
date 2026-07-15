@@ -2,7 +2,7 @@
 title: Parkour movement — the trace-mover traversal kit
 slug: parkour-movement
 date: "2026-07-13"
-updated: "2026-07-13"
+updated: "2026-07-15T00:24:00-04:00"
 lanes:
   - writing-gameplay
 tags:
@@ -53,9 +53,16 @@ is the traversal layer on top.
    bounded glue rate. Sizing rule: the glue must clear the real per-step drop at
    top speed so genuine descents pass unclipped. Do NOT smooth the snap *target*;
    rate-limit the applied move only.
-2. **On stepped/coarse collision, add step glue + visual smoothing**: size
-   step-up/-down probes to the terrain's actual step, and smooth the VISUAL z
-   while the body steps discretely. Audit that standing still never oscillates.
+2. **On stepped/coarse collision, add step glue + (only where the root is NOT
+   engine-interpolated) visual smoothing**: size step-up/-down probes to the
+   terrain's actual step. A hand-rolled per-frame visual-z smoother is valid
+   **only** when the character root is not already interpolated by the engine — if
+   `WorldPosition` is written in `OnFixedUpdate`, `FixedUpdateInterpolation`
+   (default ON) already smooths it, and a second per-frame smoother computed from
+   raw fixed-tick z double-smooths into a 50 Hz sawtooth that reads as model
+   flicker on stepped terrain. Verify engine interpolation is absent/disabled
+   before reaching for the manual smoother. Audit that standing still never
+   oscillates.
 3. **Slide/slope logic needs a continuous slope estimate on stepped collision** —
    the flat-quad coarse surface reads as 0° or wall, so derive slope from a
    multi-sample probe; when a slide goes airborne, detach cleanly to free

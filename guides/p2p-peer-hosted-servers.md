@@ -2,7 +2,7 @@
 title: "P2P peer-hosted servers — from working co-op code to a friend actually joining"
 slug: p2p-peer-hosted-servers
 date: "2026-07-14T22:30:00-04:00"
-updated: "2026-07-14T22:30:00-04:00"
+updated: "2026-07-15T00:24:00-04:00"
 lanes:
   - writing-gameplay
   - publishing-shipping
@@ -37,13 +37,13 @@ The operational recipe for shipping **player-hosted (P2P) multiplayer**: one pla
 | **Published peer host (this guide)** | Anyone with the game + code | **Yes** | The actual product |
 | Dedicated `sbox-server.exe` | Anyone | Yes | Persistent servers |
 
-The wall between column 1 and 2: **an unpublished `local.*` package cannot be joined by any non-editor client** — joiners die at `Package local.<ident> wasn't found!` because only an editor host advertises `dev-host=true`, which lets clients tolerate a missing package and stream assemblies. Real-peer testing requires publishing. Unlisted visibility is fine and is the natural playtest channel. See [dedicated-server-unpublished-package-join-fails](/fix/dedicated-server-unpublished-package-join-fails).
+The wall between column 1 and 2: **an unpublished `local.*` package cannot be joined by any non-editor client** — joiners die at `Package local.<ident> wasn't found!` because only an editor host advertises `dev-host=true`, which lets clients tolerate a missing package and stream assemblies. Real-peer testing requires publishing. A **Hidden** publish is fine — clients resolve a Hidden package by ident, it's only hidden from search. The publish-state enum is **Hidden | Released** (there is no Unlisted state). See [dedicated-server-unpublished-package-join-fails](/fix/dedicated-server-unpublished-package-join-fails).
 
 ## Publishing (once, then per-update)
 
 - **Ident** = `org.package` (underscores in the package segment accepted). The org half can change after first publish; treat the package half as permanent.
 - A freshly created org may not appear in the editor's publish dropdown until an editor **restart**.
-- Publish from the editor title-bar project button, "Publish..". Default visibility is org-private; flip to Unlisted for playtests.
+- Publish from the editor title-bar project button, "Publish..". The publish-state enum is **Hidden | Released** — **Hidden** + a direct link is the playtest channel (search-hidden but ident-resolvable).
 - **Updates = republish under the same ident.** Every peer must run the same build — see the protocol-version discipline below, because Steam will happily matchmake two peers running different cached builds.
 
 ## Lobby + invite code

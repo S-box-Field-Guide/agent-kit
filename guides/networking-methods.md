@@ -2,7 +2,7 @@
 title: Networking methods — spec replication + host-authority patterns
 slug: networking-methods
 date: "2026-07-13"
-updated: "2026-07-13"
+updated: "2026-07-15T00:24:00-04:00"
 lanes:
   - writing-gameplay
 tags:
@@ -28,7 +28,9 @@ Two proven architectures on top of the engine primitives. Official docs cover
 and `Networking.*` well — this guide does not re-explain them. What they don't
 cover is:
 
-- **Part A** — deterministic multiplayer: replicate the *spec*, not the geometry.
+- **Part A** — deterministic multiplayer: replicate the *spec*, not the geometry
+  (code-complete + suite-proven; the live cross-machine two-peer join was proven
+  end-to-end — see the [P2P peer-hosted servers](/guides/p2p-peer-hosted-servers) guide).
 - **Part B** — host-authority retrofit: making a dozen local-only gameplay
   systems host-authoritative without breaking single-player.
 
@@ -99,17 +101,23 @@ a deliberate trust-model decision.
 
 ## Invite codes / lobby discovery
 
-Verified on recent engine builds:
+Verified on engine 26.07.08e, corrected against a live cross-peer test:
 
-- `Networking.CreateLobby` with **`Hidden=true, Privacy=Public`** = "anyone with
-  the code, nobody without" (Private fights the code path; FriendsOnly blocks
-  friends-of-friends).
+- **The lobby must be VISIBLE (`Hidden=false, Privacy=Public`).** A `Hidden=true`
+  lobby is structurally excluded from every ordinary `QueryLobbies` — the engine
+  appends `q.WithKeyValue("hdn","0")` unless you pass a truthy `"hidden"` filter,
+  so a hidden-lobby + metadata-code lookup can never find the host (confirmed by a
+  live cross-peer failure). **This corrects earlier `Hidden=true` guidance.**
+- **Don't put the plaintext code in metadata** (a visible lobby's `SetData` is
+  enumerable). Publish only a **hash** of the code, filter the query by that hash,
+  and **verify the real code host-side on the wire** before releasing the joiner.
 - `Networking.QueryLobbies(Dictionary filters)` → `LobbyInformation` rows;
-  stamp a protocol-version key in lobby data and refuse mismatches client-side
-  BEFORE connecting.
-- **Caveat**: a host's self-query for its own hidden lobby often returns nothing
-  — Steam commonly excludes lobbies the caller is already in, so self-query
-  CANNOT verify the code path; only a real second peer can.
+  stamp a protocol-version key **and** a separate publish-stamp in lobby data and
+  refuse mismatches client-side BEFORE connecting — a routine content republish
+  leaves the protocol version identical yet makes peers different builds.
+- **A host cannot discover its own lobby** — self-query exclusion holds even for
+  visible lobbies. An id-encoded-code fallback is structurally dead; only a
+  genuine second peer can verify lobby discoverability.
 
 ## Verification ladder
 
