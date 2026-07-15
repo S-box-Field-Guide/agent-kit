@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**155 / 527 gotchas articled** (29%). Pack-only: **168**. Backlog (status `none`): **204**.
+**161 / 538 gotchas articled** (30%). Pack-only: **174**. Backlog (status `none`): **203**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 68 | 29 | 19 | 20 | 43% |
 | rigging-animation | 29 | 20 | 3 | 6 | 69% |
-| writing-gameplay | 249 | 52 | 87 | 110 | 21% |
-| building-ui | 50 | 21 | 17 | 12 | 42% |
+| writing-gameplay | 251 | 52 | 89 | 110 | 21% |
+| building-ui | 51 | 21 | 18 | 12 | 41% |
 | audio | 11 | 5 | 5 | 1 | 45% |
-| making-it-perform | 7 | 1 | 3 | 3 | 14% |
-| tooling-environment | 113 | 27 | 34 | 52 | 24% |
-| **Total** | **527** | **155** | **168** | **204** | **29%** |
+| making-it-perform | 8 | 2 | 3 | 3 | 25% |
+| tooling-environment | 120 | 32 | 37 | 51 | 27% |
+| **Total** | **538** | **161** | **174** | **203** | **30%** |
 
 ## Articled gotchas (skip-list)
 
@@ -111,6 +111,7 @@
 | `g-game-trace-based-movement-trap-player-permanently` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
 | `g-game-whitespace-immediately-adjacent-tag-expressi` | [/fix/razor-whitespace-tag-boundary-collapse](https://sboxguide.dev/fix/razor-whitespace-tag-boundary-collapse) |
 | `g-perf-editor-embedded-play-mode-hard-capped` | [/fix/editor-play-mode-vsync-capped](https://sboxguide.dev/fix/editor-play-mode-vsync-capped) |
+| `g-perf-framestats-perfstats-whitelisted-from-game-code` | [/fix/framestats-perfstats-game-accessible](https://sboxguide.dev/fix/framestats-perfstats-game-accessible) |
 | `g-rig-animated-models-use-modelmodifier` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
 | `g-rig-animgraph-heavier-alternative-needed-cross-f` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
 | `g-rig-blend-duration-comes-vmdl-s-clip` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
@@ -136,22 +137,27 @@
 | `g-tool-deriving-visual-s-facing-horizontal-velocity` | [/fix/velocity-facing-pendulum-flip](https://sboxguide.dev/fix/velocity-facing-pendulum-flip) |
 | `g-tool-dotnet-build-warning-counts-lie-under` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-editor-compiler-crash-internally-nullreferen` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
+| `g-tool-editor-filesystem-ambiguous-sandbox-editor` | [/fix/editor-filesystem-ambiguity](https://sboxguide.dev/fix/editor-filesystem-ambiguity) |
 | `g-tool-engine-console-noise-normal` | [/fix/first-play-compile-checklist](https://sboxguide.dev/fix/first-play-compile-checklist) |
 | `g-tool-engine-ships-own-built-mcptool-s` | [/fix/engine-mcptool-source-reference](https://sboxguide.dev/fix/engine-mcptool-source-reference) |
 | `g-tool-everything-broke-once-during-agent-waves` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
 | `g-tool-facingyawoffset-mesh-facing-correction-swaps` | [/fix/facing-yaw-offset-axis-swap](https://sboxguide.dev/fix/facing-yaw-offset-axis-swap) |
 | `g-tool-fixing-source-asset-always-trigger-recompile` | [/fix/failed-asset-recompile-stale-cache](https://sboxguide.dev/fix/failed-asset-recompile-stale-cache) |
 | `g-tool-hotload-csharp-edits-apply` | [/fix/editor-hotload-expectations](https://sboxguide.dev/fix/editor-hotload-expectations) |
+| `g-tool-hotswap-stuck-green-compile-restart-only` | [/fix/hotload-stuck-stale-restart-required](https://sboxguide.dev/fix/hotload-stuck-stale-restart-required) |
 | `g-tool-kenney-s-own-nature-pack-drive` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
 | `g-tool-model-load-missing-vmdl-return-error` | [/fix/model-load-missing-returns-error-mesh](https://sboxguide.dev/fix/model-load-missing-returns-error-mesh) |
 | `g-tool-new-system-random-time-seeded-whitelisted` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-powershell-5-1-corrupts-utf-8` | [/fix/editing-razor-byte-safe](https://sboxguide.dev/fix/editing-razor-byte-safe) |
 | `g-tool-runtime-reflection-also-whitelist-banned` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-s-box-whitelist-enforced-editor-compiler` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
+| `g-tool-sbox-dedicated-server-local-sbproj` | [/fix/sbox-dedicated-server-local-project](https://sboxguide.dev/fix/sbox-dedicated-server-local-project) |
 | `g-tool-sbproj-org-valid-lowercase-package-ident` | [/fix/sbproj-title-ident-startup](https://sboxguide.dev/fix/sbproj-title-ident-startup) |
 | `g-tool-some-csharp-source-files-crlf` | [/fix/powershell-mojibake-utf8](https://sboxguide.dev/fix/powershell-mojibake-utf8) |
 | `g-tool-sounds-assets-compiled-after-session-started` | [/fix/custom-sound-wont-play](https://sboxguide.dev/fix/custom-sound-wont-play) |
+| `g-tool-stale-playmode-hotload-snapshot` | [/fix/stale-playmode-hotload-snapshot](https://sboxguide.dev/fix/stale-playmode-hotload-snapshot) |
 | `g-tool-stalled-steam-update-half-deletes-s` | [/fix/stalled-steam-update-recovery](https://sboxguide.dev/fix/stalled-steam-update-recovery) |
+| `g-tool-static-ctor-registry-stale-across-hotload` | [/fix/static-registry-stale-across-hotload](https://sboxguide.dev/fix/static-registry-stale-across-hotload) |
 | `g-tool-static-input-gates-leak-across-play` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-tool-static-registry-survives-play-restart-gate-on-live-objects` | [/fix/static-registry-survives-play-restart](https://sboxguide.dev/fix/static-registry-survives-play-restart) |
 | `g-tool-steam-update-s-box-engine-underneath` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
@@ -210,6 +216,7 @@
 - `g-game-altitude-driven-biome-gradients`
 - `g-game-arcade-raycast-car-stepped-voxel-terrain`
 - `g-game-autopilot-progress-metrics-state-gated`
+- `g-game-buried-lattice-veto-deadlock-forced-climb`
 - `g-game-candidate-selector-s-nearest-reach-fallback`
 - `g-game-cell-hash-dither-elevation-band-edges`
 - `g-game-cell-minimum-depth-gate-flood-filled`
@@ -265,6 +272,7 @@
 - `g-game-scaled-citizen-foot-slides-unless-feed`
 - `g-game-sea-level-slider-nothing-until-exceeds`
 - `g-game-shared-multi-agent-working-tree`
+- `g-game-shared-swingrope-balloon-string-tag-collision`
 - `g-game-size-step-up-step-down-glue`
 - `g-game-slide-slope-logic-stepped-coarse-collision`
 - `g-game-snap-ground-detach-air-slide-free`
@@ -317,7 +325,9 @@
 - `g-tool-free-penned-ai-widening-public-wander`
 - `g-tool-hysteresis-lives-consumer-stateless-predicat`
 - `g-tool-input-press-consumed-bottom-fixed-tick`
+- `g-tool-legacy-asset-move-compiled-payload-and-texture-closure`
 - `g-tool-nearest-best-pickers-need-honest-empty`
+- `g-tool-no-game-side-log-listener-onmessage-internal`
 - `g-tool-ported-cs-file-see-cref-to-dropped-type-cs1574`
 - `g-tool-publish-live-mutable-static-lists-frame`
 - `g-tool-pure-nearest-target-selection-re-grabs`
@@ -331,6 +341,7 @@
 - `g-tool-telemetry-boot-line-gated-behind-debug`
 - `g-tool-third-person-camera-occlusion-ease-asymmetri`
 - `g-tool-threshold-pair-event-detectors-die-smooth`
+- `g-tool-title-menu-static-gate-blocks-hud-mcp-capture`
 - `g-tool-visual-pin-hands-feet-world-feature`
 - `g-tool-windows-python3-store-alias`
 - `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet`
@@ -339,6 +350,7 @@
 - `g-ui-clipboard-settext-game-reachable-whitelist-clean`
 - `g-ui-css-keyframes-animation-supported`
 - `g-ui-defer-overlay-before-sync-blocking-call`
+- `g-ui-editor-assembly-needs-using-for-razor-ns`
 - `g-ui-editor-generated-csproj-gitignored`
 - `g-ui-loose-json-under-assets`
 - `g-ui-mouse-visible-true-obsolete`

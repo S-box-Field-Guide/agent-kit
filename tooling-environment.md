@@ -372,17 +372,31 @@
 - **Porting a `.cs` file into another s&box project with its doc comments intact: a
   `<see cref="TypeYouDidNotCopy"/>` in an XML `///` comment emits CS1574** ("XML comment
   has cref attribute that could not be resolved") — which quietly fails a "0 warnings"
-  acceptance gate even though the code is correct. Grep ported files for `cref=` and
-  strip or redirect references to types you didn't copy.
+  acceptance gate even though the code is correct. For a small port: grep for `cref=`
+  and strip or redirect references to types you didn't copy. For a LARGE vendored
+  slice you want to keep drift-diffable against upstream: prepend
+  `#pragma warning disable 1574` to each vendored file instead of scrubbing the
+  crefs — keeps bodies byte-identical to the source for drift-sync.
 - **The editor MCP `camera_screenshot {includeUi:true}` captures base HUD panel elements fine
   but DROPS a centered full-screen modal card** — even one on the same ScreenPanel. The
   backdrop's dim/blur composites (the scene visibly dims) but the card and all its children
   never appear. This is a render-pass artifact of the modal sub-layer, not layout. Workaround:
   bind the asset-under-test to an always-visible base HUD element (which does composite),
   screenshot that, then revert.
-- **The editor MCP `camera_screenshot {includeUi:true}` captures base HUD panel elements fine
-  but DROPS a centered full-screen modal card** — even one on the same ScreenPanel. The
-  backdrop's dim/blur composites (the scene visibly dims) but the card and all its children
-  never appear. This is a render-pass artifact of the modal sub-layer, not layout. Workaround:
-  bind the asset-under-test to an always-visible base HUD element (which does composite),
-  screenshot that, then revert.
+- **Game code cannot subscribe to the engine log stream — `Sandbox.Diagnostics.Logging` is
+  `internal`.** `Logging.OnMessage += handler` fails to compile (CS0234). Only
+  `MenuUtility.AddLogger` / `EditorUtility.AddLogger` are public (menu/editor realm, not game).
+  Workarounds: (1) derive events from observable side effects instead of log parsing; (2)
+  bracket runs with grep-able START/DONE markers and have the outer tool grep the console
+  between them.
+- **When the whole HUD is gated behind a static flag on a static class, an MCP test harness
+  that only pokes gameplay singletons can drive every gameplay verb yet capture ZERO HUD** —
+  the flag never flips, the `@if` renders nothing, and screenshots show only the start menu.
+  `set_component` reaches only component `[Property]` fields, never static class fields.
+  Fix: expose the gate as a `[Property]` on a component, or skip HUD capture for automated
+  runs and verify HUD separately.
+- **Moving legacy assets out of a publish payload with `git mv` alone leaves the shipped bytes
+  behind AND a source-only dependency closure misses shared textures.** Compiled artifacts
+  (`*_c`, `*.generated.*`) are git-ignored, so `git mv` only relocates sources. AND a
+  `.vmat`/`.vmdl`-only move misses shared `.vtex` files referenced by the material. Combine
+  the `git mv` with a `git rm` of the compiled artifacts and trace the full texture closure.

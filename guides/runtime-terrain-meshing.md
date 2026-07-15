@@ -2,7 +2,7 @@
 title: Runtime terrain meshing — chunked greedy voxel/heightfield terrain
 slug: runtime-terrain-meshing
 date: "2026-07-13"
-updated: "2026-07-13"
+updated: "2026-07-15"
 lanes:
   - writing-gameplay
   - making-it-perform
@@ -16,7 +16,7 @@ summary: >-
   grid as the single source of truth, chunked greedy meshing (tops + skirts),
   collision decoupled from render grain, palette-atlas UVs, and dirty-chunk
   remesh for a live terrain brush.
-sourceRev: methods/runtime-terrain-meshing.md
+sourceRev: a18fad046546
 relatedFixes:
   - runtime-world-building-helpers
   - sbox-units-are-inches
@@ -171,6 +171,42 @@ The payoff of grid-as-truth:
   level.
 - Test hook: a scripted-strokes McpTool returning dirty-chunk count + remesh ms +
   the full audit suite — see [/guides/agent-test-harness](/guides/agent-test-harness).
+
+## 8. Making generated terrain traversable (drivable / walkable)
+
+Un-tuned procedural output hard-stops a road car (walls/banks/terraces block it
+within metres) and can produce unwalkable cliffs. The conditioning recipe that
+keeps real rolling relief:
+
+1. **Condition the PRE-QUANTIZE float heightfield, not the mesh.** Transform the
+   float field before `QuantizeSteps` so render, collision, and content hash all
+   agree. Gate it behind an append-only spec field (default off = byte-identical
+   legacy worlds).
+2. **Slope cap: a Lipschitz LOWER-ENVELOPE min-cap, not symmetric relaxation.**
+   Sweep rows then columns forward+back capping
+   `h[i] <= h[nbr] + maxGrade * CellSize`, repeat to a fixpoint — a hard
+   no-slope-over-grade guarantee, erosion-only (cliffs become ramps, hills
+   untouched), deterministic. Symmetric "split the excess" relaxation converges
+   only asymptotically and leaves residual car-stopping faces after dozens of
+   iterations.
+3. **Curvature: smooth BEFORE the cap.** The grade cap does not bound curvature;
+   a long chassis beaches on a sharp in-grade crest. A few dozen 3x3 box-blur
+   passes round crests/pits.
+4. **Size the collision quantization to the VEHICLE.** Block-max collision risers
+   must stay under the car's ground clearance. Character-tuned defaults may
+   high-centre a vehicle on terrain whose render mesh looks fine.
+5. **Cap cruise speed or wheels tunnel.** Raycast wheels penetrate rising coarse
+   collision at speed and the car ends up under the surface.
+6. **Verify with a scripted roam + audits.** Waypoint ring, speed-governed; audit
+   hard-stops, flips, fall-throughs, NaNs, path odometer; hash the grid twice
+   per seed.
+
+**The same recipe makes terrain walkable-everywhere** — the Lipschitz
+lower-envelope cap is grade-agnostic. For a walkable consumer, use a tighter
+grade (e.g. maxGrade 0.08 = ~4.6 degrees), low amplitude, and broad terrain
+scale. Steps 4–5 (collision-quant-to-vehicle and speed-cap) can be dropped
+since they're car-only concerns; the character step tune is already sized to the
+coarse block. The pure conditioning pipeline is a stable reusable static lib.
 
 ## Build order (condensed)
 

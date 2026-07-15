@@ -250,3 +250,8 @@
   string (Assets-relative, no `assets/` prefix, `*` spans `/`): e.g. `"ui/cars/*.png"`. The
   wildcard matches the loose disk path, not the normalized asset path. Same mechanism as any
   other loose resource file — see the "Loose resource files don't auto-publish" article.
+- **Editor-assembly code referencing a razor component's member fails CS0103 even though
+  global-namespace game `.cs` types resolve fine** — the editor project has no
+  `global using <RazorNs>`. The game project's Assembly.cs papers over the razor namespace
+  split with `global using X;`, but the editor assembly doesn't import it. Fix: add the same
+  `global using` to the editor assembly, or fully-qualify razor types.

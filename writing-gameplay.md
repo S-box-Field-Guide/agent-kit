@@ -1134,3 +1134,17 @@
   frame.** Any branch on `IsActive` immediately after `CreateLobby` takes the wrong path.
   Gate on your own synchronous mode enum (set on the same frame). Also: a session-END path
   must un-possess the character (`ExitCharacter()`) to restore the pre-session view.
+
+- **Reusing one component type for a NEW object makes tag-based selectors unable to
+  distinguish them — add a discriminating tag, don't weaken the shared rule.** If two
+  different game objects share the same component type and tag set, a proximity scorer ranks
+  them identically. A slightly nearer wrong-type candidate steals the grab. Fix: at spawn,
+  add a distinguishing tag to the new variant and apply a small additive penalty in the
+  scorer for that tag. The penalty should be small enough that a clearly-nearest candidate
+  still wins.
+- **A penetration-containment rule that DEFERS to another system ("that's climbable, the
+  grapple owns it") deadlocks if the other system can't act in the deferring state.** A
+  mantle veto that declines because a climb lattice is nearby assumes the airborne grapple
+  will catch the body — but the grapple's own entry gates (intent, toward-dot, reach) reject
+  a body sunk below the node band. Fix: on a proven-wedge gate, try a FORCED rescue entry
+  that bypasses normal intent gates — the caller has already proven the body is trapped.
