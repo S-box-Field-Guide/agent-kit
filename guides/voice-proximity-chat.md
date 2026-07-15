@@ -2,7 +2,7 @@
 title: "Proximity voice chat — the built-in Sandbox.Voice component"
 slug: voice-proximity-chat
 date: "2026-07-14T20:30:00-04:00"
-updated: "2026-07-14T20:30:00-04:00"
+updated: "2026-07-15T00:24:00-04:00"
 lanes:
   - writing-gameplay
   - audio
@@ -16,7 +16,7 @@ summary: >-
   The complete method for wiring s&box's built-in Voice component into a
   networked game — push-to-talk, 3D positional playback, custom falloff curves,
   speaking indicators, and lip-sync — with no third-party voice SDK.
-sourceRev: methods/voice-proximity-chat.md
+sourceRev: e1f75bb3a8cd
 relatedFixes:
   - mp3-audio-format-wav-required
   - sound-event-is-plain-json
@@ -109,6 +109,8 @@ On a proxy, `voice.LastPlayed < holdSeconds` is a flicker-free "speaking" flag: 
 var voice = chr.Components.Get<Voice>();
 bool speaking = voice.IsValid() && voice.LastPlayed < 0.3f;
 ```
+
+**Anchor the tag off the networked transform, not an owner-only sim field.** A proxy (the only character you tag) never runs the owner's `OnFixedUpdate`, so any private position field written there (and not `[Sync]`) freezes at the proxy's spawn value while the replicated `GameObject.WorldPosition` carries the real player. Anchor the tag off a frozen field and it strands at spawn while the model walks away. Read the character's `WorldPosition` (the same interpolated source the parented visual renders from) — it also satisfies the read-interpolated-transforms rule. In a live two-peer session, a tag anchored to an unsynced owner field was observed hanging over the spawn area while the player model stood elsewhere; switching to `WorldPosition` fixed it immediately.
 
 For a Razor name-tag overlay, fold the flag into `BuildHash` so the DOM rebuilds only on a state change, not per frame. `Components.Get<Voice>()` returns null on a non-networked character, so `speaking = false` gives the correct solo behavior for free.
 

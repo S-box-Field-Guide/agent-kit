@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**149 / 522 gotchas articled** (29%). Pack-only: **166**. Backlog (status `none`): **207**.
+**155 / 527 gotchas articled** (29%). Pack-only: **166**. Backlog (status `none`): **206**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 68 | 29 | 19 | 20 | 43% |
 | rigging-animation | 29 | 20 | 3 | 6 | 69% |
-| writing-gameplay | 248 | 46 | 87 | 115 | 19% |
-| building-ui | 49 | 21 | 16 | 12 | 43% |
+| writing-gameplay | 249 | 52 | 87 | 110 | 21% |
+| building-ui | 50 | 21 | 16 | 13 | 42% |
 | audio | 11 | 5 | 5 | 1 | 45% |
 | making-it-perform | 7 | 1 | 3 | 3 | 14% |
-| tooling-environment | 110 | 27 | 33 | 50 | 25% |
-| **Total** | **522** | **149** | **166** | **207** | **29%** |
+| tooling-environment | 113 | 27 | 33 | 53 | 24% |
+| **Total** | **527** | **155** | **166** | **206** | **29%** |
 
 ## Articled gotchas (skip-list)
 
@@ -61,6 +61,7 @@
 | `g-game-buried-vertical-sink-hard-recover` | [/fix/buried-vertical-sink-hard-recover](https://sboxguide.dev/fix/buried-vertical-sink-hard-recover) |
 | `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sboxguide.dev/fix/white-noise-hash-terrain-shade) |
 | `g-game-component-active-real-inherited-member` | [/fix/component-active-naming-shadow](https://sboxguide.dev/fix/component-active-naming-shadow) |
+| `g-game-createlobby-async-gate-mode-not-isactive-and-unpossess-on-end` | [/fix/createlobby-async-gate-on-mode](https://sboxguide.dev/fix/createlobby-async-gate-on-mode) |
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
 | `g-game-dedicated-server-unpublished-package-join-fails` | [/fix/dedicated-server-unpublished-package-join-fails](https://sboxguide.dev/fix/dedicated-server-unpublished-package-join-fails) |
 | `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
@@ -69,11 +70,14 @@
 | `g-game-editor-viewport-auto-exposure-adapts-over` | [/fix/editor-auto-exposure-screenshot-diff](https://sboxguide.dev/fix/editor-auto-exposure-screenshot-diff) |
 | `g-game-first-person-hide-player-enumerate-every` | [/fix/first-person-hide-all-renderers](https://sboxguide.dev/fix/first-person-hide-all-renderers) |
 | `g-game-flat-decal-geometry-clear-surface-below` | [/fix/runtime-world-building-helpers](https://sboxguide.dev/fix/runtime-world-building-helpers) |
+| `g-game-fromhost-singleton-must-be-networkspawned-not-runtime-snapshot` | [/fix/fromhost-singleton-needs-networkspawn](https://sboxguide.dev/fix/fromhost-singleton-needs-networkspawn) |
 | `g-game-full-screen-hud-toasts-banners` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-game-gamepad-bumper-gamepadcode-strings-switchlef` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-greedy-voxel-mesher-colours-cliff-skirt` | [/fix/greedy-mesher-cliff-vertical-stripes](https://sboxguide.dev/fix/greedy-mesher-cliff-vertical-stripes) |
 | `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) |
+| `g-game-host-create-before-networkspawn-clobbers-instance` | [/fix/host-spawn-clobbers-camera-singleton](https://sboxguide.dev/fix/host-spawn-clobbers-camera-singleton) |
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
+| `g-game-join-statics-wiped-by-networked-scene-handoff` | [/fix/join-statics-wiped-scene-handoff](https://sboxguide.dev/fix/join-statics-wiped-scene-handoff) |
 | `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-manual-visual-smoother-fights-fixedupdate-interpolation` | [/fix/manual-visual-smoother-fights-interpolation](https://sboxguide.dev/fix/manual-visual-smoother-fights-interpolation) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
@@ -84,6 +88,8 @@
 | `g-game-orient-flat-decal-box-hit-normal` | [/fix/orient-decal-to-hit-normal](https://sboxguide.dev/fix/orient-decal-to-hit-normal) |
 | `g-game-perched-lakes-ignore-sea-level-drain-by-basin-gate` | [/fix/perched-lakes-ignore-sea-level-drain](https://sboxguide.dev/fix/perched-lakes-ignore-sea-level-drain) |
 | `g-game-prefer-runtime-world-building-over-giant` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
+| `g-game-proxy-overhead-ui-anchored-off-non-synced-owner-field-freezes` | [/fix/proxy-overhead-ui-frozen-at-spawn](https://sboxguide.dev/fix/proxy-overhead-ui-frozen-at-spawn) |
+| `g-game-published-join-assembly-reload-wipes-statics` | [/fix/published-join-assembly-reload](https://sboxguide.dev/fix/published-join-assembly-reload) |
 | `g-game-python-s-open-path-w-windows` | [/fix/powershell-mojibake-utf8](https://sboxguide.dev/fix/powershell-mojibake-utf8) |
 | `g-game-rigidbody-component-api` | [/fix/rigidbody-component-api](https://sboxguide.dev/fix/rigidbody-component-api) |
 | `g-game-rolling-slopes-idempotent-ground-snap-still` | [/fix/ground-snap-pops-on-rolling-slopes](https://sboxguide.dev/fix/ground-snap-pops-on-rolling-slopes) |
