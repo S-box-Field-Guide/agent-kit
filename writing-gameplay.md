@@ -358,16 +358,14 @@
  projects/engine builds: the 60-second empirical test is screenshot from above +
  screenshot from below (tops visible only from below = flipped), via set_editor_camera
  + editor_camera_screenshot.
-- **The editor MCP port is PER-EDITOR configurable (Editor Settings -> MCP Server page:
- Enabled checkbox + Port field) — with two editors open concurrently each project gets
- its OWN port, one port per project.** Current assignments: project_b=7269,
- project_a=7200. Before ANY mutating call, identity-probe the endpoint: editor_status
- must name the expected Project AND search_tools for a project-defined [McpTool] prefix
- (e.g. "wb_") must hit — the project name alone can go stale when owners reshuffle
- ports. If the settings page shows Enabled checked but "Not running", toggling the
- checkbox off/on restarts the listener. Owner-communication note: when an agent drives
- the loop, the editor window surfacing and the viewport camera jumping between poses is
- NORMAL harness behavior (set_editor_camera), not something remote-controlling the PC.
+- **The editor MCP port is ONE engine-global preference (`config/tools.json McpServerPort`),
+ last editor to set it wins, and the editor AUTO-INCREMENTS past a taken port.** With several
+ editors open every port is launch-order-dependent — don't pin fixed port numbers, DISCOVER
+ them dynamically and identity-probe. Before ANY mutating call, identity-probe the endpoint:
+ `editor_status` must name the expected Project AND `search_tools` for a project-defined
+ `[McpTool]` prefix must hit — the project name alone can go stale when owners reshuffle ports.
+ If the settings page (Editor Settings → MCP Server) shows Enabled checked but "Not running",
+ toggling the checkbox off/on restarts the listener.
 - **The s&box MCP tool registry is two-layered: `tools/list` exposes only ~7 entry-point
  tools (editor_status, read_console, search_tools, list_toolsets, describe_toolset,
  call_tool, call_tools); every real engine/project tool is invoked THROUGH `call_tool`
@@ -720,6 +718,11 @@
  sampling every N frames shows body≈visual (both integrate the same displacement); the honest metric is
  the max WALKING (teleport excluded) single-frame pop, which showed body 0.25 m → visual 0.05 m (~4.8×).
  Standing-still bodyZ range is the cleaner scalar proof (0.000 m = idempotent snap).
+ **SCOPE-LIMIT:** this manual smoother is ONLY valid where the character root is NOT engine-interpolated.
+ If `WorldPosition` is written in `OnFixedUpdate`, `FixedUpdateInterpolation` (default ON) already
+ smooths it — a second per-frame smoother computed from raw fixed-tick z DOUBLE-smooths and produces a
+ 50 Hz sawtooth that reads as model flicker on stepped terrain. Verify engine interpolation is
+ absent/disabled before using the manual smoother.
 - **A SCALED citizen foot-slides unless you feed the AnimGraph velocity ÷ scale.** `CitizenAnimationHelper`
  (the engine component — `WithVelocity`/`WithWishVelocity`/`WithLook`, `IsGrounded`, `TriggerJump`, set
  `.Target` to the SkinnedModelRenderer; the NpcWander pattern) picks the gait from the

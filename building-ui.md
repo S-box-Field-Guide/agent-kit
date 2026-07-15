@@ -230,3 +230,9 @@
   You must project through the active gameplay camera, not `Scene.Camera` (which
   resolves to a transient editor camera clone in play mode and mis-projects the label
   off-target).
+- **`overflow-y: scroll` on a razor flex-column panel still corrupts child layout even with
+  explicit min-height pins on every row.** Gap/height computation breaks: rows overlap and
+  trailing children vanish. The engine's own menu UI uses overflow-y scroll successfully, so
+  the property works in some contexts — but in a gap-spaced, scaled, absolute-column context
+  it is reproducibly broken. Design panels to GROW with content (explicit column height) instead
+  of scrolling.
