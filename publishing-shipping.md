@@ -109,6 +109,36 @@ Wiring these is cheap and makes a game look finished on the platform.
 - Practical implication: revenue tracks session hours, so retention features
   are literally the monetization features.
 
+### Enable Play Fund (package-page gate)
+
+The package page keeps **Enable Play Fund** disabled until every item below is
+green. Labels and helper text from the sbox.game dialog (confirmed 2026-07):
+
+1. **Released** — the package must be publicly Released before it can earn
+   money. Hidden/Unlisted/Private do not qualify.
+2. **Organization is at least a month old** — org age gate is **30 days**
+   from org creation ("Your organization needs to have been around for a
+   month before its packages can earn money.").
+3. **Played by enough people** — **50** players must have played the package
+   ("Enough people need to have played your package, so we know it works as
+   expected.").
+4. **Has a summary** — short one-line summary of what the package is.
+5. **Has a description** — full package description so players know what to
+   expect.
+6. **Has a thumbnail** — upload your own; the platform-generated placeholder
+   does not count.
+7. **Picked a category** — choose at least one category so players can find
+   the package.
+8. **Added some tags** — tag for search discovery; more varied is better.
+9. **At least 2 screenshots** — show the package off with a couple of
+   screenshots.
+10. **Has a video** — upload a video so players can see the package in action
+    before they play.
+
+Items 4–10 overlap the store-page quality metric above. Play Fund
+additionally requires Released + 30-day org age + 50 players before the
+button unlocks.
+
 ## Standalone Steam export (status as of 2026-07)
 
 - Since the March 2026 Facepunch–Valve license, s&box games can export as
