@@ -2,7 +2,7 @@
 title: Parkour movement — the trace-mover traversal kit
 slug: parkour-movement
 date: "2026-07-13"
-updated: "2026-07-15T00:24:00-04:00"
+updated: "2026-07-16T02:31:00-04:00"
 lanes:
   - writing-gameplay
 tags:
@@ -133,6 +133,57 @@ would shove the grip skyward).
 wrapper and put the ModelCollider on a WorldScale-1 GO. Fit at `OnStart` —
 sibling colliders must already exist ("resolve against reality after all
 builders run").
+
+### Terrain cliff lattices and the run-at-wall engagement map
+
+On generated voxel terrain the lattices are DERIVED from the collision block grid
+(block-max heightfield, qualifying face drops, greedy merge into planar fields).
+Always use the COLLISION grid, never the render mesh. Two structural facts decide
+whether "run at a wall, climb" works at all:
+
+- **Coverage: diagonal edges decompose into single-block faces.** A min-width
+  accident filter culls them all (77% of qualifying faces on one real world) -- so
+  the lattice holes sit exactly at corners and stair-stepped edges, where players
+  run in. Accept single-block faces that continue diagonally as their own micro
+  patches, in a SEPARATE hashed list so downstream placement/scoring stays
+  byte-identical.
+- **Engagement: terrain collision is top-quads-only, so a riser taller than the
+  capsule is laterally INTANGIBLE** -- a grounded run never produces the blocked
+  forward trace that ground hand-off triggers key on. The full engagement map is
+  therefore FOUR paths, each owning one approach: **ground hand-off** (sub-capsule
+  rim contact, grab the base node), **airborne grapple** (genuine air approach),
+  a **buried-watchdog grab** (sustained centre-burial + node face-normal opposing
+  the proven entry direction, forced climb entry) for latticed faces, and a
+  **buried run-in mantle** for sub-lattice risers (same burial+entry-direction
+  proof, immediate mantle). Miss the third and a run at any tall latticed face is
+  an eject ping-pong; miss the fourth and every knee-to-chest riser is one.
+- **The buried grab/mantle needs a VERTICAL intent gate, not a directional one.**
+  Running OFF a ledge lip gets the SAME horizontal direction as running INTO a
+  wall. The discriminator is vertical: run INTO a wall and the face TOP is ABOVE
+  your feet; run OFF a lip and the face TOP is AT/BELOW your feet. Gate the buried
+  grab on the field's top node standing above a small rise threshold.
+- **Walk-vs-mantle: the step-up CHAIN budget, not the single-step ceiling.**
+  Procedural terraces sized against `StepUpMaxHeight` (single lift) can still
+  mantle-per-tier because the step-up CHAIN is gated by a cumulative-rise budget +
+  flat-stride reset. The walk-up contract is `tierRise <= StepUpCumulativeBudget`
+  AND `tread >= StepUpFlatReset`.
+- **Animate the mantle as a driven transit, never a WorldPosition snap.** A
+  one-tick snap teleports (the chase cam follows position per-frame) and clips
+  terrain corners. Drive start to landing over ~0.28 s ease-out, z LEADING xy
+  (clear the lip first), physics/clamp suspended during transit.
+- **The escape-valve chain traps:** a stale-data guard at the top of the chain
+  must not disable valves that never consume that data; a "can I stand here?"
+  headroom check must be a thin centre ray on heightfield terrain (not a
+  body-radius sphere that clips adjacent terrace steps); and any rise/height cap
+  tuned to a terrain's nominal feature size needs a quantization slack (+one
+  epsilon), or the exact class it was tuned to admit refuses.
+- **The player contract: anything that can body-block me is climbable.** A face
+  with no lattice that body-blocks a player can only eject/rubber-band them --
+  reads as "invisible wall." Culled qualifying faces get RESCUE lattices emitted
+  into a separate list, so the legibility rule keeps its level-design job while
+  climbability becomes universal. Any face that stays unclimbable must be a
+  visually distinct CLASS (waterline, road cuts), never a per-face material
+  lottery.
 
 ## Rope/bar swinging
 

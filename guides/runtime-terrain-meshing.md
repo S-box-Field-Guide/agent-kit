@@ -2,7 +2,7 @@
 title: Runtime terrain meshing — chunked greedy voxel/heightfield terrain
 slug: runtime-terrain-meshing
 date: "2026-07-13"
-updated: "2026-07-15"
+updated: "2026-07-16T02:31:00-04:00"
 lanes:
   - writing-gameplay
   - making-it-perform
@@ -130,6 +130,25 @@ One draw call per chunk, crisp flat pixel color:
   a hard line.
 - Regenerated atlas PNGs need an editor kick to recompile.
 
+### Reskinning a vendored atlas to a project palette
+
+When you **vendor** another project's mesher, its general-biome atlas often reads
+wrong for your art direction. The whole recolor is a **render-side remap** -- you
+never touch the vendored code:
+
+1. **The PNG is the color source, not the C# array.** The mesher points a constant
+   per-face UV at a cell center in the atlas PNG; the C# color array is only for
+   UI (minimap/legend). A LowPoly consumer recolors purely by regenerating the PNG.
+2. **Regenerate a project-owned atlas matching the vendored cell layout.** Replicate
+   `CellCenterUv`'s geometry exactly: `col = cell % Cols`, `row = cell / Cols`,
+   center sampled at `((col+0.5)/Cols, (row+0.5)/Rows)`. Fill each cell as a solid
+   block; the constant-UV trick samples the dead center, so any cell size works
+   with zero mip bleed.
+3. **Point `Material.Load` at the project atlas**, keeping the vendored one as a
+   `??` fallback so a missing asset degrades to the old look, not magenta.
+4. **Determinism is free:** the grid's per-cell material **byte** is unchanged --
+   only the color it maps to changes -- so the WorldHash is byte-identical.
+
 ## 5. Chunk lifecycle and the stale-root class of bug
 
 - One GameObject per chunk under **one world root**; rebuild = tear down the old
@@ -144,6 +163,25 @@ One draw call per chunk, crisp flat pixel color:
 - Budget habit: log a census line (`chunks / tris / ms`) on every rebuild; keep a
   tri budget audit. Cell-count/regen-time binds before raw render tris.
 
+### Sizing a bigger world: cost is cell-count-bound, so CellSize is free area
+
+The load-bearing sizing law: **render/collision tri counts and generation time
+scale with `WorldSize` squared (the cell count) and are INDEPENDENT of `CellSize`.**
+Render tris = `2 * (WorldSize/decimation)^2`, collision =
+`2 * (WorldSize/CollisionBlockCells)^2`, gen time is approximately O(WorldSize
+squared) at fixed pass counts. `CellSize` only scales the physical FOOTPRINT
+(`WorldSize * CellSize` metres). So the cheapest way to make a world BIGGER is a
+**coarser CellSize at the same cell count** -- pure free area, zero tri/gen cost.
+The one cost is the **facet size = `CellSize * decimation`** (the low-poly grain),
+which grows with CellSize.
+
+The real ceiling on this lever is the **facet size you can visually tolerate**, not
+performance. Pull CellSize first (free area), then raise WorldSize toward the
+proven ceiling, and keep decimation at 2 (dropping to 1 quadruples tris). Gen time
+scales by the cell-count ratio and is the felt cost (a one-time boot stall).
+
+**Changing WorldSize or CellSize changes the WorldHash** -- re-bless it.
+
 ## 6. Determinism (the correctness contract)
 
 The grid must be a pure function of the spec: **no `System.Random` in the gen
@@ -155,6 +193,20 @@ That hash is what makes regression testing, save-as-delta
 [spec-replication networking](/guides/networking-methods) possible.
 
 Clear any static per-gen capture at the top of every generation.
+
+### Re-blessing the WorldHash offline (no engine needed)
+
+Because the grid hash is process-independent by design (the MP contract -- two
+peers on different machines MUST agree), you can compute the exact live hash in a
+plain console app: copy the PURE gen slice into a harness, shim the handful of
+engine types (`Color`/`Color32`/`Vector`/`Log`) -- they never feed the hashed
+arrays -- and run `BuildGrid -> Hash.Compute` twice. Two guards make the offline
+value trustworthy as a BLESSING, not a guess: (1) determinism -- the two runs are
+byte-identical; (2) **ACID validation** -- the SAME harness must reproduce a KNOWN
+live hash of the OLD spec exactly; once it does, it reproduces them all. So a
+config change's new hash lands in the same commit as the change, no live
+round-trip. Reproducing two known hashes (double-ACID) is strictly stronger and
+cheap.
 
 ## 7. Live editing: dirty-chunk remesh (the brush)
 
@@ -201,12 +253,89 @@ keeps real rolling relief:
    hard-stops, flips, fall-throughs, NaNs, path odometer; hash the grid twice
    per seed.
 
-**The same recipe makes terrain walkable-everywhere** — the Lipschitz
-lower-envelope cap is grade-agnostic. For a walkable consumer, use a tighter
-grade (e.g. maxGrade 0.08 = ~4.6 degrees), low amplitude, and broad terrain
-scale. Steps 4–5 (collision-quant-to-vehicle and speed-cap) can be dropped
-since they're car-only concerns; the character step tune is already sized to the
-coarse block. The pure conditioning pipeline is a stable reusable static lib.
+**The same recipe makes terrain walkable-everywhere** -- the Lipschitz
+lower-envelope cap is grade-agnostic. For a walkable consumer, steps 4-5
+(collision-quant-to-vehicle and speed-cap) can be dropped since they're car-only
+concerns; the character step tune is already sized to the coarse block. The pure
+conditioning pipeline is a stable reusable static lib.
+
+7. **The slope cap -- NOT the amplitude -- bounds the relief the camera sees.**
+   On a bounded world a low grade cap clips amplitude away -- a landform of
+   half-wavelength L can rise at most approximately `cap * L / pi` before the cap
+   erodes it. RAISING amplitude alone does nothing; you must **raise the cap and
+   lengthen the wavelength together** (a taller permitted amplitude at the same max
+   steepness), then set amplitude to fill it. Expose amplitude/wavelength/
+   ruggedness/grade-cap as **named constants** and gate the target on a
+   **relief-span probe** (min/max heightfield height), because `maxSlope` alone
+   pins to the cap regardless of how flat or tall the world reads. Changing any
+   relief constant **changes the WorldHash** -- re-bless it.
+
+## 9. Hydrology on a slope-capped world (coastline + river)
+
+Adding water to a slope-capped terrain surface:
+
+1. **Coastline is post-quantize.** The coast is a SEA LEVEL threshold applied AFTER
+   `QuantizeSteps` + slope conditioning. A cell with a step below `seaLevel` gets
+   `CellFlags.Sea` + a water surface step; the mesher skips tops below sea for
+   render (the ocean covers them) but collision still uses the block-max so
+   underwater blocks are walkable/driveable.
+2. **The flat world edge floods back.** The slope cap flattens the outer world to
+   the lowest amplitude; if sea level is above that flat, the coast wraps the WHOLE
+   map edge. Size amplitude + wavelength so the highest ridge stays above sea level
+   across the world's footprint.
+3. **Rivers and lakes use the same proven carve algorithm** -- a momentum walk +
+   monotonic floor/surface terrace + upstream chain. Sub-cell-width rivers are
+   invisible on coarse grain: own the width constants at your cell scale.
+4. **Curate seeds with an OFFLINE grid search.** The offline harness measures
+   sea/river/lake cell counts, shoreline length, river-reaches-sea connectivity,
+   start-cell dryness/flatness, then scores with hard gates plus preference terms
+   and renders a downsampled preview PNG for the eyeball pass. Parallelize over
+   seeds (each build is pure/independent).
+5. **"Dry start" needs a dry FOOTPRINT, not a dry cell.** After adding a coast +
+   lakes, the flattest cells ARE the flat shelf -- so a "flattest cell, reject
+   water" picker snaps the start onto the shoreline. Fix: a dry-FOOTPRINT
+   predicate (whole footprint dry land AND above sea level), search flattest among
+   qualifying cells with a deterministic widening fallback.
+
+## 10. A routed road between gameplay POIs (post-hash carve, zero-GO material band)
+
+Connecting two gameplay sites with a routed road:
+
+1. **Injected endpoints, NOT the vendored node-picker.** A game that must connect
+   specific fixed sites passes the endpoints in, orders them with nearest-neighbour
+   chain, and A-stars each consecutive edge.
+2. **Run it POST-HASH (cosmetic-over-fixed-geometry).** The endpoints are gameplay
+   sites picked *after* the pure grid exists, and the road is a pure function of
+   the seed. Run it in the consumer after `WorldHash.Compute` -- both MP peers
+   carve the identical road on the identical grid. The general rule: *any
+   seed-derived scene content keyed on post-pure-grid gameplay sites belongs
+   post-hash, not in the hashed pipeline.*
+3. **Render as a MATERIAL BAND in the existing mesh -- ZERO GOs, ZERO tris.** Paint
+   the corridor cells a road strata via a cell flag and they draw through the same
+   one-chunk-one-draw-call atlas. A chunk that gains road cells is still one draw
+   call -- the road adds exactly zero GameObjects and zero triangles.
+
+## Consuming generated terrain in a flat-z0 game (the ground-service seam)
+
+Making a game that assumed a flat z=0 world stand up on generated terrain:
+
+- **One ground-height service with a degenerate classic path.** A single static
+  `HeightAt(x,y)` that returns **0 everywhere in the flat world** and the terrain
+  height in the generated world. Every consumer (prop spawn, player movement,
+  cursor projection, save load) routes through it -- one terrain-agnostic code
+  path, no per-scene branches.
+- **Kinematic consumers sample the CONTINUOUS analytic heightfield, NOT the
+  collision mesh.** The faceted render/collision mesh differs by up to one step;
+  sampling it makes the player stair-step and desyncs cursor-vs-prop.
+- **The ground datum is a LARGE global offset.** A walkable consumer's jump height,
+  fence-clear threshold, and wall-trace start must stay *relative to local ground*
+  -- never an absolute z threshold.
+- **Save the (seed, spec), DERIVE z on load.** Persist `(worldMode, seed,
+  specVersion)`, not geometry; regenerate the byte-identical world from the seed
+  and re-derive every placed entity's z from `HeightAt(x,y)` at spawn.
+- **Reset the service on every boot.** The service is a process-wide static; a
+  scene that plays the flat world after the generated one must call `SetClassic()`
+  in its bootstrap, or the stale Generated mode leaks across the play session.
 
 ## Build order (condensed)
 

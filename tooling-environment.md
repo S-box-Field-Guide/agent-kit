@@ -399,4 +399,23 @@
   behind AND a source-only dependency closure misses shared textures.** Compiled artifacts
   (`*_c`, `*.generated.*`) are git-ignored, so `git mv` only relocates sources. AND a
   `.vmat`/`.vmdl`-only move misses shared `.vtex` files referenced by the material. Combine
-  the `git mv` with a `git rm` of the compiled artifacts and trace the full texture closure.
+  the `git mv` with a `git rm` of the compiled artifacts and trace the full texture closure.- **The editor serializes its STALE in-memory `.sbproj` on any settings/wizard save, reverting
+  on-disk hand-edits.** A `Resources` glob added by editing the file while the editor was open
+  gets dropped without warning when the publish wizard runs. After any editor settings interaction,
+  re-read the sbproj on disk and restore hand-edits (`git diff -- *.sbproj`). The publish wizard
+  also PACKAGES from the stale in-memory copy — an editor restart (or editing through the Project
+  Settings UI) is the only fix.
+- **`editor_camera_screenshot` renders the EDITOR viewport (the edit scene), NOT the running play
+  scene.** Anything that exists only at runtime (procedurally generated terrain, play-mode-spawned
+  objects) is invisible to it. Capture the play scene with the `scene` toolset's
+  `camera_screenshot` instead (arg = a CameraComponent/GameObject id, or omit for the scene's
+  main camera).
+- **A newly added Component type can be compiled-but-not-yet-registered in the TypeLibrary
+  right after the editor loads the assembly.** `compile_status` is green but playing a scene that
+  references it logs `TypeLibrary could not find <Type>` and silently skips the component (its
+  `OnStart` never runs). Resolves on its own after a short window. Gate: re-query
+  `get_component_type` before concluding the component is broken; if it now resolves, reboot play.
+- **The editor MCP resolves only ONE component per GameObject.** `set_component {type}` fails on
+  any secondary component with `has no <Type> component`. Workaround: drive behavior through the
+  component you CAN reach, or put the thing you need to script on its own single-component
+  GameObject.

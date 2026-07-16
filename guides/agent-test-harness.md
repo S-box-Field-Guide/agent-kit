@@ -2,7 +2,7 @@
 title: Agent test harness — MCP-driven in-editor playtest automation
 slug: agent-test-harness
 date: "2026-07-13"
-updated: "2026-07-13"
+updated: "2026-07-16T02:31:00-04:00"
 lanes:
   - tooling-environment
   - ai-assisted-workflow
@@ -237,6 +237,38 @@ generation/physics, run scenarios inside a normal Play session:
   items, not silent holes.
 - Whitelist-safe by construction: no reflection, no `System.IO`, engine
   `Time`-driven, deterministic variation only.
+
+## 11. The seeded stress-roam lane (bug generator, not regression gate)
+
+When scripted point-repros keep passing while players still get stuck "somewhere
+out there", add a **hyperactive-player emulation lane** — a seeded autonomous
+roamer that exercises the world surface at scale:
+
+- **Seeded and replayable, never random**: every decision (route order, jump
+  cadence, reversal rolls) hashes from `(runSeed, decisionIndex, streamSalt)` — a
+  failure's seed IS its repro, and every log line carries the seed. Expect physics
+  drift between replays: the same seed re-finds the same *classes* at the same
+  *geometry*, not the identical timeline — anchor triage on positions, not
+  timestamps.
+- **Bias the route toward features, not open ground**: sample targets from the
+  world data the placers already expose (cliff faces, tree bases, water-margin
+  blocks, drop-off lips), and alternate engagement modes per target (run-at-wall vs
+  jump-at-wall) so every code path gets exercised.
+- **Derive failure markers from observable state** (position, velocity, state enum)
+  — observable re-derivation is whitelisted-safe and removes telemetry coupling.
+  Patterns: position-freeze window, back-snap-against-input clustering (eject
+  loops), below-surface at own XY AND below last-grounded z (sustained burial),
+  climb-that-never-exits.
+- **Events recover-and-continue** (teleport to the next target + detection-free
+  grace) so one bad spot yields one event instead of wedging the whole run; cap
+  events per run.
+- **Calibrate detectors against the engine's own containment**: transient conditions
+  the engine resolves within its containment window (e.g. a 4-tick eject) need a
+  persistence gate, and states the driver deliberately parks in (pressing up at a
+  climb-top latch) must be excluded from generic freeze watchdogs and owned by a
+  state-specific detector.
+- A run counts as signal when it surfaces a NEW event class or verifies a fix; stop
+  the loop when consecutive fresh seeds yield only known-parked classes.
 
 ## Operational checklist
 

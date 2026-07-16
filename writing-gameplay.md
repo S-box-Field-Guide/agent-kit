@@ -1148,3 +1148,9 @@
   will catch the body — but the grapple's own entry gates (intent, toward-dot, reach) reject
   a body sunk below the node band. Fix: on a proven-wedge gate, try a FORCED rescue entry
   that bypasses normal intent gates — the caller has already proven the body is trapped.
+- **Pointing a dedicated server at a published-style ident that is not actually published yet
+  boots the engine, connects, then fails with `Unable to download package` — and the server does
+  NOT self-exit, it lingers holding the process.** Distinct from the client-side join wall where a
+  LOCAL `.sbproj` host + joining client dies on `Package wasn't found!`. Kill the server with a
+  timed launch + kill-by-PID pattern. Expected to resolve once the package is actually published
+  (Hidden should be sufficient).

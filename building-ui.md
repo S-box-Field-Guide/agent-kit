@@ -255,3 +255,8 @@
   `global using <RazorNs>`. The game project's Assembly.cs papers over the razor namespace
   split with `global using X;`, but the editor assembly doesn't import it. Fix: add the same
   `global using` to the editor assembly, or fully-qualify razor types.
+- **`repeating-linear-gradient(...)` in razor SCSS renders nothing and logs `Unknown Image Type`
+  to the console on EVERY render of that element (per-frame spam while visible).** Same root as
+  `radial-gradient` unsupported: s&box's `background-image` supports only plain
+  `linear-gradient( to <dir>, <stops> )`, not `repeating-`, radial, or conic variants. Emulate
+  with a fixed-stop `linear-gradient` listing hard stops explicitly.
