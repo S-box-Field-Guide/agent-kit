@@ -260,3 +260,7 @@
   `radial-gradient` unsupported: s&box's `background-image` supports only plain
   `linear-gradient( to <dir>, <stops> )`, not `repeating-`, radial, or conic variants. Emulate
   with a fixed-stop `linear-gradient` listing hard stops explicitly.
+- **`border-style: solid` is a parse error in s&box SCSS** -- and it aborts the WHOLE
+  stylesheet, collapsing the panel to zero size (invisible). There is no `border-style`
+  property; borders are always solid. Use `border-width` + `border-color` (or the `border`
+  shorthand). `dotnet build` won't catch it -- only the in-editor console shows the error.

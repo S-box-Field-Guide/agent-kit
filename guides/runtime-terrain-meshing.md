@@ -2,7 +2,7 @@
 title: Runtime terrain meshing — chunked greedy voxel/heightfield terrain
 slug: runtime-terrain-meshing
 date: "2026-07-13"
-updated: "2026-07-16T02:31:00-04:00"
+updated: "2026-07-16T17:00:00-04:00"
 lanes:
   - writing-gameplay
   - making-it-perform
@@ -117,6 +117,17 @@ Consequences: characters/vehicles ride the coarse surface, not the visual
 terraces; anything that needs the *climbable* surface must read the collision
 grid, not the render mesh. Empty chunks must not emit zero-length buffers.
 
+**The render-to-collision gap has a KNOWN sign and bound when the render
+surface is continuous** (smooth/LowPoly, not the per-cell voxel step). On a
+local MAXIMUM the block-max collapses to the peak cell's FLOOR, so the render
+surface sits ABOVE collision by `frac(peakHeight)` (up to one StepHeight) --
+visual character BURIAL on crest/plateau tops. On SLOPES the block-max rides
+above the render so the body FLOATS. Remedy without touching physics: raise
+the rendered body child by `max(0, render - collision)` at the feet XY when
+grounded -- visual-only, proxy-safe (each peer computes its own),
+smooth-render-only (Voxel has no burial: its render top is the per-cell step
+<= block-max).
+
 ## 4. One material, palette atlas, constant per-face UV
 
 One draw call per chunk, crisp flat pixel color:
@@ -223,6 +234,16 @@ The payoff of grid-as-truth:
   level.
 - Test hook: a scripted-strokes McpTool returning dirty-chunk count + remesh ms +
   the full audit suite — see [/guides/agent-test-harness](/guides/agent-test-harness).
+- **Aim the interactive brush at the GRID, not at the colliders you rebuild.**
+  The in-place remesh swaps each dirty chunk's `ModelCollider.Model`, which
+  rebuilds that collider's physics body -- so a `Scene.Trace.Ray` cursor aimed
+  at those chunks intermittently misses on the frames the body is rebuilding,
+  degrading a hold-to-paint stroke to click-click-click. Target instead by
+  marching the camera ray against the heightfield (grid-as-truth is read-only
+  and physics-independent, so it's immune to the rebuild window and works in
+  edit mode where there are no play colliders). Apply the metres-to-units
+  conversion only at cursor emission. Watch the march bound: a ray parallel to
+  both footprint axes leaves the slab exit unbounded -- clamp it.
 
 ## 8. Making generated terrain traversable (drivable / walkable)
 
@@ -296,6 +317,22 @@ Adding water to a slope-capped terrain surface:
    water" picker snaps the start onto the shoreline. Fix: a dry-FOOTPRINT
    predicate (whole footprint dry land AND above sea level), search flattest among
    qualifying cells with a deterministic widening fallback.
+6. **Pipeline order helps but does NOT guarantee every river reaches the sea.**
+   The river carve walks steepest-descent on the pre-lake-pass field, so a
+   river that walks into an interior depression stalls and the later lake pass
+   floods it into a landlocked lake. Detect with a **rim flood** (flood through
+   all water starting from the map rim -- on an island the rim IS the ocean; a
+   river-flagged water cell not reached is stranded). Fix with a post-hash
+   **breach**: label each stranded river body, bottleneck-Dijkstra the lowest
+   saddle (lexicographic max-ground-crossed then path-length, so the breach is
+   the shallowest cut) to the nearest sea, and carve a mature-width channel
+   with a descending water surface (body spill level down to sea level). For a
+   stranded mouth pool (already at sea level) the breach runs flat through the
+   berm. Run it post-hash like the road: a pure fn of the grid ensures
+   multiplayer peers agree, and gate it so it fires only for stranded rivers
+   (healthy seeds are byte-identical no-ops). Cap the breach depth so a deeply
+   enclosed lake doesn't get a slot-canyon -- past the cap, leave it feeding
+   its lake.
 
 ## 10. A routed road between gameplay POIs (post-hash carve, zero-GO material band)
 

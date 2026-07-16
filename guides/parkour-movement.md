@@ -2,7 +2,7 @@
 title: Parkour movement — the trace-mover traversal kit
 slug: parkour-movement
 date: "2026-07-13"
-updated: "2026-07-16T02:31:00-04:00"
+updated: "2026-07-16T17:00:00-04:00"
 lanes:
   - writing-gameplay
 tags:
@@ -171,6 +171,25 @@ whether "run at a wall, climb" works at all:
   one-tick snap teleports (the chase cam follows position per-frame) and clips
   terrain corners. Drive start to landing over ~0.28 s ease-out, z LEADING xy
   (clear the lip first), physics/clamp suspended during transit.
+- **A mantle-exit "carry" must live in the AIR, or the grounded wish-servo
+  erases it before the player perceives it.** The standard ground tick
+  (`MoveTowards(horiz, wish*topSpeed, accel*dt)`) has no momentum concept: an
+  applied 7.3 m/s crest-exit that grounds ~0.4 s later is clamped to the wish
+  target (walk speed, or zero) within ~7 ticks -- physically real, perceptually
+  nonexistent, and green at every boundary measurement. The fix: a real
+  ballistic hop at the crest with enough UP (~3.5 m/s, ~0.71 s airtime) that
+  propulsion happens airborne where nothing eats it, fired WITH the launch
+  presentation (synced launch-counter pulse + jump anim) at transit arrival so
+  it reads as a jump, plus a capped aim bias toward the nearest climbable in
+  the travel cone (with flat-cap fields excluded by a height bar). Mid-stack
+  the ascent chains the same way: "next riser ahead" hops AT the nearest
+  in-cone blocker node at banked speed, and the catch is the buried-runin
+  rescue (not the steer grapple -- its post-exit cooldown can't catch a 1 m gap
+  at run speed). Two more laws from the same pass: an auto-assist that reuses a
+  player-action pulse (LaunchCount for the jump visual) must be filtered out of
+  score detectors keyed on that pulse, or routine traversal farms points; and
+  the measurement law -- per-tick trail for ~1 s after the exit (keep it behind
+  a convar), never just boundary reads.
 - **The escape-valve chain traps:** a stale-data guard at the top of the chain
   must not disable valves that never consume that data; a "can I stand here?"
   headroom check must be a thin centre ray on heightfield terrain (not a

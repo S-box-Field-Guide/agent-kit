@@ -1154,3 +1154,16 @@
   LOCAL `.sbproj` host + joining client dies on `Package wasn't found!`. Kill the server with a
   timed launch + kill-by-PID pattern. Expected to resolve once the package is actually published
   (Hidden should be sufficient).
+- **A zero-radius `Scene.Trace.Ray` slips through coarse voxel `ModelCollider`s and returns
+  `Hit=false`.** The physics line-vs-trimesh raycast misses degenerate greedy-mesh seams. Fix:
+  sweep a thin sphere (`.Radius(0.1f * M)`) on any trace against runtime mesh colliders.
+- **A grounded wish-speed servo (`MoveTowards`) silently destroys any applied velocity within
+  a few ticks of ground contact.** A mantle carry / knockback that touches down is clamped to
+  the wish target before the player perceives it. Fix: give the effect enough airtime (ballistic
+  hop) so propulsion lives where the servo can't reach.
+- **In a trace-swept NPC steer loop, "wall ahead, hold position" is a permanent freeze when the
+  desired direction is constant.** The same trace hits the same wall every frame. Fix: project
+  the step onto the wall plane and sweep the slide direction; hold only on a dead-on hit.
+- **Absolute-altitude biome thresholds break when height amplitude changes.** Scale every climate
+  altitude by `max(amp, refAmp)/refAmp`; clamp k >= 1 to prevent snow-on-mesa fraction bugs;
+  leave sea-relative dials unscaled.

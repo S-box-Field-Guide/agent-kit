@@ -258,3 +258,7 @@
   ModelDocCompiler warning is the proof — read_console returns the whole buffer, so an
   old `.L` warning lingers and must be dated to be dismissed). Same `.`-is-illegal-in-a-
   bone-name family as the material `.001`-dedup gotcha.
+- **The stock citizen animgraph ships combat params (`b_attack`, `holdtype_attack`,
+  `special_movement_states`) that `CitizenAnimationHelper` does NOT wrap.** Drive them with
+  `renderer.Set(...)` by name. They are NOT networked -- replicate persistent state via
+  `[Sync]` fields and fire triggers via `[Rpc.Broadcast]`.

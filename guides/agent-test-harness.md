@@ -2,7 +2,7 @@
 title: Agent test harness — MCP-driven in-editor playtest automation
 slug: agent-test-harness
 date: "2026-07-13"
-updated: "2026-07-16T02:31:00-04:00"
+updated: "2026-07-16T17:00:00-04:00"
 lanes:
   - tooling-environment
   - ai-assisted-workflow
@@ -207,6 +207,17 @@ Traps: see [first-play-compile-checklist](first-play-compile-checklist),
   frozen clone — check `editor_status.IsPlaying`, `play_stop` first.
 - Edit-mode physics for runtime-built colliders is not reliably queryable —
   trust screenshots and play mode over edit-mode `scene_trace`.
+- **A DATA gate cannot see a RENDER bug.** Any visual feature needs a
+  screenshot A/B with a pixel-diff as its OWN acceptance step, distinct from
+  the metric gate. "The hash is right" does not mean "it looks right." When
+  building the visual A/B: (1) capture pristine and changed at the SAME camera
+  and actor pose -- for a pinned/staged actor that means mid-hold (start the
+  run non-blocking, sleep into the hold); (2) set the editor camera BEFORE the
+  run -- a mid-run `set_editor_camera` loses to the game camera; (3) the
+  cleanest matched pair is change-then-shot, repair/reset in place, then shot
+  again so only the feature differs. Add a permanent per-object
+  "did-it-actually-change" counter at the deform site so an invisible change
+  self-announces without a screenshot at all.
 
 ## 9. Feel-as-metrics (the maneuver-battery specialization)
 
@@ -221,6 +232,32 @@ Traps: see [first-play-compile-checklist](first-play-compile-checklist),
 - The loop: edit dials → compile gate → run battery → diff metrics vs bands AND
   vs last run → adjust. Owner sign-off = battery green ×N consecutive; owner
   feedback re-enters as **adjusted bands with a reason**, never silently ignored.
+
+**Closed-loop maneuvers are marginally stable -- treat them differently from
+open-loop ones.** A maneuver whose pilot is a feedback controller (a
+position-locked pure-pursuit weave, a yaw-settle J-turn) can sit near its
+stability boundary on grip-marginal configurations:
+
+- **Determinism is per-attractor, not global.** Open-loop maneuvers (launch,
+  brake, topspeed) are byte-identical run to run. A marginal closed-loop one
+  has a first-run warmup perturbation from inherited state, then converges to
+  the clean attractor on repeat. Gate rule: treat a single closed-loop FAIL as
+  needing a confirming re-run; measure the converged attractor, or add a
+  spawn-settle phase before the measured segment.
+- **Full-precision geometry hashes off a DRIVEN approach are not
+  byte-identical**, even with fresh-play-per-run. A multi-tick run-up
+  accumulates drift that can cross triggers a tick early/late. Hash the STABLE
+  decision (attributed part + rounded contact), or PIN the interaction
+  (teleport-to-contact at fixed velocity) rather than driving up to it.
+- **A recovery maneuver re-hits its own wall unless backup > drive distance.**
+  Schema-valid but geometrically self-defeating. Fix the params AND add
+  flips/fallThroughs==0 asserts so a glitched run FAILs loudly.
+- **A band the target cannot reach is grip, not gain.** Before re-anchoring a
+  red, prove it is grip-limited not controller-limited.
+- **Do NOT reach for a derivative (yaw-rate) damping term to "stabilize" a
+  weave.** A slalom *wants* sustained yaw; subtracting steer proportional to
+  yaw rate fights the rotation the weave needs. The pure-pursuit gain-backoff
+  already gated above every stable configuration's yaw peak is sufficient.
 
 ## 10. The in-game scenario harness variant (no MCP needed)
 
@@ -282,6 +319,11 @@ roamer that exercises the world surface at scale:
 | Return-to-start screenshot differs, hash equal | Viewport auto-exposure — settle + normalize |
 | Agent waits forever on a battery | Poll `read_console` for the suite's last line |
 | Progress metrics read 0 mid-run | Autopilot metrics are state-gated |
+| Run tokens missing from `read_console` | Per-tick telemetry floods the console ring -- read the editor log file with a flush delay, or grep for your exact token |
+| Dent/damage hash flakes despite fresh-play | A driven crash run-up isn't byte-identical -- inject a pinned synthetic impact through the real damage path instead |
+| Just-spawned component hook no-ops on first tick | `OnStart`/bind hasn't run -- gate on bound state + settle-tick floor |
+| Recovery maneuver re-hits the wall / flips | Don't reverse-then-drive -- teleport the damage-preserving object to a clean lane, zero velocity, then measure |
+| New maneuver "unknown" / stale logic in live editor | `static readonly` dict value migrates across hotload -- rename the field to force a fresh dict |
 
 Get the compile gate and identity probe right and everything else is iteration.
 Parallel agents need an [ownership map](agent-file-ownership-discipline) before

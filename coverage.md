@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**165 / 577 gotchas articled** (29%). Pack-only: **180**. Backlog (status `none`): **232**.
+**171 / 627 gotchas articled** (27%). Pack-only: **179**. Backlog (status `none`): **277**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 68 | 29 | 19 | 20 | 43% |
-| rigging-animation | 29 | 20 | 3 | 6 | 69% |
-| writing-gameplay | 277 | 55 | 90 | 132 | 20% |
-| building-ui | 53 | 21 | 19 | 13 | 40% |
+| getting-art-in | 72 | 29 | 19 | 24 | 40% |
+| rigging-animation | 33 | 21 | 3 | 9 | 64% |
+| writing-gameplay | 296 | 59 | 90 | 147 | 20% |
+| building-ui | 63 | 22 | 18 | 23 | 35% |
 | audio | 11 | 5 | 5 | 1 | 45% |
 | making-it-perform | 8 | 2 | 3 | 3 | 25% |
-| tooling-environment | 131 | 33 | 41 | 57 | 25% |
-| **Total** | **577** | **165** | **180** | **232** | **29%** |
+| tooling-environment | 144 | 33 | 41 | 70 | 23% |
+| **Total** | **627** | **171** | **179** | **277** | **27%** |
 
 ## Articled gotchas (skip-list)
 
@@ -61,6 +61,7 @@
 | `g-game-analoglook-needs-mousevisibility-hidden-lock` | [/fix/analoglook-needs-mousevisibility-hidden](https://sboxguide.dev/fix/analoglook-needs-mousevisibility-hidden) |
 | `g-game-buried-vertical-sink-hard-recover` | [/fix/buried-vertical-sink-hard-recover](https://sboxguide.dev/fix/buried-vertical-sink-hard-recover) |
 | `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sboxguide.dev/fix/white-noise-hash-terrain-shade) |
+| `g-game-climate-bands-scale-with-amplitude` | [/fix/climate-bands-scale-with-amplitude](https://sboxguide.dev/fix/climate-bands-scale-with-amplitude) |
 | `g-game-component-active-real-inherited-member` | [/fix/component-active-naming-shadow](https://sboxguide.dev/fix/component-active-naming-shadow) |
 | `g-game-createlobby-async-gate-mode-not-isactive-and-unpossess-on-end` | [/fix/createlobby-async-gate-on-mode](https://sboxguide.dev/fix/createlobby-async-gate-on-mode) |
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
@@ -76,6 +77,7 @@
 | `g-game-full-screen-hud-toasts-banners` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-game-gamepad-bumper-gamepadcode-strings-switchlef` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-greedy-voxel-mesher-colours-cliff-skirt` | [/fix/greedy-mesher-cliff-vertical-stripes](https://sboxguide.dev/fix/greedy-mesher-cliff-vertical-stripes) |
+| `g-game-grounded-wish-servo-eats-applied-velocity` | [/fix/grounded-wish-servo-eats-applied-velocity](https://sboxguide.dev/fix/grounded-wish-servo-eats-applied-velocity) |
 | `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) |
 | `g-game-host-create-before-networkspawn-clobbers-instance` | [/fix/host-spawn-clobbers-camera-singleton](https://sboxguide.dev/fix/host-spawn-clobbers-camera-singleton) |
 | `g-game-input-pressed-edge-latch-onupdate-not-fixedupdate` | [/fix/input-pressed-fixedupdate-drops](https://sboxguide.dev/fix/input-pressed-fixedupdate-drops) |
@@ -86,6 +88,7 @@
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sboxguide.dev/fix/new-razor-scss-not-applied-until-restart) |
 | `g-game-noclip-trace-based-kinematic-controller-stat` | [/fix/noclip-trace-controller-state](https://sboxguide.dev/fix/noclip-trace-controller-state) |
+| `g-game-npc-steer-wall-hold-freezes-forever` | [/fix/npc-steer-wall-hold-freezes-forever](https://sboxguide.dev/fix/npc-steer-wall-hold-freezes-forever) |
 | `g-game-null-check-misses-destroyed-target-nre` | [/fix/null-check-misses-destroyed-isvalid](https://sboxguide.dev/fix/null-check-misses-destroyed-isvalid) |
 | `g-game-onawake-fires-synchronously-inside-component` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-game-orient-flat-decal-box-hit-normal` | [/fix/orient-decal-to-hit-normal](https://sboxguide.dev/fix/orient-decal-to-hit-normal) |
@@ -113,6 +116,7 @@
 | `g-game-trace-based-kinematic-controller-has-collide` | [/fix/trace-kinematic-no-trigger](https://sboxguide.dev/fix/trace-kinematic-no-trigger) |
 | `g-game-trace-based-movement-trap-player-permanently` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
 | `g-game-whitespace-immediately-adjacent-tag-expressi` | [/fix/razor-whitespace-tag-boundary-collapse](https://sboxguide.dev/fix/razor-whitespace-tag-boundary-collapse) |
+| `g-game-zero-radius-ray-misses-voxel-collider` | [/fix/zero-radius-ray-misses-voxel-collider](https://sboxguide.dev/fix/zero-radius-ray-misses-voxel-collider) |
 | `g-perf-editor-embedded-play-mode-hard-capped` | [/fix/editor-play-mode-vsync-capped](https://sboxguide.dev/fix/editor-play-mode-vsync-capped) |
 | `g-perf-framestats-perfstats-whitelisted-from-game-code` | [/fix/framestats-perfstats-game-accessible](https://sboxguide.dev/fix/framestats-perfstats-game-accessible) |
 | `g-rig-animated-models-use-modelmodifier` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
@@ -123,6 +127,7 @@
 | `g-rig-bone-heat-auto-weights-fail-wholesale` | [/fix/rigging-ai-generated-mesh](https://sboxguide.dev/fix/rigging-ai-generated-mesh) |
 | `g-rig-bone-procedural-override-setbonetransform-un` | [/fix/setbonetransform-silently-noop](https://sboxguide.dev/fix/setbonetransform-silently-noop) |
 | `g-rig-citizen-addon-source-vmdl-schema-reference` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
+| `g-rig-citizen-combat-animgraph-params` | [/fix/citizen-combat-animgraph-params](https://sboxguide.dev/fix/citizen-combat-animgraph-params) |
 | `g-rig-mixamo-mocap-retargets-onto-npc-lane` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
 | `g-rig-model-compiler-sanitizes` | [/fix/bone-name-dot-to-underscore](https://sboxguide.dev/fix/bone-name-dot-to-underscore) |
 | `g-rig-naturalistic-mocap-idles-don-t-loop` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
@@ -169,6 +174,7 @@
 | `g-tool-whitelist-http-may-call` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-win-ssh-session-end-kills-children` | [/fix/win-ssh-session-kills-server](https://sboxguide.dev/fix/win-ssh-session-kills-server) |
 | `g-ui-absolute-column-auto-height-drops-trailing-children` | [/fix/absolute-column-auto-height-drops-children](https://sboxguide.dev/fix/absolute-column-auto-height-drops-children) |
+| `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet` | [/fix/border-style-solid-scss-parse-error](https://sboxguide.dev/fix/border-style-solid-scss-parse-error) |
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
 | `g-ui-draggable-slider-tracks-click-jump-drag` | [/fix/draggable-slider-click-drag](https://sboxguide.dev/fix/draggable-slider-click-drag) |
 | `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sboxguide.dev/fix/flex-grow-percentage-child-feedback-loop) |
@@ -353,7 +359,6 @@
 - `g-tool-typelib-new-component-missing-right-after-load`
 - `g-tool-visual-pin-hands-feet-world-feature`
 - `g-tool-windows-python3-store-alias`
-- `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet`
 - `g-ui-camera-screenshot-s-ui-overlay-renders`
 - `g-ui-client-local-screen-effect-fullscreen-fade`
 - `g-ui-clipboard-settext-game-reachable-whitelist-clean`
