@@ -399,7 +399,8 @@
   behind AND a source-only dependency closure misses shared textures.** Compiled artifacts
   (`*_c`, `*.generated.*`) are git-ignored, so `git mv` only relocates sources. AND a
   `.vmat`/`.vmdl`-only move misses shared `.vtex` files referenced by the material. Combine
-  the `git mv` with a `git rm` of the compiled artifacts and trace the full texture closure.- **The editor serializes its STALE in-memory `.sbproj` on any settings/wizard save, reverting
+  the `git mv` with a `git rm` of the compiled artifacts and trace the full texture closure.
+- **The editor serializes its STALE in-memory `.sbproj` on any settings/wizard save, reverting
   on-disk hand-edits.** A `Resources` glob added by editing the file while the editor was open
   gets dropped without warning when the publish wizard runs. After any editor settings interaction,
   re-read the sbproj on disk and restore hand-edits (`git diff -- *.sbproj`). The publish wizard
