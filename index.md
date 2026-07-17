@@ -9,13 +9,13 @@
 | Getting set up | `getting-set-up.md` | New project skeleton, compile verification. | 0 | 0 |
 | Getting art in | `getting-art-in.md` | Blender/AI mesh → in-game, correct scale & facing. | 74 | 30 |
 | Rigging & animation | `rigging-animation.md` | Blends, ragdolls, retargeting mocap. | 34 | 22 |
-| Writing gameplay | `writing-gameplay.md` | Components, movement, save/load, networking, runtime meshes. | 313 | 62 |
+| Writing gameplay | `writing-gameplay.md` (router → sub-files `writing-gameplay--movement-physics.md`, `--world-gen-terrain.md`, `--patterns-lifecycle.md`, `--networking-multiplayer.md`, `--input-camera-ui.md`) | Components, movement, save/load, networking, runtime meshes. | 313 | 62 |
 | Building UI | `building-ui.md` | Razor HUD that re-renders. The BuildHash trap. | 65 | 24 |
 | Audio | `audio.md` | .sound events by hand, looping, 3D positional. | 11 | 5 |
 | Making it perform | `making-it-perform.md` | Triangle census, collider choice, density limits. | 8 | 2 |
 | Publishing & shipping | `publishing-shipping.md` | sbox.game store, the whitelist divergence. | 0 | 0 |
 | AI-assisted workflow | `ai-assisted-workflow.md` | Coordinating agents to build a game. | 0 | 0 |
-| Tooling & environment | `tooling-environment.md` | Windows/PowerShell/dotnet traps. | 152 | 37 |
+| Tooling & environment | `tooling-environment.md` (router → sub-files `tooling-environment--editor-mcp.md`, `--build-compile-whitelist.md`, `--engine-environment.md`, `--assets-blender-external.md`) | Windows/PowerShell/dotnet traps. | 152 | 37 |
 
 Always-load core rules: `_core.md`. Coverage / backlog: `coverage.md`.
 
