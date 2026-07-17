@@ -420,3 +420,15 @@
   any secondary component with `has no <Type> component`. Workaround: drive behavior through the
   component you CAN reach, or put the thing you need to script on its own single-component
   GameObject.
+- **There is NO scene/global time-scale API in the game-reachable engine surface (26.07).**
+  `Scene.TimeScale` does not exist; the only `TimeScale` anywhere is
+  `ParticleEffect.TimeScale`/`PerParticleTimeScale`. Slow-motion must be faked with a custom
+  multiplier applied to delta-time in your own update loops.
+- **The stock `PlayerController` exposes NO public speed property.** `WalkSpeed`/`RunSpeed`/
+  `DuckedSpeed` are private serialized `[Property]` fields. Game code cannot cleanly scale
+  player move speed (e.g. for a slow debuff). Write your own controller or reflection-hack
+  the privates (fragile across updates).
+- **Re-setting a `[ConVar]` to the value it already holds is a SILENT no-op** -- the property
+  setter never runs. Because statics survive Play stop/start, a convar-triggered action from
+  a prior session leaves the convar "already set," so a fresh session's identical command does
+  nothing. Fix: toggle to a different value first, or reset the backing static on boot.

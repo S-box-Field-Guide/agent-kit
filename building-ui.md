@@ -251,3 +251,12 @@
   `radial-gradient` unsupported: s&box's `background-image` supports only plain
   `linear-gradient( to <dir>, <stops> )`, not `repeating-`, radial, or conic variants. Emulate
   with a fixed-stop `linear-gradient` listing hard stops explicitly.
+- **s&box panel CSS rejects `display: inline-flex` at RUNTIME** with a red "Code Error:
+  inline-flex is not valid with display" toast. The panel engine's `display` accepts only
+  `flex`/`none` (no inline variants). For "inline chip" behavior, give the parent row
+  `flex-direction: row; flex-wrap: wrap` and the chip `display: flex; flex-shrink: 0`.
+  Grep new .scss for `inline-` before shipping.
+- **`[GameResource("Name","ext","desc")]` now raises CS0618: 'GameResourceAttribute' is
+  obsolete: 'Use AssetType instead'.** Replace with
+  `[AssetType(Extension = "ext")] public class Foo : GameResource`. The old attribute
+  compiles as a warning, so it slips past a green build unless warnings-as-errors is on.

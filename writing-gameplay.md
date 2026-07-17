@@ -1167,3 +1167,7 @@
 - **Absolute-altitude biome thresholds break when height amplitude changes.** Scale every climate
   altitude by `max(amp, refAmp)/refAmp`; clamp k >= 1 to prevent snow-on-mesa fraction bugs;
   leave sea-relative dials unscaled.
+- **`Input.config` `KeyboardCode` for punctuation keys is the LITERAL CHARACTER (`"["`,
+  `"]"`), not a `KEY_`-enum-derived name.** A wrong name like `"lbracket"` fails silently
+  (action never fires, no warning at load or bind time). Check the engine's
+  `KeyboardCode` enum or test with `Input.Keyboard.Pressed("char")` to confirm.

@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**171 / 627 gotchas articled** (27%). Pack-only: **179**. Backlog (status `none`): **277**.
+**176 / 648 gotchas articled** (27%). Pack-only: **185**. Backlog (status `none`): **287**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 72 | 29 | 19 | 24 | 40% |
-| rigging-animation | 33 | 21 | 3 | 9 | 64% |
-| writing-gameplay | 296 | 59 | 90 | 147 | 20% |
-| building-ui | 63 | 22 | 18 | 23 | 35% |
+| rigging-animation | 34 | 22 | 3 | 9 | 65% |
+| writing-gameplay | 309 | 60 | 91 | 158 | 19% |
+| building-ui | 65 | 23 | 20 | 22 | 35% |
 | audio | 11 | 5 | 5 | 1 | 45% |
 | making-it-perform | 8 | 2 | 3 | 3 | 25% |
-| tooling-environment | 144 | 33 | 41 | 70 | 23% |
-| **Total** | **627** | **171** | **179** | **277** | **27%** |
+| tooling-environment | 149 | 35 | 44 | 70 | 23% |
+| **Total** | **648** | **176** | **185** | **287** | **27%** |
 
 ## Articled gotchas (skip-list)
 
@@ -100,6 +100,7 @@
 | `g-game-rigidbody-component-api` | [/fix/rigidbody-component-api](https://sboxguide.dev/fix/rigidbody-component-api) |
 | `g-game-rolling-slopes-idempotent-ground-snap-still` | [/fix/ground-snap-pops-on-rolling-slopes](https://sboxguide.dev/fix/ground-snap-pops-on-rolling-slopes) |
 | `g-game-rotation-fromyaw-angle-left` | [/fix/rotation-fromyaw-is-ccw](https://sboxguide.dev/fix/rotation-fromyaw-is-ccw) |
+| `g-game-rpc-broadcast-on-non-networked-object-runs-local-only` | [/fix/rpc-broadcast-non-networked-runs-local](https://sboxguide.dev/fix/rpc-broadcast-non-networked-runs-local) |
 | `g-game-runtime-meshes-mesh-model` | [/fix/heavy-work-no-hitches](https://sboxguide.dev/fix/heavy-work-no-hitches) |
 | `g-game-runtime-world-root-torn-down-gameobject` | [/fix/deferred-destroy-edit-mode-overlap](https://sboxguide.dev/fix/deferred-destroy-edit-mode-overlap) |
 | `g-game-scene-getallcomponents-t-return-disabled-com` | [/fix/getallcomponents-skips-disabled](https://sboxguide.dev/fix/getallcomponents-skips-disabled) |
@@ -135,12 +136,14 @@
 | `g-rig-physics-shape-coords-same-unit-mesh` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
 | `g-rig-scripted-keyframes-keep-quaternion-keys-hemi` | [/fix/quaternion-hemisphere-continuity](https://sboxguide.dev/fix/quaternion-hemisphere-continuity) |
 | `g-rig-scripted-rig-npc-ragdoll-engine-physics` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
+| `g-rig-sequence-only-rig-reseat-visual-not-ik` | [/fix/sequence-only-rig-reseat-visual-not-ik](https://sboxguide.dev/fix/sequence-only-rig-reseat-visual-not-ik) |
 | `g-rig-skinnedmodelrenderer-sequence-blending-bool` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
 | `g-rig-skinnedmodelrenderer-setik-animgraph-gated` | [/fix/setbonetransform-silently-noop](https://sboxguide.dev/fix/setbonetransform-silently-noop) |
 | `g-rig-transform-apply-scale-true-mixamo-armature` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
 | `g-rig-two-renderer-manual-cross-fade-wrong` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
 | `g-rig-vmdl-physics-node-schema-copy-citizen` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
 | `g-tool-angles-struct-fields-lowercase` | [/fix/angles-struct-lowercase-fields](https://sboxguide.dev/fix/angles-struct-lowercase-fields) |
+| `g-tool-blender-headless-hang-factory-startup` | [/fix/blender-headless-hang-factory-startup](https://sboxguide.dev/fix/blender-headless-hang-factory-startup) |
 | `g-tool-boxcollider-center-scale-always` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-tool-deriving-visual-s-facing-horizontal-velocity` | [/fix/velocity-facing-pendulum-flip](https://sboxguide.dev/fix/velocity-facing-pendulum-flip) |
 | `g-tool-dotnet-build-warning-counts-lie-under` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
@@ -151,6 +154,7 @@
 | `g-tool-everything-broke-once-during-agent-waves` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
 | `g-tool-facingyawoffset-mesh-facing-correction-swaps` | [/fix/facing-yaw-offset-axis-swap](https://sboxguide.dev/fix/facing-yaw-offset-axis-swap) |
 | `g-tool-fixing-source-asset-always-trigger-recompile` | [/fix/failed-asset-recompile-stale-cache](https://sboxguide.dev/fix/failed-asset-recompile-stale-cache) |
+| `g-tool-gameresource-archetype-extension-reserved` | [/fix/gameresource-archetype-extension-reserved](https://sboxguide.dev/fix/gameresource-archetype-extension-reserved) |
 | `g-tool-hotload-csharp-edits-apply` | [/fix/editor-hotload-expectations](https://sboxguide.dev/fix/editor-hotload-expectations) |
 | `g-tool-hotswap-stuck-green-compile-restart-only` | [/fix/hotload-stuck-stale-restart-required](https://sboxguide.dev/fix/hotload-stuck-stale-restart-required) |
 | `g-tool-kenney-s-own-nature-pack-drive` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
@@ -188,6 +192,7 @@
 | `g-ui-panelcomponent-overrides-ontreebuilt-ontreef` | [/fix/panelcomponent-ontreebuilt-lifecycle](https://sboxguide.dev/fix/panelcomponent-ontreebuilt-lifecycle) |
 | `g-ui-razor-computed-text-renders-blank-or-blocks-density` | [/fix/razor-text-renders-blank-density-modes](https://sboxguide.dev/fix/razor-text-renders-blank-density-modes) |
 | `g-ui-razor-files-go-global-namespace` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
+| `g-ui-razor-fragment-flex-gap-undermeasures-height` | [/fix/razor-fragment-flex-gap-undermeasures-height](https://sboxguide.dev/fix/razor-fragment-flex-gap-undermeasures-height) |
 | `g-ui-razor-panel-needs-frames-to-paint-before-sync-block` | [/fix/razor-panel-needs-frames-before-sync-block](https://sboxguide.dev/fix/razor-panel-needs-frames-before-sync-block) |
 | `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sboxguide.dev/fix/ref-field-private-field-never-assigns) |
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sboxguide.dev/fix/runtime-texture-ui-panel) |
@@ -259,6 +264,7 @@
 - `g-game-input-escapepressed-real-getset-consumable`
 - `g-game-invisible-grab-point-registration-phantom-sp`
 - `g-game-jet-ski-single-point-buoyancy-grid`
+- `g-game-keyboardcode-punctuation-is-literal-char`
 - `g-game-land-vehicle-needs-hard-deck-drowned`
 - `g-game-low-frequency-mountain-mass-mask-wavelength`
 - `g-game-mcp-camera-screenshot-captures-engine-s`
@@ -326,6 +332,7 @@
 - `g-tool-build-time-tag-scans-blind-children`
 - `g-tool-camera-screenshot-misses-modal-card`
 - `g-tool-camera-switches-focus-target-follow-distance`
+- `g-tool-convar-same-value-set-silent-noop`
 - `g-tool-copied-trace-exclusion-filters-invert-meanin`
 - `g-tool-coplanar-overlay-ribbons-z-fight-give`
 - `g-tool-cross-assembly-hotreload-missingmethod`
@@ -342,6 +349,7 @@
 - `g-tool-mcp-cant-target-secondary-component-on-gameobject`
 - `g-tool-nearest-best-pickers-need-honest-empty`
 - `g-tool-no-game-side-log-listener-onmessage-internal`
+- `g-tool-no-scene-timescale-global-time-scale-api`
 - `g-tool-ported-cs-file-see-cref-to-dropped-type-cs1574`
 - `g-tool-publish-live-mutable-static-lists-frame`
 - `g-tool-pure-nearest-target-selection-re-grabs`
@@ -351,6 +359,7 @@
 - `g-tool-shared-multi-agent-working-tree-agent`
 - `g-tool-shot-commandeer-suspend-competing-drivers-sw`
 - `g-tool-soundhandle-spin-up-freshly-played-handles`
+- `g-tool-stock-playercontroller-no-public-speed-property`
 - `g-tool-system-text-json-nodes`
 - `g-tool-telemetry-boot-line-gated-behind-debug`
 - `g-tool-third-person-camera-occlusion-ease-asymmetri`
@@ -366,8 +375,10 @@
 - `g-ui-defer-overlay-before-sync-blocking-call`
 - `g-ui-editor-assembly-needs-using-for-razor-ns`
 - `g-ui-editor-generated-csproj-gitignored`
+- `g-ui-gameresource-attribute-obsolete-use-assettype`
 - `g-ui-loose-json-under-assets`
 - `g-ui-mouse-visible-true-obsolete`
+- `g-ui-no-inline-flex-in-panel-css`
 - `g-ui-overflow-scroll-panel-breaks-even-with-minheight-pins`
 - `g-ui-razor-collection-stateful-child-panels-don`
 - `g-ui-razor-loose-png-blank-in-package`
