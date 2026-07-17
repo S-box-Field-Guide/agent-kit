@@ -230,7 +230,6 @@
 - `g-art-forge-tripo-vehicle-shaped-mesh-s`
 - `g-art-forge-tripo-wearable-item-returns-whole-character`
 - `g-art-generated-obj-vmdl-recipe-blender`
-- `g-art-gone-bananas-playground-kit-author-engine-map`
 - `g-art-lock-camera-exposure-kill-auto-exposure`
 - `g-art-lowpoly-wheel-black-blob`
 - `g-art-make-ground-alive-swap-flat-tile`
@@ -243,6 +242,7 @@
 - `g-art-obj-import-flips-v-atlas-uv`
 - `g-art-open-top-citizen-feet-below-tub`
 - `g-art-per-part-checks-miss-assembled-slope-sign`
+- `g-art-playground-kit-author-engine-map`
 - `g-art-pointlight-usable-game-component-even-siblin`
 - `g-art-pydata-mesh-no-uv-layer-drops-vt`
 - `g-art-regenerated-ai-textures-need-editor-kick`
@@ -273,6 +273,7 @@
 - `g-game-attribution-mesh-bounds-enclosing-part`
 - `g-game-autocatch-autoexit-pair-needs-loop-breaker`
 - `g-game-autograpple-field-range-spawn-teleport-trap`
+- `g-game-autopilot-partial-measurement-mode`
 - `g-game-autopilot-progress-metrics-state-gated`
 - `g-game-below-surface-tunnel-check-false-pos-on-wall-climb`
 - `g-game-belowsurface-invariant-false-fires-under-overhang`
@@ -301,7 +302,7 @@
 - `g-game-citizen-clothing-folder-file-names-lie`
 - `g-game-citizen-npc-clothing-and-sit-pose`
 - `g-game-citizen-sit-pose-height-offline-math-lies`
-- `g-game-client-instance-claim-grabs-host-monkey`
+- `g-game-client-instance-claim-grabs-host-character`
 - `g-game-climb-camera-occlusion-block-topped`
 - `g-game-climb-lattice-from-collision-block-max-not-render`
 - `g-game-climb-node-body-standoff-scales-to-prop-radius`
@@ -393,7 +394,6 @@
 - `g-game-mesh-scale-decouple-grab-geometry`
 - `g-game-mesh-whole-world-into-scenepanel-renderscene-preview`
 - `g-game-modelpath-property-must-reapply-after-onstart`
-- `g-game-monkeypilot-partial-measurement-mode`
 - `g-game-monotonic-invariant-proven-float-constructio`
 - `g-game-mouse-visible-true-past`
 - `g-game-mover-rides-visual-heightfield-not-coarse-collision`
