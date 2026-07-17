@@ -18,11 +18,10 @@ summary: >-
   speaking indicators, and lip-sync — with no third-party voice SDK.
 sourceRev: e1f75bb3a8cd
 relatedFixes:
-  - mp3-audio-format-wav-required
-  - sound-event-is-plain-json
-  - sound-event-looping-field
-  - sound-entity-is-static
-  - sound-event-resource-path-extension
+  - custom-sound-wont-play
+  - authoring-sound-events-by-hand
+  - soundevent-no-looping-field
+  - playing-sound-static-api
 unverified: false
 ---
 

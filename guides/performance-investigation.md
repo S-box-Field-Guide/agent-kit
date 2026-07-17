@@ -18,7 +18,7 @@ summary: >-
   prevents wasted work.
 sourceRev: "cd7f71b6d866"
 relatedFixes:
-  - editor-embedded-play-capped
+  - editor-play-mode-vsync-capped
   - stale-assembly-hotload
 unverified: false
 ---

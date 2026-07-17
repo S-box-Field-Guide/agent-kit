@@ -13,7 +13,7 @@ A community collection of the miscellaneous stuff that costs you an afternoon. C
 **Read it.** Start with [`_core.md`](_core.md) — the handful of cross-cutting rules that
 cause most failures. Then load the one **lane pack** for your task ([`index.md`](index.md)
 has the map). Dip into the topic docs below for the deeper narrative on an area. Prefer a
-browsable, human-readable version? The [s&box Field Guide website](https://sbox-field-guide.vercel.app)
+browsable, human-readable version? The [s&box Field Guide website](https://sboxguide.dev)
 is the companion to this pack.
 
 **Give it to your coding agent.** Clone this repo into your agent's skills so it reads
@@ -32,15 +32,8 @@ git clone https://github.com/S-box-Field-Guide/agent-kit
 | [_core.md](_core.md) | ⭐ The cross-cutting rules. Load this first, every time. |
 | [index.md](index.md) | The lane map — which `<lane>.md` pack to load for your task, with coverage counts. |
 | [`<lane>.md`](index.md) | Per-lane gotcha checklists: `getting-set-up`, `getting-art-in`, `rigging-animation`, `writing-gameplay`, `building-ui`, `audio`, `making-it-perform`, `publishing-shipping`, `ai-assisted-workflow`, `tooling-environment`. |
+| [guides/](guides) | Long-form method write-ups: project setup, asset + part-kit pipelines, networking, movement, save/load, vehicle physics, and more. |
 | [coverage.md](coverage.md) | What's covered vs. the backlog. |
-| [project-setup.md](project-setup.md) | `.sbproj` / `.csproj` / folder layout / `Input.config` / scene skeleton / compile verification |
-| [asset-pipeline.md](asset-pipeline.md) | Blender headless → OBJ → `.vmdl`/`.vmat`, units, axes, textures, animated parts |
-| [ai-assets.md](ai-assets.md) | Getting AI-generated 3D models (Tripo/Meshy/Rodin-style) into s&box, and the fixes they need |
-| [code-patterns.md](code-patterns.md) | Components, singletons, runtime world-building, movement, save/load, networking |
-| [ui-razor.md](ui-razor.md) | Razor panels, `BuildHash`, scss, modal routing, the namespace trap |
-| [publishing.md](publishing.md) | Publishing to sbox.game — org/ident/publish states, store-page quality metric, Play Fund, standalone Steam export, whitelist traps |
-| [tooling.md](tooling.md) | Blender CLI, python generators, `dotnet build`, Windows/PowerShell traps |
-| [ai-assisted-development.md](ai-assisted-development.md) | Building s&box games with AI coding agents — division of labor, telemetry-driven feel tuning, the verification gaps that bite |
 
 ## Scope
 

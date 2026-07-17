@@ -109,10 +109,8 @@
  order in `Bootstrap` is the only separation, so a gameplay HUD panel that should hide behind a
  full-screen menu overlay must actively gate its own render on the menu's `IsOpen`-style static
  flag (`@if (!MenuOpen) { ... }`, with `MenuOpen` folded into `BuildHash` too) — it will NOT
- automatically stay behind the modal just because the modal was created later.
+   automatically stay behind the modal just because the modal was created later.
 
-- `Mouse.Visible = true` is obsolete but still functional — fine for cursor-driven games
- until the replacement API is obvious.
 - **A freshly-scaffolded project's `Code/Assembly.cs` can be MISSING `global using System;`
  even though `project-setup.md`'s own template includes it — don't assume the stock
  scaffold matches the documented template.** Copying vehicle code (`Math.Clamp`,
@@ -219,7 +217,7 @@
   render with zero size (invisible, not just unbordered). s&box UI borders are always
   solid; there is no `border-style` property. Declare the border with `border-width` +
   `border-color` (or the `border: Npx solid <color>` shorthand) and never a separate
-  `border-style`.
+  `border-style`. `dotnet build` won't catch it; only the in-editor console shows the error.
 - **`Sandbox.UI.Clipboard.SetText(string)` is reachable from game code and is
   whitelist-clean** (engine 26.07.08e). It lives in `Sandbox.UI` inside
   `Sandbox.Engine.dll`. A game-assembly component can call it directly — no editor
@@ -243,13 +241,6 @@
   string (Assets-relative, no `assets/` prefix, `*` spans `/`): e.g. `"ui/cars/*.png"`. The
   wildcard matches the loose disk path, not the normalized asset path. Same mechanism as any
   other loose resource file — see the "Loose resource files don't auto-publish" article.
-- **A razor `background-image: url('ui/foo.png')` (any loose PNG/JPG a ScreenPanel references)
-  renders in the editor but goes BLANK in the published package.** ScreenPanel CSS image URLs
-  load loose image files from the mounted filesystem, so they work in-editor; but loose
-  (non-compiled) images are NOT auto-shipped. Fix: add the disk glob to the sbproj `"Resources"`
-  string (Assets-relative, no `assets/` prefix, `*` spans `/`): e.g. `"ui/cars/*.png"`. The
-  wildcard matches the loose disk path, not the normalized asset path. Same mechanism as any
-  other loose resource file — see the "Loose resource files don't auto-publish" article.
 - **Editor-assembly code referencing a razor component's member fails CS0103 even though
   global-namespace game `.cs` types resolve fine** — the editor project has no
   `global using <RazorNs>`. The game project's Assembly.cs papers over the razor namespace
@@ -260,7 +251,3 @@
   `radial-gradient` unsupported: s&box's `background-image` supports only plain
   `linear-gradient( to <dir>, <stops> )`, not `repeating-`, radial, or conic variants. Emulate
   with a fixed-stop `linear-gradient` listing hard stops explicitly.
-- **`border-style: solid` is a parse error in s&box SCSS** -- and it aborts the WHOLE
-  stylesheet, collapsing the panel to zero size (invisible). There is no `border-style`
-  property; borders are always solid. Use `border-width` + `border-color` (or the `border`
-  shorthand). `dotnet build` won't catch it -- only the in-editor console shows the error.

@@ -126,7 +126,7 @@ above the render so the body FLOATS. Remedy without touching physics: raise
 the rendered body child by `max(0, render - collision)` at the feet XY when
 grounded -- visual-only, proxy-safe (each peer computes its own),
 smooth-render-only (Voxel has no burial: its render top is the per-cell step
-<= block-max).
+`≤ block-max`).
 
 ## 4. One material, palette atlas, constant per-face UV
 
