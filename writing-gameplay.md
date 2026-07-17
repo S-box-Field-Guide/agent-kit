@@ -299,22 +299,17 @@
  arm depends on centimetres of launch position. Uniform scale-to-height platforms worsen
  it (a 3.5 m-tall platform is ~3.7 m WIDE — faces nest into the previous top). Keep
  scripted-jump stair rises ≤0.9 m or budget for the recovery loop burning step timeouts.
-- **There is no public per-action analog trigger axis — a `GamepadCode`-bound trigger action
- (e.g. `"RightTrigger"`) is read purely as a DIGITAL threshold press via `Input.Down/Pressed/
- Released`, never a smooth 0..1 pull.** Verified by reflecting the installed SDK's own
- `bin\managed\Sandbox.Engine.xml`: the only analog-read API is `Input.GetAnalog(InputAnalog)`,
- and the `InputAnalog` enum backs just the built-in `Move`/`Look` aggregates (its own XML example
- is `Input.GetButtonOrigin( InputAnalog.Move )`) — there's no per-named-action overload.
- `InputAction` (what every `Input.config` entry deserializes into) carries only `Name/GroupName/
- Title/KeyboardCode/GamepadCode` — no analog flag, confirmed by its XML doc members. A raw SDL
- axis DOES exist one layer down — `Sandbox.Controller.GetAxis(NativeEngine.GameControllerAxis,
- float)`, reachable via `Input.CurrentController` — but it takes a `NativeEngine`-namespace enum
- with ZERO usage anywhere across all 6 sibling projects' game code (all only ever call
- `Input.AnalogMove`/`AnalogLook`/`Down`/`Pressed`), so it's unverified-in-practice for whether
- it compiles/works from ordinary game code
- under the whitelist. Practical fix for "analog-feeling" trigger throttle/brake: keep the stick
- axis (`Input.AnalogMove`) as the continuous control and treat the trigger as an ADDITIVE
- full-value boost on top, not a proportional read.
+- **Gamepad triggers DO have a public smooth 0..1 analog read —
+ `Input.GetAnalog(InputAnalog.LeftTrigger)` / `InputAnalog.RightTrigger`.** The `InputAnalog`
+ enum has explicit per-axis members (`LeftStickX/Y`, `RightStickX/Y`, `LeftTrigger`,
+ `RightTrigger`) — there is no `InputAnalog.Move` member. What is digital-only is a *named
+ `Input.config` action* bound to a trigger: that reads on/off via `Input.Down/Pressed/Released`,
+ no pull value. The analog axis is a SEPARATE surface, read directly off the physical trigger,
+ independent of any config-action binding. **Whitelist-VERIFIED** — a real game build of
+ `Input.GetAnalog(InputAnalog.RightTrigger)` compiles clean through the `Sandbox.Generator`
+ access analyzer. Returns `0` unless `Input.UsingController` (safe to MAX-blend with keyboard),
+ and the engine pre-applies a 12.5% deadzone so resting triggers can't creep. Use for variable
+ throttle/brake: `throttle = Max(keyboardForward, GetAnalog(RightTrigger))`.
 - **Deriving vertical "skirt" quad winding from a verified TOP-face convention:
  pick per-wall axes (u,v) so u×v equals the wall's outward normal, then reuse the
  identical index pattern.** ⚠ SUPERSEDED IN PART: the concrete `{a,c,b},{b,c,d}`
@@ -797,13 +792,12 @@
  fast eligibility check: swim engages where `waterSurfaceM − coarseFloorM > chest`. Buoyancy that eases the
  feet toward `surface − CharHeight·waterlineFrac` is stable (bodyZ 0.35→0.87 m, head clear, 0 bounce, 0
  fall-throughs). Reuse target for vehicles (jet ski) — keep water-depth detection on the grid, not a trace.
-- **First-person "hide the player" must enumerate EVERY renderer descendant at toggle time, not just the body.**
- `ClothingContainer.Apply` spawns a SEPARATE SkinnedModelRenderer per clothing item, so switching only the
- citizen body renderer to ShadowsOnly left the bucket-hat brim + vest clipping the near plane at eye height
- (owner FP defect). Fix: on the FP↔TP crossing, `foreach ( var r in visual.Components.GetAll<ModelRenderer>(
- FindMode.EnabledInSelfAndDescendants) ) r.RenderType = firstPerson ? Off : On;` — enumerate at TOGGLE time
- (never a cached spawn-time list; an outfit swap changes the set). RenderType.Off leaves the component enabled
- so it's re-findable to restore.
+- **First-person "hide the player" — use the `"viewer"` tag + camera `RenderExcludeTags`, NOT `RenderType`.**
+ `RenderType.Off` does NOT hide the model — `ModelRenderer.cs` defines `Off = render WITHOUT shadow` (model
+ still draws); only `ShadowsOnly` sets `ExcludeGameLayer` to drop the draw. The correct fix is the engine's
+ own PlayerController idiom: camera keeps `"viewer"` in `RenderExcludeTags` (set once), and the body/item GO
+ does `Tags.Set("viewer", firstPerson && !IsProxy)`. GameObject tag propagates to children, so clothing items
+ spawned by `ClothingContainer.Apply` are automatically hidden — no per-renderer enumeration needed.
 - **Citizen clothing folder/file NAMES lie about the render — vet with the `.clothing.png` THUMBNAIL first,
  then in-game.** Engine 26.07.08e: `shirt/Flannel_Shirt/flannel_shirt` renders as a black TACTICAL VEST with
  a "POLICE" back placard (this, not the flannel, is the M9 "POLICE on the torso"); `shirt/Tshirt/tshirt` is a

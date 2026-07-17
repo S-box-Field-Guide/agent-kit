@@ -324,16 +324,15 @@
  in ONE fixed tick.** `prevVz > 0.5 && vz <= 0` can never fire under gravity at 50 Hz
  (~0.2 m/s per tick through zero); a bounce-pad impact IS one-tick detectable
  (≤−1.5 → ≥+1.5 flip).
-- **The editor MCP server's enable+port is a MANUAL per-editor-instance Preferences step, NOT a
- repo/config setting — a running editor may serve NO MCP at all.** The house port table
- (project_a=7200, project_b=7269, project_c=7290) is a *convention the owner
- sets by hand* in each editor via Edit → Preferences → MCP Server (Enabled checkbox + Port
- field); it is NOT persisted in `sbox/config/*.json`, `config/editor/`, or `config/convar/*`
- (grepped all — no `McpServer`/port key exists to set), so it can't be automated from code and a
- freshly-launched editor won't serve MCP until toggled. Don't assume your project's assigned port
- is live: a the vehicle project editor was running (correct `-project`) yet answered on no port —
- scan 7000–7399 and `editor_status`-probe to find who's actually serving, and if the owner used a
- different port, repoint via `$PROJECT_MCP_URL`/`--url` rather than editing anything.
+- **The editor MCP server's ENABLE is a MANUAL per-editor-instance Preferences step — a running
+ editor may serve NO MCP at all — and the PORT is a single GLOBAL cookie persisted in
+ `sbox/config/tools.json` as `McpServerPort`.** The enable state is still not automatable from
+ code, so a freshly-launched editor serves nothing until toggled via Edit → Preferences → MCP
+ Server. The cookie holds the last-set value across ALL editors, so switching projects may show a
+ stale port — re-check before enabling. Editors auto-increment past taken ports rather than
+ staying on a hand-set per-project port. To find who's ACTUALLY serving, don't trust netstat's
+ PID column (http.sys routes show PID 4): run `netsh http show servicestate view=requestq |
+ findstr HTTP://` to list active listeners.
 - **On a shared multi-agent working tree, ONE agent's uncompilable file reddens the WHOLE editor
  assembly and silently blocks every other agent's live MCP loop.** The s&box csproj is
  SDK-glob (no explicit `<Compile>` items), so it compiles every `.cs` under `Code/`; a concurrent
