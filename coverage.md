@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**176 / 648 gotchas articled** (27%). Pack-only: **185**. Backlog (status `none`): **287**.
+**182 / 659 gotchas articled** (28%). Pack-only: **188**. Backlog (status `none`): **289**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 72 | 29 | 19 | 24 | 40% |
+| getting-art-in | 75 | 30 | 20 | 25 | 40% |
 | rigging-animation | 34 | 22 | 3 | 9 | 65% |
-| writing-gameplay | 309 | 60 | 91 | 158 | 19% |
-| building-ui | 65 | 23 | 20 | 22 | 35% |
+| writing-gameplay | 312 | 62 | 92 | 158 | 20% |
+| building-ui | 66 | 24 | 20 | 22 | 36% |
 | audio | 11 | 5 | 5 | 1 | 45% |
 | making-it-perform | 8 | 2 | 3 | 3 | 25% |
-| tooling-environment | 149 | 35 | 44 | 70 | 23% |
-| **Total** | **648** | **176** | **185** | **287** | **27%** |
+| tooling-environment | 153 | 37 | 45 | 71 | 24% |
+| **Total** | **659** | **182** | **188** | **289** | **28%** |
 
 ## Articled gotchas (skip-list)
 
@@ -27,6 +27,7 @@
 | `g-art-animated-sub-parts-need-their-origin` | [/fix/blender-headless-pipeline](https://sboxguide.dev/fix/blender-headless-pipeline) |
 | `g-art-asset-paths-project-root-relative-forward` | [/fix/ai-generated-models](https://sboxguide.dev/fix/ai-generated-models) |
 | `g-art-baked-scale-vmdl-wrapper-s-import` | [/fix/ai-generated-models](https://sboxguide.dev/fix/ai-generated-models) |
+| `g-art-blender-obj-import-yup-lives-in-object-matrix-not-verts` | [/fix/blender-obj-import-yup-object-matrix](https://sboxguide.dev/fix/blender-obj-import-yup-object-matrix) |
 | `g-art-blender-rotation-sign-check` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
 | `g-art-blender-s-obj-exporter-export-materials` | [/fix/decimating-ai-meshes](https://sboxguide.dev/fix/decimating-ai-meshes) |
 | `g-art-bpy-ops-wm-obj` | [/fix/obj-export-face-order-nondeterministic](https://sboxguide.dev/fix/obj-export-face-order-nondeterministic) |
@@ -60,6 +61,7 @@
 | `g-audio-soundevent-has-looping-field` | [/fix/soundevent-no-looping-field](https://sboxguide.dev/fix/soundevent-no-looping-field) |
 | `g-game-analoglook-needs-mousevisibility-hidden-lock` | [/fix/analoglook-needs-mousevisibility-hidden](https://sboxguide.dev/fix/analoglook-needs-mousevisibility-hidden) |
 | `g-game-buried-vertical-sink-hard-recover` | [/fix/buried-vertical-sink-hard-recover](https://sboxguide.dev/fix/buried-vertical-sink-hard-recover) |
+| `g-game-camera-follows-raw-fixedtick-feet-model-sawtooths` | [/fix/camera-fixedtick-position-sawtooth-jitter](https://sboxguide.dev/fix/camera-fixedtick-position-sawtooth-jitter) |
 | `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sboxguide.dev/fix/white-noise-hash-terrain-shade) |
 | `g-game-climate-bands-scale-with-amplitude` | [/fix/climate-bands-scale-with-amplitude](https://sboxguide.dev/fix/climate-bands-scale-with-amplitude) |
 | `g-game-component-active-real-inherited-member` | [/fix/component-active-naming-shadow](https://sboxguide.dev/fix/component-active-naming-shadow) |
@@ -116,6 +118,7 @@
 | `g-game-trace-api-works` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
 | `g-game-trace-based-kinematic-controller-has-collide` | [/fix/trace-kinematic-no-trigger](https://sboxguide.dev/fix/trace-kinematic-no-trigger) |
 | `g-game-trace-based-movement-trap-player-permanently` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
+| `g-game-visible-cursor-mouse-input-routing-no-raw-bypass` | [/fix/visible-cursor-mouse-input-routing-gates](https://sboxguide.dev/fix/visible-cursor-mouse-input-routing-gates) |
 | `g-game-whitespace-immediately-adjacent-tag-expressi` | [/fix/razor-whitespace-tag-boundary-collapse](https://sboxguide.dev/fix/razor-whitespace-tag-boundary-collapse) |
 | `g-game-zero-radius-ray-misses-voxel-collider` | [/fix/zero-radius-ray-misses-voxel-collider](https://sboxguide.dev/fix/zero-radius-ray-misses-voxel-collider) |
 | `g-perf-editor-embedded-play-mode-hard-capped` | [/fix/editor-play-mode-vsync-capped](https://sboxguide.dev/fix/editor-play-mode-vsync-capped) |
@@ -143,6 +146,7 @@
 | `g-rig-two-renderer-manual-cross-fade-wrong` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
 | `g-rig-vmdl-physics-node-schema-copy-citizen` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
 | `g-tool-angles-struct-fields-lowercase` | [/fix/angles-struct-lowercase-fields](https://sboxguide.dev/fix/angles-struct-lowercase-fields) |
+| `g-tool-blender-5-2-compositor-api-removed` | [/fix/blender-5-2-compositor-api-removed](https://sboxguide.dev/fix/blender-5-2-compositor-api-removed) |
 | `g-tool-blender-headless-hang-factory-startup` | [/fix/blender-headless-hang-factory-startup](https://sboxguide.dev/fix/blender-headless-hang-factory-startup) |
 | `g-tool-boxcollider-center-scale-always` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-tool-deriving-visual-s-facing-horizontal-velocity` | [/fix/velocity-facing-pendulum-flip](https://sboxguide.dev/fix/velocity-facing-pendulum-flip) |
@@ -177,6 +181,7 @@
 | `g-tool-verify-compiles-editor` | [/fix/project-setup-skeleton](https://sboxguide.dev/fix/project-setup-skeleton) |
 | `g-tool-whitelist-http-may-call` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-win-ssh-session-end-kills-children` | [/fix/win-ssh-session-kills-server](https://sboxguide.dev/fix/win-ssh-session-kills-server) |
+| `g-tool-worktree-csproj-relative-sbox-refs` | [/fix/worktree-csproj-relative-sbox-refs](https://sboxguide.dev/fix/worktree-csproj-relative-sbox-refs) |
 | `g-ui-absolute-column-auto-height-drops-trailing-children` | [/fix/absolute-column-auto-height-drops-children](https://sboxguide.dev/fix/absolute-column-auto-height-drops-children) |
 | `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet` | [/fix/border-style-solid-scss-parse-error](https://sboxguide.dev/fix/border-style-solid-scss-parse-error) |
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
@@ -197,12 +202,14 @@
 | `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sboxguide.dev/fix/ref-field-private-field-never-assigns) |
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sboxguide.dev/fix/runtime-texture-ui-panel) |
 | `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
+| `g-ui-slidercontrol-scientific-notation-style-parse-error` | [/fix/slidercontrol-scientific-notation-style-error](https://sboxguide.dev/fix/slidercontrol-scientific-notation-style-error) |
 | `g-ui-sync-owner-proxies-sync-syncflags` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
 | `g-ui-textentry-raw-html-input-house-control` | [/fix/textentry-not-html-input](https://sboxguide.dev/fix/textentry-not-html-input) |
 | `g-ui-write-inside-already-open-razor-code` | [/fix/nested-razor-code-block-rz1010](https://sboxguide.dev/fix/nested-razor-code-block-rz1010) |
 
 ## Pack-only gotchas (in the checklist, no full article)
 
+- `g-art-blender-headless-duplicate-links-mesh-datablock`
 - `g-art-camera-screenshot-renders-through-real-scene`
 - `g-art-correct-sub-part-positions-prove-nothing`
 - `g-art-dedicated-ambient-light-gradient-fog-compone`
@@ -271,6 +278,7 @@
 - `g-game-mcp-play-mode-iteration`
 - `g-game-monotonic-invariant-proven-float-constructio`
 - `g-game-mouse-visible-true-past`
+- `g-game-mover-rides-visual-heightfield-not-coarse-collision`
 - `g-game-multiple-panelcomponent-s-gameobject-under-s`
 - `g-game-nearest-centerline-corridor-stamping-leaves`
 - `g-game-networkspawn-owner-sim-host-onactive`
@@ -328,6 +336,7 @@
 - `g-tool-arch-slope-tilt-axis-rotate-about`
 - `g-tool-array-clone-whitelist-forbidden`
 - `g-tool-bar-s-release-aimed-within-spin`
+- `g-tool-blender-headless-opaque-floor-render-recipe`
 - `g-tool-blender-materials-clear-materials-new-name`
 - `g-tool-build-time-tag-scans-blind-children`
 - `g-tool-camera-screenshot-misses-modal-card`

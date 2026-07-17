@@ -2,7 +2,7 @@
 title: Runtime terrain meshing — chunked greedy voxel/heightfield terrain
 slug: runtime-terrain-meshing
 date: "2026-07-13"
-updated: "2026-07-16T17:00:00-04:00"
+updated: "2026-07-17T09:14:00-04:00"
 lanes:
   - writing-gameplay
   - making-it-perform
@@ -127,6 +127,25 @@ the rendered body child by `max(0, render - collision)` at the feet XY when
 grounded -- visual-only, proxy-safe (each peer computes its own),
 smooth-render-only (Voxel has no burial: its render top is the per-cell step
 `≤ block-max`).
+
+**Mover-side alternative (the more complete fix).** The visual-lift above only
+patches the crest burial (`max(0, render−collision)` clamps away the slope case),
+and it is a per-frame visual child offset. A more complete approach moves the
+**mover's vertical ground-follow onto the render surface** on continuous styles:
+reproduce the mesher's surface at an arbitrary feet-XY (the per-block `CornerH`
+corner lattice with the style's own snap flag, the `SplitAlongAD` diagonal,
+barycentric interpolation) and ride it in the **fixed tick** (written into the
+`OnFixedUpdate` `WorldPosition`, so engine interpolation carries it — no visual
+offset). One change kills burial (crest), float (slope), and the discrete
+step-bounce the coarse collision otherwise imposes on a visually smooth slope.
+Scope it to the vertical walk-over-terrain follow only — keep the raw coarse
+trace for the horizontal wall/object test and guard columns where the trace
+stands above the coarse terrain block-max (standing on a prop, not terrain). A
+trace-based mover has no collider, so riding a height below the block-max never
+fights physics; the fall-through audit must read the same ridden surface or it
+rescue-pops the offset back up. Do this in the fixed tick — never as a per-frame
+visual-Z model offset (that is the separate documented flicker trap of a second
+smoother fighting `FixedUpdateInterpolation`). Voxel style stays unchanged.
 
 ## 4. One material, palette atlas, constant per-face UV
 

@@ -260,3 +260,5 @@
   obsolete: 'Use AssetType instead'.** Replace with
   `[AssetType(Extension = "ext")] public class Foo : GameResource`. The old attribute
   compiles as a warning, so it slips past a green build unless warnings-as-errors is on.
+
+- **`SliderControl` near-min values produce scientific notation in CSS** — `SliderPosition` string-interpolated raw; float snap residue near Min formats as `4.9E-06%` (style parse error). Sanitize: snap values within `StepFine/2` of Min/Max to exactly Min/Max.

@@ -34,6 +34,3 @@ Long-form build-order guides for common systems. These are the "how do I archite
 | Delta-log save | `guides/delta-log-save.md` | Append-only delta save for large procedural worlds |
 | Voice proximity chat | `guides/voice-proximity-chat.md` | Built-in Sandbox.Voice for proximity PTT |
 | P2P peer-hosted servers | `guides/p2p-peer-hosted-servers.md` | Player-hosted multiplayer: lobby, invite codes, join handshake |
-| Performance investigation | `guides/performance-investigation.md` | Profiling workflow, triangle census, collider audit |
-| Vehicle audio | `guides/vehicle-audio.md` | Engine loops, RPM crossfade, slip SFX |
-| Character-mounted assets | `guides/character-mounted-assets-live-tuning.md` | Mounting gadgets on the player rig, live-tuning panel |

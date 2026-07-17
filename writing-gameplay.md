@@ -1171,3 +1171,7 @@
   `"]"`), not a `KEY_`-enum-derived name.** A wrong name like `"lbracket"` fails silently
   (action never fires, no warning at load or bind time). Check the engine's
   `KeyboardCode` enum or test with `Input.Keyboard.Pressed("char")` to confirm.
+
+- **Visible cursor blocks ALL game mouse input with no raw bypass** — `Input.Down/Pressed` for a button eaten by a pointer-events panel never fires; `Input.Keyboard.Down("mouse2")` reads the same gated store; `Input.AnalogLook`/`MouseDelta` are hard-zeroed. A hold-to-look mode must actually lock the cursor.
+- **Chase camera reading raw fixed-tick position causes model sawtooth** — the raw field is a 50 Hz staircase; read `chr.WorldPosition` (context-sensitive interpolated getter) instead for smooth per-frame tracking.
+- **Mover riding coarse collision heightfield bobs on a visually smooth surface** — reproduce the render mesher's surface at the feet XY and ride it in the fixed tick, scoped to vertical ground-follow only.

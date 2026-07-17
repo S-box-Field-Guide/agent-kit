@@ -432,3 +432,7 @@
   setter never runs. Because statics survive Play stop/start, a convar-triggered action from
   a prior session leaves the convar "already set," so a fresh session's identical command does
   nothing. Fix: toggle to a different value first, or reset the backing static on boot.
+
+- **Headless Blender 5.2 drops the old compositor API silently** — `Scene.node_tree` / `CompositorNodeComposite` removed; use `scene.compositing_node_group` + `NodeGroupOutput`, or skip the compositor entirely with an opaque-floor render recipe.
+- **Git worktree at a different directory depth breaks sbox csproj relative refs** — the generated `.csproj` uses deep `../` paths that only resolve at the main checkout's depth. Build from a worktree-local `.csproj` with absolute paths.
+- **Headless Blender opaque-floor render recipe** sidesteps compositor API churn entirely — an emissive-grey world + albedo-matched diffuse floor + the subject's own cast shadow; no film transparency, no compositor graph needed. Use Standard view transform, not AgX.

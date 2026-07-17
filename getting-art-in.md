@@ -327,3 +327,5 @@
  Sky: `shader "shaders/sky.shader"` + `SkyTexture` (equirect PNG works).
 - `ModelRenderer.Tint` multiplies — usable for cheap state visuals (watered soil,
  ghost previews with alpha, team colors). Values > 1 brighten.
+- **Blender OBJ import `up_axis='Y'` puts Y→Z rotation in `matrix_world`, not vertices** — raw `.co.z` reads the file's horizontal axis. Apply transforms after import (`bpy.ops.object.transform_apply`) to bake world-Z-up into vertex coords.
+- **`bpy.ops.object.duplicate()` in headless Blender can share the mesh datablock** — a bmesh edit to one mutates both. Re-import per output or force `obj.data = obj.data.copy()` for independent meshes.

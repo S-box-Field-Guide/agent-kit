@@ -2,7 +2,7 @@
 title: "P2P peer-hosted servers — from working co-op code to a friend actually joining"
 slug: p2p-peer-hosted-servers
 date: "2026-07-14T22:30:00-04:00"
-updated: "2026-07-15T00:24:00-04:00"
+updated: "2026-07-17T09:14:00-04:00"
 lanes:
   - writing-gameplay
   - publishing-shipping
@@ -61,6 +61,25 @@ The verified engine facts that shape the design:
 **Short-code entropy caveat:** a 4-char base-32 code is ~20 bits; an unsalted deterministic hash of it in public metadata is enumerable in seconds. Fine as a friends-convenience code; do not document it as an access-control secret.
 
 Suspected but `(unverified)`: lobby-directory propagation can take ~60 s — tell testers to retry a fresh code after a minute before declaring failure.
+
+## Privacy levels, the hidden-inclusion query, and Steam invites
+
+Engine-source-verified corrections to the lobby privacy model:
+
+- **`LobbyPrivacy` has three levels — `Public`, `Private`, `FriendsOnly`** — each maps to a Steam `ELobbyType`. Steam's `RequestLobbyList` (what `QueryLobbies` calls) **only returns `Public`-type lobbies**; `Private` and `FriendsOnly` are excluded from every list query. So `Privacy=Private`/`FriendsOnly` **kills a metadata-code lookup** — do not use them if code-join must keep working.
+
+- **`LobbyConfig.Hidden` is orthogonal to Privacy.** It only stamps the `hdn` lobby-metadata tag; `QueryLobbies` appends `q.WithKeyValue("hdn","0")` (filters hidden out) **unless the caller passes `filters["hidden"]` truthy**. So **`QueryLobbies({..., ["hidden"]="1"})` includes hidden lobbies** in the results. This corrects the earlier "hidden lobbies are unreachable" finding: they are reachable if you opt in on the query.
+
+- **The winning privacy design for public vs private with a code that always works:**
+  - **Public** = `Hidden=false, Privacy=Public` — listed in the browser + code-findable + Steam-invitable.
+  - **Private** = `Hidden=true, Privacy=Public` — not listed anywhere, but still code-findable (via the `["hidden"]="1"` query) and Steam-invitable (a `Public`-type lobby is joinable by its id; the unlisted id is the secret an invite/code hands out). Keep `Privacy=Public` in both — flipping Privacy to `Private`/`FriendsOnly` drops the lobby out of the code query entirely.
+
+- **Testability trap — the editor forces lobby privacy to `Private`.** `Networking.CreateLobbyAsync` overrides `config.Privacy = EditorLobbyPrivacy` (defaults to `Private`, `internal` — not settable from game code) when running in the editor. Any editor-host lobby is Steam-Private regardless of what you pass, which means `QueryLobbies` finds nothing. This is the real reason a self-query probe returns nothing on an editor host, not the `hdn:1` tag. The public-vs-private discoverability difference is only exercisable on a **published build**; `-joinlocal` bypasses queries (direct loopback) so it can't test it either.
+
+- **Steam invites — how an accept reaches game code:**
+  - **Send:** `Lobby.InviteOverlay()` / `Lobby.InviteFriend(steamId)` are internal menu-layer APIs, not reachable from addon code. The addon-facing `Game.Overlay.ShowFriendsList` only opens the friends modal. The always-available invite path is the **Steam overlay (Shift+Tab) → "Invite to Game"**, which works with zero game code because `SteamRichPresenceSystem` publishes `connect = "+connect <lobbyId>"` for the active lobby.
+  - **Accept (game running):** `GameLobbyJoinRequested_t` fires engine-side; the menu subscribes and calls `Networking.Connect(lobbyId)`. Cold start: Steam relaunches with the `+connect <lobbyId>` arg. **Either way the addon never runs its own Join UI, so an invited joiner presents no invite code** — the host's code gate must grant an "invite grace" (accept a code-less join) or every Steam invite is rejected. Trust model: the short code is a convenience secret; the real access control is discoverability.
+  - The join intent carry (item 7 above) is for the code path; an invite join has no code to carry, so it rides the reconstruct path and is admitted by the invite-grace. No protocol bump needed.
 
 ## The join handshake needs a liveness contract
 
