@@ -15,6 +15,7 @@ summary: >-
   chassis Rigidbody, substepped slip-ratio/slip-angle tire physics with peaked
   curves, a torque-curve drivetrain, layered assists, and arcade dials on top of
   a sim core.
+verifiedOn: "26.07.15a"
 sourceRev: methods/vehicle-physics.md
 relatedFixes:
   - rigidbody-component-api

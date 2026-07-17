@@ -16,6 +16,7 @@ summary: >-
   grid as the single source of truth, chunked greedy meshing (tops + skirts),
   collision decoupled from render grain, palette-atlas UVs, and dirty-chunk
   remesh for a live terrain brush.
+verifiedOn: "26.07.15a"
 sourceRev: a18fad046546
 relatedFixes:
   - runtime-world-building-helpers

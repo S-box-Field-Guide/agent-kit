@@ -16,6 +16,7 @@ summary: >-
   The method for making a procedurally-rigged NPC crumple via engine physics —
   author a physics skeleton in the vmdl, toggle Sandbox.ModelPhysics at runtime,
   and hand bone control back for stand-up. No authored collapse clips needed.
+verifiedOn: "26.07.15a"
 sourceRev: null
 relatedFixes: []
 unverified: false

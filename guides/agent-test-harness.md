@@ -15,6 +15,7 @@ summary: >-
   The architecture for letting an agent (or CI) drive the live s&box editor:
   compile-gate, spawn, play, inject input, read telemetry, screenshot, assert,
   and gate a merge on the numbers — with no human at the keyboard.
+verifiedOn: "26.07.15a"
 sourceRev: methods/agent-test-harness.md
 relatedFixes:
   - first-play-compile-checklist

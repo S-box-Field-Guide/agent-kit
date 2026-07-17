@@ -16,6 +16,7 @@ summary: >-
   buildings): the generator emits a manifest next to the meshes, code consumes
   ONLY the manifest, pivots sit at joints, collision comes from metadata, and
   assembly is transactional.
+verifiedOn: "26.07.15a"
 sourceRev: asset-pipeline.md#part-kit
 relatedFixes:
   - model-no-collision

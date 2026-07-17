@@ -15,6 +15,7 @@ summary: >-
   coyote-time jumps, double jump, mantle, slide, wall run, node climbing, and
   rope swinging — plus the ground-contact quality work that makes all of it
   read smooth.
+verifiedOn: "26.07.15a"
 sourceRev: methods/parkour-movement.md
 relatedFixes:
   - kinematic-movement-startedsolid

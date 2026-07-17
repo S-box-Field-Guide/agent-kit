@@ -14,6 +14,7 @@ summary: >-
   The build order for a fresh s&box project a coding agent can actually work in
   without corrupting itself on day one — skeleton, globals, compile gate, and the
   ownership discipline that keeps parallel agents from clobbering each other.
+verifiedOn: "26.07.15a"
 sourceRev: seed-2026-07-13
 relatedFixes:
   - project-setup-skeleton

@@ -17,6 +17,7 @@ summary: >-
   The method for hanging custom models off the player rig -- gadgets,
   backpacks, held items -- with three mount styles off one skeleton,
   and a live slider panel that dumps C#-ready constants for paste-back.
+verifiedOn: "26.07.15a"
 sourceRev: methods/character-mounted-assets-live-tuning.md
 relatedFixes:
   - setbonetransform-silently-noop

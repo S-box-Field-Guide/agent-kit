@@ -16,6 +16,7 @@ summary: >-
   The complete method for wiring s&box's built-in Voice component into a
   networked game — push-to-talk, 3D positional playback, custom falloff curves,
   speaking indicators, and lip-sync — with no third-party voice SDK.
+verifiedOn: "26.07.15a"
 sourceRev: e1f75bb3a8cd
 relatedFixes:
   - custom-sound-wont-play

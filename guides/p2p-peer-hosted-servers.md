@@ -18,6 +18,7 @@ summary: >-
   lobby mechanics, invite codes, the join handshake liveness contract, replication
   traps, and the three-rung testing ladder — covering the layer the official docs
   don't document and where live multi-peer sessions actually break.
+verifiedOn: "26.07.15a"
 sourceRev: methods/p2p-peer-hosted-servers.md
 relatedFixes:
   - dedicated-server-unpublished-package-join-fails

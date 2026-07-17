@@ -15,6 +15,7 @@ summary: >-
   replicate the generator spec (not the geometry) for deterministic worlds, and
   retrofit local-only gameplay systems to host-authority without breaking
   single-player.
+verifiedOn: "26.07.15a"
 sourceRev: methods/networking-methods.md
 relatedFixes:
   - owner-simulated-networking

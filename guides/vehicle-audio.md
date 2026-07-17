@@ -14,6 +14,7 @@ summary: >-
   The method for vehicle engine audio that doesn't screech: two-layer RPM
   crossfade with narrow pitch bands, code-side looping, slip-driven skid
   feedback, and the persistent ConVar trap that ate two listen tests.
+verifiedOn: "26.07.15a"
 sourceRev: methods/vehicle-audio.md
 relatedFixes: []
 unverified: false

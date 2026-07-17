@@ -16,6 +16,7 @@ summary: >-
   without shipping speculative optimizations — environmental pre-checks,
   measurement tooling, an isolation matrix, and a verdict discipline that
   prevents wasted work.
+verifiedOn: "26.07.15a"
 sourceRev: "cd7f71b6d866"
 relatedFixes:
   - editor-play-mode-vsync-capped

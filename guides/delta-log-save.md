@@ -15,6 +15,7 @@ summary: >-
   {version, spec, edits[]} — never a geometry snapshot. Load = validate →
   regenerate → replay edits. Same format works for save, co-op edit sync, and
   late-join replay.
+verifiedOn: "26.07.15a"
 sourceRev: code-patterns.md#delta-log
 relatedFixes:
   - saveload-without-drift
