@@ -32,6 +32,10 @@
  The compiled world frame is `world = (-objZ, -objX, objY) * scale`.
 - **Model facing:** geometry built along Blender **+X** faces world **−Y** after import.
  Yaw **+90°** turns it to face +X. Codify it once (e.g. facing yaw = `atan2(dir.y,dir.x)° + 90`).
+- **Text-to-3D generator output (Tripo/Meshy/Rodin-style) facing is a coin-flip and often
+ OPPOSITE the Blender-authored convention above** — don't assume the same +90° yaw applies;
+ generated meshes have been observed wanting facing yaw = `atan2(dir.y, dir.x)° − 90` instead.
+ Verify one placed instance visually and hard-code a per-model facing-yaw constant.
 - **Blender rotation sign check:** rotating a slab about **+Y by a positive angle tips its
  +X edge down**. We shipped every roof upside-down (valley instead of peak) by guessing
  the sign. When authoring angled geometry, verify one instance visually before batching.
@@ -74,6 +78,11 @@
 
 - **s&box does not load raw OBJ/GLB in scenes.** Always generate a `.vmdl` wrapper;
  the engine compiles it on load.
+- **A generated vmdl declaring `format:modeldoc32` gets rejected** ("No valid format
+ conversion from 'modeldoc32' to 'modeldoc30'" — the model shows as floating orange ERROR
+ text). Fix: replace the vmdl's first line with the header line from any working
+ hand-authored vmdl; the node classes inside are compatible as-is. Also expect the source
+ mesh grounded at z=0 and triangulated before wrapping.
 - **vmdl material remaps must map BOTH names**: `"MatName"` *and* `"MatName.vmat"` in
  the `DefaultMaterialGroup` remaps, or the compiler errors with "unable to resolve X.vmat".
  A `MaterialOverride` on the renderer is not a substitute.
@@ -115,6 +124,16 @@
  scatter clumps tolerate the most aggressive cuts (faceting invisible at their screen
  size). Verify budgets with a textured before/after render on one complex prop before
  batching.
+- **Blender OBJ import `up_axis='Y'` puts Y→Z rotation in `matrix_world`, not vertices** — raw `.co.z` reads the file's horizontal axis. Apply transforms after import (`bpy.ops.object.transform_apply`) to bake world-Z-up into vertex coords.
+- **`bpy.ops.object.duplicate()` in headless Blender can share the mesh datablock** — a bmesh edit to one mutates both. Re-import per output or force `obj.data = obj.data.copy()` for independent meshes.
+- **Text-to-3D generated characters arrive as static meshes — no skeleton, no rig.** To
+ animate one, rig it locally (headless Blender: armature + scripted weights + clips + FBX
+ export + animated vmdl); auto-weights fail on generated meshes (use geodesic weights) and
+ quaternion keys must stay hemisphere-continuous.
+- **Never hand-edit a file still inside a generator's own output folder** — copy the asset
+ out (mesh, texture, vmdl) before forking or fixing it, or the next generation run silently
+ overwrites your edits. Rig from a COPY for the same reason. Batch thoughtfully — most
+ hosted generators bill per asset.
 
 ## Lighting & sky
 
@@ -143,8 +162,21 @@
  Sky: `shader "shaders/sky.shader"` + `SkyTexture` (equirect PNG works).
 - **Asset paths are project-root-relative with forward slashes and NO `Assets/` prefix**:
  `Model.Load`, `Material.Load("materials/x/y.vmat")`.
+- **A bare texture filename in `TextureColor` (no folder) fails to compile** — the material
+ compiler resolves it against the Assets ROOT, not the vmat's own folder ("Unable to read
+ file …/assets/<slug>_color.png"), and the model errors out with it. Give `TextureColor`
+ the full root-relative path, e.g. `materials/mygame/<slug>_color.png`. A generator-baked
+ PNG can also be corrupt or oversized (bad IDAT checksum fails the texture compile) —
+ re-encode with any clean re-save before assuming the vmat is wrong.
 - `ModelRenderer.Tint` multiplies — usable for cheap state visuals (watered soil,
  ghost previews with alpha, team colors). Values > 1 brighten.
+- **Skip `ModelRenderer.Tint` entirely on props using the flat-color vmat recipe (white
+ PNG + `g_vColorTint` + `g_flModelTintAmount 1.0`) — any non-white per-instance Tint
+ renders WRONG.** Independent per-channel jitter meant as brightness variety instead
+ rotates HUE (green→purple, grey→navy/maroon), and a uniform tint off exactly white in
+ EITHER direction crushes a random subset of instances to solid black — reads as a
+ per-instance bug, not a global darken. Get per-instance scatter variety from scale/yaw
+ jitter instead; leave Tint at `Color.White` on flat-vmat props.
 - **Disable per-instance shadows via `renderer.SceneObject.Flags.CastShadows = false`, NOT a
  `ModelRenderer.CastShadows` property** — that member shows in `Sandbox.Engine.xml` but is NOT a
  public settable property (only `ParticleModelRenderer.CastShadows` is), so `r.CastShadows =
@@ -291,6 +323,12 @@
  vehicle-part OBJs. For SEPARATE-part export (pivot-at-joint sub-parts), give each part
  its OWN `reset()` scene and `select_all→join→export` — no per-object selection juggling
  needed.
+- **`bpy.ops.wm.obj_export` face/UV serialization order is NOT deterministic across runs
+ on the same mesh, even with a fully deterministic generator** — two identical headless
+ runs produced byte-identical vertex/normal/UV data but a different `f`-line order on the
+ highest-poly prop. Geometry-level determinism (vertex positions, tri count, bbox,
+ material assignment) still holds bit-for-bit. Don't chase OBJ-file byte-identity as a
+ determinism proof; diff the manifest/bbox/tri-census data instead.
 - **A high-key "chalky bright" / near-white sky is capped by TWO stock defaults, and BOTH must move —
  neither a `SkyBox2D.Tint` multiply nor a brighter sky texture alone is enough.** (1) The stock
  `skybox_day_01.vmat` bakes BLUE into the sky and ambient; `Tint` is a MULTIPLY (can only darken toward
@@ -322,10 +360,3 @@
  "Camera" with the grade and a bare "editor_camera"). This is the ONLY honest way to preview a play-mode
  render grade from the deterministic edit scene; the wb_generate cameraPoses feed straight into
  set_game_object.
-- `.vmat` essentials: `shader "shaders/complex.shader"`, `TextureColor`,
- `TextureRoughness "[r r r 1]"`, `g_flMetalness`. Tiling via `g_vTexCoordScale "[n n]"`.
- Sky: `shader "shaders/sky.shader"` + `SkyTexture` (equirect PNG works).
-- `ModelRenderer.Tint` multiplies — usable for cheap state visuals (watered soil,
- ghost previews with alpha, team colors). Values > 1 brighten.
-- **Blender OBJ import `up_axis='Y'` puts Y→Z rotation in `matrix_world`, not vertices** — raw `.co.z` reads the file's horizontal axis. Apply transforms after import (`bpy.ops.object.transform_apply`) to bake world-Z-up into vertex coords.
-- **`bpy.ops.object.duplicate()` in headless Blender can share the mesh datablock** — a bmesh edit to one mutates both. Re-import per output or force `obj.data = obj.data.copy()` for independent meshes.

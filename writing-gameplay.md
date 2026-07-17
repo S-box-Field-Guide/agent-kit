@@ -131,7 +131,7 @@
  structure's footprint of the player.
 - Trace API that works: `Scene.Trace.FromTo(a,b).Radius(r).IgnoreGameObjectHierarchy(go)
  .WithoutTags("player","ghost").Run` → `.Hit`, `.Normal`, `.StartedSolid`.
-- **`Jump` on the controller clamps against rising velocity** and silently no-ops —
+- **`Jump()` on the controller clamps against rising velocity** and silently no-ops —
  for double jumps set `Velocity` z directly.
 - **Suspension forces along the contact normal, not body-up**, or a tilted vehicle
  pushes itself sideways.
@@ -272,10 +272,6 @@
  Action")` will fire in a running editor session; it needs a Play/editor restart to
  pick up the new action list.
 
-- **`Jump()` on the controller clamps against rising velocity** and silently no-ops —
- for double jumps set `Velocity` z directly.
-- Don't smooth longitudinal slip (adds lag/surging); do lightly smooth lateral slip.
- Shift on ground-speed-implied RPM, not engine RPM, to stop gear hunting.
 - **A spin bar's release can only aim within its spin plane — yaw chain bars INTO their
  outgoing travel bearing, and beware the TWO yaw conventions.** `SwingBar(yaw)`'s plane
  CONTAINS horizontal bearing = yaw (box long axis = local Y rotated by yaw); but
@@ -287,7 +283,7 @@
  is free placement: positions unchanged, reach audits unaffected.
 - **Rest-position spacing cannot clear a SWINGING rope/tire neighbour — its knot occupies
  the whole swing sphere.** A tire knot on a 3.0 m rope whose REST point sat a "safe" 3.3 m
- from a trapeze chased a flying monkey to within ~1.4 m at full extension and stole the
+ from a trapeze chased an airborne character to within ~1.4 m at full extension and stole the
  grab. Clearance metric = |ropeAnchor − target| − ropeLength (keep ≥ ~2 m), never
  |knotRest − target|. Same "measured, not authored" family as the footprint rule, applied
  to motion.
@@ -299,7 +295,7 @@
  for the whole climb.
 - **Climbable stair-step rises ≥ ~1.1 m are a mid-air Climb-catch coin flip** with
  JumpVelocity 5.5: z(0.25 s) = 1.07 m, and 0.25 s airborne is exactly when
- `Monkey.TryEnterClimb` arms — whether the arc clears the next platform's face before the
+ the controller's `TryEnterClimb` arms — whether the arc clears the next platform's face before the
  arm depends on centimetres of launch position. Uniform scale-to-height platforms worsen
  it (a 3.5 m-tall platform is ~3.7 m WIDE — faces nest into the previous top). Keep
  scripted-jump stair rises ≤0.9 m or budget for the recovery loop burning step timeouts.
@@ -389,7 +385,7 @@
  `Mouse.Visibility = MouseVisibility.Visible/Hidden`** (engine XML: "Use
  Mouse.Visibility instead"). It raises CS0612 in the fresh in-editor compile, and the
  whole-tree 0/0 gate stays red until migrated; one project already migrated
- (MonkeyCamera/EscapeMenu). Companion play-mode note for cursor-driven tool cameras:
+ (a tool camera/EscapeMenu). Companion play-mode note for cursor-driven tool cameras:
  editor keyboard/mouse input reaches one project only while the game viewport has FOCUS —
  "camera dead in play mode" is usually an unclicked viewport, not an input-API bug
  (verify attachment headlessly via find_game_objects component=<CameraDriver> before
@@ -509,6 +505,12 @@
  for whitelist safety; always gate on the editor's `compile_status` (bump mtime -> poll) before
  trusting a runtime pass. Prime suspects the headless build misses: `Array.Clone`, LINQ corners,
  reflection, various `System.*` helpers.
+- **Headless `dotnet build` can report 0 errors while the in-editor Razor compiler has
+ real `.razor` compile errors — it is not a substitute for `compile_status` for anything
+ touching `.razor` files.** A `.razor` file with genuine CS errors built clean via
+ `dotnet build` both before AND after the fix — the headless MSBuild path doesn't
+ regenerate/validate the Razor-to-C# codegen the live editor's Roslyn compiler does.
+ Plain `.cs` files still error correctly; the gap is specifically Razor codegen.
 - **A hex hash constant with the top bit set (e.g. the golden-ratio `0x9E3779B1` = 2654435761)
  is a `uint` literal and will NOT assign to `const int` — CS0266.** Other seed offsets on this
  project (`0x51ED2701`, `0x6A09E667`) are < 2^31 so they slid in; the 32-bit golden ratio does
@@ -635,6 +637,13 @@
  other panel in the project); to make a panel usable IN-session without the scss you'd have to set the
  root style in C# (`Panel.Style.Width = Length.Percent(100)` in OnTreeBuilt) — but children still need
  their own styling, so a restart is the clean answer.
+- **A stylesheet with MANY selectors simultaneously declaring `font-size` (and/or
+ `letter-spacing`) can corrupt UI TEXT GLYPH RENDERING for the WHOLE PANEL** — text
+ draws as solid filled blocks (correct layout width, wrong glyph fill) instead of
+ legible characters. A handful of `font-size` declarations is fine; roughly a dozen
+ across one panel breaks every styled element. Carry visual hierarchy via
+ `font-weight`/`text-transform`/`color` instead; if a panel truly needs per-element
+ sizing, add it ONE selector at a time and screenshot-verify before adding the next.
 - **Multiple `PanelComponent`s on ONE GameObject under ONE `ScreenPanel` all render** (one project
  Bootstrap mounts 6 on one ScreenPanel). So a second panel that shows nothing is NOT a
  one-ScreenPanel-per-panel wiring limit — don't split it onto its own ScreenPanel chasing that theory
@@ -750,6 +759,11 @@
  'op'". Same shape as `wb_generate(specJson)` / `wb_brush(opsJson)`. The client's stdout on Windows is
  cp1252 and crashes printing a tool description containing a non-ASCII char (e.g. `∈`) — set
  `PYTHONIOENCODING=utf-8`.
+- **Python's `open(path, "w")` on Windows silently uses the legacy codepage (cp1252), not
+ UTF-8, unless `encoding="utf-8"` is passed explicitly** — it does NOT raise, it just
+ mis-encodes any non-ASCII character (an em dash becomes one wrong byte instead of the
+ 3-byte UTF-8 sequence). Always pass `encoding="utf-8"` on every `open(..., "w")` in
+ codegen scripts emitting em dashes, curly quotes, or other non-ASCII punctuation.
 - **Slide/slope logic on a STEPPED coarse-collision voxel world must read slope from the FINE GRID
  GRADIENT, not a ground-trace normal.** The coarse collision is a field of flat-TOPPED block quads
  (VoxelMesher.BuildCollision), so every trace normal is straight up (0,0,1) and carries ZERO slope —
@@ -855,7 +869,7 @@
  off. Measured surface-tracking deviation over a full bay crossing: **0.00 m**.
 - **Forge/Tripo vehicle meshes re-exported through Blender withOUT extra rotation keep their facing — offset 0
  worked.** The dune-buggy/jet-ski `.vmdl`s drove nose-first with `FacingYawOffset = 0` (unlike one project's
- hero monkey which needed −90); the difference is those were re-exported joined+grounded only. Still VERIFY
+ hero character which needed −90); the difference is those were re-exported joined+grounded only. Still VERIFY
  in-engine before wiring facing-dependent movement. And note the wall-less coarse collision means a wheel
  raycast that finds a HIGHER tile ahead just lifts that corner — the buggy RIDES gentle terraces and only a
  big drop launches it (driving INTO a tall terrace, the body box stops against the higher tile — it can't
@@ -874,6 +888,14 @@
  sweep ALL matches, not FirstOrDefault, to also collect an already-leaked root. Regression net: a
  `wb_grid_hash` McpTool that also returns `worldRootCount` + `chunkGOs` vs `expectedChunks`, asserted
  ==1 / == on every mutating step.
+- **A scene query fired in the SAME breath as a regenerating mutation can return a LAGGED
+ snapshot — even when `scene_tree` already shows the tree is correct.** A tool that
+ rebuilds a world root each call (`previousRoot.Destroy()` → build new) is correct, yet
+ `find_game_objects` called immediately after returned STALE objects from the PRIOR
+ build — an impossible-looking contradiction. Don't trust a query issued immediately
+ after a mutation: re-generate and re-query, or verify in PLAY mode where lifecycle is
+ real. Corollary: edit-mode lighting for runtime-spawned `ModelRenderer`s is also
+ unreliable (unlit/near-black across regenerates) — verify colour/lighting in PLAY.
 - **Editor-viewport auto-exposure ADAPTS over wall-clock frames, so two screenshots of a BYTE-IDENTICAL
  regenerated world can differ globally by tens of percent — a stale-render false positive.** After
  fixing the double-root overlap, return-to-start grid hashes were byte-identical but return-to-start
@@ -1080,33 +1102,6 @@
   must run on the game main thread (consume the request in a play-mode component's
   `OnUpdate`). This sets `Networking.IsActive` true and runs the real spawn/sync path,
   letting you verify component creation order and `[Sync]` wiring without a second peer.
-- **An overhead UI element (name tag, health bar) anchored to a per-player gameplay field
-  FREEZES over a remote player's spawn position while their model walks away** — if that
-  field is not `[Sync]` and written only inside the owner's `OnFixedUpdate`. A proxy never
-  runs the owner's tick, so the field is stuck at spawn. Fix: anchor off the live networked
-  transform (`WorldPosition`), which is replicated and engine-interpolated.
-- **A `[Sync(SyncFlags.FromHost)]` field on a runtime-created singleton does NOT replicate
-  unless that object is `NetworkSpawn`ed.** A `Scene.CreateObject()` singleton has no
-  cross-peer identity even with `NetworkMode.Snapshot`. `GameObject.Network.Active == false`
-  and the field never crosses the wire. Fix: host-`NetworkSpawn()` the singleton; the joining
-  client receives the host's networked proxy instead of creating its own local copy.
-- **On the host, spawning a joiner's character clobbers the host's camera-target singleton:**
-  `Components.Create` runs BEFORE `NetworkSpawn(owner)`, so `IsProxy == false` at create time
-  and an `OnEnabled` that claims `static Instance` behind `if (!IsProxy)` grabs the joiner's
-  body. Fix: re-resolve the claim at the first `OnFixedUpdate`, where `IsProxy` is trustworthy.
-- **A joining client's static join state (invite code, mode) gets WIPED by the networked scene
-  handoff:** `Networking.Connect` loads the host's scene, the bootstrap creates a new instance,
-  and its `OnEnabled` "reset for a fresh session" runs before the join handshake sends those
-  values. Fix: make `OnEnabled` reconstruct-not-reset when already connected as a non-host.
-  Test blind spot: `-joinlocal` never sets a code pre-handoff, so it can't catch this.
-- **A PUBLISHED-build client join RELOADS the game assembly, wiping ALL statics** — the
-  reconstruct-not-reset fix has nothing to reconstruct from. Fix: persist join intent to
-  `FileSystem.Data` before `Networking.Connect`; restore from disk after the reload, gated
-  on a freshness window. Only a real cross-machine published join exercises this path.
-- **`Networking.CreateLobby()` is ASYNC — `Networking.IsActive` is still false on the same
-  frame.** Any branch on `IsActive` immediately after `CreateLobby` takes the wrong path.
-  Gate on your own synchronous mode enum (set on the same frame). Also: a session-END path
-  must un-possess the character (`ExitCharacter()`) to restore the pre-session view.
 - **An overhead UI element (name tag, health bar) anchored to a per-player gameplay field
   FREEZES over a remote player's spawn position while their model walks away** — if that
   field is not `[Sync]` and written only inside the owner's `OnFixedUpdate`. A proxy never

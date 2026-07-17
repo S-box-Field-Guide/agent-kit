@@ -75,12 +75,12 @@ component (`"__type": "GameBootstrap"`, plain class name, no namespace).
 Bootstrap `OnStart` then builds everything in a deliberate order:
 
 ```csharp
-protected override void OnStart
+protected override void OnStart()
 {
     if ( Scene.IsEditor ) return;
     // 1. manager singletons (OnAwake sets .Instance immediately on Create)
-    var managers = Scene.CreateObject;
-    managers.Components.Create<PowerGrid>;
+    var managers = Scene.CreateObject();
+    managers.Components.Create<PowerGrid>();
     // 2. static world 3. player 4. camera/sun component attach
     // 5. UI (one GO: ScreenPanel + every PanelComponent)
     // 6. game-state component last — its OnStart runs after the world exists

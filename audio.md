@@ -23,7 +23,7 @@
   step: play, keep the `SoundHandle`, re-trigger when `.Finished`/`!IsPlaying`.
 - **Playing sound is fully static:** `Sound.Play(eventString)` (2D) / `Sound.Play(eventString,
   worldPos)` (3D→`SoundHandle`). `SoundHandle`: `.Volume .Pitch .Position .IsPlaying .Finished
-  .Stop(fadeSeconds) .IsValid`. A missing event doesn't hard-throw but wrap in try/catch so a
+  .Stop(fadeSeconds) .IsValid()`. A missing event doesn't hard-throw but wrap in try/catch so a
   not-yet-generated `.sound` can't break gameplay. No component/Bootstrap wiring needed (unlike
   stateful SharedState/RunStats).
 - **The event STRING must be the FULL resource path WITH extension (`"sounds/impact/boing_a.sound"`)

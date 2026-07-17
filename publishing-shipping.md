@@ -80,7 +80,7 @@ Wiring these is cheap and makes a game look finished on the platform.
   Batched automatically; global, local, and per-player reads.
 - **Leaderboards** — built on demand from any stat
   (`Leaderboards.GetFromStat`); aggregation sum/min/max/avg/last;
-  daily/weekly/monthly/yearly buckets + country filters; `.CenterOnMe`.
+  daily/weekly/monthly/yearly buckets + country filters; `.CenterOnMe()`.
   Free public web API:
   `https://public.facepunch.com/sbox/package/{ident}/leaderboard/{stat}/`.
 - **Achievements** — score 5–100 each, **game total capped at 1000**. Icons

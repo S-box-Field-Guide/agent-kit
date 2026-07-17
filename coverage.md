@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**182 / 659 gotchas articled** (28%). Pack-only: **188**. Backlog (status `none`): **289**.
+**182 / 657 gotchas articled** (28%). Pack-only: **190**. Backlog (status `none`): **285**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 75 | 30 | 20 | 25 | 40% |
+| getting-art-in | 74 | 30 | 20 | 24 | 41% |
 | rigging-animation | 34 | 22 | 3 | 9 | 65% |
-| writing-gameplay | 312 | 62 | 92 | 158 | 20% |
-| building-ui | 66 | 24 | 20 | 22 | 36% |
+| writing-gameplay | 313 | 62 | 94 | 157 | 20% |
+| building-ui | 65 | 24 | 20 | 21 | 37% |
 | audio | 11 | 5 | 5 | 1 | 45% |
 | making-it-perform | 8 | 2 | 3 | 3 | 25% |
-| tooling-environment | 153 | 37 | 45 | 71 | 24% |
-| **Total** | **659** | **182** | **188** | **289** | **28%** |
+| tooling-environment | 152 | 37 | 45 | 70 | 24% |
+| **Total** | **657** | **182** | **190** | **285** | **28%** |
 
 ## Articled gotchas (skip-list)
 
@@ -256,6 +256,7 @@
 - `g-game-dedicated-server-unpublished-ident-download-fails`
 - `g-game-deriving-vertical-skirt-quad-winding-verifie`
 - `g-game-deterministic-content-hash-same-spec-same`
+- `g-game-deterministic-world-delta-only-save`
 - `g-game-dirty-chunk-remesh-seam-law`
 - `g-game-don-t-smooth-longitudinal-slip-adds`
 - `g-game-edit-mode-scene-trace-blind-runtime`
@@ -284,6 +285,7 @@
 - `g-game-networkspawn-owner-sim-host-onactive`
 - `g-game-orbiting-physics-root-around-bar-makes`
 - `g-game-over-world-ui-name-labels-health`
+- `g-game-placed-runtime-structure-savefactory-idempotent`
 - `g-game-play-mode-terrain-brush-s-lower`
 - `g-game-priority-flood-depression-fill-noisy-terrain`
 - `g-game-project-mcptool-s-take-string-json`
@@ -330,7 +332,7 @@
 - `g-perf-fps-probe-measurement-hygiene-through-mcp`
 - `g-perf-voxel-grain-cellsize-nearly-free-density`
 - `g-rig-new-npc-clip-add-humanoid-clips`
-- `g-rig-opt-additive-authoring-editing-read-riglib`
+- `g-rig-opt-additive-authoring-editing-read-rig-library`
 - `g-rig-pair-procedural-whole-body-rotation-clip`
 - `g-tool-aimed-bot-grabbing-through-scored-best`
 - `g-tool-arch-slope-tilt-axis-rotate-about`

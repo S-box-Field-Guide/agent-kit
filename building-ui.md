@@ -20,6 +20,12 @@
  types explicitly (`GetAllComponents<CropPlot>`, etc.) and union them.
 - **`BuildHash` is the razor re-render trigger** — hash *everything* the markup reads,
  or the panel silently goes stale. Cheap trick: `HashCode.Combine` nests for >8 values.
+- **`PanelComponent` overrides `OnTreeBuilt()` / `OnTreeFirstBuilt()` — NOT
+ `OnAfterTreeRender(bool)`.** `OnAfterTreeRender(bool)` is a `Panel`/razor-code-behind
+ hook; putting it on a `PanelComponent` fails CS0115 "no suitable method found to
+ override". Use `OnTreeBuilt()` to (re)touch `@ref`'d child panels after every rebuild —
+ the `@ref` is a NEW Panel object on each BuildHash-triggered rebuild, so anything set
+ imperatively on it must be re-applied there, not once.
 - `[Sync]` = owner→proxies; `[Sync(SyncFlags.FromHost)]` = host→all; guard sim code with
  `if (IsProxy) return;`. Networked props are runtime-only, never saved to scenes.
 - **`GameObject.NetworkMode` defaults to `Snapshot`** (per-object scene-snapshot
@@ -40,15 +46,6 @@
  enums append-only too (we extended `AnimalKind`/`WaterDeviceKind` safely).
 - `Mouse.Visible = true` is obsolete but still functional — fine for cursor-driven games
  until the replacement API is obvious.
-- **No runtime clipboard API is reachable from game code.** The only clipboard write API
- in the whole install is `EditorUtility.Clipboard.Copy(string)`
- (`addons/tools/Code/Utility/ClipboardTools.cs`) — editor-only, not referenced by any
- game csproj, and there's no JS/browser interop (`navigator.clipboard`, `execCommand`)
- in the base UI library either. Verified by reflecting every DLL the game csproj
- references (`Assembly.LoadFrom` + catch `ReflectionTypeLoadException` to get a partial
- type list instead of a hard throw on a big engine DLL — a straight `GetTypes` throws)
- AND grepping the full engine source tree for `Clipboard`. Degrade to "select the text
- and copy manually" — don't ship a Copy button that silently no-ops.
 - **`TextEntry` (not a raw HTML `<input>`) is the house control for text entry**, and it
  already handles Enter internally: `OnButtonTyped` fires `CreateEvent("onsubmit", Text)`
  on Enter, so razor binds it the same way as `onclick` — `onsubmit=@Method` (plain
@@ -152,6 +149,13 @@
  When your only verification is headless, prefer an inline `$token` block copied identically per
  `*.razor.scss` (build-safe, visually proven) over a shared `@import`; reserve `@import` consolidation
  for when you can screenshot-verify.
+- **JetBrains Mono (and Consolas) are NOT shipped with s&box — "Roboto Mono" is the
+ engine's monospace.** The install ships a fixed font set (Inter, Poppins, Roboto,
+ Roboto Condensed, Roboto Mono, Material Icons) and nothing else; "Consolas" only
+ resolves on a dev box because it's a Windows system font. There is no `@font-face` —
+ the engine auto-registers any font file under an `Assets/fonts/` path by its internal
+ family name, referenced by bare/quoted `font-family`. For a mono look with zero
+ shipping work, use `"Roboto Mono", monospace`.
 - **The editor-generated the project `.csproj` is gitignored (`*.csproj`), so a fresh worktree
  checkout has NO csproj to `dotnet build`.** The real one lives only in the editor's working tree with
  reference paths RELATIVE to that location (seven `../` to reach `Program Files`), so it won't resolve
@@ -241,6 +245,13 @@
   string (Assets-relative, no `assets/` prefix, `*` spans `/`): e.g. `"ui/cars/*.png"`. The
   wildcard matches the loose disk path, not the normalized asset path. Same mechanism as any
   other loose resource file — see the "Loose resource files don't auto-publish" article.
+- **A runtime `Texture` for a UI panel must be built in C# and assigned to
+ `Panel.Style.BackgroundImage` — scss `background-image` can't take a runtime texture.**
+ Chain: `Texture.Create(w,h).WithFormat(ImageFormat.RGBA8888).WithDynamicUsage()
+ .WithName("x").Finish()`, fill a `Color32[w*h]` (row-major), push with
+ `tex.Update(colors, 0, 0, w, h)`. `.WithDynamicUsage()` makes repeated `Update` cheap
+ (recreate only when dimensions change). Display: `@ref` a `Panel` and set
+ `Style.BackgroundImage = tex` from code-behind in `OnTreeBuilt()`.
 - **Editor-assembly code referencing a razor component's member fails CS0103 even though
   global-namespace game `.cs` types resolve fine** — the editor project has no
   `global using <RazorNs>`. The game project's Assembly.cs papers over the razor namespace
