@@ -2,7 +2,7 @@
 
 **Real s&box gotchas from shipping games** — verified fixes, pipelines, and workarounds we hit while building, written down so you don't have to rediscover them.
 
-A community collection of the miscellaneous stuff that costs you an afternoon. Complementary field notes from developing in s&box — not a replacement for the [official docs](https://sbox.game/dev/doc). Nothing here is official; it's just what we ran into, shared in case it saves someone else the time. Where something is suspected but not confirmed, it's marked `(unverified)`.
+A community collection of the miscellaneous stuff that costs you an afternoon. Complementary field notes from developing in s&box — not a replacement for the [official docs](https://sbox.game/dev/doc). Nothing here is official; it's just what we ran into, shared in case it saves someone else the time. Suspected-but-unconfirmed material is held back privately until it's verified, rather than published with a marker.
 
 > **Heads up:** s&box moves fast. Fixes are stamped against the engine build they were
 > verified on where it matters. If an entry is stale, please

@@ -3,7 +3,7 @@
 > Lane pack. Load `_core.md` first, then this file. Denser than the full articles by design;
 > for a matching bullet's full write-up, follow that gotcha's article link in `coverage.md`
 > (full articles live on the Field Guide website, not in this pack). Sanitized public
-> advice; unconfirmed details marked `(needs verification)`. The sync appends new bullets here.
+> advice; unverified material is held privately until verified. The sync appends new bullets here.
 
 
 - **Editor-embedded play mode is hard-capped at the desktop's vsync (60 Hz) and it is NOT

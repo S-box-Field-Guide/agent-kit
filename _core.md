@@ -6,7 +6,7 @@
 > the Field Guide website, not in this pack).
 >
 > Sanitized public derivative of private field notes — engine-level, reproducible advice only.
-> Unconfirmed details are marked `(needs verification)`.
+> Unverified material is held privately until verified.
 
 ## The recurring rules
 

@@ -2,7 +2,7 @@
 title: "P2P peer-hosted servers — from working co-op code to a friend actually joining"
 slug: p2p-peer-hosted-servers
 date: "2026-07-14T22:30:00-04:00"
-updated: "2026-07-17T09:14:00-04:00"
+updated: "2026-07-17T12:00:00-04:00"
 lanes:
   - writing-gameplay
   - publishing-shipping
@@ -24,6 +24,8 @@ relatedFixes:
   - dedicated-server-unpublished-package-join-fails
   - owner-simulated-networking
 unverified: false
+changelog:
+  - { date: "2026-07-17", note: "Removed unverified ~60s lobby-directory propagation speculation." }
 ---
 
 The operational recipe for shipping **player-hosted (P2P) multiplayer**: one player clicks "host", friends join by invite code, no dedicated infrastructure. This covers the layer the official docs don't document — everything below is verified in-engine (26.07.08e) unless marked otherwise.
@@ -60,8 +62,6 @@ The verified engine facts that shape the design:
 **Also stamp a publish number** (separate from the protocol version) so a tester is never silently stale. The protocol version only changes on a wire-contract change; a routine content republish leaves it identical, yet the peers are different builds. Add a monotonically increasing `PublishStamp` under a short lobby key (mind Steam's ~128-char aggregate metadata cap), advertise it beside the protocol key, and pre-check it client-side: missing/mismatch means refuse with a human message naming both builds and the remedy. Bump it before every publish.
 
 **Short-code entropy caveat:** a 4-char base-32 code is ~20 bits; an unsalted deterministic hash of it in public metadata is enumerable in seconds. Fine as a friends-convenience code; do not document it as an access-control secret.
-
-Suspected but `(unverified)`: lobby-directory propagation can take ~60 s — tell testers to retry a fresh code after a minute before declaring failure.
 
 ## Privacy levels, the hidden-inclusion query, and Steam invites
 

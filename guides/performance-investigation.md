@@ -2,7 +2,7 @@
 title: "Performance investigation — the measure-first harness"
 slug: performance-investigation
 date: "2026-07-15T00:45:00-04:00"
-updated: "2026-07-16T02:31:00-04:00"
+updated: "2026-07-17T12:00:00-04:00"
 lanes:
   - making-it-perform
   - tooling-environment
@@ -22,6 +22,8 @@ relatedFixes:
   - editor-play-mode-vsync-capped
   - stale-assembly-hotload
 unverified: false
+changelog:
+  - { date: "2026-07-17", note: "Removed unverified-marker convention; IsStatic restated as XML-verified pending in-engine confirmation." }
 ---
 
 How to answer "the game feels slow" in an s&box project WITHOUT shipping speculative optimizations. This method was proven end-to-end: a report of "really low FPS in play mode" led to a compelling hypothesis (per-frame shadow-casting sun rotation over hundreds of casters), but measurement refuted it (locked 60 fps at 6.4x default load). The real cause was an environmental asset-recompile storm that prevented play mode from initializing at all. The fix was clearing the storm, not touching the renderer.
@@ -81,13 +83,13 @@ Rank hypotheses: (evidence, expected win, cost/risk, which matrix cells decide).
 
 ## 5. The render-cost-reduction facilities the engine gives you (reach for these AFTER measuring)
 
-Catalogue of what s&box actually exposes to cut render cost, once sections 0-4 have proven WHERE the cost is. **Verified** = confirmed in the engine XML docs or a shipping project; **(unverified)** = plausible from API surface but not yet proven in-engine -- confirm with `compile_status` + a measured A/B before relying on it.
+Catalogue of what s&box actually exposes to cut render cost, once sections 0-4 have proven WHERE the cost is. **Verified** = confirmed in the engine XML docs or a shipping project. Before relying on any API surface not yet proven in-engine on your project, confirm with `compile_status` + a measured A/B.
 
 - **Model LOD groups are engine-native (verified).** A `.vmdl` can carry LOD levels auto-selected by on-screen size -- authored in ModelDoc, or built procedurally with `ModelBuilder.AddMesh(mesh, lodLevel)` + `WithLodDistance(lod, dist)`. Runtime API on `Model`: `MaxLodLevel`, `GetLodLevelForScreenSize(px, scale)`, `GetLodSwitchDistances()`; force/pin with `ModelRenderer.LodOverride` or `SceneObject.LodOverride` (-1 = auto). The last switch distance also acts as the fade-out/cull threshold.
 - **There is NO per-renderer arbitrary fade-distance field (verified-absent).** No `FadeSize`/`StartFadeDistance`/`MaxRenderDistance` on `ModelRenderer`/`SceneObject`. Distance fade + screen-size cull are **model-LOD-driven** -- shape them via LOD switch distances, not a per-object property. The `FrameStats` counters `ObjectsCulledByScreenSize` / `ObjectsCulledByFade` / `ObjectsCulledByVis` prove the engine runs all three culls each frame (read via `FrameStats.Current` in try/catch -- whitelisted).
 - **Roll-your-own distance culling is cheap and determinism-safe (verified).** Toggling `ModelRenderer.Enabled` by camera distance (name-gated discovery, hysteresis, ~3 sweeps/s, fog nudge) bounds the *visible* renderer count so a much larger world ships at constant on-screen cost. Keep it **render-only** -- leave `ModelCollider` on the same GameObject live so physics, climbing, and any deterministic world contract are untouched. This is the pattern for "bigger world, sacrifice draw distance, load in when closer."
 - **Camera far-plane (verified).** `CameraComponent.ZFar` is the global frustum far cull and the natural backing value for a player "view distance" slider (also `SceneCamera.ZFar`, `ViewSetup.ZFar`).
 - **Shadows (verified).** Per-object `SceneObject.Flags.CastShadows` (flip off for small/distant props -- the biggest single lever when a large object family casts shadows by default). Per-light `DirectionalLight.ShadowCascadeCount` / `ContactShadows` / `ShadowCascadeSplitRatio` (split ratio distributes cascades toward the far clip -- the de-facto shadow-distance knob; there is **no** absolute shadow-distance property). Drive shadow reach through the light props + `ZFar` and expose your own game setting rather than hunting a built-in convar.
-- **`SceneObject.Flags.IsStatic` (verified-in-XML, (unverified) in-engine).** Opts a never-moving object into cheaper render/shadow paths -- a candidate for static scatter (trees, fences). Confirm the whitelist + a measured win first.
+- **`SceneObject.Flags.IsStatic` (verified in the engine XML docs).** Opts a never-moving object into cheaper render/shadow paths -- a candidate for static scatter (trees, fences). Confirm the whitelist + a measured in-engine win before relying on it.
 - **Instancing / batching.** Ordinary identical-model `ModelRenderer`s auto-batch by material **unless `SceneObject.Batchable` is false** (a per-object `MaterialOverride`/`CreateCopy` or dynamic attribute breaks batching -- keep shared materials to preserve it). For heavy scatter, `Sandbox.Clutter.*` (`ClutterComponent`, Infinite mode) is the engine's GPU-instanced answer -- GPU LOD + GPU frustum cull + a `TileRadius` draw-distance dial + per-tile collision + a deterministic `Seed`. `Graphics.DrawModelInstanced(model, transforms, lod, ...)` is the manual lower-level path.
 - **Determinism trap -- quality presets must be render-only.** In a deterministic or multiplayer project, a "quality" option that changes world CONTENT (foliage/prop density, object count) changes colliders/placement/the world hash and a "Low" player diverges. All the levers above are render-only (flags, LOD, camera, distance-culling) and safe; a density dial is not.

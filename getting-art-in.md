@@ -3,7 +3,7 @@
 > Lane pack. Load `_core.md` first, then this file. Denser than the full articles by design;
 > for a matching bullet's full write-up, follow that gotcha's article link in `coverage.md`
 > (full articles live on the Field Guide website, not in this pack). Sanitized public
-> advice; unconfirmed details marked `(needs verification)`. The sync appends new bullets here.
+> advice; unverified material is held privately until verified. The sync appends new bullets here.
 
 ## Units, axes, and frames
 
@@ -306,7 +306,7 @@
  horizontal OBJ-space dimensions is safely assumable to be length** (confirmed by
  eye against the judge's contact-sheet render for both a dune buggy and a jet ski —
  side-view renders showed the long axis nose-to-tail in both cases). Still flag
- this as unverified-in-engine in any handoff doc — a `spawn_model` + screenshot is
+ this as not-yet-engine-confirmed in any handoff doc — a `spawn_model` + screenshot is
  the actual confirmation, this is just how to reason about a baked-scale
  `import_scale` before an editor session is available.
 - **The generated-OBJ → vmdl recipe runs CLEAN on Blender 5.1.2**

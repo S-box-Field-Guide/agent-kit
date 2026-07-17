@@ -3,7 +3,7 @@
 > Lane pack. Load `_core.md` first, then this file. Denser than the full articles by design;
 > for a matching bullet's full write-up, follow that gotcha's article link in `coverage.md`
 > (full articles live on the Field Guide website, not in this pack). Sanitized public
-> advice; unconfirmed details marked `(needs verification)`. The sync appends new bullets here.
+> advice; unverified material is held privately until verified. The sync appends new bullets here.
 
 ## C# & razor
 
@@ -143,7 +143,7 @@
  heavily (`@import "/styles/_theme.scss";` virtual root + relative `@import 'vars';` partials, plus
  `$vars` and `@mixin`/`@include`; `@use` has ZERO precedent — stick with `@import`). BUT: no GAME
  project has any `@import`/`$var`/`@font-face` precedent (they all inline `font-family: Poppins,
- sans-serif;` per file), the `/styles/` virtual-root mapping for a game project is unverified, and
+ sans-serif;` per file), and
  **`dotnet build` only compiles the C#/razor — scss is compiled by the editor/runtime**, so an
  `@import` that fails to resolve produces a broken-looking panel that a headless build reports as GREEN.
  When your only verification is headless, prefer an inline `$token` block copied identically per
@@ -167,8 +167,10 @@
  worktree's own sources.
 - **Loose `.json` under `Assets/` IS readable at runtime by the GAME assembly:
  `FileSystem.Mounted.ReadAllText("<path relative to Assets>")` + `Json.Deserialize<T>`
- (live-verified in-editor play mode — vehicle part-kit manifest; packaged-build behaviour
- unverified). Zero-attribute binding: name DTO properties byte-for-byte as the JSON's snake_case
+ (live-verified in-editor play mode — vehicle part-kit manifest; in a PACKAGED build the loose
+ file must additionally be listed in the `.sbproj` `Resources` globs — loose files don't
+ auto-publish — after which `FileSystem.Mounted` reads work in the package too, confirmed via the
+ shipped part-kit manifest glob). Zero-attribute binding: name DTO properties byte-for-byte as the JSON's snake_case
  keys (`attach_author_m` is a legal C# identifier) — System.Text.Json matches case-sensitively
  and silently skips unbound JSON fields, so no serializer attributes are needed.
 - **A flex-grow `.track` holding a normal-flow `.fill` sized by `width: N%` is UNSTABLE in this

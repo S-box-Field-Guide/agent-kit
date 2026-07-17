@@ -3,7 +3,7 @@
 > Lane pack. Load `_core.md` first, then this file. Denser than the full articles by design;
 > for a matching bullet's full write-up, follow that gotcha's article link in `coverage.md`
 > (full articles live on the Field Guide website, not in this pack). Sanitized public
-> advice; unconfirmed details marked `(needs verification)`. The sync appends new bullets here.
+> advice; unverified material is held privately until verified. The sync appends new bullets here.
 
 > **Restored 2026-07-13:** this lane's topic content (below) predates the lane-pack split
 > and was restored after an over-eager orphan cleanup; the sync pipeline appends new

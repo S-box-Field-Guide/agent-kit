@@ -3,7 +3,7 @@
 > Lane pack. Load `_core.md` first, then this file. Denser than the full articles by design;
 > for a matching bullet's full write-up, follow that gotcha's article link in `coverage.md`
 > (full articles live on the Field Guide website, not in this pack). Sanitized public
-> advice; unconfirmed details marked `(needs verification)`. The sync appends new bullets here.
+> advice; unverified material is held privately until verified. The sync appends new bullets here.
 
 > **Restored 2026-07-13:** this lane's topic content (below) predates the lane-pack split
 > and was restored after an over-eager orphan cleanup; the sync pipeline appends new
@@ -11,10 +11,9 @@
 
 The org/ident/publish pipeline, store-page requirements, platform services,
 Play Fund, and standalone Steam export. Researched 2026-07 from the Facepunch
-sbox-docs repo, sbox.game news posts, the Facepunch EULA, and GitHub issues
- — items only discoverable in the in-editor
-publish dialog are marked `(unverified)`; **record the answers here at first
-publish**.
+sbox-docs repo, sbox.game news posts, the Facepunch EULA, and GitHub issues.
+Details only discoverable in the in-editor publish dialog are held out of this
+pack until verified at a real publish.
 
 Platform context: s&box left early access and launched on Steam **2026-04-28**
 ($19.99). Front page has a spotlight section for new/under-appreciated games —
@@ -29,20 +28,19 @@ metric below.
   until you **restart the editor**. The org name is the public prefix on every
   package the org ever ships — pick carefully.
 - **Ident is `org.package`** — exactly two lowercase dot-separated segments.
-  Whether package names may contain `_` is `(unverified — check the dialog)`.
-  Title and ident are changeable per the getting-started docs, but ident
-  mutability *after first publish* is `(unverified)` — treat first publish as
-  permanent naming.
+  Title and ident are changeable per the getting-started docs; treat first
+  publish as permanent naming anyway.
 - **Publish from the editor**: Project menu → **"Publish Project…"** — one-click
   upload of game + assets (`Editor.ProjectPublisher.Publish`). Then finish on
   the web ("View and Edit on Web"): title, thumbnail, description, tags,
   categories, screenshots, video.
-- **Default visibility is org-private.** Confirmed publish states: **Private,
-  Unlisted, Released**. Nothing is public until you flip Publish State →
-  Released. Unlisted + a direct link is the natural playtest channel.
+- **Publish State is a two-state control: Hidden | Released** (live-verified on
+  the current site; no Private/Unlisted states exist). Nothing is public until
+  you flip Publish State → Released. Hidden + a direct link is the natural
+  playtest channel — clients resolve hidden packages by ident fine; Hidden only
+  hides the package from search/browse.
 - **Updates** = bump version and republish under the same ident. No enforced
   semver and **no platform changelog field** (keep your own CHANGELOG.md).
-  Rollback behavior `(unverified)`.
 - **Maps are separate packages** — a standalone map gets its own ident and
   earns Play Fund independently of the game.
 - **No pre-publish review.** Publishing is instant; moderation is post-hoc
@@ -61,14 +59,11 @@ metric below.
   false-positive on partially-AI art; the editor's thumbnail page carries a
   warning. Cover art must be unmistakably human-made.
 - **Video/animated media on package pages: mp4, webm, gif, animated webp** —
-  native file playback from disk or URL. YouTube embedding
-  `(unverified/unlikely)`.
+  native file playback from disk or URL.
 - **Thumbnail and banner pixel dimensions are documented nowhere** (official
-  docs, wiki, community guides all silent). Pre-redesign wiki said 1280×720
-  for the banner `(unverified for the current site)`. Read the upload form's
-  own validation text when publishing and record it here.
-- Description character limit, title limit, and screenshot count limit: all
-  `(unverified — check the dialog)`.
+  docs, wiki, community guides all silent), and the same goes for description
+  character limit, title limit, and screenshot count limit — read the upload
+  form's own validation text when publishing.
 
 ## Sandbox.Services (stats, leaderboards, achievements)
 
@@ -88,8 +83,6 @@ Wiring these is cheap and makes a game look finished on the platform.
   whole platform). Two unlock mechanisms: stat-threshold auto-unlock (gets a
   progress bar for free) or manual `Achievements.Unlock("ident")`.
 - **Auth tokens** exist for validating players against a custom backend.
-- The legacy `.sbproj` fields `LeaderboardType`/`RankType` may be vestigial
-  now that Sandbox.Services exists `(unverified)`.
 
 ## Play Fund (monetization)
 
@@ -115,7 +108,7 @@ The package page keeps **Enable Play Fund** disabled until every item below is
 green. Labels and helper text from the sbox.game dialog (confirmed 2026-07):
 
 1. **Released** — the package must be publicly Released before it can earn
-   money. Hidden/Unlisted/Private do not qualify.
+   money. Hidden packages do not qualify.
 2. **Organization is at least a month old** — org age gate is **30 days**
    from org creation ("Your organization needs to have been around for a
    month before its packages can earn money.").
