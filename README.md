@@ -53,3 +53,9 @@ context so the guide stays honest as s&box evolves.
 
 [CC BY 4.0](LICENSE) — use it, adapt it, ship it into your agent's skills; just keep
 attribution. Code snippets are provided as-is for you to use freely.
+
+## Community
+
+Building something in s&box, or got questions about a gotcha? Join the Field Guide
+Discord — share what you're working on, report traps we haven't documented, and help
+keep the guide sharp: **[discord.gg/JfrwFtn9T](https://discord.gg/JfrwFtn9T)**
