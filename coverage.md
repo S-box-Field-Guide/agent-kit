@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**182 / 657 gotchas articled** (28%). Pack-only: **190**. Backlog (status `none`): **285**.
+**186 / 665 gotchas articled** (28%). Pack-only: **479**. Backlog (status `none`): **0**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 74 | 30 | 20 | 24 | 41% |
-| rigging-animation | 34 | 22 | 3 | 9 | 65% |
-| writing-gameplay | 313 | 62 | 94 | 157 | 20% |
-| building-ui | 65 | 24 | 20 | 21 | 37% |
-| audio | 11 | 5 | 5 | 1 | 45% |
-| making-it-perform | 8 | 2 | 3 | 3 | 25% |
-| tooling-environment | 152 | 37 | 45 | 70 | 24% |
-| **Total** | **657** | **182** | **190** | **285** | **28%** |
+| getting-art-in | 75 | 30 | 45 | 0 | 40% |
+| rigging-animation | 35 | 23 | 12 | 0 | 66% |
+| writing-gameplay | 316 | 65 | 251 | 0 | 21% |
+| building-ui | 68 | 24 | 44 | 0 | 35% |
+| audio | 11 | 5 | 6 | 0 | 45% |
+| making-it-perform | 8 | 2 | 6 | 0 | 25% |
+| tooling-environment | 152 | 37 | 115 | 0 | 24% |
+| **Total** | **665** | **186** | **479** | **0** | **28%** |
 
 ## Articled gotchas (skip-list)
 
@@ -82,6 +82,7 @@
 | `g-game-grounded-wish-servo-eats-applied-velocity` | [/fix/grounded-wish-servo-eats-applied-velocity](https://sboxguide.dev/fix/grounded-wish-servo-eats-applied-velocity) |
 | `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) |
 | `g-game-host-create-before-networkspawn-clobbers-instance` | [/fix/host-spawn-clobbers-camera-singleton](https://sboxguide.dev/fix/host-spawn-clobbers-camera-singleton) |
+| `g-game-idempotent-world-rebuild-destroyimmediate` | [/fix/idempotent-world-rebuild-destroyimmediate](https://sboxguide.dev/fix/idempotent-world-rebuild-destroyimmediate) |
 | `g-game-input-pressed-edge-latch-onupdate-not-fixedupdate` | [/fix/input-pressed-fixedupdate-drops](https://sboxguide.dev/fix/input-pressed-fixedupdate-drops) |
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-join-statics-wiped-by-networked-scene-handoff` | [/fix/join-statics-wiped-scene-handoff](https://sboxguide.dev/fix/join-statics-wiped-scene-handoff) |
@@ -99,6 +100,7 @@
 | `g-game-proxy-overhead-ui-anchored-off-non-synced-owner-field-freezes` | [/fix/proxy-overhead-ui-frozen-at-spawn](https://sboxguide.dev/fix/proxy-overhead-ui-frozen-at-spawn) |
 | `g-game-published-join-assembly-reload-wipes-statics` | [/fix/published-join-assembly-reload](https://sboxguide.dev/fix/published-join-assembly-reload) |
 | `g-game-python-s-open-path-w-windows` | [/fix/powershell-mojibake-utf8](https://sboxguide.dev/fix/powershell-mojibake-utf8) |
+| `g-game-rebuild-multisubmesh-material-order` | [/fix/rebuild-multisubmesh-material-order](https://sboxguide.dev/fix/rebuild-multisubmesh-material-order) |
 | `g-game-rigidbody-component-api` | [/fix/rigidbody-component-api](https://sboxguide.dev/fix/rigidbody-component-api) |
 | `g-game-rolling-slopes-idempotent-ground-snap-still` | [/fix/ground-snap-pops-on-rolling-slopes](https://sboxguide.dev/fix/ground-snap-pops-on-rolling-slopes) |
 | `g-game-rotation-fromyaw-angle-left` | [/fix/rotation-fromyaw-is-ccw](https://sboxguide.dev/fix/rotation-fromyaw-is-ccw) |
@@ -109,6 +111,7 @@
 | `g-game-scene-json-details` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
 | `g-game-session-reset-static-facades-component-their` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-game-single-tick-groundcheck-flicker-re-fires` | [/fix/single-tick-ground-flicker-landing-vfx](https://sboxguide.dev/fix/single-tick-ground-flicker-landing-vfx) |
+| `g-game-smooth-render-mesh-vs-quantized-collision-curb` | [/fix/smooth-render-vs-quantized-collision-curb](https://sboxguide.dev/fix/smooth-render-vs-quantized-collision-curb) |
 | `g-game-stylesheet-many-selectors-simultaneously-dec` | [/fix/font-size-glyph-corruption](https://sboxguide.dev/fix/font-size-glyph-corruption) |
 | `g-game-sync-component-created-after-networkspawn-never-pairs` | [/fix/sync-component-after-networkspawn-never-pairs](https://sboxguide.dev/fix/sync-component-after-networkspawn-never-pairs) |
 | `g-game-system-array-clone-blocked` | [/fix/array-clone-blocked-whitelist](https://sboxguide.dev/fix/array-clone-blocked-whitelist) |
@@ -132,6 +135,7 @@
 | `g-rig-bone-procedural-override-setbonetransform-un` | [/fix/setbonetransform-silently-noop](https://sboxguide.dev/fix/setbonetransform-silently-noop) |
 | `g-rig-citizen-addon-source-vmdl-schema-reference` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
 | `g-rig-citizen-combat-animgraph-params` | [/fix/citizen-combat-animgraph-params](https://sboxguide.dev/fix/citizen-combat-animgraph-params) |
+| `g-rig-citizen-holdtype-aim-ik-param-map` | [/fix/citizen-holdtype-aim-ik-param-map](https://sboxguide.dev/fix/citizen-holdtype-aim-ik-param-map) |
 | `g-rig-mixamo-mocap-retargets-onto-npc-lane` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
 | `g-rig-model-compiler-sanitizes` | [/fix/bone-name-dot-to-underscore](https://sboxguide.dev/fix/bone-name-dot-to-underscore) |
 | `g-rig-naturalistic-mocap-idles-don-t-loop` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
@@ -209,111 +213,282 @@
 
 ## Pack-only gotchas (in the checklist, no full article)
 
+- `g-art-bbox-is-a-downstream-contract`
 - `g-art-blender-headless-duplicate-links-mesh-datablock`
+- `g-art-bounds-maxs-invisible-nub-not-visible-top`
 - `g-art-camera-screenshot-renders-through-real-scene`
+- `g-art-child-visual-inherits-yawed-anchor-rotation`
+- `g-art-complex-shader-no-vertex-color-albedo`
+- `g-art-coplanar-zfight-only-shimmers-across-materials`
 - `g-art-correct-sub-part-positions-prove-nothing`
+- `g-art-cycled-fx-anchor-dominant-end-share-anchored-geometry`
+- `g-art-dcc-render-color-not-engine-color`
 - `g-art-dedicated-ambient-light-gradient-fog-compone`
+- `g-art-dent-readability-glossy-paint-vs-static-normals`
+- `g-art-dlo-not-pillar-not-windshield`
+- `g-art-equirect-sky-lower-hemisphere-void`
 - `g-art-forge-tripo-vehicle-shaped-mesh-s`
+- `g-art-forge-tripo-wearable-item-returns-whole-character`
 - `g-art-generated-obj-vmdl-recipe-blender`
+- `g-art-gone-bananas-playground-kit-author-engine-map`
 - `g-art-lock-camera-exposure-kill-auto-exposure`
+- `g-art-lowpoly-wheel-black-blob`
 - `g-art-make-ground-alive-swap-flat-tile`
+- `g-art-material-load-no-missing-signal`
 - `g-art-materialoverride-replaces-tint-path-box-prop`
 - `g-art-mathf-has-lerp-engine-s`
 - `g-art-mission-control-s-forge-auto-deliver`
 - `g-art-model-top-ui-markers`
 - `g-art-modelrenderer-tint-multiplies-usable`
+- `g-art-obj-import-flips-v-atlas-uv`
+- `g-art-open-top-citizen-feet-below-tub`
+- `g-art-per-part-checks-miss-assembled-slope-sign`
 - `g-art-pointlight-usable-game-component-even-siblin`
+- `g-art-pydata-mesh-no-uv-layer-drops-vt`
 - `g-art-regenerated-ai-textures-need-editor-kick`
+- `g-art-rope-endcap-rotation-must-track-swing`
 - `g-art-s-box-obj-import-plain-y`
 - `g-art-shaders-complex-shader-supports`
 - `g-art-tiling-ground-texture-will-repeat-across`
+- `g-art-transform-local-axis-forward-not-right`
+- `g-art-tripo-pair-isolate-island-centroid-and-ankle-toe-align`
+- `g-art-views-sheet-unmirrored-wheel-face`
 - `g-art-vmat-essentials-shader-shaders`
+- `g-art-vmdl-rendermeshfile-must-live-inside-content`
+- `g-art-wheel-arch-flare-outboard-of-tyre-buries-wheel`
+- `g-art-world-units-into-meters-api-double-scale`
 - `g-art-yaw-rotated-rectangle-s-axis-aligned`
 - `g-audio-ambient-emitters-kiosk-jingles`
 - `g-audio-elevenlabs-sfx-cost-character-cost-response`
 - `g-audio-elevenlabs-voices-npc-dialogue-use-tts`
+- `g-audio-freesound-cc0-preview-mp3-no-oauth`
 - `g-audio-speaker-line-cooldown`
 - `g-audio-voice-input-action-not-universal`
 - `g-game-adding-sheer-mesa-cliff-terrain-silently`
+- `g-game-addwater-brush-basin-spill-guard`
+- `g-game-aerial-lattice-dilate-blur-sheet-base`
+- `g-game-air-flicker-resets-defeat-accumulator-guard`
 - `g-game-altitude-driven-biome-gradients`
 - `g-game-arcade-raycast-car-stepped-voxel-terrain`
+- `g-game-attribution-mesh-bounds-enclosing-part`
+- `g-game-autocatch-autoexit-pair-needs-loop-breaker`
+- `g-game-autograpple-field-range-spawn-teleport-trap`
 - `g-game-autopilot-progress-metrics-state-gated`
+- `g-game-below-surface-tunnel-check-false-pos-on-wall-climb`
+- `g-game-belowsurface-invariant-false-fires-under-overhang`
+- `g-game-bfs-reachability-only-tests-start`
+- `g-game-blockmax-collision-warp-band-floor`
+- `g-game-boosted-test-runway-budget`
+- `g-game-brake-tuning-torque-then-abs-duty-cycle`
+- `g-game-brush-aim-physics-trace-vs-rebuilt-collider`
+- `g-game-buried-eject-pingpong-needs-mantle-escape`
 - `g-game-buried-lattice-veto-deadlock-forced-climb`
+- `g-game-cadence-tuned-streak-window-misses-other-rhythms`
+- `g-game-camera-from-impact-point`
+- `g-game-camera-occlusion-thrashes-swing-anchor`
 - `g-game-candidate-selector-s-nearest-reach-fallback`
+- `g-game-capsule-band-caps-shrink-ends`
+- `g-game-catch-poll-misses-1tick-transition-latch-edge`
+- `g-game-catch-radius-near-miss-band`
+- `g-game-cell-denominated-look-params-shrink-with-grain`
 - `g-game-cell-hash-dither-elevation-band-edges`
 - `g-game-cell-minimum-depth-gate-flood-filled`
+- `g-game-cells-to-metres-byte-identity-at-reference-grain`
+- `g-game-central-part-cannot-drive-steer-pull`
+- `g-game-chase-cam-terrace-occlusion-sliver-reject`
+- `g-game-child-renderer-lookup-noop-anim`
 - `g-game-citizen-animgraph-already-has-native-slide`
 - `g-game-citizen-clothing-folder-file-names-lie`
+- `g-game-citizen-npc-clothing-and-sit-pose`
+- `g-game-citizen-sit-pose-height-offline-math-lies`
+- `g-game-client-instance-claim-grabs-host-monkey`
+- `g-game-climb-camera-occlusion-block-topped`
+- `g-game-climb-lattice-from-collision-block-max-not-render`
+- `g-game-climb-node-body-standoff-scales-to-prop-radius`
 - `g-game-climbable-stair-step-rises-1-1`
+- `g-game-closed-loop-maneuver-pd-damping-perturbs-basin`
 - `g-game-clothing-engine-ships-221-local-citizen`
+- `g-game-code-built-floor-must-cover-every-placement`
 - `g-game-coherent-region-patches-noise`
 - `g-game-collider-co-moves-swing-arc-invisible`
 - `g-game-collision-fidelity-cellsize`
+- `g-game-collision-listener-surface`
+- `g-game-collisionmesh-shell-walls-shapecast-wheel`
 - `g-game-compile-status-returns-isbuilding-compilers`
+- `g-game-compound-child-colliders-shift-inertia-not-mass`
 - `g-game-constant-face-atlas-uv-positive-trick`
 - `g-game-containment-settle-lowers-water-alternated-m`
+- `g-game-continuous-render-above-blockmax-collision-buries-crest-tops`
+- `g-game-createlobby-transient-fail-under-rapid-rehost-churn`
+- `g-game-crosspass-density-cull-shared-grid-field-not-placed-list`
 - `g-game-decal-box-splatted-projectile-s-raw`
+- `g-game-decision-vs-kernel-centre`
+- `g-game-declared-analytic-climb-lattice-not-fit-raycast`
+- `g-game-decor-pickup-solid-collider-run-under-embed`
 - `g-game-dedicated-server-unpublished-ident-download-fails`
+- `g-game-deferred-apply-pair-cofromhost-fields-at-capture`
+- `g-game-derived-default-via-sentinel-append-only-seam`
+- `g-game-derived-midpoint-inherits-neither-source-cells-mask`
 - `g-game-deriving-vertical-skirt-quad-winding-verifie`
 - `g-game-deterministic-content-hash-same-spec-same`
 - `g-game-deterministic-world-delta-only-save`
+- `g-game-devhost-stream-skips-loose-data-files`
+- `g-game-diagonal-edge-min-width-cull-coverage-holes`
+- `g-game-directional-coast-tilt-floods-world-centre`
 - `g-game-dirty-chunk-remesh-seam-law`
+- `g-game-dirty-remesh-footprint-widest-read`
 - `g-game-don-t-smooth-longitudinal-slip-adds`
+- `g-game-down-tilt`
 - `g-game-edit-mode-scene-trace-blind-runtime`
 - `g-game-editor-console-buffer-2000-entries-rolls`
 - `g-game-editor-mcp-editor-camera-screenshot-renders`
 - `g-game-editor-mcp-port-editor-configurable-editor`
+- `g-game-emitted-boundary-audit-vs-lattice-contract`
+- `g-game-empty-index-buffer-partitioned-mesh`
+- `g-game-explicit-mode-enum-frozen-world-code-guard`
+- `g-game-failed-join-package-load-wedges-editor`
+- `g-game-fake-height-jump-needs-trace-z-coupled`
 - `g-game-flat-topped-mesas-heightfield-need-two`
+- `g-game-flattest-cell-is-underwater-after-adding-sea`
 - `g-game-forge-tripo-vehicle-meshes-re-exported`
 - `g-game-freshly-generated-vmat-vmdl`
+- `g-game-gate-airborne-metrics-first-ground-contact`
+- `g-game-gen-pass-routes-against-later-mutated-field`
+- `g-game-getbuttonorigin-getglyph-per-string-action-exist`
 - `g-game-greedy-meshing-delivers-1`
+- `g-game-grid-raymarch-parallel-axis-overflow`
 - `g-game-ground-vehicle-fall-through-audit-coarse`
+- `g-game-handbrake-jturn-layout-aware-fwd-rwd`
+- `g-game-headroom-sphere-probe-clips-terrace-steps`
+- `g-game-heightfield-burial-check-catches-neighbour-column`
+- `g-game-heightfield-crest-sawtooth-topcluster`
+- `g-game-heightfield-riser-taller-than-capsule-intangible`
 - `g-game-hex-hash-constant-top-bit-set`
+- `g-game-hidden-lobby-self-query-returns-nothing`
+- `g-game-identity-scale-about-pivot-breaks-determinism-hash`
+- `g-game-impactor-width-from-boxcolliders`
+- `g-game-injected-endpoints-not-vendored-pick-nodes`
+- `g-game-input-config-bindings-differ-per-project`
 - `g-game-input-escapepressed-real-getset-consumable`
 - `g-game-invisible-grab-point-registration-phantom-sp`
 - `g-game-jet-ski-single-point-buoyancy-grid`
+- `g-game-joinlocal-client-convar-probe-unreachable`
+- `g-game-joinlocal-client-reads-host-lobby-data`
+- `g-game-joinlocal-client-rewrites-shared-sbox-log`
+- `g-game-joinlocal-empty-code-rejected-by-wire-verify-devhost-seam`
+- `g-game-joinlocal-second-instance-recipe`
 - `g-game-keyboardcode-punctuation-is-literal-char`
+- `g-game-kit-collider-child-needs-worldrotation-bar-axis`
 - `g-game-land-vehicle-needs-hard-deck-drowned`
+- `g-game-lateral-dent-x-corner-coupling-any-topology`
+- `g-game-linear-gradient-straight-seam`
 - `g-game-low-frequency-mountain-mass-mask-wavelength`
+- `g-game-mantle-cap-overhangs-climb-face`
+- `g-game-mantle-over-preempts-topout-launch`
+- `g-game-mantle-rearm-blocks-terrace-staircase-ascent`
+- `g-game-mantle-snap-warps-drive-a-short-transit`
+- `g-game-maxcrush-exceeds-part-depth-punchthrough`
 - `g-game-mcp-camera-screenshot-captures-engine-s`
 - `g-game-mcp-play-mode-iteration`
+- `g-game-mesh-scale-decouple-grab-geometry`
+- `g-game-mesh-whole-world-into-scenepanel-renderscene-preview`
+- `g-game-modelpath-property-must-reapply-after-onstart`
+- `g-game-monkeypilot-partial-measurement-mode`
 - `g-game-monotonic-invariant-proven-float-constructio`
 - `g-game-mouse-visible-true-past`
 - `g-game-mover-rides-visual-heightfield-not-coarse-collision`
 - `g-game-multiple-panelcomponent-s-gameobject-under-s`
+- `g-game-narrow-impactor-detach-resist`
 - `g-game-nearest-centerline-corridor-stamping-leaves`
 - `g-game-networkspawn-owner-sim-host-onactive`
+- `g-game-node-seat-overhangs-block-edge-at-corners`
+- `g-game-ondisable-nulled-singleton-breaks-on-demand-repossess`
+- `g-game-one-sided-heightfield-lateral-glide-through`
 - `g-game-orbiting-physics-root-around-bar-makes`
+- `g-game-out-of-bounds-teleport-observer-needs-hazard-check`
 - `g-game-over-world-ui-name-labels-health`
+- `g-game-packed-vector-axis-convention-drift`
+- `g-game-per-part-recentered-dents-seam-cavity`
+- `g-game-pivot-scale-before-fixed-target-blend-moves-the-crossing`
 - `g-game-placed-runtime-structure-savefactory-idempotent`
+- `g-game-placement-validation-omits-a-flag`
+- `g-game-plan-texture-wall-smear-altitude-gradient`
 - `g-game-play-mode-terrain-brush-s-lower`
+- `g-game-playground-swing-attach-contract`
+- `g-game-post-hash-carve-keeps-worldhash`
+- `g-game-preset-at-slider-extreme`
 - `g-game-priority-flood-depression-fill-noisy-terrain`
+- `g-game-proc-terrain-regression-knife-edge-catch`
+- `g-game-procgen-speed-venue-extreme-cell-finite-lane`
 - `g-game-project-mcptool-s-take-string-json`
 - `g-game-proof-grade-aimed-bot-grab-window`
+- `g-game-proxy-gate-editor-bridge-consumer`
+- `g-game-quantized-riser-misses-exact-height-cap`
+- `g-game-raising-grip-breaks-scripted-powerslide`
+- `g-game-raycast-wheel-fullairborne-contactloss`
+- `g-game-raycast-wheels-tunnel-rising-coarse-collision`
+- `g-game-rebuild-compiled-model-verts-indices-materials`
 - `g-game-regenerating-strata-atlas-png-new-cell`
+- `g-game-relief-span-not-slope-is-the-flat-read`
+- `g-game-render-only-hinge-pose-via-child-go`
+- `g-game-renderer-retarget-keeps-source-cache`
+- `g-game-replicate-record-as-json-string-poll-not-hook`
+- `g-game-rescue-state-write-stomped-by-caller-tick`
 - `g-game-rest-position-spacing-cannot-clear-swinging`
+- `g-game-road-material-band-not-ribbon-zero-go`
 - `g-game-root-gameobject-named-editor-camera-bare`
+- `g-game-rope-pendulum-arrival-plane-l-turn`
+- `g-game-rotated-slab-sinks-through-floor`
+- `g-game-runoff-vs-runin-engagement-gate-is-vertical-not-directional`
+- `g-game-runtime-scene-load-onstart-build`
 - `g-game-s-box-edit-mode-envmapprobe-ambient`
 - `g-game-s-box-editor-s-mcp-server`
 - `g-game-s-box-mcp-tool-registry-two`
+- `g-game-sbox-default-surface-friction-08-tire-model`
 - `g-game-scaled-citizen-foot-slides-unless-feed`
+- `g-game-scatter-content-over-traversal-net-needs-zoning`
 - `g-game-sea-level-slider-nothing-until-exceeds`
+- `g-game-self-arming-test-must-await-async-world-build`
+- `g-game-self-siting-climb-test-mis-sites-on-treed-voxel-cliffs`
+- `g-game-serial-grade-ladder-obstacle-course`
+- `g-game-session-static-to-scene-component`
 - `g-game-shared-multi-agent-working-tree`
 - `g-game-shared-swingrope-balloon-string-tag-collision`
+- `g-game-single-part-point-dent-invisible-hard-hits-spread-patch`
 - `g-game-size-step-up-step-down-glue`
+- `g-game-slalom-weave-position-locked-grip-capped`
 - `g-game-slide-slope-logic-stepped-coarse-collision`
+- `g-game-slope-relax-vs-lipschitz-envelope`
 - `g-game-snap-ground-detach-air-slide-free`
+- `g-game-snapshot-singleton-handshake-rpc-pure-compare`
 - `g-game-snow-climate-band-gate-absolute-altitude`
 - `g-game-solo-lobby-selftest-bridge`
 - `g-game-spawn-raycast-car-suspension-equilibrium-hei`
 - `g-game-spin-bar-s-release-aim-within`
+- `g-game-sprint-downslope-outruns-ground-stick-fallthrough`
+- `g-game-stack-seat-visual-head-not-capsule`
+- `g-game-stale-anchor-guard-disables-anchor-free-valves`
+- `g-game-stale-lobby-setdata-advertise-live-state`
 - `g-game-standing-still-bounce-fall-through-audit`
 - `g-game-static-facades-bridge-editor-mcptools-play`
+- `g-game-static-pergen-capture-clear-every-gen`
+- `g-game-static-world-state-survives-play-boundary`
 - `g-game-steepest-descent-rivers-stall-mid-slope`
 - `g-game-sticktoground-snapping-z-trace`
+- `g-game-suite-rerun-throwable-drift-flake`
 - `g-game-suspension-forces-along-contact-normal-body`
+- `g-game-swim-ledge-exit-mantle-not-boost`
 - `g-game-swim-voxel-world-narrow-river-triggers`
 - `g-game-swing-grab-anchor-needs-visible-dressing`
+- `g-game-swing-pivot-external-moving-anchor-carry`
+- `g-game-synthetic-frontmost-by-face-not-center`
+- `g-game-tall-boxcollider-building-climb`
+- `g-game-tc-slip-target-above-curve-peak-slide`
+- `g-game-teleport-computed-height-wedges-air-voxel-top`
+- `g-game-teleport-startedsolid-hover-slide`
+- `g-game-terrain-follow-ease-buries-below-voxel-steps`
+- `g-game-thin-part-saturation-clamp-rigid-translation`
+- `g-game-thin-placeable-footprint-slim-cross-section`
 - `g-game-tower-platform-geometry-isolated-swing-web`
 - `g-game-trace-ground-snap-adds-fixed-offset`
 - `g-game-trace-hit-exposes-physics-body`
@@ -321,83 +496,201 @@
 - `g-game-translucent-water-film-over-bright-warm`
 - `g-game-two-special-case-water-rules-correct`
 - `g-game-two-water-audits-conflict-sea-boundary`
+- `g-game-unstuck-respawn-public-state-safe-teleport`
 - `g-game-vehicle-topspeed-telemetry-freefall-offworld`
+- `g-game-vendored-river-width-subcell-on-coarse-grain`
 - `g-game-verified-up-facing-winding-c-b`
 - `g-game-verify-mesh-import-scale-pipeline-engine`
+- `g-game-visible-lobby-hashed-code-wire-verify`
 - `g-game-visual-adjacency-laws-x-read-touching`
+- `g-game-visual-flip-negates-attach-offset`
 - `g-game-visual-z-smoothing-kill-staircase-pops`
+- `g-game-walkup-tier-taller-than-stepup-budget-mantles-every-tier`
 - `g-game-wb-generate-leaves-transient-wb-world`
+- `g-game-wb-generated-terrain-drivable-car-mesher-style`
+- `g-game-wb-net-argsjson-string-wrapper`
+- `g-game-wb-walk-queue-before-play-not-consumed`
 - `g-game-which-movement-mode-surface-allow-gate`
+- `g-game-world-hash-live-scan-double-build`
+- `g-game-world-teardown-under-hanging-body-cascade`
+- `g-game-wrinkle-term`
+- `g-game-zone-exclusion-vs-band-policy`
 - `g-perf-chunked-runtime-mesh-generator-regen-single`
+- `g-perf-daynight-sun-shadow-rebuild-not-fps-breaker-at-scale`
+- `g-perf-fixed-extent-fine-grain-quadruples-cells`
 - `g-perf-fps-probe-measurement-hygiene-through-mcp`
+- `g-perf-physics-step-stopwatch-vsync-free`
 - `g-perf-voxel-grain-cellsize-nearly-free-density`
+- `g-rig-ball-at-pivot-joint-overlap`
+- `g-rig-blender-icosphere-subdivisions-off-by-one`
+- `g-rig-decor-built-at-distant-bone-floats`
+- `g-rig-fbx-export-not-byte-reproducible`
+- `g-rig-geodesic-weights-wrong-for-primitive-segments`
+- `g-rig-held-prop-weld-via-trygetbonetransform`
 - `g-rig-new-npc-clip-add-humanoid-clips`
 - `g-rig-opt-additive-authoring-editing-read-rig-library`
 - `g-rig-pair-procedural-whole-body-rotation-clip`
+- `g-rig-primitive-mesh-reuses-armature-and-clips`
+- `g-rig-scripted-lane-ports-to-new-project`
+- `g-rig-silhouette-variants-on-one-skeleton-visual-only`
 - `g-tool-aimed-bot-grabbing-through-scored-best`
 - `g-tool-arch-slope-tilt-axis-rotate-about`
 - `g-tool-array-clone-whitelist-forbidden`
+- `g-tool-audit-offenders-counts-ticks-not-objects`
+- `g-tool-autocrlf-masks-regen-determinism-check`
 - `g-tool-bar-s-release-aimed-within-spin`
 - `g-tool-blender-headless-opaque-floor-render-recipe`
 - `g-tool-blender-materials-clear-materials-new-name`
+- `g-tool-blender-version-regen-cosmetic-sweep`
 - `g-tool-build-time-tag-scans-blind-children`
 - `g-tool-camera-screenshot-misses-modal-card`
+- `g-tool-camera-screenshot-width-height-blank`
 - `g-tool-camera-switches-focus-target-follow-distance`
+- `g-tool-clean-compile-stale-tool-dmd`
+- `g-tool-component-property-serialized-into-scene-override`
+- `g-tool-console-buffer-telemetry-flood`
 - `g-tool-convar-same-value-set-silent-noop`
 - `g-tool-copied-trace-exclusion-filters-invert-meanin`
 - `g-tool-coplanar-overlay-ribbons-z-fight-give`
 - `g-tool-cross-assembly-hotreload-missingmethod`
+- `g-tool-custom-mcptool-single-string-arg-wrapper`
+- `g-tool-driven-approach-dent-hash-nondeterministic`
+- `g-tool-editor-assembly-filesystem-cs0104-ambiguity`
 - `g-tool-editor-camera-screenshot-renders-edit-scene`
 - `g-tool-editor-clobbers-hand-edited-sbproj-on-save`
+- `g-tool-editor-eats-fkeys-in-play-mode`
+- `g-tool-editor-hang-vs-crash-kill-relaunch-captured-cli`
+- `g-tool-editor-hotreload-preserves-statics`
 - `g-tool-editor-ignores-external-edits-persisted-sett`
+- `g-tool-editor-inmemory-scene-clobbers-disk-scene-edit`
+- `g-tool-editor-mcp-no-open-scene-play-active-tab`
 - `g-tool-editor-mcp-server-s-enable-port`
+- `g-tool-editor-no-hotload-into-running-play-without-focus`
+- `g-tool-editor-onetime-hotreload-orphans-armed-suite`
+- `g-tool-editor-silent-hotload-race`
+- `g-tool-editor-status-activescene-null-both-modes`
 - `g-tool-editor-status-null-mid-hotload`
+- `g-tool-editor-verifies-checked-out-tree-not-worktree-branch`
+- `g-tool-export-bake-editor-digestion-drain`
+- `g-tool-failed-compile-empties-typelibrary-missingcomponent`
 - `g-tool-filesystem-data-multifile-api-whitelisted`
 - `g-tool-free-penned-ai-widening-public-wander`
+- `g-tool-fresh-play-per-run-determinism`
+- `g-tool-fresh-session-first-save-write-nre-transient`
+- `g-tool-gameresource-navmesh-getsimplepath-obsolete`
+- `g-tool-hotload-migrates-static-readonly-registry`
+- `g-tool-hotload-stale-assettype-registration-duplicate`
+- `g-tool-hotload-static-catalog-lambda-error-delegated`
 - `g-tool-hysteresis-lives-consumer-stateless-predicat`
+- `g-tool-inject-after-router-bindparts`
 - `g-tool-input-press-consumed-bottom-fixed-tick`
 - `g-tool-legacy-asset-move-compiled-payload-and-texture-closure`
+- `g-tool-mcp-authored-object-reads-edit-copy-in-play`
+- `g-tool-mcp-bind-fail-no-auto-bump-edit-pref-restart`
+- `g-tool-mcp-camera-screenshot-explicit-id-drops-all-ui`
+- `g-tool-mcp-camera-screenshot-misses-secondary-screenpanels`
+- `g-tool-mcp-cant-open-click-gated-ui-state`
 - `g-tool-mcp-cant-target-secondary-component-on-gameobject`
+- `g-tool-mcp-port-auto-bumps-scan-dont-pin`
+- `g-tool-mcp-port-config-stomp-silent-death`
+- `g-tool-mcp-probe-false-dead-signatures`
 - `g-tool-nearest-best-pickers-need-honest-empty`
 - `g-tool-no-game-side-log-listener-onmessage-internal`
 - `g-tool-no-scene-timescale-global-time-scale-api`
+- `g-tool-one-editor-per-project-mcp-identity`
+- `g-tool-onedrive-worktree-remove-permission-denied`
+- `g-tool-parity-pixel-diff-disable-envmap-probe`
+- `g-tool-persisted-convar-override-masks-new-defaults`
+- `g-tool-pilot-cannot-aim-throw-camera-yaw-frozen`
+- `g-tool-pilot-nodeclimb-dismount-is-kickoff`
+- `g-tool-play-mode-frozen-screenshot-clone`
+- `g-tool-playmode-mcp-reads-stale-clone`
 - `g-tool-ported-cs-file-see-cref-to-dropped-type-cs1574`
+- `g-tool-post-and-poll-bridge-stale-status-race`
+- `g-tool-producer-fix-vs-compensating-consumer`
 - `g-tool-publish-live-mutable-static-lists-frame`
 - `g-tool-pure-nearest-target-selection-re-grabs`
+- `g-tool-python-cp1252-emoji-stdout-crash`
+- `g-tool-race-daylength-for-lit-play-screenshots`
+- `g-tool-read-console-cap-buries-probe-lines`
+- `g-tool-recovery-maneuver-reverse-then-drive-rehits-wall`
+- `g-tool-regen-clobbers-hand-tuned-values-in-generated-assets`
+- `g-tool-resource-stream-vm-commit-crash-batch-vmdl`
 - `g-tool-reusing-another-project-s-assets-copy`
 - `g-tool-s-box-editor-runs-mcp-server`
 - `g-tool-self-swept-projectile-separate-did-hit`
+- `g-tool-set-only-convar-breaks-source-generator`
 - `g-tool-shared-multi-agent-working-tree-agent`
+- `g-tool-shared-playmode-claim-race`
+- `g-tool-shared-tree-build-gate-detached-worktree-depth`
 - `g-tool-shot-commandeer-suspend-competing-drivers-sw`
 - `g-tool-soundhandle-spin-up-freshly-played-handles`
+- `g-tool-source-edit-mid-battery-hotload-crash`
+- `g-tool-ss-test-harness-paused-at-title-stale-sim-telemetry`
+- `g-tool-stale-exports-permanent-recompile-loop-starves-fresh-editor`
+- `g-tool-static-readonly-frozen-across-hotload`
 - `g-tool-stock-playercontroller-no-public-speed-property`
+- `g-tool-synthetic-impact-pose-invariant-hash`
 - `g-tool-system-text-json-nodes`
 - `g-tool-telemetry-boot-line-gated-behind-debug`
+- `g-tool-teleport-preserves-component-damage-state`
 - `g-tool-third-person-camera-occlusion-ease-asymmetri`
 - `g-tool-threshold-pair-event-detectors-die-smooth`
 - `g-tool-title-menu-static-gate-blocks-hud-mcp-capture`
 - `g-tool-typelib-new-component-missing-right-after-load`
+- `g-tool-vendor-global-ns-slice-namespace-wrap`
+- `g-tool-verify-onclick-toast-via-editor-static-bridge`
+- `g-tool-visual-diff-exposure-and-hold`
 - `g-tool-visual-pin-hands-feet-world-feature`
+- `g-tool-wb-walk-single-waypoint-teleports-not-walks`
+- `g-tool-wb-worldgen-clean-static-lib-copy-reuse`
+- `g-tool-win-openssh-admin-key-path`
 - `g-tool-windows-python3-store-alias`
+- `g-tool-worktree-missing-gitignored-csproj`
+- `g-tool-worktree-missing-gitignored-csproj-depth-patch`
+- `g-ui-bare-class-selector-matches-descendant-state-class`
+- `g-ui-borderstyle-dashed-standalone-hard-errors`
+- `g-ui-buildhash-only-on-panelcomponent`
 - `g-ui-camera-screenshot-s-ui-overlay-renders`
+- `g-ui-camera-screenshot-text-blocks-block-font-face-verification`
 - `g-ui-client-local-screen-effect-fullscreen-fade`
 - `g-ui-clipboard-settext-game-reachable-whitelist-clean`
+- `g-ui-component-member-shadows-base`
+- `g-ui-convar-static-enabled-hides-component-enabled`
+- `g-ui-css-border-style-dashed-unsupported`
+- `g-ui-css-border-trick-triangle-renders-as-fragments`
 - `g-ui-css-keyframes-animation-supported`
 - `g-ui-defer-overlay-before-sync-blocking-call`
 - `g-ui-editor-assembly-needs-using-for-razor-ns`
 - `g-ui-editor-generated-csproj-gitignored`
+- `g-ui-flat-kind-tagged-record-vs-stj-polymorphic-union`
+- `g-ui-flex-end-anchor-drifts-without-fixed-width`
 - `g-ui-gameresource-attribute-obsolete-use-assettype`
+- `g-ui-headless-build-validates-razor-csharp-codegen`
 - `g-ui-loose-json-under-assets`
+- `g-ui-mcp-camera-captures-first-screenpanel-only`
 - `g-ui-mouse-visible-true-obsolete`
+- `g-ui-networked-hud-own-screenpanel-survives-possess`
+- `g-ui-networking-querylobbies-lobbyinfo-whitelist-clean`
 - `g-ui-no-inline-flex-in-panel-css`
 - `g-ui-overflow-scroll-panel-breaks-even-with-minheight-pins`
+- `g-ui-radial-gradient-at-position-unsupported`
 - `g-ui-razor-collection-stateful-child-panels-don`
+- `g-ui-razor-live-codegen-drops-mixed-text-whitespace`
 - `g-ui-razor-loose-png-blank-in-package`
+- `g-ui-razor-panel-caches-closures-over-retargeted-target`
 - `g-ui-repeating-linear-gradient-unsupported`
 - `g-ui-runtime-clipboard-api-reachable-game-code`
+- `g-ui-scenepanel-renderscene-multipart-selfframing`
 - `g-ui-scenepanel-ui-3d-model-preview-world`
 - `g-ui-screenpanel-zindex-cross-panel-stacking`
 - `g-ui-scss-import-shared-token-mixin-file`
+- `g-ui-scss-undefined-variable-kills-whole-panel-silently`
+- `g-ui-stj-caseinsensitive-computed-accessor-collision`
+- `g-ui-text-measure-drifts-across-editor-boots`
+- `g-ui-textentry-focus-survives-in-separate-constant-hash-panel`
+- `g-ui-thumb-source-aspect-must-match-tile-frame`
+- `g-ui-unquoted-numeric-attr-headless-vs-editor-codegen`
 - `g-ui-worldspace-nametag-screenprojected-camera`
 
 ## Articles without a gotchas.md source (11)
