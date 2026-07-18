@@ -17,5 +17,5 @@ the table below. The sync appends new bullets to the matching topic sub-file; th
 | `writing-gameplay--movement-physics.md` | Character controllers, traces & colliders, climb/swing/mantle traversal, vehicles & crash deformation (original `## Runtime & movement`) | 120 |
 | `writing-gameplay--world-gen-terrain.md` | Procedural terrain & voxel meshing, water/biomes/roads, runtime world building & siting (original `## Scene & world`) | 82 |
 | `writing-gameplay--patterns-lifecycle.md` | Component lifecycle, statics & session reset, save/load, scene JSON, editor-bridge/MCP & test-harness patterns (original `## Component lifecycle`, `## Save / load`) | 63 |
-| `writing-gameplay--networking-multiplayer.md` | Lobbies & joins, `[Sync]`/NetworkSpawn, host authority, dedicated servers, published-build joins | 30 |
+| `writing-gameplay--networking-multiplayer.md` | Lobbies & joins, `[Sync]`/NetworkSpawn, host authority, dedicated servers, published-build joins | 35 |
 | `writing-gameplay--input-camera-ui.md` | Input actions & devices, cameras & occlusion, HUD/Razor UI (original `## Input`) | 29 |

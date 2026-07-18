@@ -17,11 +17,15 @@
   `OnUpdate`). This sets `Networking.IsActive` true and runs the real spawn/sync path,
   letting you verify component creation order and `[Sync]` wiring without a second peer.
 
-- **An overhead UI element (name tag, health bar) anchored to a per-player gameplay field
-  FREEZES over a remote player's spawn position while their model walks away** — if that
-  field is not `[Sync]` and written only inside the owner's `OnFixedUpdate`. A proxy never
-  runs the owner's tick, so the field is stuck at spawn. Fix: anchor off the live networked
-  transform (`WorldPosition`), which is replicated and engine-interpolated.
+- **ANY cross-peer consumer (overhead UI, host validators, range checks) of an owner-only
+  simulation field reads FROZEN state on proxies — and a lifecycle hook that writes the
+  replicated transform FROM that field clobbers it to origin on a joining client.** The class
+  is two-directional: on networked entities an owner-only field can be stale when read on a
+  proxy AND uninitialized when written from early lifecycle hooks. Fix: anchor reads off the
+  live networked transform (`WorldPosition`); for full protection, redirect the field's own
+  getter (proxy reads the replicated transform, owner reads the raw integrator) so future
+  call sites cannot re-hit the class. Lifecycle hooks on networked objects must adopt the
+  replicated transform, never push local defaults over it.
 
 - **A `[Sync(SyncFlags.FromHost)]` field on a runtime-created singleton does NOT replicate
   unless that object is `NetworkSpawn`ed.** A `Scene.CreateObject()` singleton has no
@@ -100,3 +104,37 @@
 - **A freshly SteamCMD-installed `sbox-server.exe` (app 1892930) is NOT self-contained -- it needs the matching .NET runtime already present on the box, or it dies at launch before any game logic with `You must install .NET to run this application ... App host version: 10.0.x ... .NET location: Not found`.** Bit us hosting on a box that had only ever run an Unreal dedicated server (no .NET anywhere). The required framework + version is in `sbox-server.runtimeconfig.json` (`tfm: net10.0`, `Microsoft.NETCore.App` `10.0.0` on build 26.07.08e) -- it needs only the **base runtime** (`Microsoft.NETCore.App`), NOT ASP.NET or WindowsDesktop. Fix without a system/admin install: install user-scoped with the official `dotnet-install.ps1 -Runtime dotnet -Channel 10.0 -InstallDir <yourdir> -NoPath`, then set `DOTNET_ROOT=<yourdir>` (and prepend it to PATH) in the launch script. Fully additive -- no machine-wide runtime, no registry, safe on a shared box.
 
 - **`Sandbox.Decal` self-seeds with `Random.Shared.Int(10000)` on enable — a decal spawned identically on two peers renders DIFFERENTLY by default.** The seed drives silhouette pick and `Rotation`/`Scale`/`ColorTint` ParticleFloat evaluation. Fix for byte-identical decals across peers: (1) single-element `Decals` list (pick deterministically yourself); (2) constant ParticleFloat/Gradient values — a plain `float`→ParticleFloat is a Constant whose `Evaluate` ignores the seed.
+
+- **The C# layer of s&box NEVER closes a per-pair Steam P2P session, so an unclean host
+  exit (crash, task-kill, hard editor stop) poisons the pairwise transport state between
+  those two SteamIDs until Steam-side expiry clears it (observed minutes-scale).** Fingerprint:
+  two peers who previously played together BOTH get "Connection timed out." on every join
+  path in BOTH directions, a THIRD peer who never connected joins fine, the state survives
+  full restarts and self-heals after minutes. Game code cannot force-close the session, so
+  design for convergence: route every exit to a graceful disband sweep where code still runs,
+  re-query a FRESH lobby per attempt avoiding the last-failed id, and surface a "try again in
+  a few minutes" message instead of a silent timeout.
+
+- **The P2P join handshake is HOST-INITIATED, and the joiner's engine-side connect budget
+  after entering the lobby is a FIXED ~3 seconds that game code CANNOT extend.** The host
+  sends `ServerInfo` when it observes the new lobby member; the joiner is passive until then.
+  The budget is `AwaitSuccessfulConnection` = 30 × 100 ms before "Connection timed out."
+  appears. Other constants: 5 s lobby-host wait, 120 s connected-timeout. Any host-side delay
+  (including poisoned pairwise transport state) burns it fast; recovery must be a FRESH retry
+  attempt, never a longer client-side wait.
+
+- **Quit-to-menu tears the game scene down INSIDE `Networking.DisconnectScope`, so networking
+  is STILL ACTIVE during game-side teardown.** Two consequences: (a) a guest quitting locally
+  is distinguishable from being disbanded by the host — networking-still-active means a local
+  exit, the hook for session-scoped notice state, so a persisted "host closed the world"
+  breadcrumb must be cleared on a local quit or it replays as a stale modal next boot;
+  (b) teardown code CAN still send graceful goodbyes, so a host can run its disband sweep
+  on engine-initiated closes — the only place the poisoned-pair problem is avoidable at source.
+
+- **When a lobby query or browser drives a connect, GATE THE EXACT LOBBY YOU CONNECT TO,
+  never query result `[0]`.** Latent bug shape: validation gates (protocol version, publish
+  stamp) ran against `results[0]` while the connect used the first OPEN row — a possibly
+  DIFFERENT lobby — so a peer could connect to a lobby it never validated (build-skew or
+  wrong-host connect that no gate caught). Run the gates on the SAME candidate object the
+  connect uses, re-query FRESH per attempt, and log the chosen candidate's lobby id +
+  metadata age at connect time.
