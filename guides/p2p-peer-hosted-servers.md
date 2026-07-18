@@ -2,7 +2,7 @@
 title: "P2P peer-hosted servers — from working co-op code to a friend actually joining"
 slug: p2p-peer-hosted-servers
 date: "2026-07-14T22:30:00-04:00"
-updated: "2026-07-17T12:00:00-04:00"
+updated: "2026-07-18T21:00:00-04:00"
 lanes:
   - writing-gameplay
   - publishing-shipping
@@ -26,6 +26,7 @@ relatedFixes:
 unverified: false
 changelog:
   - { date: "2026-07-17", note: "Removed unverified ~60s lobby-directory propagation speculation." }
+  - { date: "2026-07-18", note: "Added connection lifecycle section: poisoned P2P pairs, fixed ~3s connect budget, teardown-inside-DisconnectScope, exact-candidate gate." }
 ---
 
 The operational recipe for shipping **player-hosted (P2P) multiplayer**: one player clicks "host", friends join by invite code, no dedicated infrastructure. This covers the layer the official docs don't document — everything below is verified in-engine (26.07.08e) unless marked otherwise.
@@ -81,6 +82,20 @@ Engine-source-verified corrections to the lobby privacy model:
   - **Send:** `Lobby.InviteOverlay()` / `Lobby.InviteFriend(steamId)` are internal menu-layer APIs, not reachable from addon code. The addon-facing `Game.Overlay.ShowFriendsList` only opens the friends modal. The always-available invite path is the **Steam overlay (Shift+Tab) → "Invite to Game"**, which works with zero game code because `SteamRichPresenceSystem` publishes `connect = "+connect <lobbyId>"` for the active lobby.
   - **Accept (game running):** `GameLobbyJoinRequested_t` fires engine-side; the menu subscribes and calls `Networking.Connect(lobbyId)`. Cold start: Steam relaunches with the `+connect <lobbyId>` arg. **Either way the addon never runs its own Join UI, so an invited joiner presents no invite code** — the host's code gate must grant an "invite grace" (accept a code-less join) or every Steam invite is rejected. Trust model: the short code is a convenience secret; the real access control is discoverability.
   - The join intent carry (item 7 above) is for the code path; an invite join has no code to carry, so it rides the reconstruct path and is admitted by the invite-grace. No protocol bump needed.
+
+## Connection lifecycle: the engine never closes a P2P session, and the joiner's budget is fixed
+
+Engine-source-verified facts (26.07.15a) about the transport layer under "why can a friend who played with me yesterday suddenly time out on every join today":
+
+**The C# engine never closes a per-pair Steam P2P session.** The `InternalClose` method on the Steam lobby connection is empty and `Dispose` only flips `ChannelState`; no `CloseSessionWithUser` call exists anywhere in the C# engine (session accept/close lives in native code). So an unclean host exit (crash, task-kill, hard editor stop) leaves **poisoned pairwise transport state** between exactly those two SteamIDs that only Steam-side expiry clears (observed minutes-scale). Fingerprint: two peers who played together both get "Connection timed out." on every join path in both directions, a third peer who never connected to either joins fine, the state survives full restarts and self-heals after minutes. See [steam-p2p-session-poisoned-pair](/fix/steam-p2p-session-poisoned-pair).
+
+Game code cannot force the session closed, so design for convergence: route every exit path to a graceful disband/kick sweep where code still runs; re-query a fresh lobby per attempt and avoid the last-failed id; show "host not reachable right now, try again in a few minutes" instead of a silent timeout.
+
+**The join handshake is host-initiated and the joiner's connect budget is a fixed ~3 seconds.** The host sends `ServerInfo` when it observes the new lobby member; the joiner is passive until then. After entering the lobby the joiner's engine budget is ~3 seconds (30 polls at 100 ms) before it surfaces "Connection timed out." No game code can lengthen this window, so any host-side stall (or a poisoned pair) burns it fast: recovery is a fresh retry, never a longer wait. The liveness contract's client watchdog (below) is a retry/recover mechanism, not a way to buy the engine more connect time. See [join-handshake-fixed-connect-budget](/fix/join-handshake-fixed-connect-budget).
+
+**Quit-to-menu tears the scene down inside `Networking.DisconnectScope`, so networking is still active during game-side teardown.** Two payoffs: (a) a guest quitting locally is distinguishable from being disbanded by the host (networking-still-active = local exit), the hook for session-scoped notice state, so a persisted "host closed the world" breadcrumb must be cleared on a local quit or it replays as a stale modal next boot; (b) teardown code can still send graceful goodbyes, so a host can run its kick/disband sweep on engine-initiated closes — the one place the poisoned-pair problem is avoidable at the source.
+
+**Gate the exact lobby you connect to, not query result `[0]`.** A latent bug shape: validation gates (protocol/publish stamp) ran against `results[0]` while the connect used the first open row — a possibly different lobby — so a peer could connect to a lobby it never validated. Run the gates on the same candidate object the connect uses, re-query fresh per attempt, and log the candidate's lobby id + metadata age at connect time.
 
 ## The join handshake needs a liveness contract
 

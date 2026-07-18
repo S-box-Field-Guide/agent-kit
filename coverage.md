@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**206 / 686 gotchas articled** (30%). Pack-only: **475**. Backlog (status `none`): **5**.
+**204 / 687 gotchas articled** (30%). Pack-only: **478**. Backlog (status `none`): **5**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 77 | 30 | 45 | 2 | 39% |
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
-| writing-gameplay | 329 | 79 | 248 | 2 | 24% |
+| writing-gameplay | 329 | 77 | 250 | 2 | 23% |
 | building-ui | 72 | 25 | 46 | 1 | 35% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
-| tooling-environment | 154 | 39 | 115 | 0 | 25% |
-| **Total** | **686** | **206** | **475** | **5** | **30%** |
+| tooling-environment | 155 | 39 | 116 | 0 | 25% |
+| **Total** | **687** | **204** | **478** | **5** | **30%** |
 
 ## Articled gotchas (skip-list)
 
@@ -95,7 +95,6 @@
 | `g-game-join-statics-wiped-by-networked-scene-handoff` | [/fix/join-statics-wiped-scene-handoff](https://sboxguide.dev/fix/join-statics-wiped-scene-handoff) |
 | `g-game-joinlocal-second-instance-recipe` | [/fix/joinlocal-two-peer-testing](https://sboxguide.dev/fix/joinlocal-two-peer-testing) |
 | `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
-| `g-game-lobby-connect-must-gate-the-exact-candidate-row-used` | [/fix/lobby-connect-gate-exact-candidate](https://sboxguide.dev/fix/lobby-connect-gate-exact-candidate) |
 | `g-game-manual-visual-smoother-fights-fixedupdate-interpolation` | [/fix/manual-visual-smoother-fights-interpolation](https://sboxguide.dev/fix/manual-visual-smoother-fights-interpolation) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sboxguide.dev/fix/new-razor-scss-not-applied-until-restart) |
@@ -110,7 +109,6 @@
 | `g-game-proxy-overhead-ui-anchored-off-non-synced-owner-field-freezes` | [/fix/proxy-overhead-ui-frozen-at-spawn](https://sboxguide.dev/fix/proxy-overhead-ui-frozen-at-spawn) |
 | `g-game-published-join-assembly-reload-wipes-statics` | [/fix/published-join-assembly-reload](https://sboxguide.dev/fix/published-join-assembly-reload) |
 | `g-game-python-s-open-path-w-windows` | [/fix/powershell-mojibake-utf8](https://sboxguide.dev/fix/powershell-mojibake-utf8) |
-| `g-game-quit-teardown-inside-disconnectscope-networking-still-active` | [/fix/quit-teardown-networking-still-active](https://sboxguide.dev/fix/quit-teardown-networking-still-active) |
 | `g-game-rebuild-multisubmesh-material-order` | [/fix/rebuild-multisubmesh-material-order](https://sboxguide.dev/fix/rebuild-multisubmesh-material-order) |
 | `g-game-rigidbody-component-api` | [/fix/rigidbody-component-api](https://sboxguide.dev/fix/rigidbody-component-api) |
 | `g-game-rolling-slopes-idempotent-ground-snap-still` | [/fix/ground-snap-pops-on-rolling-slopes](https://sboxguide.dev/fix/ground-snap-pops-on-rolling-slopes) |
@@ -399,6 +397,7 @@
 - `g-game-land-vehicle-needs-hard-deck-drowned`
 - `g-game-lateral-dent-x-corner-coupling-any-topology`
 - `g-game-linear-gradient-straight-seam`
+- `g-game-lobby-connect-must-gate-the-exact-candidate-row-used`
 - `g-game-low-frequency-mountain-mass-mask-wavelength`
 - `g-game-mantle-cap-overhangs-climb-face`
 - `g-game-mantle-over-preempts-topout-launch`
@@ -439,6 +438,7 @@
 - `g-game-proof-grade-aimed-bot-grab-window`
 - `g-game-proxy-gate-editor-bridge-consumer`
 - `g-game-quantized-riser-misses-exact-height-cap`
+- `g-game-quit-teardown-inside-disconnectscope-networking-still-active`
 - `g-game-raising-grip-breaks-scripted-powerslide`
 - `g-game-raycast-wheel-fullairborne-contactloss`
 - `g-game-raycast-wheels-tunnel-rising-coarse-collision`
@@ -569,6 +569,7 @@
 - `g-tool-deterministic-regen-autocrlf-phantom-diff`
 - `g-tool-driven-approach-dent-hash-nondeterministic`
 - `g-tool-editor-assembly-filesystem-cs0104-ambiguity`
+- `g-tool-editor-boot-race-assemblies-compile-but-never-load`
 - `g-tool-editor-camera-screenshot-renders-edit-scene`
 - `g-tool-editor-clobbers-hand-edited-sbproj-on-save`
 - `g-tool-editor-eats-fkeys-in-play-mode`

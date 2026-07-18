@@ -2,7 +2,7 @@
 title: Runtime terrain meshing — chunked greedy voxel/heightfield terrain
 slug: runtime-terrain-meshing
 date: "2026-07-13"
-updated: "2026-07-17T09:14:00-04:00"
+updated: "2026-07-18T21:00:00-04:00"
 lanes:
   - writing-gameplay
   - making-it-perform
@@ -25,6 +25,8 @@ relatedFixes:
   - heavy-work-no-hitches
   - saveload-without-drift
 unverified: false
+changelog:
+  - { date: "2026-07-18", note: "Added coordinate/precision context blockquote linking to world-scale guide." }
 ---
 
 The method for building large runtime-generated terrain in s&box: a persistent
@@ -212,6 +214,15 @@ proven ceiling, and keep decimation at 2 (dropping to 1 quadruples tris). Gen ti
 scales by the cell-count ratio and is the felt cost (a one-time boot stall).
 
 **Changing WorldSize or CellSize changes the WorldHash** -- re-bless it.
+
+> **Coordinate/precision context:** a 1280-cell grid at 0.4 m grain is 512 m per
+> side, about 20.1k units (multiply by 39.37). That lands the old Source "20k x
+> 20k" map folklore squarely inside the float-precision-safe zone (well under the
+> ~8 km / ~315k-unit first-defect threshold), so neither this performance lever
+> nor coordinate precision is the binding constraint at that scale. For the units
+> math, why "20k" is three different numbers, the Source 1 origin of the figure,
+> and why there is no hard coordinate wall anymore, see
+> [world-scale-and-coordinate-limits](/guides/world-scale-and-coordinate-limits).
 
 ## 6. Determinism (the correctness contract)
 
