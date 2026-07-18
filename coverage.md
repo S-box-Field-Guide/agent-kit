@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**191 / 667 gotchas articled** (29%). Pack-only: **476**. Backlog (status `none`): **0**.
+**196 / 667 gotchas articled** (29%). Pack-only: **471**. Backlog (status `none`): **0**.
 
 ## By lane
 
@@ -15,10 +15,10 @@
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
 | writing-gameplay | 317 | 70 | 247 | 0 | 22% |
 | building-ui | 68 | 24 | 44 | 0 | 35% |
-| audio | 11 | 5 | 6 | 0 | 45% |
-| making-it-perform | 8 | 2 | 6 | 0 | 25% |
-| tooling-environment | 153 | 37 | 116 | 0 | 24% |
-| **Total** | **667** | **191** | **476** | **0** | **29%** |
+| audio | 11 | 6 | 5 | 0 | 55% |
+| making-it-perform | 8 | 4 | 4 | 0 | 50% |
+| tooling-environment | 153 | 39 | 114 | 0 | 25% |
+| **Total** | **667** | **196** | **471** | **0** | **29%** |
 
 ## Articled gotchas (skip-list)
 
@@ -59,6 +59,7 @@
 | `g-audio-playing-sound-fully-static` | [/fix/playing-sound-static-api](https://sboxguide.dev/fix/playing-sound-static-api) |
 | `g-audio-sound-event-file-plain-json-author` | [/fix/authoring-sound-events-by-hand](https://sboxguide.dev/fix/authoring-sound-events-by-hand) |
 | `g-audio-soundevent-has-looping-field` | [/fix/soundevent-no-looping-field](https://sboxguide.dev/fix/soundevent-no-looping-field) |
+| `g-audio-voice-input-action-not-universal` | [/fix/voice-input-action-missing-config](https://sboxguide.dev/fix/voice-input-action-missing-config) |
 | `g-game-analoglook-needs-mousevisibility-hidden-lock` | [/fix/analoglook-needs-mousevisibility-hidden](https://sboxguide.dev/fix/analoglook-needs-mousevisibility-hidden) |
 | `g-game-buried-vertical-sink-hard-recover` | [/fix/buried-vertical-sink-hard-recover](https://sboxguide.dev/fix/buried-vertical-sink-hard-recover) |
 | `g-game-camera-follows-raw-fixedtick-feet-model-sawtooths` | [/fix/camera-fixedtick-position-sawtooth-jitter](https://sboxguide.dev/fix/camera-fixedtick-position-sawtooth-jitter) |
@@ -129,8 +130,10 @@
 | `g-game-visible-cursor-mouse-input-routing-no-raw-bypass` | [/fix/visible-cursor-mouse-input-routing-gates](https://sboxguide.dev/fix/visible-cursor-mouse-input-routing-gates) |
 | `g-game-whitespace-immediately-adjacent-tag-expressi` | [/fix/razor-whitespace-tag-boundary-collapse](https://sboxguide.dev/fix/razor-whitespace-tag-boundary-collapse) |
 | `g-game-zero-radius-ray-misses-voxel-collider` | [/fix/zero-radius-ray-misses-voxel-collider](https://sboxguide.dev/fix/zero-radius-ray-misses-voxel-collider) |
+| `g-perf-chunked-runtime-mesh-generator-regen-single` | [/fix/chunked-mesh-regen-not-drawcalls](https://sboxguide.dev/fix/chunked-mesh-regen-not-drawcalls) |
 | `g-perf-editor-embedded-play-mode-hard-capped` | [/fix/editor-play-mode-vsync-capped](https://sboxguide.dev/fix/editor-play-mode-vsync-capped) |
 | `g-perf-framestats-perfstats-whitelisted-from-game-code` | [/fix/framestats-perfstats-game-accessible](https://sboxguide.dev/fix/framestats-perfstats-game-accessible) |
+| `g-perf-physics-step-stopwatch-vsync-free` | [/fix/physics-step-stopwatch-vsync-free](https://sboxguide.dev/fix/physics-step-stopwatch-vsync-free) |
 | `g-rig-animated-models-use-modelmodifier` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
 | `g-rig-animgraph-heavier-alternative-needed-cross-f` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
 | `g-rig-blend-duration-comes-vmdl-s-clip` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
@@ -155,9 +158,11 @@
 | `g-rig-two-renderer-manual-cross-fade-wrong` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
 | `g-rig-vmdl-physics-node-schema-copy-citizen` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
 | `g-tool-angles-struct-fields-lowercase` | [/fix/angles-struct-lowercase-fields](https://sboxguide.dev/fix/angles-struct-lowercase-fields) |
+| `g-tool-array-clone-whitelist-forbidden` | [/fix/array-clone-whitelist-forbidden](https://sboxguide.dev/fix/array-clone-whitelist-forbidden) |
 | `g-tool-blender-5-2-compositor-api-removed` | [/fix/blender-5-2-compositor-api-removed](https://sboxguide.dev/fix/blender-5-2-compositor-api-removed) |
 | `g-tool-blender-headless-hang-factory-startup` | [/fix/blender-headless-hang-factory-startup](https://sboxguide.dev/fix/blender-headless-hang-factory-startup) |
 | `g-tool-boxcollider-center-scale-always` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
+| `g-tool-cross-assembly-hotreload-missingmethod` | [/fix/cross-assembly-hotreload-missing-method](https://sboxguide.dev/fix/cross-assembly-hotreload-missing-method) |
 | `g-tool-deriving-visual-s-facing-horizontal-velocity` | [/fix/velocity-facing-pendulum-flip](https://sboxguide.dev/fix/velocity-facing-pendulum-flip) |
 | `g-tool-dotnet-build-warning-counts-lie-under` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-editor-compiler-crash-internally-nullreferen` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
@@ -268,7 +273,6 @@
 - `g-audio-elevenlabs-voices-npc-dialogue-use-tts`
 - `g-audio-freesound-cc0-preview-mp3-no-oauth`
 - `g-audio-speaker-line-cooldown`
-- `g-audio-voice-input-action-not-universal`
 - `g-game-adding-sheer-mesa-cliff-terrain-silently`
 - `g-game-addwater-brush-basin-spill-guard`
 - `g-game-aerial-lattice-dilate-blur-sheet-base`
@@ -516,11 +520,9 @@
 - `g-game-world-teardown-under-hanging-body-cascade`
 - `g-game-wrinkle-term`
 - `g-game-zone-exclusion-vs-band-policy`
-- `g-perf-chunked-runtime-mesh-generator-regen-single`
 - `g-perf-daynight-sun-shadow-rebuild-not-fps-breaker-at-scale`
 - `g-perf-fixed-extent-fine-grain-quadruples-cells`
 - `g-perf-fps-probe-measurement-hygiene-through-mcp`
-- `g-perf-physics-step-stopwatch-vsync-free`
 - `g-perf-voxel-grain-cellsize-nearly-free-density`
 - `g-rig-ball-at-pivot-joint-overlap`
 - `g-rig-blender-icosphere-subdivisions-off-by-one`
@@ -536,7 +538,6 @@
 - `g-rig-silhouette-variants-on-one-skeleton-visual-only`
 - `g-tool-aimed-bot-grabbing-through-scored-best`
 - `g-tool-arch-slope-tilt-axis-rotate-about`
-- `g-tool-array-clone-whitelist-forbidden`
 - `g-tool-audit-offenders-counts-ticks-not-objects`
 - `g-tool-autocrlf-masks-regen-determinism-check`
 - `g-tool-bar-s-release-aimed-within-spin`
@@ -553,7 +554,6 @@
 - `g-tool-convar-same-value-set-silent-noop`
 - `g-tool-copied-trace-exclusion-filters-invert-meanin`
 - `g-tool-coplanar-overlay-ribbons-z-fight-give`
-- `g-tool-cross-assembly-hotreload-missingmethod`
 - `g-tool-custom-mcptool-single-string-arg-wrapper`
 - `g-tool-driven-approach-dent-hash-nondeterministic`
 - `g-tool-editor-assembly-filesystem-cs0104-ambiguity`

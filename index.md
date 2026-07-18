@@ -32,7 +32,6 @@ Long-form build-order guides for common systems. These are the "how do I archite
 | Networking methods | `guides/networking-methods.md` | Deterministic spec-replication, host authority |
 | P2P peer-hosted servers | `guides/p2p-peer-hosted-servers.md` | Player-hosted multiplayer: lobby, invite codes, join handshake |
 | Parkour movement | `guides/parkour-movement.md` | Wall-run, climb, vault on a trace-mover |
-| First-person viewmodel | `guides/first-person-viewmodel.md` | CS/Rust two-view split, tag-based per-view exclusion |
 | Part-kit assembly | `guides/part-kit-assembly.md` | Modular vehicle damage via part-kit manifests |
 | Performance investigation | `guides/performance-investigation.md` | Measure-first harness for "the game feels slow" |
 | Ragdoll physics | `guides/ragdoll-physics.md` | Scripted-rig NPC crumple without collapse clips |
