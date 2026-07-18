@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**186 / 665 gotchas articled** (28%). Pack-only: **479**. Backlog (status `none`): **0**.
+**191 / 667 gotchas articled** (29%). Pack-only: **476**. Backlog (status `none`): **0**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 75 | 30 | 45 | 0 | 40% |
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
-| writing-gameplay | 316 | 65 | 251 | 0 | 21% |
+| writing-gameplay | 317 | 70 | 247 | 0 | 22% |
 | building-ui | 68 | 24 | 44 | 0 | 35% |
 | audio | 11 | 5 | 6 | 0 | 45% |
 | making-it-perform | 8 | 2 | 6 | 0 | 25% |
-| tooling-environment | 152 | 37 | 115 | 0 | 24% |
-| **Total** | **665** | **186** | **479** | **0** | **28%** |
+| tooling-environment | 153 | 37 | 116 | 0 | 24% |
+| **Total** | **667** | **191** | **476** | **0** | **29%** |
 
 ## Articled gotchas (skip-list)
 
@@ -63,12 +63,15 @@
 | `g-game-buried-vertical-sink-hard-recover` | [/fix/buried-vertical-sink-hard-recover](https://sboxguide.dev/fix/buried-vertical-sink-hard-recover) |
 | `g-game-camera-follows-raw-fixedtick-feet-model-sawtooths` | [/fix/camera-fixedtick-position-sawtooth-jitter](https://sboxguide.dev/fix/camera-fixedtick-position-sawtooth-jitter) |
 | `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sboxguide.dev/fix/white-noise-hash-terrain-shade) |
+| `g-game-child-renderer-lookup-noop-anim` | [/fix/child-renderer-lookup-noop-anim](https://sboxguide.dev/fix/child-renderer-lookup-noop-anim) |
+| `g-game-client-instance-claim-grabs-host-character` | [/fix/client-singleton-claim-grabs-host](https://sboxguide.dev/fix/client-singleton-claim-grabs-host) |
 | `g-game-climate-bands-scale-with-amplitude` | [/fix/climate-bands-scale-with-amplitude](https://sboxguide.dev/fix/climate-bands-scale-with-amplitude) |
 | `g-game-component-active-real-inherited-member` | [/fix/component-active-naming-shadow](https://sboxguide.dev/fix/component-active-naming-shadow) |
 | `g-game-createlobby-async-gate-mode-not-isactive-and-unpossess-on-end` | [/fix/createlobby-async-gate-on-mode](https://sboxguide.dev/fix/createlobby-async-gate-on-mode) |
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
 | `g-game-dedicated-server-needs-dotnet-runtime` | [/fix/dedicated-server-dotnet-runtime](https://sboxguide.dev/fix/dedicated-server-dotnet-runtime) |
 | `g-game-dedicated-server-unpublished-package-join-fails` | [/fix/dedicated-server-unpublished-package-join-fails](https://sboxguide.dev/fix/dedicated-server-unpublished-package-join-fails) |
+| `g-game-devhost-stream-skips-loose-data-files` | [/fix/devhost-stream-skips-loose-data](https://sboxguide.dev/fix/devhost-stream-skips-loose-data) |
 | `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-edit-mode-gameobject` | [/fix/edit-mode-destroy-query-lag](https://sboxguide.dev/fix/edit-mode-destroy-query-lag) |
 | `g-game-editor-captures-play-hotkeys` | [/fix/editor-captures-play-hotkeys](https://sboxguide.dev/fix/editor-captures-play-hotkeys) |
@@ -86,6 +89,7 @@
 | `g-game-input-pressed-edge-latch-onupdate-not-fixedupdate` | [/fix/input-pressed-fixedupdate-drops](https://sboxguide.dev/fix/input-pressed-fixedupdate-drops) |
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-join-statics-wiped-by-networked-scene-handoff` | [/fix/join-statics-wiped-scene-handoff](https://sboxguide.dev/fix/join-statics-wiped-scene-handoff) |
+| `g-game-joinlocal-second-instance-recipe` | [/fix/joinlocal-two-peer-testing](https://sboxguide.dev/fix/joinlocal-two-peer-testing) |
 | `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-manual-visual-smoother-fights-fixedupdate-interpolation` | [/fix/manual-visual-smoother-fights-interpolation](https://sboxguide.dev/fix/manual-visual-smoother-fights-interpolation) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
@@ -94,6 +98,7 @@
 | `g-game-npc-steer-wall-hold-freezes-forever` | [/fix/npc-steer-wall-hold-freezes-forever](https://sboxguide.dev/fix/npc-steer-wall-hold-freezes-forever) |
 | `g-game-null-check-misses-destroyed-target-nre` | [/fix/null-check-misses-destroyed-isvalid](https://sboxguide.dev/fix/null-check-misses-destroyed-isvalid) |
 | `g-game-onawake-fires-synchronously-inside-component` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
+| `g-game-ondisable-nulled-singleton-breaks-on-demand-repossess` | [/fix/ondisable-singleton-blocks-readopt](https://sboxguide.dev/fix/ondisable-singleton-blocks-readopt) |
 | `g-game-orient-flat-decal-box-hit-normal` | [/fix/orient-decal-to-hit-normal](https://sboxguide.dev/fix/orient-decal-to-hit-normal) |
 | `g-game-perched-lakes-ignore-sea-level-drain-by-basin-gate` | [/fix/perched-lakes-ignore-sea-level-drain](https://sboxguide.dev/fix/perched-lakes-ignore-sea-level-drain) |
 | `g-game-prefer-runtime-world-building-over-giant` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
@@ -297,12 +302,10 @@
 - `g-game-cells-to-metres-byte-identity-at-reference-grain`
 - `g-game-central-part-cannot-drive-steer-pull`
 - `g-game-chase-cam-terrace-occlusion-sliver-reject`
-- `g-game-child-renderer-lookup-noop-anim`
 - `g-game-citizen-animgraph-already-has-native-slide`
 - `g-game-citizen-clothing-folder-file-names-lie`
 - `g-game-citizen-npc-clothing-and-sit-pose`
 - `g-game-citizen-sit-pose-height-offline-math-lies`
-- `g-game-client-instance-claim-grabs-host-character`
 - `g-game-climb-camera-occlusion-block-topped`
 - `g-game-climb-lattice-from-collision-block-max-not-render`
 - `g-game-climb-node-body-standoff-scales-to-prop-radius`
@@ -333,7 +336,6 @@
 - `g-game-deriving-vertical-skirt-quad-winding-verifie`
 - `g-game-deterministic-content-hash-same-spec-same`
 - `g-game-deterministic-world-delta-only-save`
-- `g-game-devhost-stream-skips-loose-data-files`
 - `g-game-diagonal-edge-min-width-cull-coverage-holes`
 - `g-game-directional-coast-tilt-floods-world-centre`
 - `g-game-dirty-chunk-remesh-seam-law`
@@ -344,6 +346,7 @@
 - `g-game-editor-console-buffer-2000-entries-rolls`
 - `g-game-editor-mcp-editor-camera-screenshot-renders`
 - `g-game-editor-mcp-port-editor-configurable-editor`
+- `g-game-editor-viewport-cursor-flash-on-click-not-game-state`
 - `g-game-emitted-boundary-audit-vs-lattice-contract`
 - `g-game-empty-index-buffer-partitioned-mesh`
 - `g-game-explicit-mode-enum-frozen-world-code-guard`
@@ -377,7 +380,6 @@
 - `g-game-joinlocal-client-reads-host-lobby-data`
 - `g-game-joinlocal-client-rewrites-shared-sbox-log`
 - `g-game-joinlocal-empty-code-rejected-by-wire-verify-devhost-seam`
-- `g-game-joinlocal-second-instance-recipe`
 - `g-game-keyboardcode-punctuation-is-literal-char`
 - `g-game-kit-collider-child-needs-worldrotation-bar-axis`
 - `g-game-land-vehicle-needs-hard-deck-drowned`
@@ -402,7 +404,6 @@
 - `g-game-nearest-centerline-corridor-stamping-leaves`
 - `g-game-networkspawn-owner-sim-host-onactive`
 - `g-game-node-seat-overhangs-block-edge-at-corners`
-- `g-game-ondisable-nulled-singleton-breaks-on-demand-repossess`
 - `g-game-one-sided-heightfield-lateral-glide-through`
 - `g-game-orbiting-physics-root-around-bar-makes`
 - `g-game-out-of-bounds-teleport-observer-needs-hazard-check`
@@ -618,6 +619,7 @@
 - `g-tool-resource-stream-vm-commit-crash-batch-vmdl`
 - `g-tool-reusing-another-project-s-assets-copy`
 - `g-tool-s-box-editor-runs-mcp-server`
+- `g-tool-sbox-docs-machine-readable-llms-txt`
 - `g-tool-self-swept-projectile-separate-did-hit`
 - `g-tool-set-only-convar-breaks-source-generator`
 - `g-tool-shared-multi-agent-working-tree-agent`
