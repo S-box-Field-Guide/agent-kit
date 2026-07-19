@@ -2,7 +2,7 @@
 title: Character-mounted assets and live-tuning their placement
 slug: character-mounted-assets-live-tuning
 date: "2026-07-16T21:05:00-04:00"
-updated: "2026-07-16T21:05:00-04:00"
+updated: "2026-07-19T11:20:00-04:00"
 lanes:
   - rigging-animation
   - writing-gameplay
@@ -17,7 +17,7 @@ summary: >-
   The method for hanging custom models off the player rig -- gadgets,
   backpacks, held items -- with three mount styles off one skeleton,
   and a live slider panel that dumps C#-ready constants for paste-back.
-verifiedOn: "26.07.15a"
+verifiedOn: "26.07.18"
 sourceRev: methods/character-mounted-assets-live-tuning.md
 relatedFixes:
   - setbonetransform-silently-noop
@@ -27,6 +27,8 @@ relatedFixes:
   - font-glyph-corruption-cumulative-text-count
   - editor-captures-play-hotkeys
 unverified: false
+changelog:
+  - { date: "2026-07-19", note: "Added projected-decal bone-follow technique for body paint/impacts" }
 ---
 
 The method for hanging custom models off the player rig -- gadgets, backpacks,
@@ -122,6 +124,32 @@ mount.WorldRotation = bodyRot * rot.ToRotation();
 
 `offsetM` here is the vector from the spine bone to where the item sits, in the
 body frame (x forward, y left, z up) -- NOT the bone-local frame.
+
+### Projected decals on an animated body (bone-follow variant)
+
+The same bone-follow primitive carries a **projected decal** on an animated body —
+paint/impact marks that must ride the moving character, not float where they landed.
+A world-space `Sandbox.Decal` cannot follow a moving character (its projection volume
+is fixed in world space), so you parent it under the character and re-pin its world
+transform to a live bone each frame.
+
+Technique: parent a `Sandbox.Decal` GameObject under the character; at spawn pick the
+nearest skeleton bone (`SkinnedModelRenderer.TryGetBoneTransform`) and store the impact
+in that bone's LOCAL frame (`bt.PointToLocal(hit)`, build an orthonormal frame from
+the normal). Each frame (`OnUpdate`, before render) re-pin
+`GameObject.WorldPosition = bt.PointToWorld(localPos)`,
+`WorldRotation = bt.Rotation * localFrame` off the CURRENT bone pose. The decal then
+re-projects onto the animated skinned mesh live — paint rides the torso/limb/head
+through the run cycle, on every peer (bones animate on proxies).
+
+Set the world transform AT spawn (frame-0) so there's no one-frame flash at the
+character root. Cap per body + recycle oldest; a fresh `SkinnedModelRenderer` from an
+item swap is fine (bone-local coords are rig-invariant; read `.Visual` fresh each
+frame).
+
+**Projection Depth** must span the clothing shell: the analytic capsule hit sits inside
+the outer cloth renderers, so a shallow Depth paints only bare skin. Tune to reach
+the shirt without punching through thin limbs onto the far side.
 
 ### Feet / root mount -- rigid child of the character root
 

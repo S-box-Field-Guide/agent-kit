@@ -2,7 +2,7 @@
 title: Vehicle physics — the slip-curve raycast-wheel stack
 slug: vehicle-physics
 date: "2026-07-13"
-updated: "2026-07-16T02:31:00-04:00"
+updated: "2026-07-19T11:20:00-04:00"
 lanes:
   - writing-gameplay
 tags:
@@ -15,7 +15,7 @@ summary: >-
   chassis Rigidbody, substepped slip-ratio/slip-angle tire physics with peaked
   curves, a torque-curve drivetrain, layered assists, and arcade dials on top of
   a sim core.
-verifiedOn: "26.07.15a"
+verifiedOn: "26.07.18"
 sourceRev: methods/vehicle-physics.md
 relatedFixes:
   - rigidbody-component-api
@@ -23,6 +23,8 @@ relatedFixes:
   - rotation-fromyaw-is-ccw
   - capsule-vs-box-collider-choice
 unverified: false
+changelog:
+  - { date: "2026-07-19", note: "Added drive-side omega clamp section (limiter + traction control)" }
 ---
 
 The proven architecture for driving games in s&box: raycast/shapecast wheels on a
@@ -164,6 +166,56 @@ explicit timer). Same never-reverse-within-a-step cap as brake-assist
 throttle and applies a chassis force, so it composes with the drift-catch assist
 (which cuts DRIVETRAIN throttle for a sideways rear) without merging -- sideways-
 realign and backwards-kill are different states and a spin needs both.
+
+## Drive-side omega clamp: a limit enforced late is not a limit
+
+The rev limiter used to zero drive torque only on the substep AFTER wheel-implied rpm
+crossed redline; on a light wheel, one 5 ms substep of unlimited torque overshot
+redline-equivalent angular velocity by 6-8x, and an unloaded rear wheel diverging from
+its loaded twin read as a felt wobble. Fix: a **per-substep drive-side omega clamp** —
+the drivetrain's redline-implied wheel speed feeds a hard cap enforced inside the SAME
+integration step as wheel-spin integration, not on the following substep.
+
+General rule for fixed-step sims: any actuator limit that reacts on the next step is
+not a limit for a light-inertia state; enforce it as a same-step clamp on the
+integrated value, and test limiters at the extreme end of a tuning dial, not just stock.
+
+### The clamp-alone trap
+
+A hard clamp lets a driven wheel camp at the cap under sustained throttle instead of
+being cut. The old late cut was an accidental throttle-lift safety valve: crossing
+redline used to zero ALL drive torque on the next substep, and that automatic lift let
+a sliding rear tire re-grip mid-corner. Removing it (clamp alone, no rolloff) lets a
+light car lock into a turn: as corner speed collapses, slip ratio explodes past 7 even
+though wheel speed stays capped — the longitudinal tail force consumes the whole
+friction ellipse, rear lateral grip goes near zero, and yaw holds against full
+countersteer.
+
+Key general point: **clamping wheel angular velocity does not bound slip ratio**,
+because the slip-ratio denominator (contact-patch forward speed) can still collapse out
+from under a capped numerator. The failure is combined-slip: a longitudinal-only offline
+bench will not reproduce it; the bench needs a prescribed lateral slip angle so the
+friction ellipse actually binds.
+
+### The verified two-part remedy
+
+Two independently inert parts, both bit-identical below their onset thresholds:
+
+1. A **smoothstep drive-torque rolloff** starting at 90% of the omega cap and reaching
+   zero at the cap, with the hard same-step clamp kept as a backstop guarded on the
+   ORIGINAL (pre-rolloff) drive intent, so torque faded toward zero still cannot push
+   past the cap.
+2. A **traction-control throttle floor** that fades to 0 as slip ratio runs 1.0 to 2.5
+   — the decisive lever on light cars, where even 20% throttle alone sustains wheelspin.
+
+Measured: sustained rear slip 3.16 to 0.37 offline; the live repro went from a DNF
+(234 deg/s sustained yaw) to a clean run (yaw peak 85).
+
+**Design rule:** when a limiter or clamp with a known defect gets replaced, inventory
+its accidental functions before shipping the fix, since the defect may be load-bearing
+(here, the late cut doubled as corner-exit traction recovery). Concretely, probe
+sustained-high-throttle cornering on the lightest vehicle in the roster after any
+limiter change, not only the straight-line case that motivated it.
 
 ## Input seam — one struct, everything is a peer
 
