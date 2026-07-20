@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**210 / 700 gotchas articled** (30%). Pack-only: **489**. Backlog (status `none`): **1**.
+**214 / 710 gotchas articled** (30%). Pack-only: **495**. Backlog (status `none`): **1**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 77 | 30 | 46 | 1 | 39% |
+| getting-art-in | 78 | 30 | 47 | 1 | 38% |
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
-| writing-gameplay | 331 | 80 | 251 | 0 | 24% |
-| building-ui | 76 | 26 | 50 | 0 | 34% |
+| writing-gameplay | 336 | 81 | 255 | 0 | 24% |
+| building-ui | 77 | 27 | 50 | 0 | 35% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
-| tooling-environment | 162 | 41 | 121 | 0 | 25% |
-| **Total** | **700** | **210** | **489** | **1** | **30%** |
+| tooling-environment | 165 | 43 | 122 | 0 | 26% |
+| **Total** | **710** | **214** | **495** | **1** | **30%** |
 
 ## Articled gotchas (skip-list)
 
@@ -97,6 +97,7 @@
 | `g-game-joinlocal-second-instance-recipe` | [/fix/joinlocal-two-peer-testing](https://sboxguide.dev/fix/joinlocal-two-peer-testing) |
 | `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-lobby-connect-must-gate-the-exact-candidate-row-used` | [/fix/lobby-connect-gate-exact-candidate](https://sboxguide.dev/fix/lobby-connect-gate-exact-candidate) |
+| `g-game-lobby-game-metadata-set-once-survives-host-game-switch` | [/fix/lobby-metadata-survives-game-switch](https://sboxguide.dev/fix/lobby-metadata-survives-game-switch) |
 | `g-game-manual-visual-smoother-fights-fixedupdate-interpolation` | [/fix/manual-visual-smoother-fights-interpolation](https://sboxguide.dev/fix/manual-visual-smoother-fights-interpolation) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sboxguide.dev/fix/new-razor-scss-not-applied-until-restart) |
@@ -183,6 +184,8 @@
 | `g-tool-facingyawoffset-mesh-facing-correction-swaps` | [/fix/facing-yaw-offset-axis-swap](https://sboxguide.dev/fix/facing-yaw-offset-axis-swap) |
 | `g-tool-fixing-source-asset-always-trigger-recompile` | [/fix/failed-asset-recompile-stale-cache](https://sboxguide.dev/fix/failed-asset-recompile-stale-cache) |
 | `g-tool-gameresource-archetype-extension-reserved` | [/fix/gameresource-archetype-extension-reserved](https://sboxguide.dev/fix/gameresource-archetype-extension-reserved) |
+| `g-tool-headless-dotnet-build-skips-sandbox-whitelist` | [/fix/headless-build-skips-sandbox-whitelist](https://sboxguide.dev/fix/headless-build-skips-sandbox-whitelist) |
+| `g-tool-host-project-cannot-compile-library-mounted-scenes` | [/fix/host-project-library-scene-compile-failure](https://sboxguide.dev/fix/host-project-library-scene-compile-failure) |
 | `g-tool-hotload-csharp-edits-apply` | [/fix/editor-hotload-expectations](https://sboxguide.dev/fix/editor-hotload-expectations) |
 | `g-tool-hotswap-stuck-green-compile-restart-only` | [/fix/hotload-stuck-stale-restart-required](https://sboxguide.dev/fix/hotload-stuck-stale-restart-required) |
 | `g-tool-kenney-s-own-nature-pack-drive` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
@@ -229,6 +232,7 @@
 | `g-ui-razor-tag-resolution-ignores-global-usings` | [/fix/razor-tag-resolution-ignores-global-usings](https://sboxguide.dev/fix/razor-tag-resolution-ignores-global-usings) |
 | `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sboxguide.dev/fix/ref-field-private-field-never-assigns) |
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sboxguide.dev/fix/runtime-texture-ui-panel) |
+| `g-ui-scss-undefined-variable-console-warn-only-invisible-panel` | [/fix/scss-undefined-variable-invisible-panel](https://sboxguide.dev/fix/scss-undefined-variable-invisible-panel) |
 | `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-ui-slidercontrol-scientific-notation-style-parse-error` | [/fix/slidercontrol-scientific-notation-style-error](https://sboxguide.dev/fix/slidercontrol-scientific-notation-style-error) |
 | `g-ui-sync-owner-proxies-sync-syncflags` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
@@ -288,6 +292,7 @@
 - `g-audio-elevenlabs-voices-npc-dialogue-use-tts`
 - `g-audio-freesound-cc0-preview-mp3-no-oauth`
 - `g-audio-speaker-line-cooldown`
+- `g-cs-static-delegate-orphaned-lambda-throws-after-hotload`
 - `g-game-adding-sheer-mesa-cliff-terrain-silently`
 - `g-game-addwater-brush-basin-spill-guard`
 - `g-game-aerial-lattice-dilate-blur-sheet-base`
@@ -406,6 +411,7 @@
 - `g-game-kit-collider-child-needs-worldrotation-bar-axis`
 - `g-game-land-vehicle-needs-hard-deck-drowned`
 - `g-game-lateral-dent-x-corner-coupling-any-topology`
+- `g-game-launch-ramp-exit-pitch-rate-carries-into-flight`
 - `g-game-linear-gradient-straight-seam`
 - `g-game-low-frequency-mountain-mass-mask-wavelength`
 - `g-game-mantle-cap-overhangs-climb-face`
@@ -448,6 +454,7 @@
 - `g-game-proxy-gate-editor-bridge-consumer`
 - `g-game-quantized-riser-misses-exact-height-cap`
 - `g-game-raising-grip-breaks-scripted-powerslide`
+- `g-game-ramp-arc-radius-sets-face-load`
 - `g-game-raycast-wheel-fullairborne-contactloss`
 - `g-game-raycast-wheels-tunnel-rising-coarse-collision`
 - `g-game-rebuild-compiled-model-verts-indices-materials`
@@ -472,6 +479,7 @@
 - `g-game-scaled-citizen-foot-slides-unless-feed`
 - `g-game-scatter-content-over-traversal-net-needs-zoning`
 - `g-game-sea-level-slider-nothing-until-exceeds`
+- `g-game-second-same-account-instance-contests-p2p-rendezvous`
 - `g-game-self-arming-test-must-await-async-world-build`
 - `g-game-self-siting-climb-test-mis-sites-on-treed-voxel-cliffs`
 - `g-game-serial-grade-ladder-obstacle-course`
@@ -539,6 +547,7 @@
 - `g-game-world-teardown-under-hanging-body-cascade`
 - `g-game-wrinkle-term`
 - `g-game-zone-exclusion-vs-band-policy`
+- `g-mat-renderer-tint-dropped-in-reflection-passes`
 - `g-perf-daynight-sun-shadow-rebuild-not-fps-breaker-at-scale`
 - `g-perf-fixed-extent-fine-grain-quadruples-cells`
 - `g-perf-fps-probe-measurement-hygiene-through-mcp`
@@ -616,6 +625,7 @@
 - `g-tool-mcp-camera-screenshot-misses-secondary-screenpanels`
 - `g-tool-mcp-cant-open-click-gated-ui-state`
 - `g-tool-mcp-cant-target-secondary-component-on-gameobject`
+- `g-tool-mcp-get-by-guid-in-play-returns-editor-copy`
 - `g-tool-mcp-port-auto-bumps-scan-dont-pin`
 - `g-tool-mcp-port-config-stomp-silent-death`
 - `g-tool-mcp-probe-false-dead-signatures`
