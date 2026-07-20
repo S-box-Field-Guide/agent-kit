@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**214 / 710 gotchas articled** (30%). Pack-only: **495**. Backlog (status `none`): **1**.
+**215 / 713 gotchas articled** (30%). Pack-only: **497**. Backlog (status `none`): **1**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 78 | 30 | 47 | 1 | 38% |
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
-| writing-gameplay | 336 | 81 | 255 | 0 | 24% |
-| building-ui | 77 | 27 | 50 | 0 | 35% |
+| writing-gameplay | 338 | 81 | 257 | 0 | 24% |
+| building-ui | 78 | 28 | 50 | 0 | 36% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
 | tooling-environment | 165 | 43 | 122 | 0 | 26% |
-| **Total** | **710** | **214** | **495** | **1** | **30%** |
+| **Total** | **713** | **215** | **497** | **1** | **30%** |
 
 ## Articled gotchas (skip-list)
 
@@ -232,6 +232,7 @@
 | `g-ui-razor-tag-resolution-ignores-global-usings` | [/fix/razor-tag-resolution-ignores-global-usings](https://sboxguide.dev/fix/razor-tag-resolution-ignores-global-usings) |
 | `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sboxguide.dev/fix/ref-field-private-field-never-assigns) |
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sboxguide.dev/fix/runtime-texture-ui-panel) |
+| `g-ui-screenpanel-zindex-paint-only-input-falls-through` | [/fix/screenpanel-zindex-paint-only-input](https://sboxguide.dev/fix/screenpanel-zindex-paint-only-input) |
 | `g-ui-scss-undefined-variable-console-warn-only-invisible-panel` | [/fix/scss-undefined-variable-invisible-panel](https://sboxguide.dev/fix/scss-undefined-variable-invisible-panel) |
 | `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-ui-slidercontrol-scientific-notation-style-parse-error` | [/fix/slidercontrol-scientific-notation-style-error](https://sboxguide.dev/fix/slidercontrol-scientific-notation-style-error) |
@@ -336,6 +337,7 @@
 - `g-game-climbable-stair-step-rises-1-1`
 - `g-game-closed-loop-maneuver-pd-damping-perturbs-basin`
 - `g-game-clothing-engine-ships-221-local-citizen`
+- `g-game-coarse-telemetry-hz-misses-face-load-transient`
 - `g-game-code-built-floor-must-cover-every-placement`
 - `g-game-coherent-region-patches-noise`
 - `g-game-collider-co-moves-swing-arc-invisible`
@@ -455,6 +457,7 @@
 - `g-game-quantized-riser-misses-exact-height-cap`
 - `g-game-raising-grip-breaks-scripted-powerslide`
 - `g-game-ramp-arc-radius-sets-face-load`
+- `g-game-ramp-easement-blend-value-shifts-past-radius-floor`
 - `g-game-raycast-wheel-fullairborne-contactloss`
 - `g-game-raycast-wheels-tunnel-rising-coarse-collision`
 - `g-game-rebuild-compiled-model-verts-indices-materials`

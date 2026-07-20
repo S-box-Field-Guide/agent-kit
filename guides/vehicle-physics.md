@@ -2,7 +2,7 @@
 title: Vehicle physics — the slip-curve raycast-wheel stack
 slug: vehicle-physics
 date: "2026-07-13"
-updated: "2026-07-19T11:20:00-04:00"
+updated: "2026-07-20T12:00:00-04:00"
 lanes:
   - writing-gameplay
 tags:
@@ -16,7 +16,7 @@ summary: >-
   curves, a torque-curve drivetrain, layered assists, and arcade dials on top of
   a sim core.
 verifiedOn: "26.07.18"
-sourceRev: methods/vehicle-physics.md
+sourceRev: 7dd742629980
 relatedFixes:
   - rigidbody-component-api
   - sbox-units-are-inches
@@ -25,6 +25,7 @@ relatedFixes:
 unverified: false
 changelog:
   - { date: "2026-07-19", note: "Added drive-side omega clamp section (limiter + traction control)" }
+  - { date: "2026-07-20", note: "Added ramp easement blend section + methodology trap" }
 ---
 
 The proven architecture for driving games in s&box: raycast/shapecast wheels on a
@@ -216,6 +217,28 @@ its accidental functions before shipping the fix, since the defect may be load-b
 (here, the late cut doubled as corner-exit traction recovery). Concretely, probe
 sustained-high-throttle cornering on the lightest vehicle in the roster after any
 limiter change, not only the straight-line case that motivated it.
+
+## Ramp easement blend: a lever that changes what it levers
+
+A launch ramp's face can be built two ways once its arc radius is set by the
+minimum-radius law: a pure stepped arc (constant curvature `1/R` from the base),
+or an eased/clothoid face (curvature ramps linearly from 0 to `1/R` over the
+first fraction of the run). Below the radius floor the eased face is a net-speed
+lever. Above the floor — which is where every shipped ramp now sits — that lever
+goes flat (a floored pure arc already retains ~98% of entry speed) and the
+measurable payoff moves to two different metrics: base-onset jerk (the felt hitch
+where the ground breaks into the arc drops ~30x, ~0.21 to ~0.007 deg/segment)
+and launch attitude (lands ~4 degrees flatter, tracking the authored exit angle
+instead of picking up the stepped arc's extra nose-up kick). Cost: ~29% longer
+footprint at a 0.5 blend fraction, and the lip-height rescale needed to hold rise
+constant tightens the effective radius ~3.6%.
+
+Methodology trap: coarse (~2 Hz) telemetry cannot see this hitch at all — a
+base-vs-lip net-speed sample at that rate reads ~98-99% retention whether the
+face is eased or not, because the hitch is a curvature-discontinuity transient a
+couple of physics ticks wide and net speed integrates straight through it.
+Characterize a face-load transient with a finer trace or a jounce proxy
+(suspension load / G-trace), never a coarse net-speed sample.
 
 ## Input seam — one struct, everything is a peer
 

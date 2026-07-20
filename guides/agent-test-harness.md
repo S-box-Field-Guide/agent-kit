@@ -2,7 +2,7 @@
 title: Agent test harness — MCP-driven in-editor playtest automation
 slug: agent-test-harness
 date: "2026-07-13"
-updated: "2026-07-16T17:00:00-04:00"
+updated: "2026-07-20T12:00:00-04:00"
 lanes:
   - tooling-environment
   - ai-assisted-workflow
@@ -16,7 +16,7 @@ summary: >-
   compile-gate, spawn, play, inject input, read telemetry, screenshot, assert,
   and gate a merge on the numbers — with no human at the keyboard.
 verifiedOn: "26.07.15a"
-sourceRev: methods/agent-test-harness.md
+sourceRev: 0bae76b10a15
 relatedFixes:
   - first-play-compile-checklist
   - dotnet-build-misses-razor-errors
@@ -25,6 +25,8 @@ relatedFixes:
   - agent-file-ownership-discipline
   - ai-agents-build-game-in-a-day
 unverified: false
+changelog:
+  - { date: "2026-07-20", note: "Added coarse-telemetry trap to operational checklist" }
 ---
 
 The method for letting an agent (or CI) drive the live s&box editor: compile-gate,
@@ -44,7 +46,7 @@ Three independent projects converged on the same shape:
 tools/<runner>.py  (JSON spec suite, verdict table, non-zero exit)
    │  stdlib-only HTTP client
    ▼
-s&box editor MCP server  http://127.0.0.1:<port>/mcp        [engine-shipped]
+s&box editor MCP server  http://localhost:<port>/mcp         [engine-shipped]
    │  meta-tool layer: call_tool → the real tools
    ▼
 project [McpTool]s  (Editor assembly)                       [you write these]
@@ -325,6 +327,7 @@ roamer that exercises the world surface at scale:
 | Just-spawned component hook no-ops on first tick | `OnStart`/bind hasn't run -- gate on bound state + settle-tick floor |
 | Recovery maneuver re-hits the wall / flips | Don't reverse-then-drive -- teleport the damage-preserving object to a clean lane, zero velocity, then measure |
 | New maneuver "unknown" / stale logic in live editor | `static readonly` dict value migrates across hotload -- rename the field to force a fresh dict |
+| Face-load/jounce A/B reads ~98-99% retention on both variants | Telemetry too coarse (~2 Hz) for a curvature-discontinuity transient a couple of ticks wide — use a finer trace or jounce proxy (suspension load / G-trace) |
 
 Get the compile gate and identity probe right and everything else is iteration.
 Parallel agents need an [ownership map](agent-file-ownership-discipline) before
