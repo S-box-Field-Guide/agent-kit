@@ -194,7 +194,6 @@
 | `g-tool-legacy-asset-move-compiled-payload-and-texture-closure` | [/fix/legacy-asset-move-compiled-payload-and-texture-closure](https://sboxguide.dev/fix/legacy-asset-move-compiled-payload-and-texture-closure) |
 | `g-tool-library-folder-discovered-only-via-single-sbproj` | [/fix/library-folder-discovered-only-via-single-sbproj](https://sboxguide.dev/fix/library-folder-discovered-only-via-single-sbproj) |
 | `g-tool-library-seam-must-cover-every-side-effect` | [/fix/library-seam-must-cover-every-side-effect](https://sboxguide.dev/fix/library-seam-must-cover-every-side-effect) |
-| `g-tool-mcp-port-auto-bumps-scan-dont-pin` | [/fix/mcp-port-auto-bumps-scan-dont-pin](https://sboxguide.dev/fix/mcp-port-auto-bumps-scan-dont-pin) |
 | `g-tool-model-load-missing-vmdl-return-error` | [/fix/model-load-missing-returns-error-mesh](https://sboxguide.dev/fix/model-load-missing-returns-error-mesh) |
 | `g-tool-new-system-random-time-seeded-whitelisted` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-offline-two-assembly-compile-gate-prebuilt-base-library` | [/fix/offline-two-assembly-compile-gate](https://sboxguide.dev/fix/offline-two-assembly-compile-gate) |
