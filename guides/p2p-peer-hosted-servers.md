@@ -2,7 +2,7 @@
 title: "P2P peer-hosted servers — from working co-op code to a friend actually joining"
 slug: p2p-peer-hosted-servers
 date: "2026-07-14T22:30:00-04:00"
-updated: "2026-07-18T21:00:00-04:00"
+updated: "2026-07-21T17:30:00-04:00"
 lanes:
   - writing-gameplay
   - publishing-shipping
@@ -27,6 +27,7 @@ unverified: false
 changelog:
   - { date: "2026-07-17", note: "Removed unverified ~60s lobby-directory propagation speculation." }
   - { date: "2026-07-18", note: "Added connection lifecycle section: poisoned P2P pairs, fixed ~3s connect budget, teardown-inside-DisconnectScope, exact-candidate gate." }
+  - { date: "2026-07-21", note: "Added auth-token handshake note (SessionId empty in editor)." }
 ---
 
 The operational recipe for shipping **player-hosted (P2P) multiplayer**: one player clicks "host", friends join by invite code, no dedicated infrastructure. This covers the layer the official docs don't document — everything below is verified in-engine (26.07.08e) unless marked otherwise.
@@ -160,6 +161,8 @@ Practice:
 - **Host evidence**: the host's `sbox.log` is intact on this rung (no local client truncates it) — grep hop-tagged lines there. The remote tester's evidence is screenshots of what their client shows.
 - `Connection.Address` is `'unknown'` for real remote peers — never gate behavior on it cross-machine (it works only for loopback dev seams).
 - **Expect iteration**: publish, friend tests, one named failure, fix, bump stamp, republish. With the liveness contract in place each round costs minutes and the failure names its own hop. Budget for several rounds, not one.
+
+Auth-token handshakes have the same shape: `Sandbox.Services.Auth.GetToken` sends `Api.SessionId`, which only gets minted on a non-editor client; in editor play mode it stays `Guid.Empty`. Editor testing of an auth-token flow is non-representative for the same reason local join rungs are; a published build is the real rung to test it on.
 
 ## Voice integration
 

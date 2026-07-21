@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**217 / 715 gotchas articled** (30%). Pack-only: **497**. Backlog (status `none`): **1**.
+**223 / 721 gotchas articled** (31%). Pack-only: **495**. Backlog (status `none`): **3**.
 
 ## By lane
 
@@ -14,11 +14,11 @@
 | getting-art-in | 79 | 31 | 47 | 1 | 39% |
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
 | writing-gameplay | 338 | 81 | 257 | 0 | 24% |
-| building-ui | 79 | 29 | 50 | 0 | 37% |
+| building-ui | 80 | 30 | 50 | 0 | 38% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
-| tooling-environment | 165 | 43 | 122 | 0 | 26% |
-| **Total** | **715** | **217** | **497** | **1** | **30%** |
+| tooling-environment | 170 | 48 | 120 | 2 | 28% |
+| **Total** | **721** | **223** | **495** | **3** | **31%** |
 
 ## Articled gotchas (skip-list)
 
@@ -179,6 +179,7 @@
 | `g-tool-dotnet-build-warning-counts-lie-under` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-editor-compiler-crash-internally-nullreferen` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
 | `g-tool-editor-filesystem-ambiguous-sandbox-editor` | [/fix/editor-filesystem-ambiguity](https://sboxguide.dev/fix/editor-filesystem-ambiguity) |
+| `g-tool-editor-verifies-checked-out-tree-not-worktree-branch` | [/fix/editor-verifies-checked-out-tree-not-worktree-branch](https://sboxguide.dev/fix/editor-verifies-checked-out-tree-not-worktree-branch) |
 | `g-tool-engine-console-noise-normal` | [/fix/first-play-compile-checklist](https://sboxguide.dev/fix/first-play-compile-checklist) |
 | `g-tool-engine-ships-own-built-mcptool-s` | [/fix/engine-mcptool-source-reference](https://sboxguide.dev/fix/engine-mcptool-source-reference) |
 | `g-tool-everything-broke-once-during-agent-waves` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
@@ -190,7 +191,10 @@
 | `g-tool-hotload-csharp-edits-apply` | [/fix/editor-hotload-expectations](https://sboxguide.dev/fix/editor-hotload-expectations) |
 | `g-tool-hotswap-stuck-green-compile-restart-only` | [/fix/hotload-stuck-stale-restart-required](https://sboxguide.dev/fix/hotload-stuck-stale-restart-required) |
 | `g-tool-kenney-s-own-nature-pack-drive` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
+| `g-tool-legacy-asset-move-compiled-payload-and-texture-closure` | [/fix/legacy-asset-move-compiled-payload-and-texture-closure](https://sboxguide.dev/fix/legacy-asset-move-compiled-payload-and-texture-closure) |
+| `g-tool-library-folder-discovered-only-via-single-sbproj` | [/fix/library-folder-discovered-only-via-single-sbproj](https://sboxguide.dev/fix/library-folder-discovered-only-via-single-sbproj) |
 | `g-tool-library-seam-must-cover-every-side-effect` | [/fix/library-seam-must-cover-every-side-effect](https://sboxguide.dev/fix/library-seam-must-cover-every-side-effect) |
+| `g-tool-mcp-port-auto-bumps-scan-dont-pin` | [/fix/mcp-port-auto-bumps-scan-dont-pin](https://sboxguide.dev/fix/mcp-port-auto-bumps-scan-dont-pin) |
 | `g-tool-model-load-missing-vmdl-return-error` | [/fix/model-load-missing-returns-error-mesh](https://sboxguide.dev/fix/model-load-missing-returns-error-mesh) |
 | `g-tool-new-system-random-time-seeded-whitelisted` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-offline-two-assembly-compile-gate-prebuilt-base-library` | [/fix/offline-two-assembly-compile-gate](https://sboxguide.dev/fix/offline-two-assembly-compile-gate) |
@@ -198,6 +202,7 @@
 | `g-tool-runtime-reflection-also-whitelist-banned` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-s-box-whitelist-enforced-editor-compiler` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-sbox-dedicated-server-local-sbproj` | [/fix/sbox-dedicated-server-local-project](https://sboxguide.dev/fix/sbox-dedicated-server-local-project) |
+| `g-tool-sbox-docs-machine-readable-llms-txt` | [/fix/sbox-docs-machine-readable-llms-txt](https://sboxguide.dev/fix/sbox-docs-machine-readable-llms-txt) |
 | `g-tool-sbproj-org-valid-lowercase-package-ident` | [/fix/sbproj-title-ident-startup](https://sboxguide.dev/fix/sbproj-title-ident-startup) |
 | `g-tool-some-csharp-source-files-crlf` | [/fix/powershell-mojibake-utf8](https://sboxguide.dev/fix/powershell-mojibake-utf8) |
 | `g-tool-sounds-assets-compiled-after-session-started` | [/fix/custom-sound-wont-play](https://sboxguide.dev/fix/custom-sound-wont-play) |
@@ -219,6 +224,7 @@
 | `g-ui-flex-basis-wins-over-width-collapses-fixed-column` | [/fix/flex-basis-collapses-fixed-column](https://sboxguide.dev/fix/flex-basis-collapses-fixed-column) |
 | `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sboxguide.dev/fix/flex-grow-percentage-child-feedback-loop) |
 | `g-ui-font-glyph-corruption-is-cumulative-text-count-not-just-font-size` | [/fix/font-glyph-corruption-cumulative-text-count](https://sboxguide.dev/fix/font-glyph-corruption-cumulative-text-count) |
+| `g-ui-font-glyph-corruption-shared-font-size-value-still-triggers` | [/fix/font-glyph-corruption-shared-font-size-value-still-triggers](https://sboxguide.dev/fix/font-glyph-corruption-shared-font-size-value-still-triggers) |
 | `g-ui-freshly-scaffolded-project-s-code-assembly` | [/fix/scaffold-missing-global-usings](https://sboxguide.dev/fix/scaffold-missing-global-usings) |
 | `g-ui-gameobject-networkmode-defaults-snapshot` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
 | `g-ui-interface-based-scene-scans-unreliable` | [/fix/interface-scan-returns-nothing](https://sboxguide.dev/fix/interface-scan-returns-nothing) |
@@ -277,6 +283,7 @@
 - `g-art-pointlight-usable-game-component-even-siblin`
 - `g-art-pydata-mesh-no-uv-layer-drops-vt`
 - `g-art-regenerated-ai-textures-need-editor-kick`
+- `g-art-renderer-tint-dropped-in-reflection-passes`
 - `g-art-rope-endcap-rotation-must-track-swing`
 - `g-art-s-box-obj-import-plain-y`
 - `g-art-shaders-complex-shader-supports`
@@ -295,7 +302,6 @@
 - `g-audio-elevenlabs-voices-npc-dialogue-use-tts`
 - `g-audio-freesound-cc0-preview-mp3-no-oauth`
 - `g-audio-speaker-line-cooldown`
-- `g-cs-static-delegate-orphaned-lambda-throws-after-hotload`
 - `g-game-adding-sheer-mesa-cliff-terrain-silently`
 - `g-game-addwater-brush-basin-spill-guard`
 - `g-game-aerial-lattice-dilate-blur-sheet-base`
@@ -507,6 +513,7 @@
 - `g-game-stale-anchor-guard-disables-anchor-free-valves`
 - `g-game-stale-lobby-setdata-advertise-live-state`
 - `g-game-standing-still-bounce-fall-through-audit`
+- `g-game-static-delegate-orphaned-lambda-throws-after-hotload`
 - `g-game-static-facades-bridge-editor-mcptools-play`
 - `g-game-static-pergen-capture-clear-every-gen`
 - `g-game-static-world-state-survives-play-boundary`
@@ -552,7 +559,6 @@
 - `g-game-world-teardown-under-hanging-body-cascade`
 - `g-game-wrinkle-term`
 - `g-game-zone-exclusion-vs-band-policy`
-- `g-mat-renderer-tint-dropped-in-reflection-passes`
 - `g-perf-daynight-sun-shadow-rebuild-not-fps-breaker-at-scale`
 - `g-perf-fixed-extent-fine-grain-quadruples-cells`
 - `g-perf-fps-probe-measurement-hygiene-through-mcp`
@@ -577,6 +583,7 @@
 - `g-tool-blender-headless-opaque-floor-render-recipe`
 - `g-tool-blender-materials-clear-materials-new-name`
 - `g-tool-blender-version-regen-cosmetic-sweep`
+- `g-tool-broken-library-at-load-wedges-package-chain`
 - `g-tool-build-time-tag-scans-blind-children`
 - `g-tool-byte-identical-asset-copies-neutralize-path-collision`
 - `g-tool-camera-screenshot-misses-modal-card`
@@ -608,7 +615,6 @@
 - `g-tool-editor-silent-hotload-race`
 - `g-tool-editor-status-activescene-null-both-modes`
 - `g-tool-editor-status-null-mid-hotload`
-- `g-tool-editor-verifies-checked-out-tree-not-worktree-branch`
 - `g-tool-export-bake-editor-digestion-drain`
 - `g-tool-failed-compile-empties-typelibrary-missingcomponent`
 - `g-tool-filesystem-data-multifile-api-whitelisted`
@@ -622,16 +628,15 @@
 - `g-tool-hysteresis-lives-consumer-stateless-predicat`
 - `g-tool-inject-after-router-bindparts`
 - `g-tool-input-press-consumed-bottom-fixed-tick`
-- `g-tool-legacy-asset-move-compiled-payload-and-texture-closure`
-- `g-tool-library-folder-discovered-only-via-single-sbproj`
+- `g-tool-library-compiler-omits-implicit-usings`
 - `g-tool-mcp-authored-object-reads-edit-copy-in-play`
 - `g-tool-mcp-bind-fail-no-auto-bump-edit-pref-restart`
 - `g-tool-mcp-camera-screenshot-explicit-id-drops-all-ui`
+- `g-tool-mcp-camera-screenshot-includeui-composites-screenpanel`
 - `g-tool-mcp-camera-screenshot-misses-secondary-screenpanels`
 - `g-tool-mcp-cant-open-click-gated-ui-state`
 - `g-tool-mcp-cant-target-secondary-component-on-gameobject`
 - `g-tool-mcp-get-by-guid-in-play-returns-editor-copy`
-- `g-tool-mcp-port-auto-bumps-scan-dont-pin`
 - `g-tool-mcp-port-config-stomp-silent-death`
 - `g-tool-mcp-probe-false-dead-signatures`
 - `g-tool-mcp-restart-loses-bind-race-to-own-predecessor`
@@ -659,7 +664,6 @@
 - `g-tool-resource-stream-vm-commit-crash-batch-vmdl`
 - `g-tool-reusing-another-project-s-assets-copy`
 - `g-tool-s-box-editor-runs-mcp-server`
-- `g-tool-sbox-docs-machine-readable-llms-txt`
 - `g-tool-self-swept-projectile-separate-did-hit`
 - `g-tool-set-only-convar-breaks-source-generator`
 - `g-tool-shared-multi-agent-working-tree-agent`
