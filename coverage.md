@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**215 / 713 gotchas articled** (30%). Pack-only: **497**. Backlog (status `none`): **1**.
+**217 / 715 gotchas articled** (30%). Pack-only: **497**. Backlog (status `none`): **1**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 78 | 30 | 47 | 1 | 38% |
+| getting-art-in | 79 | 31 | 47 | 1 | 39% |
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
 | writing-gameplay | 338 | 81 | 257 | 0 | 24% |
-| building-ui | 78 | 28 | 50 | 0 | 36% |
+| building-ui | 79 | 29 | 50 | 0 | 37% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
 | tooling-environment | 165 | 43 | 122 | 0 | 26% |
-| **Total** | **713** | **215** | **497** | **1** | **30%** |
+| **Total** | **715** | **217** | **497** | **1** | **30%** |
 
 ## Articled gotchas (skip-list)
 
@@ -50,6 +50,7 @@
 | `g-art-s-box-units-inches` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
 | `g-art-scene-triangle-overload` | [/fix/decimating-ai-meshes](https://sboxguide.dev/fix/decimating-ai-meshes) |
 | `g-art-shaders-complex-shader-compiled` | [/fix/shader-template-field-discovery](https://sboxguide.dev/fix/shader-template-field-discovery) |
+| `g-art-sky-hard-swap-pops-weighted-blend-fix` | [/fix/sky-hard-swap-pops-weighted-blend-fix](https://sboxguide.dev/fix/sky-hard-swap-pops-weighted-blend-fix) |
 | `g-art-trajectory-aim-previews-sample-arc-length` | [/fix/trajectory-preview-arc-length-sampling](https://sboxguide.dev/fix/trajectory-preview-arc-length-sampling) |
 | `g-art-vector3-right-0-1-0-x` | [/fix/vector3-right-is-negative-y](https://sboxguide.dev/fix/vector3-right-is-negative-y) |
 | `g-art-vmdl-material-remaps-map-both-names` | [/fix/sbox-wont-load-obj-glb](https://sboxguide.dev/fix/sbox-wont-load-obj-glb) |
@@ -233,6 +234,7 @@
 | `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sboxguide.dev/fix/ref-field-private-field-never-assigns) |
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sboxguide.dev/fix/runtime-texture-ui-panel) |
 | `g-ui-screenpanel-zindex-paint-only-input-falls-through` | [/fix/screenpanel-zindex-paint-only-input](https://sboxguide.dev/fix/screenpanel-zindex-paint-only-input) |
+| `g-ui-scss-child-combinator-universal-selector-never-matches` | [/fix/scss-child-combinator-universal-selector-never-matches](https://sboxguide.dev/fix/scss-child-combinator-universal-selector-never-matches) |
 | `g-ui-scss-undefined-variable-console-warn-only-invisible-panel` | [/fix/scss-undefined-variable-invisible-panel](https://sboxguide.dev/fix/scss-undefined-variable-invisible-panel) |
 | `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-ui-slidercontrol-scientific-notation-style-parse-error` | [/fix/slidercontrol-scientific-notation-style-error](https://sboxguide.dev/fix/slidercontrol-scientific-notation-style-error) |
