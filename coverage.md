@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**223 / 721 gotchas articled** (31%). Pack-only: **495**. Backlog (status `none`): **3**.
+**222 / 721 gotchas articled** (31%). Pack-only: **496**. Backlog (status `none`): **3**.
 
 ## By lane
 
@@ -17,8 +17,8 @@
 | building-ui | 80 | 30 | 50 | 0 | 38% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
-| tooling-environment | 170 | 48 | 120 | 2 | 28% |
-| **Total** | **721** | **223** | **495** | **3** | **31%** |
+| tooling-environment | 170 | 47 | 121 | 2 | 28% |
+| **Total** | **721** | **222** | **496** | **3** | **31%** |
 
 ## Articled gotchas (skip-list)
 
@@ -636,6 +636,7 @@
 - `g-tool-mcp-cant-open-click-gated-ui-state`
 - `g-tool-mcp-cant-target-secondary-component-on-gameobject`
 - `g-tool-mcp-get-by-guid-in-play-returns-editor-copy`
+- `g-tool-mcp-port-auto-bumps-scan-dont-pin`
 - `g-tool-mcp-port-config-stomp-silent-death`
 - `g-tool-mcp-probe-false-dead-signatures`
 - `g-tool-mcp-restart-loses-bind-race-to-own-predecessor`
