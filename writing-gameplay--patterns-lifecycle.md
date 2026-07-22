@@ -35,13 +35,16 @@
  the registry at the same boundary.
 
 - **The editor MCP port is ONE engine-global preference (`config/tools.json McpServerPort`),
- last editor to set it wins, and the editor AUTO-INCREMENTS past a taken port.** With several
- editors open every port is launch-order-dependent — don't pin fixed port numbers, DISCOVER
- them dynamically and identity-probe. Before ANY mutating call, identity-probe the endpoint:
- `editor_status` must name the expected Project AND `search_tools` for a project-defined
- `[McpTool]` prefix must hit — the project name alone can go stale when owners reshuffle ports.
- If the settings page (Editor Settings → MCP Server) shows Enabled checked but "Not running",
- toggling the checkbox off/on restarts the listener.
+ last editor to launch wins, and there is NO auto-increment: a second editor whose configured
+ port is already bound logs a bind failure and starts no MCP server at all.** With several
+ editors open every port is launch-order-dependent, so set a free port by hand in
+ Edit > Preferences > MCP Server before launching the next editor, then DISCOVER the live port
+ dynamically and identity-probe rather than pinning a number. Before ANY mutating call,
+ identity-probe the endpoint: `editor_status` must name the expected Project AND `search_tools`
+ for a project-defined `[McpTool]` prefix must hit, because the project name alone can go stale
+ when owners reshuffle ports. If the settings page (Editor Settings, MCP Server) shows Enabled
+ checked but "Not running", the bind failed on a taken port: set a free port there to restart the
+ listener on a port that is actually free.
 
 - **The s&box MCP tool registry is two-layered: `tools/list` exposes only ~7 entry-point
  tools (editor_status, read_console, search_tools, list_toolsets, describe_toolset,
