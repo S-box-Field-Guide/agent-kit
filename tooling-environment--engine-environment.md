@@ -8,7 +8,7 @@
 
 - **`new System.Random` (time-seeded) IS whitelisted** — compiles + runs headless. Useful
  for per-LOAD procedural variation (verified: one project arched-roof open-pane picker uses
- `new System.Random; rng.Next(n)`). Note the earlier "no crypto RNG" gotcha is specifically
+ `new System.Random(); rng.Next(n)`). Note the earlier "no crypto RNG" gotcha is specifically
  about `HashCode.GenerateGlobalSeed`/`RandomNumberGenerator`, NOT `System.Random`.
 
 - **Arch/slope tilt axis: rotate about `Vector3.Forward` (+X), not `Rotation.From`'s pitch.**
@@ -232,7 +232,7 @@
   a prior session leaves the convar "already set," so a fresh session's identical command does
   nothing. Fix: toggle to a different value first, or reset the backing static on boot.
 
-- **`new System.Random` (time-seeded) IS whitelisted** — compiles + runs headless. Useful for per-LOAD procedural variation (verified: arched-roof open-pane picker uses `new System.Random; rng.Next(n)`). Note the earlier "no crypto RNG" gotcha is specifically about `HashCode.GenerateGlobalSeed`/`RandomNumberGenerator`, NOT `System.Random`.
+- **`new System.Random` (time-seeded) IS whitelisted** — compiles + runs headless. Useful for per-LOAD procedural variation (verified: arched-roof open-pane picker uses `new System.Random(); rng.Next(n)`). Note the earlier "no crypto RNG" gotcha is specifically about `HashCode.GenerateGlobalSeed`/`RandomNumberGenerator`, NOT `System.Random`.
 
 - **Whitelist:** `Http` may call any domain (not raw IPs). Vendored libs need patches: no `System.Console`, no crypto RNG (`HashCode.GenerateGlobalSeed`), no `Environment.NewLine`. `System.Text.Json`, `ArrayPool`, `GameTask.RunInThreadAsync` are all fine. (drive)
 
