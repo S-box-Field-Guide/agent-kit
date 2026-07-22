@@ -2,7 +2,7 @@
 title: "Library packages: extraction and consumption"
 slug: library-packages
 date: "2026-07-19T11:20:00-04:00"
-updated: "2026-07-19T11:20:00-04:00"
+updated: "2026-07-21T23:50:00-04:00"
 lanes:
   - tooling-environment
   - building-ui
@@ -23,6 +23,7 @@ relatedFixes:
   - offline-two-assembly-compile-gate
 changelog:
   - { date: "2026-07-19", note: "Published" }
+  - { date: "2026-07-21", note: "Added versioning & consumer-update model (version-pinned installs, no auto-update, update-time breakage surface)." }
 ---
 
 How to split reusable code out of a game into an s&box Library package, and how to consume
@@ -48,6 +49,23 @@ consuming Library packages, gated by an offline two-assembly `dotnet build`
   shared across libraries must be duplicated or folded into one.
 - **Publishing goes through the editor's Library Manager** (same package pipeline as games,
   library package type).
+
+## Versioning and consumer updates
+
+- **Consumers are version-pinned; there is NO auto-update.** Installing a library records an
+  exact revision (`LibrarySystem.Install(fullIdent, VersionId)` in the engine's Library Manager
+  source, verified 26.07.15a). A newer published revision only surfaces as an **"Update"** button
+  the consumer must press, and a version dropdown lets them install ANY revision including older
+  ones — rollback is built in. Publishing a new library revision therefore **cannot silently
+  break existing consumers**.
+- **Players are insulated one layer further.** Libraries are source-distributed, so the kit code
+  compiles INTO the consumer's published game package. A game's players see a kit change only
+  after that game's developer updates the library AND republishes the game.
+- **The real breaking-change surface is update-time.** When a consumer presses **Update**,
+  renamed or removed public API fails THEIR compile, and any hand-edits they made inside the
+  library folder are overwritten. Release discipline follows: additive-first API, migration notes
+  in the CHANGELOG for anything breaking, and README guidance to customize via **seams** rather
+  than by editing kit files.
 
 ## Vendored-copy canonicality
 
