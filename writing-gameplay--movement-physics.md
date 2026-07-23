@@ -50,7 +50,7 @@
  structure's footprint of the player.
 
 - Trace API that works: `Scene.Trace.FromTo(a,b).Radius(r).IgnoreGameObjectHierarchy(go)
- .WithoutTags("player","ghost").Run` → `.Hit`, `.Normal`, `.StartedSolid`.
+ .WithoutTags("player","ghost").Run()` → `.Hit`, `.Normal`, `.StartedSolid`.
 
 - **`Jump()` on the controller clamps against rising velocity** and silently no-ops —
  for double jumps set `Velocity` z directly.
