@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**227 / 723 gotchas articled** (31%). Pack-only: **493**. Backlog (status `none`): **3**.
+**233 / 723 gotchas articled** (32%). Pack-only: **487**. Backlog (status `none`): **3**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 79 | 31 | 47 | 1 | 39% |
+| getting-art-in | 79 | 32 | 46 | 1 | 41% |
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
-| writing-gameplay | 339 | 83 | 256 | 0 | 24% |
-| building-ui | 81 | 32 | 49 | 0 | 40% |
+| writing-gameplay | 339 | 85 | 254 | 0 | 25% |
+| building-ui | 81 | 35 | 46 | 0 | 43% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
 | tooling-environment | 170 | 48 | 120 | 2 | 28% |
-| **Total** | **723** | **227** | **493** | **3** | **31%** |
+| **Total** | **723** | **233** | **487** | **3** | **32%** |
 
 ## Articled gotchas (skip-list)
 
@@ -33,6 +33,7 @@
 | `g-art-bpy-ops-wm-obj` | [/fix/obj-export-face-order-nondeterministic](https://sboxguide.dev/fix/obj-export-face-order-nondeterministic) |
 | `g-art-capsulecollider-radius-start-end-follow-worl` | [/fix/scaled-collider-didnt-scale](https://sboxguide.dev/fix/scaled-collider-didnt-scale) |
 | `g-art-colliders-live-model-s-own-frame` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
+| `g-art-complex-shader-no-vertex-color-albedo` | [/fix/per-vertex-color-use-baked-texture-not-complex-shader](https://sboxguide.dev/fix/per-vertex-color-use-baked-texture-not-complex-shader) |
 | `g-art-default-scene-gravity-2-2g` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
 | `g-art-disable-instance-shadows-renderer` | [/fix/disable-instance-shadows](https://sboxguide.dev/fix/disable-instance-shadows) |
 | `g-art-double-tint-flat-color-vmat-override` | [/fix/model-tint-flat-vmat-traps](https://sboxguide.dev/fix/model-tint-flat-vmat-traps) |
@@ -70,6 +71,7 @@
 | `g-game-child-renderer-lookup-noop-anim` | [/fix/child-renderer-lookup-noop-anim](https://sboxguide.dev/fix/child-renderer-lookup-noop-anim) |
 | `g-game-client-instance-claim-grabs-host-character` | [/fix/client-singleton-claim-grabs-host](https://sboxguide.dev/fix/client-singleton-claim-grabs-host) |
 | `g-game-climate-bands-scale-with-amplitude` | [/fix/climate-bands-scale-with-amplitude](https://sboxguide.dev/fix/climate-bands-scale-with-amplitude) |
+| `g-game-climb-lattice-from-collision-block-max-not-render` | [/fix/derive-character-geometry-from-collision-not-render-mesh](https://sboxguide.dev/fix/derive-character-geometry-from-collision-not-render-mesh) |
 | `g-game-component-active-real-inherited-member` | [/fix/component-active-naming-shadow](https://sboxguide.dev/fix/component-active-naming-shadow) |
 | `g-game-createlobby-async-gate-mode-not-isactive-and-unpossess-on-end` | [/fix/createlobby-async-gate-on-mode](https://sboxguide.dev/fix/createlobby-async-gate-on-mode) |
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
@@ -91,6 +93,7 @@
 | `g-game-greedy-voxel-mesher-colours-cliff-skirt` | [/fix/greedy-mesher-cliff-vertical-stripes](https://sboxguide.dev/fix/greedy-mesher-cliff-vertical-stripes) |
 | `g-game-grounded-wish-servo-eats-applied-velocity` | [/fix/grounded-wish-servo-eats-applied-velocity](https://sboxguide.dev/fix/grounded-wish-servo-eats-applied-velocity) |
 | `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) |
+| `g-game-heightfield-crest-sawtooth-topcluster` | [/fix/decimated-heightfield-sawtooth-crest-cluster-snap](https://sboxguide.dev/fix/decimated-heightfield-sawtooth-crest-cluster-snap) |
 | `g-game-host-create-before-networkspawn-clobbers-instance` | [/fix/host-spawn-clobbers-camera-singleton](https://sboxguide.dev/fix/host-spawn-clobbers-camera-singleton) |
 | `g-game-idempotent-world-rebuild-destroyimmediate` | [/fix/idempotent-world-rebuild-destroyimmediate](https://sboxguide.dev/fix/idempotent-world-rebuild-destroyimmediate) |
 | `g-game-input-pressed-edge-latch-onupdate-not-fixedupdate` | [/fix/input-pressed-fixedupdate-drops](https://sboxguide.dev/fix/input-pressed-fixedupdate-drops) |
@@ -223,6 +226,8 @@
 | `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet` | [/fix/border-style-solid-scss-parse-error](https://sboxguide.dev/fix/border-style-solid-scss-parse-error) |
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
 | `g-ui-camera-screenshot-text-blocks-block-font-face-verification` | [/fix/camera-screenshot-cannot-verify-fonts](https://sboxguide.dev/fix/camera-screenshot-cannot-verify-fonts) |
+| `g-ui-css-keyframes-animation-supported` | [/fix/css-keyframes-animation-works](https://sboxguide.dev/fix/css-keyframes-animation-works) |
+| `g-ui-defer-overlay-before-sync-blocking-call` | [/fix/defer-blocking-call-so-loading-overlay-paints](https://sboxguide.dev/fix/defer-blocking-call-so-loading-overlay-paints) |
 | `g-ui-draggable-slider-tracks-click-jump-drag` | [/fix/draggable-slider-click-drag](https://sboxguide.dev/fix/draggable-slider-click-drag) |
 | `g-ui-flex-basis-wins-over-width-collapses-fixed-column` | [/fix/flex-basis-collapses-fixed-column](https://sboxguide.dev/fix/flex-basis-collapses-fixed-column) |
 | `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sboxguide.dev/fix/flex-grow-percentage-child-feedback-loop) |
@@ -248,6 +253,7 @@
 | `g-ui-scss-undefined-variable-console-warn-only-invisible-panel` | [/fix/scss-undefined-variable-invisible-panel](https://sboxguide.dev/fix/scss-undefined-variable-invisible-panel) |
 | `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-ui-slidercontrol-scientific-notation-style-parse-error` | [/fix/slidercontrol-scientific-notation-style-error](https://sboxguide.dev/fix/slidercontrol-scientific-notation-style-error) |
+| `g-ui-steam-avatar-background-image-avatar-url-scheme` | [/fix/steam-avatar-url-scheme](https://sboxguide.dev/fix/steam-avatar-url-scheme) |
 | `g-ui-sync-owner-proxies-sync-syncflags` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
 | `g-ui-textentry-raw-html-input-house-control` | [/fix/textentry-not-html-input](https://sboxguide.dev/fix/textentry-not-html-input) |
 | `g-ui-write-inside-already-open-razor-code` | [/fix/nested-razor-code-block-rz1010](https://sboxguide.dev/fix/nested-razor-code-block-rz1010) |
@@ -259,7 +265,6 @@
 - `g-art-bounds-maxs-invisible-nub-not-visible-top`
 - `g-art-camera-screenshot-renders-through-real-scene`
 - `g-art-child-visual-inherits-yawed-anchor-rotation`
-- `g-art-complex-shader-no-vertex-color-albedo`
 - `g-art-coplanar-zfight-only-shimmers-across-materials`
 - `g-art-correct-sub-part-positions-prove-nothing`
 - `g-art-cycled-fx-anchor-dominant-end-share-anchored-geometry`
@@ -343,7 +348,6 @@
 - `g-game-citizen-npc-clothing-and-sit-pose`
 - `g-game-citizen-sit-pose-height-offline-math-lies`
 - `g-game-climb-camera-occlusion-block-topped`
-- `g-game-climb-lattice-from-collision-block-max-not-render`
 - `g-game-climb-node-body-standoff-scales-to-prop-radius`
 - `g-game-climbable-stair-step-rises-1-1`
 - `g-game-closed-loop-maneuver-pd-damping-perturbs-basin`
@@ -405,7 +409,6 @@
 - `g-game-handbrake-jturn-layout-aware-fwd-rwd`
 - `g-game-headroom-sphere-probe-clips-terrace-steps`
 - `g-game-heightfield-burial-check-catches-neighbour-column`
-- `g-game-heightfield-crest-sawtooth-topcluster`
 - `g-game-heightfield-riser-taller-than-capsule-intangible`
 - `g-game-hex-hash-constant-top-bit-set`
 - `g-game-hidden-lobby-self-query-returns-nothing`
@@ -708,10 +711,8 @@
 - `g-ui-convar-static-enabled-hides-component-enabled`
 - `g-ui-css-border-style-dashed-unsupported`
 - `g-ui-css-border-trick-triangle-renders-as-fragments`
-- `g-ui-css-keyframes-animation-supported`
 - `g-ui-datafs-image-not-css-addressable-needs-code-texture`
 - `g-ui-datetimestyles-roundtripkind-adjustuniversal-throws`
-- `g-ui-defer-overlay-before-sync-blocking-call`
 - `g-ui-editor-assembly-needs-using-for-razor-ns`
 - `g-ui-editor-generated-csproj-gitignored`
 - `g-ui-flat-kind-tagged-record-vs-stj-polymorphic-union`
@@ -740,7 +741,6 @@
 - `g-ui-screenpanel-zindex-cross-panel-stacking`
 - `g-ui-scss-import-shared-token-mixin-file`
 - `g-ui-scss-undefined-variable-kills-whole-panel-silently`
-- `g-ui-steam-avatar-background-image-avatar-url-scheme`
 - `g-ui-stj-caseinsensitive-computed-accessor-collision`
 - `g-ui-text-measure-drifts-across-editor-boots`
 - `g-ui-textentry-focus-survives-in-separate-constant-hash-panel`

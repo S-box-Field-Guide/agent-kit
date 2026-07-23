@@ -70,14 +70,19 @@
   (walk↔run gait) can never leave a stale rate from the outgoing clip.
 - **Pair a procedural whole-body rotation with a clip that shapes the body — don't do
   both in one place.** The barrel roll composes a fresh 360° spin about the forward axis
-  each frame (CharacterVisual), while a one-shot "tuck" clip balls the body up; the clip
+  each frame (on the character visual component), while a one-shot "tuck" clip balls the body up; the clip
   owns the pose, the rotation code owns the spin. Author the one-shot ~1 frame LONGER
   than the move's duration and pace it `rate = clipLen / moveTime` so fold→hold→unfold
   spans the move exactly (rate lands just above 1). Both ENDS of such a one-shot must
   key a NEUTRAL pose that blends from/to the neighbouring states (here: a midpoint
   between the jump air-tuck hold and the fall spread) or it pops on entry/exit. The
-  Poser's per-key hemisphere negation keeps big folds (thigh −120°, forearm −125°)
-  continuous for free.
+  poser's per-key hemisphere negation keeps big folds (thigh −120°, forearm −125°)
+  continuous for free. Generalizes to a character driven by the FULL citizen animgraph
+  (`CitizenAnimationHelper`): there is no cheap way to splice a one-shot custom clip in from
+  a headless/scripted pipeline (the animgraph owns the whole pose every frame and fights any
+  `renderer.Sequence` override), so apply the same split instead — leave the animgraph as the
+  sole pose writer and layer the procedural trick onto the existing single writer of the
+  visual model's `LocalRotation`.
 - **A new NPC clip in `add_humanoid_clips` must ALSO be added to BOTH `CLIP_ORDER`
   and `CLIP_FADE` in the NPC rig library.py, or `build_vmdl_anims` KeyErrors** (it iterates
   `CLIP_ORDER` and indexes `CLIP_FADE[sem]` to build the vmdl AnimationList — the
