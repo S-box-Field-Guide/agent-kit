@@ -193,7 +193,7 @@
   set `.Renderer` (the SkinnedModelRenderer), `.Model` (the same physics-bearing
   vmdl), `.Enabled = true`, `.MotionEnabled = true`; shove it via
   `_physics.PhysicsGroup.Bodies` → `body.ApplyImpulse(v)`. To stand back up:
-  `_physics.Destroy` (bone control returns to the renderer's Sequence next frame),
+  `_physics.Destroy()` (bone control returns to the renderer's Sequence next frame),
   snap the root to the pelvis body's rest position (`PhysicsGroup.Bodies[0].Position`,
   x/y only). All of `ModelPhysics.{Renderer,Model,MotionEnabled,Enabled,PhysicsGroup}`
   + `PhysicsGroup.Bodies` + `PhysicsBody.{ApplyImpulse,Position}` resolve under
