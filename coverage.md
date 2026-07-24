@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**233 / 723 gotchas articled** (32%). Pack-only: **487**. Backlog (status `none`): **3**.
+**237 / 725 gotchas articled** (33%). Pack-only: **485**. Backlog (status `none`): **3**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 79 | 32 | 46 | 1 | 41% |
+| getting-art-in | 81 | 34 | 46 | 1 | 42% |
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
-| writing-gameplay | 339 | 85 | 254 | 0 | 25% |
-| building-ui | 81 | 35 | 46 | 0 | 43% |
+| writing-gameplay | 339 | 86 | 253 | 0 | 25% |
+| building-ui | 81 | 36 | 45 | 0 | 44% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
 | tooling-environment | 170 | 48 | 120 | 2 | 28% |
-| **Total** | **723** | **233** | **487** | **3** | **32%** |
+| **Total** | **725** | **237** | **485** | **3** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -44,6 +44,7 @@
 | `g-art-meters-units-mixups-travel-packs-sweep` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
 | `g-art-model-facing-geometry-built` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
 | `g-art-modelcollider-s-physics-hull-also-follow` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
+| `g-art-new-shader-committed-without-shaderc-fails-first-load` | [/fix/commit-shader-c-with-new-shader-source](https://sboxguide.dev/fix/commit-shader-c-with-new-shader-source) |
 | `g-art-obj-importer-auto-converts-y-up` | [/fix/blender-headless-pipeline](https://sboxguide.dev/fix/blender-headless-pipeline) |
 | `g-art-prefer-hand-sized-boxcollider-s-over` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-art-recovery-forge-delivery-fails` | [/fix/forge-failed-delivery-glb-recovery](https://sboxguide.dev/fix/forge-failed-delivery-glb-recovery) |
@@ -54,6 +55,7 @@
 | `g-art-sky-hard-swap-pops-weighted-blend-fix` | [/fix/sky-hard-swap-pops-weighted-blend-fix](https://sboxguide.dev/fix/sky-hard-swap-pops-weighted-blend-fix) |
 | `g-art-trajectory-aim-previews-sample-arc-length` | [/fix/trajectory-preview-arc-length-sampling](https://sboxguide.dev/fix/trajectory-preview-arc-length-sampling) |
 | `g-art-vector3-right-0-1-0-x` | [/fix/vector3-right-is-negative-y](https://sboxguide.dev/fix/vector3-right-is-negative-y) |
+| `g-art-vmdl-collision-tags-inert-on-modelcollider` | [/fix/vmdl-per-shape-collision-tags-inert-on-modelcollider](https://sboxguide.dev/fix/vmdl-per-shape-collision-tags-inert-on-modelcollider) |
 | `g-art-vmdl-material-remaps-map-both-names` | [/fix/sbox-wont-load-obj-glb](https://sboxguide.dev/fix/sbox-wont-load-obj-glb) |
 | `g-art-vmdl-rendermeshfile-compiles-clean-has-zero` | [/fix/model-no-collision](https://sboxguide.dev/fix/model-no-collision) |
 | `g-audio-event-string-full-resource-path-extension` | [/fix/custom-sound-wont-play](https://sboxguide.dev/fix/custom-sound-wont-play) |
@@ -77,6 +79,7 @@
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
 | `g-game-decal-color-is-lit-albedo-pale-tints-wash-out` | [/fix/decal-color-lit-albedo-washes-out](https://sboxguide.dev/fix/decal-color-lit-albedo-washes-out) |
 | `g-game-decal-component-deterministic-across-peers` | [/fix/decal-determinism-across-peers](https://sboxguide.dev/fix/decal-determinism-across-peers) |
+| `g-game-decal-parented-to-bone-follows-and-reprojects-animated-mesh` | [/fix/decal-follows-animated-character-via-bone-repin](https://sboxguide.dev/fix/decal-follows-animated-character-via-bone-repin) |
 | `g-game-decal-projects-onto-runtime-model-renderers` | [/fix/decal-projects-onto-runtime-model-renderers](https://sboxguide.dev/fix/decal-projects-onto-runtime-model-renderers) |
 | `g-game-dedicated-server-needs-dotnet-runtime` | [/fix/dedicated-server-dotnet-runtime](https://sboxguide.dev/fix/dedicated-server-dotnet-runtime) |
 | `g-game-dedicated-server-unpublished-package-join-fails` | [/fix/dedicated-server-unpublished-package-join-fails](https://sboxguide.dev/fix/dedicated-server-unpublished-package-join-fails) |
@@ -227,6 +230,7 @@
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
 | `g-ui-camera-screenshot-text-blocks-block-font-face-verification` | [/fix/camera-screenshot-cannot-verify-fonts](https://sboxguide.dev/fix/camera-screenshot-cannot-verify-fonts) |
 | `g-ui-css-keyframes-animation-supported` | [/fix/css-keyframes-animation-works](https://sboxguide.dev/fix/css-keyframes-animation-works) |
+| `g-ui-datafs-image-not-css-addressable-needs-code-texture` | [/fix/data-fs-image-needs-code-texture-not-css-url](https://sboxguide.dev/fix/data-fs-image-needs-code-texture-not-css-url) |
 | `g-ui-defer-overlay-before-sync-blocking-call` | [/fix/defer-blocking-call-so-loading-overlay-paints](https://sboxguide.dev/fix/defer-blocking-call-so-loading-overlay-paints) |
 | `g-ui-draggable-slider-tracks-click-jump-drag` | [/fix/draggable-slider-click-drag](https://sboxguide.dev/fix/draggable-slider-click-drag) |
 | `g-ui-flex-basis-wins-over-width-collapses-fixed-column` | [/fix/flex-basis-collapses-fixed-column](https://sboxguide.dev/fix/flex-basis-collapses-fixed-column) |
@@ -267,6 +271,7 @@
 - `g-art-child-visual-inherits-yawed-anchor-rotation`
 - `g-art-coplanar-zfight-only-shimmers-across-materials`
 - `g-art-correct-sub-part-positions-prove-nothing`
+- `g-art-crossed-card-flat-cross-at-distance`
 - `g-art-cycled-fx-anchor-dominant-end-share-anchored-geometry`
 - `g-art-dcc-render-color-not-engine-color`
 - `g-art-dedicated-ambient-light-gradient-fog-compone`
@@ -301,7 +306,6 @@
 - `g-art-tripo-pair-isolate-island-centroid-and-ankle-toe-align`
 - `g-art-views-sheet-unmirrored-wheel-face`
 - `g-art-vmat-essentials-shader-shaders`
-- `g-art-vmdl-collision-tags-inert-on-modelcollider`
 - `g-art-vmdl-rendermeshfile-must-live-inside-content`
 - `g-art-wheel-arch-flare-outboard-of-tyre-buries-wheel`
 - `g-art-world-units-into-meters-api-double-scale`
@@ -368,7 +372,6 @@
 - `g-game-crosspass-density-cull-shared-grid-field-not-placed-list`
 - `g-game-decal-box-splatted-projectile-s-raw`
 - `g-game-decal-count-scales-to-thousands-fill-rate-bound`
-- `g-game-decal-parented-to-bone-follows-and-reprojects-animated-mesh`
 - `g-game-decal-projection-depth-must-span-clothing-shell`
 - `g-game-decision-vs-kernel-centre`
 - `g-game-declared-analytic-climb-lattice-not-fit-raycast`
@@ -711,7 +714,6 @@
 - `g-ui-convar-static-enabled-hides-component-enabled`
 - `g-ui-css-border-style-dashed-unsupported`
 - `g-ui-css-border-trick-triangle-renders-as-fragments`
-- `g-ui-datafs-image-not-css-addressable-needs-code-texture`
 - `g-ui-datetimestyles-roundtripkind-adjustuniversal-throws`
 - `g-ui-editor-assembly-needs-using-for-razor-ns`
 - `g-ui-editor-generated-csproj-gitignored`
