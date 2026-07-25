@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**237 / 725 gotchas articled** (33%). Pack-only: **485**. Backlog (status `none`): **3**.
+**243 / 725 gotchas articled** (34%). Pack-only: **479**. Backlog (status `none`): **3**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 81 | 34 | 46 | 1 | 42% |
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
-| writing-gameplay | 339 | 86 | 253 | 0 | 25% |
-| building-ui | 81 | 36 | 45 | 0 | 44% |
+| writing-gameplay | 339 | 89 | 250 | 0 | 26% |
+| building-ui | 81 | 39 | 42 | 0 | 48% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
 | tooling-environment | 170 | 48 | 120 | 2 | 28% |
-| **Total** | **725** | **237** | **485** | **3** | **33%** |
+| **Total** | **725** | **243** | **479** | **3** | **34%** |
 
 ## Articled gotchas (skip-list)
 
@@ -103,6 +103,7 @@
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-join-handshake-host-initiated-joiner-connect-budget-fixed` | [/fix/join-handshake-fixed-connect-budget](https://sboxguide.dev/fix/join-handshake-fixed-connect-budget) |
 | `g-game-join-statics-wiped-by-networked-scene-handoff` | [/fix/join-statics-wiped-scene-handoff](https://sboxguide.dev/fix/join-statics-wiped-scene-handoff) |
+| `g-game-joinlocal-client-reads-host-lobby-data` | [/fix/joinlocal-client-reads-host-networking-data](https://sboxguide.dev/fix/joinlocal-client-reads-host-networking-data) |
 | `g-game-joinlocal-second-instance-recipe` | [/fix/joinlocal-two-peer-testing](https://sboxguide.dev/fix/joinlocal-two-peer-testing) |
 | `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-lobby-connect-must-gate-the-exact-candidate-row-used` | [/fix/lobby-connect-gate-exact-candidate](https://sboxguide.dev/fix/lobby-connect-gate-exact-candidate) |
@@ -134,6 +135,7 @@
 | `g-game-session-reset-static-facades-component-their` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-game-single-tick-groundcheck-flicker-re-fires` | [/fix/single-tick-ground-flicker-landing-vfx](https://sboxguide.dev/fix/single-tick-ground-flicker-landing-vfx) |
 | `g-game-smooth-render-mesh-vs-quantized-collision-curb` | [/fix/smooth-render-vs-quantized-collision-curb](https://sboxguide.dev/fix/smooth-render-vs-quantized-collision-curb) |
+| `g-game-stack-seat-visual-head-not-capsule` | [/fix/character-stacking-seat-height-visual-head-not-capsule](https://sboxguide.dev/fix/character-stacking-seat-height-visual-head-not-capsule) |
 | `g-game-steam-p2p-session-never-closed-in-csharp-poisons-pair-on-unclean-exit` | [/fix/steam-p2p-session-poisoned-pair](https://sboxguide.dev/fix/steam-p2p-session-poisoned-pair) |
 | `g-game-stylesheet-many-selectors-simultaneously-dec` | [/fix/font-size-glyph-corruption](https://sboxguide.dev/fix/font-size-glyph-corruption) |
 | `g-game-swept-trace-hitposition-is-surface-endposition-is-shape-center` | [/fix/swept-trace-hitposition-vs-endposition](https://sboxguide.dev/fix/swept-trace-hitposition-vs-endposition) |
@@ -149,6 +151,7 @@
 | `g-game-viewmodel-parallel-cosmetic-copy-for-fp` | [/fix/viewmodel-parallel-cosmetic-copy](https://sboxguide.dev/fix/viewmodel-parallel-cosmetic-copy) |
 | `g-game-visible-cursor-mouse-input-routing-no-raw-bypass` | [/fix/visible-cursor-mouse-input-routing-gates](https://sboxguide.dev/fix/visible-cursor-mouse-input-routing-gates) |
 | `g-game-whitespace-immediately-adjacent-tag-expressi` | [/fix/razor-whitespace-tag-boundary-collapse](https://sboxguide.dev/fix/razor-whitespace-tag-boundary-collapse) |
+| `g-game-world-hash-live-scan-double-build` | [/fix/code-built-world-runs-twice-on-network-join](https://sboxguide.dev/fix/code-built-world-runs-twice-on-network-join) |
 | `g-game-zero-radius-ray-misses-voxel-collider` | [/fix/zero-radius-ray-misses-voxel-collider](https://sboxguide.dev/fix/zero-radius-ray-misses-voxel-collider) |
 | `g-perf-chunked-runtime-mesh-generator-regen-single` | [/fix/chunked-mesh-regen-not-drawcalls](https://sboxguide.dev/fix/chunked-mesh-regen-not-drawcalls) |
 | `g-perf-editor-embedded-play-mode-hard-capped` | [/fix/editor-play-mode-vsync-capped](https://sboxguide.dev/fix/editor-play-mode-vsync-capped) |
@@ -227,6 +230,7 @@
 | `g-tool-worktree-csproj-relative-sbox-refs` | [/fix/worktree-csproj-relative-sbox-refs](https://sboxguide.dev/fix/worktree-csproj-relative-sbox-refs) |
 | `g-ui-absolute-column-auto-height-drops-trailing-children` | [/fix/absolute-column-auto-height-drops-children](https://sboxguide.dev/fix/absolute-column-auto-height-drops-children) |
 | `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet` | [/fix/border-style-solid-scss-parse-error](https://sboxguide.dev/fix/border-style-solid-scss-parse-error) |
+| `g-ui-buildhash-only-on-panelcomponent` | [/fix/buildhash-override-only-compiles-on-panelcomponent](https://sboxguide.dev/fix/buildhash-override-only-compiles-on-panelcomponent) |
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
 | `g-ui-camera-screenshot-text-blocks-block-font-face-verification` | [/fix/camera-screenshot-cannot-verify-fonts](https://sboxguide.dev/fix/camera-screenshot-cannot-verify-fonts) |
 | `g-ui-css-keyframes-animation-supported` | [/fix/css-keyframes-animation-works](https://sboxguide.dev/fix/css-keyframes-animation-works) |
@@ -248,6 +252,7 @@
 | `g-ui-razor-computed-text-renders-blank-or-blocks-density` | [/fix/razor-text-renders-blank-density-modes](https://sboxguide.dev/fix/razor-text-renders-blank-density-modes) |
 | `g-ui-razor-files-go-global-namespace` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
 | `g-ui-razor-fragment-flex-gap-undermeasures-height` | [/fix/razor-fragment-flex-gap-undermeasures-height](https://sboxguide.dev/fix/razor-fragment-flex-gap-undermeasures-height) |
+| `g-ui-razor-loose-png-blank-in-package` | [/fix/loose-png-in-razor-css-blank-in-published-build](https://sboxguide.dev/fix/loose-png-in-razor-css-blank-in-published-build) |
 | `g-ui-razor-panel-needs-frames-to-paint-before-sync-block` | [/fix/razor-panel-needs-frames-before-sync-block](https://sboxguide.dev/fix/razor-panel-needs-frames-before-sync-block) |
 | `g-ui-razor-tag-resolution-ignores-global-usings` | [/fix/razor-tag-resolution-ignores-global-usings](https://sboxguide.dev/fix/razor-tag-resolution-ignores-global-usings) |
 | `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sboxguide.dev/fix/ref-field-private-field-never-assigns) |
@@ -255,6 +260,7 @@
 | `g-ui-screenpanel-zindex-paint-only-input-falls-through` | [/fix/screenpanel-zindex-paint-only-input](https://sboxguide.dev/fix/screenpanel-zindex-paint-only-input) |
 | `g-ui-scss-child-combinator-universal-selector-never-matches` | [/fix/scss-child-combinator-universal-selector-never-matches](https://sboxguide.dev/fix/scss-child-combinator-universal-selector-never-matches) |
 | `g-ui-scss-undefined-variable-console-warn-only-invisible-panel` | [/fix/scss-undefined-variable-invisible-panel](https://sboxguide.dev/fix/scss-undefined-variable-invisible-panel) |
+| `g-ui-scss-undefined-variable-kills-whole-panel-silently` | [/fix/undefined-scss-variable-kills-whole-panel](https://sboxguide.dev/fix/undefined-scss-variable-kills-whole-panel) |
 | `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-ui-slidercontrol-scientific-notation-style-parse-error` | [/fix/slidercontrol-scientific-notation-style-error](https://sboxguide.dev/fix/slidercontrol-scientific-notation-style-error) |
 | `g-ui-steam-avatar-background-image-avatar-url-scheme` | [/fix/steam-avatar-url-scheme](https://sboxguide.dev/fix/steam-avatar-url-scheme) |
@@ -423,7 +429,6 @@
 - `g-game-invisible-grab-point-registration-phantom-sp`
 - `g-game-jet-ski-single-point-buoyancy-grid`
 - `g-game-joinlocal-client-convar-probe-unreachable`
-- `g-game-joinlocal-client-reads-host-lobby-data`
 - `g-game-joinlocal-client-rewrites-shared-sbox-log`
 - `g-game-joinlocal-empty-code-rejected-by-wire-verify-devhost-seam`
 - `g-game-keyboardcode-punctuation-is-literal-char`
@@ -518,7 +523,6 @@
 - `g-game-spawn-raycast-car-suspension-equilibrium-hei`
 - `g-game-spin-bar-s-release-aim-within`
 - `g-game-sprint-downslope-outruns-ground-stick-fallthrough`
-- `g-game-stack-seat-visual-head-not-capsule`
 - `g-game-stale-anchor-guard-disables-anchor-free-valves`
 - `g-game-stale-lobby-setdata-advertise-live-state`
 - `g-game-standing-still-bounce-fall-through-audit`
@@ -564,7 +568,6 @@
 - `g-game-wb-net-argsjson-string-wrapper`
 - `g-game-wb-walk-queue-before-play-not-consumed`
 - `g-game-which-movement-mode-surface-allow-gate`
-- `g-game-world-hash-live-scan-double-build`
 - `g-game-world-teardown-under-hanging-body-cascade`
 - `g-game-wrinkle-term`
 - `g-game-zone-exclusion-vs-band-policy`
@@ -706,7 +709,6 @@
 - `g-tool-worktree-missing-gitignored-csproj-depth-patch`
 - `g-ui-bare-class-selector-matches-descendant-state-class`
 - `g-ui-borderstyle-dashed-standalone-hard-errors`
-- `g-ui-buildhash-only-on-panelcomponent`
 - `g-ui-camera-screenshot-s-ui-overlay-renders`
 - `g-ui-client-local-screen-effect-fullscreen-fade`
 - `g-ui-clipboard-settext-game-reachable-whitelist-clean`
@@ -733,7 +735,6 @@
 - `g-ui-radial-gradient-at-position-unsupported`
 - `g-ui-razor-collection-stateful-child-panels-don`
 - `g-ui-razor-live-codegen-drops-mixed-text-whitespace`
-- `g-ui-razor-loose-png-blank-in-package`
 - `g-ui-razor-panel-caches-closures-over-retargeted-target`
 - `g-ui-repeating-linear-gradient-unsupported`
 - `g-ui-runtime-clipboard-api-reachable-game-code`
@@ -742,7 +743,6 @@
 - `g-ui-scenepanel-ui-3d-model-preview-world`
 - `g-ui-screenpanel-zindex-cross-panel-stacking`
 - `g-ui-scss-import-shared-token-mixin-file`
-- `g-ui-scss-undefined-variable-kills-whole-panel-silently`
 - `g-ui-stj-caseinsensitive-computed-accessor-collision`
 - `g-ui-text-measure-drifts-across-editor-boots`
 - `g-ui-textentry-focus-survives-in-separate-constant-hash-panel`
