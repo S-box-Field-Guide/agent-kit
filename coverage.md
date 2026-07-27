@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**243 / 725 gotchas articled** (34%). Pack-only: **479**. Backlog (status `none`): **3**.
+**248 / 728 gotchas articled** (34%). Pack-only: **476**. Backlog (status `none`): **4**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 81 | 34 | 46 | 1 | 42% |
 | rigging-animation | 35 | 23 | 12 | 0 | 66% |
-| writing-gameplay | 339 | 89 | 250 | 0 | 26% |
-| building-ui | 81 | 39 | 42 | 0 | 48% |
+| writing-gameplay | 339 | 92 | 247 | 0 | 27% |
+| building-ui | 84 | 41 | 42 | 1 | 49% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
 | tooling-environment | 170 | 48 | 120 | 2 | 28% |
-| **Total** | **725** | **243** | **479** | **3** | **34%** |
+| **Total** | **728** | **248** | **476** | **4** | **34%** |
 
 ## Articled gotchas (skip-list)
 
@@ -79,7 +79,9 @@
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
 | `g-game-decal-color-is-lit-albedo-pale-tints-wash-out` | [/fix/decal-color-lit-albedo-washes-out](https://sboxguide.dev/fix/decal-color-lit-albedo-washes-out) |
 | `g-game-decal-component-deterministic-across-peers` | [/fix/decal-determinism-across-peers](https://sboxguide.dev/fix/decal-determinism-across-peers) |
+| `g-game-decal-count-scales-to-thousands-fill-rate-bound` | [/fix/decal-count-scales-to-thousands-fill-rate-bound](https://sboxguide.dev/fix/decal-count-scales-to-thousands-fill-rate-bound) |
 | `g-game-decal-parented-to-bone-follows-and-reprojects-animated-mesh` | [/fix/decal-follows-animated-character-via-bone-repin](https://sboxguide.dev/fix/decal-follows-animated-character-via-bone-repin) |
+| `g-game-decal-projection-depth-must-span-clothing-shell` | [/fix/decal-projection-depth-must-span-clothing-shell](https://sboxguide.dev/fix/decal-projection-depth-must-span-clothing-shell) |
 | `g-game-decal-projects-onto-runtime-model-renderers` | [/fix/decal-projects-onto-runtime-model-renderers](https://sboxguide.dev/fix/decal-projects-onto-runtime-model-renderers) |
 | `g-game-dedicated-server-needs-dotnet-runtime` | [/fix/dedicated-server-dotnet-runtime](https://sboxguide.dev/fix/dedicated-server-dotnet-runtime) |
 | `g-game-dedicated-server-unpublished-package-join-fails` | [/fix/dedicated-server-unpublished-package-join-fails](https://sboxguide.dev/fix/dedicated-server-unpublished-package-join-fails) |
@@ -132,6 +134,7 @@
 | `g-game-runtime-world-root-torn-down-gameobject` | [/fix/deferred-destroy-edit-mode-overlap](https://sboxguide.dev/fix/deferred-destroy-edit-mode-overlap) |
 | `g-game-scene-getallcomponents-t-return-disabled-com` | [/fix/getallcomponents-skips-disabled](https://sboxguide.dev/fix/getallcomponents-skips-disabled) |
 | `g-game-scene-json-details` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
+| `g-game-second-same-account-instance-contests-p2p-rendezvous` | [/fix/second-same-account-instance-contests-p2p-rendezvous](https://sboxguide.dev/fix/second-same-account-instance-contests-p2p-rendezvous) |
 | `g-game-session-reset-static-facades-component-their` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-game-single-tick-groundcheck-flicker-re-fires` | [/fix/single-tick-ground-flicker-landing-vfx](https://sboxguide.dev/fix/single-tick-ground-flicker-landing-vfx) |
 | `g-game-smooth-render-mesh-vs-quantized-collision-curb` | [/fix/smooth-render-vs-quantized-collision-curb](https://sboxguide.dev/fix/smooth-render-vs-quantized-collision-curb) |
@@ -233,6 +236,7 @@
 | `g-ui-buildhash-only-on-panelcomponent` | [/fix/buildhash-override-only-compiles-on-panelcomponent](https://sboxguide.dev/fix/buildhash-override-only-compiles-on-panelcomponent) |
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
 | `g-ui-camera-screenshot-text-blocks-block-font-face-verification` | [/fix/camera-screenshot-cannot-verify-fonts](https://sboxguide.dev/fix/camera-screenshot-cannot-verify-fonts) |
+| `g-ui-code-panel-rotation-via-paneltransform` | [/fix/code-behind-panel-rotation-paneltransform](https://sboxguide.dev/fix/code-behind-panel-rotation-paneltransform) |
 | `g-ui-css-keyframes-animation-supported` | [/fix/css-keyframes-animation-works](https://sboxguide.dev/fix/css-keyframes-animation-works) |
 | `g-ui-datafs-image-not-css-addressable-needs-code-texture` | [/fix/data-fs-image-needs-code-texture-not-css-url](https://sboxguide.dev/fix/data-fs-image-needs-code-texture-not-css-url) |
 | `g-ui-defer-overlay-before-sync-blocking-call` | [/fix/defer-blocking-call-so-loading-overlay-paints](https://sboxguide.dev/fix/defer-blocking-call-so-loading-overlay-paints) |
@@ -248,6 +252,7 @@
 | `g-ui-json-serialize-deserialize-t` | [/fix/saveload-without-drift](https://sboxguide.dev/fix/saveload-without-drift) |
 | `g-ui-name-classes-after-sandbox-built-ins` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
 | `g-ui-panelcomponent-overrides-ontreebuilt-ontreef` | [/fix/panelcomponent-ontreebuilt-lifecycle](https://sboxguide.dev/fix/panelcomponent-ontreebuilt-lifecycle) |
+| `g-ui-percent-width-flex-child-fill-floats-mid-track` | [/fix/percent-width-fill-floats-mid-track](https://sboxguide.dev/fix/percent-width-fill-floats-mid-track) |
 | `g-ui-radial-gradient-shape-keyword-parses-as-color` | [/fix/radial-gradient-shape-keyword-parses-as-color](https://sboxguide.dev/fix/radial-gradient-shape-keyword-parses-as-color) |
 | `g-ui-razor-computed-text-renders-blank-or-blocks-density` | [/fix/razor-text-renders-blank-density-modes](https://sboxguide.dev/fix/razor-text-renders-blank-density-modes) |
 | `g-ui-razor-files-go-global-namespace` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
@@ -377,8 +382,6 @@
 - `g-game-createlobby-transient-fail-under-rapid-rehost-churn`
 - `g-game-crosspass-density-cull-shared-grid-field-not-placed-list`
 - `g-game-decal-box-splatted-projectile-s-raw`
-- `g-game-decal-count-scales-to-thousands-fill-rate-bound`
-- `g-game-decal-projection-depth-must-span-clothing-shell`
 - `g-game-decision-vs-kernel-centre`
 - `g-game-declared-analytic-climb-lattice-not-fit-raycast`
 - `g-game-decor-pickup-solid-collider-run-under-embed`
@@ -504,7 +507,6 @@
 - `g-game-scaled-citizen-foot-slides-unless-feed`
 - `g-game-scatter-content-over-traversal-net-needs-zoning`
 - `g-game-sea-level-slider-nothing-until-exceeds`
-- `g-game-second-same-account-instance-contests-p2p-rendezvous`
 - `g-game-self-arming-test-must-await-async-world-build`
 - `g-game-self-siting-climb-test-mis-sites-on-treed-voxel-cliffs`
 - `g-game-serial-grade-ladder-obstacle-course`
