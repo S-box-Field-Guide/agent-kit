@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**251 / 733 gotchas articled** (34%). Pack-only: **478**. Backlog (status `none`): **4**.
+**248 / 733 gotchas articled** (34%). Pack-only: **481**. Backlog (status `none`): **4**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 81 | 34 | 46 | 1 | 42% |
+| getting-art-in | 81 | 33 | 47 | 1 | 41% |
 | rigging-animation | 38 | 23 | 15 | 0 | 61% |
 | writing-gameplay | 338 | 92 | 246 | 0 | 27% |
 | building-ui | 86 | 43 | 42 | 1 | 50% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
-| tooling-environment | 171 | 49 | 120 | 2 | 29% |
-| **Total** | **733** | **251** | **478** | **4** | **34%** |
+| tooling-environment | 171 | 47 | 122 | 2 | 27% |
+| **Total** | **733** | **248** | **481** | **4** | **34%** |
 
 ## Articled gotchas (skip-list)
 
@@ -27,7 +27,6 @@
 | `g-art-animated-sub-parts-need-their-origin` | [/fix/blender-headless-pipeline](https://sboxguide.dev/fix/blender-headless-pipeline) |
 | `g-art-asset-paths-project-root-relative-forward` | [/fix/ai-generated-models](https://sboxguide.dev/fix/ai-generated-models) |
 | `g-art-baked-scale-vmdl-wrapper-s-import` | [/fix/ai-generated-models](https://sboxguide.dev/fix/ai-generated-models) |
-| `g-art-blender-obj-import-yup-lives-in-object-matrix-not-verts` | [/fix/blender-obj-import-yup-object-matrix](https://sboxguide.dev/fix/blender-obj-import-yup-object-matrix) |
 | `g-art-blender-rotation-sign-check` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
 | `g-art-blender-s-obj-exporter-export-materials` | [/fix/decimating-ai-meshes](https://sboxguide.dev/fix/decimating-ai-meshes) |
 | `g-art-bpy-ops-wm-obj` | [/fix/obj-export-face-order-nondeterministic](https://sboxguide.dev/fix/obj-export-face-order-nondeterministic) |
@@ -185,8 +184,6 @@
 | `g-rig-vmdl-physics-node-schema-copy-citizen` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
 | `g-tool-angles-struct-fields-lowercase` | [/fix/angles-struct-lowercase-fields](https://sboxguide.dev/fix/angles-struct-lowercase-fields) |
 | `g-tool-array-clone-whitelist-forbidden` | [/fix/array-clone-blocked-whitelist](https://sboxguide.dev/fix/array-clone-blocked-whitelist) |
-| `g-tool-blender-5-2-compositor-api-removed` | [/fix/blender-5-2-compositor-api-removed](https://sboxguide.dev/fix/blender-5-2-compositor-api-removed) |
-| `g-tool-blender-headless-hang-factory-startup` | [/fix/blender-headless-hang-factory-startup](https://sboxguide.dev/fix/blender-headless-hang-factory-startup) |
 | `g-tool-boxcollider-center-scale-always` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-tool-cross-assembly-hotreload-missingmethod` | [/fix/cross-assembly-hotreload-missing-method](https://sboxguide.dev/fix/cross-assembly-hotreload-missing-method) |
 | `g-tool-deriving-visual-s-facing-horizontal-velocity` | [/fix/velocity-facing-pendulum-flip](https://sboxguide.dev/fix/velocity-facing-pendulum-flip) |
@@ -280,6 +277,7 @@
 
 - `g-art-bbox-is-a-downstream-contract`
 - `g-art-blender-headless-duplicate-links-mesh-datablock`
+- `g-art-blender-obj-import-yup-lives-in-object-matrix-not-verts`
 - `g-art-bounds-maxs-invisible-nub-not-visible-top`
 - `g-art-camera-screenshot-renders-through-real-scene`
 - `g-art-child-visual-inherits-yawed-anchor-rotation`
@@ -599,6 +597,8 @@
 - `g-tool-audit-offenders-counts-ticks-not-objects`
 - `g-tool-autocrlf-masks-regen-determinism-check`
 - `g-tool-bar-s-release-aimed-within-spin`
+- `g-tool-blender-5-2-compositor-api-removed`
+- `g-tool-blender-headless-hang-factory-startup`
 - `g-tool-blender-headless-opaque-floor-render-recipe`
 - `g-tool-blender-materials-clear-materials-new-name`
 - `g-tool-blender-version-regen-cosmetic-sweep`
