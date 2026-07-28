@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**248 / 728 gotchas articled** (34%). Pack-only: **476**. Backlog (status `none`): **4**.
+**252 / 734 gotchas articled** (34%). Pack-only: **478**. Backlog (status `none`): **4**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 81 | 34 | 46 | 1 | 42% |
-| rigging-animation | 35 | 23 | 12 | 0 | 66% |
+| rigging-animation | 38 | 24 | 14 | 0 | 63% |
 | writing-gameplay | 339 | 92 | 247 | 0 | 27% |
-| building-ui | 84 | 41 | 42 | 1 | 49% |
+| building-ui | 86 | 43 | 42 | 1 | 50% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
-| tooling-environment | 170 | 48 | 120 | 2 | 28% |
-| **Total** | **728** | **248** | **476** | **4** | **34%** |
+| tooling-environment | 171 | 49 | 120 | 2 | 29% |
+| **Total** | **734** | **252** | **478** | **4** | **34%** |
 
 ## Articled gotchas (skip-list)
 
@@ -175,6 +175,7 @@
 | `g-rig-naturalistic-mocap-idles-don-t-loop` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
 | `g-rig-pace-looping-locomotion-clips-clip-s` | [/fix/pace-locomotion-clips-by-stride](https://sboxguide.dev/fix/pace-locomotion-clips-by-stride) |
 | `g-rig-physics-shape-coords-same-unit-mesh` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
+| `g-rig-quadruped-leg-swing-sign-is-mirrored` | [/fix/quadruped-leg-swing-sign-mirrored](https://sboxguide.dev/fix/quadruped-leg-swing-sign-mirrored) |
 | `g-rig-scripted-keyframes-keep-quaternion-keys-hemi` | [/fix/quaternion-hemisphere-continuity](https://sboxguide.dev/fix/quaternion-hemisphere-continuity) |
 | `g-rig-scripted-rig-npc-ragdoll-engine-physics` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
 | `g-rig-sequence-only-rig-reseat-visual-not-ik` | [/fix/sequence-only-rig-reseat-visual-not-ik](https://sboxguide.dev/fix/sequence-only-rig-reseat-visual-not-ik) |
@@ -222,6 +223,7 @@
 | `g-tool-sounds-assets-compiled-after-session-started` | [/fix/custom-sound-wont-play](https://sboxguide.dev/fix/custom-sound-wont-play) |
 | `g-tool-stale-playmode-hotload-snapshot` | [/fix/stale-playmode-hotload-snapshot](https://sboxguide.dev/fix/stale-playmode-hotload-snapshot) |
 | `g-tool-stalled-steam-update-half-deletes-s` | [/fix/stalled-steam-update-recovery](https://sboxguide.dev/fix/stalled-steam-update-recovery) |
+| `g-tool-standalone-export-runtime-differs-from-editor` | [/fix/standalone-export-runtime-differs](https://sboxguide.dev/fix/standalone-export-runtime-differs) |
 | `g-tool-static-ctor-registry-stale-across-hotload` | [/fix/static-registry-stale-across-hotload](https://sboxguide.dev/fix/static-registry-stale-across-hotload) |
 | `g-tool-static-input-gates-leak-across-play` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-tool-static-registry-survives-play-restart-gate-on-live-objects` | [/fix/static-registry-survives-play-restart](https://sboxguide.dev/fix/static-registry-survives-play-restart) |
@@ -241,6 +243,7 @@
 | `g-ui-datafs-image-not-css-addressable-needs-code-texture` | [/fix/data-fs-image-needs-code-texture-not-css-url](https://sboxguide.dev/fix/data-fs-image-needs-code-texture-not-css-url) |
 | `g-ui-defer-overlay-before-sync-blocking-call` | [/fix/defer-blocking-call-so-loading-overlay-paints](https://sboxguide.dev/fix/defer-blocking-call-so-loading-overlay-paints) |
 | `g-ui-draggable-slider-tracks-click-jump-drag` | [/fix/draggable-slider-click-drag](https://sboxguide.dev/fix/draggable-slider-click-drag) |
+| `g-ui-editor-codegen-requires-constant-property-initializer` | [/fix/editor-codegen-needs-constant-property-initializer](https://sboxguide.dev/fix/editor-codegen-needs-constant-property-initializer) |
 | `g-ui-flex-basis-wins-over-width-collapses-fixed-column` | [/fix/flex-basis-collapses-fixed-column](https://sboxguide.dev/fix/flex-basis-collapses-fixed-column) |
 | `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sboxguide.dev/fix/flex-grow-percentage-child-feedback-loop) |
 | `g-ui-font-glyph-corruption-is-cumulative-text-count-not-just-font-size` | [/fix/font-glyph-corruption-cumulative-text-count](https://sboxguide.dev/fix/font-glyph-corruption-cumulative-text-count) |
@@ -250,6 +253,7 @@
 | `g-ui-interface-based-scene-scans-unreliable` | [/fix/interface-scan-returns-nothing](https://sboxguide.dev/fix/interface-scan-returns-nothing) |
 | `g-ui-jetbrains-mono-consolas-shipped-s-box` | [/fix/engine-monospace-roboto-mono](https://sboxguide.dev/fix/engine-monospace-roboto-mono) |
 | `g-ui-json-serialize-deserialize-t` | [/fix/saveload-without-drift](https://sboxguide.dev/fix/saveload-without-drift) |
+| `g-ui-json-serialize-indented-by-default-network-bloat` | [/fix/json-serialize-indents-by-default](https://sboxguide.dev/fix/json-serialize-indents-by-default) |
 | `g-ui-name-classes-after-sandbox-built-ins` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
 | `g-ui-panelcomponent-overrides-ontreebuilt-ontreef` | [/fix/panelcomponent-ontreebuilt-lifecycle](https://sboxguide.dev/fix/panelcomponent-ontreebuilt-lifecycle) |
 | `g-ui-percent-width-flex-child-fill-floats-mid-track` | [/fix/percent-width-fill-floats-mid-track](https://sboxguide.dev/fix/percent-width-fill-floats-mid-track) |
@@ -582,10 +586,12 @@
 - `g-rig-decor-built-at-distant-bone-floats`
 - `g-rig-fbx-export-not-byte-reproducible`
 - `g-rig-geodesic-weights-wrong-for-primitive-segments`
+- `g-rig-headless-workbench-preview-render-gotchas`
 - `g-rig-held-prop-weld-via-trygetbonetransform`
 - `g-rig-new-npc-clip-add-humanoid-clips`
 - `g-rig-opt-additive-authoring-editing-read-rig-library`
 - `g-rig-pair-procedural-whole-body-rotation-clip`
+- `g-rig-pitch-compounds-down-bone-chain`
 - `g-rig-primitive-mesh-reuses-armature-and-clips`
 - `g-rig-scripted-lane-ports-to-new-project`
 - `g-rig-silhouette-variants-on-one-skeleton-visual-only`
