@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**252 / 734 gotchas articled** (34%). Pack-only: **478**. Backlog (status `none`): **4**.
+**251 / 733 gotchas articled** (34%). Pack-only: **478**. Backlog (status `none`): **4**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 81 | 34 | 46 | 1 | 42% |
-| rigging-animation | 38 | 24 | 14 | 0 | 63% |
-| writing-gameplay | 339 | 92 | 247 | 0 | 27% |
+| rigging-animation | 38 | 23 | 15 | 0 | 61% |
+| writing-gameplay | 338 | 92 | 246 | 0 | 27% |
 | building-ui | 86 | 43 | 42 | 1 | 50% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
 | tooling-environment | 171 | 49 | 120 | 2 | 29% |
-| **Total** | **734** | **252** | **478** | **4** | **34%** |
+| **Total** | **733** | **251** | **478** | **4** | **34%** |
 
 ## Articled gotchas (skip-list)
 
@@ -64,7 +64,6 @@
 | `g-audio-sound-event-file-plain-json-author` | [/fix/authoring-sound-events-by-hand](https://sboxguide.dev/fix/authoring-sound-events-by-hand) |
 | `g-audio-soundevent-has-looping-field` | [/fix/soundevent-no-looping-field](https://sboxguide.dev/fix/soundevent-no-looping-field) |
 | `g-audio-voice-input-action-not-universal` | [/fix/voice-input-action-missing-config](https://sboxguide.dev/fix/voice-input-action-missing-config) |
-| `g-cs-static-delegate-orphaned-lambda-throws-after-hotload` | [/fix/static-delegate-orphaned-after-hotload](https://sboxguide.dev/fix/static-delegate-orphaned-after-hotload) |
 | `g-game-air-flicker-resets-defeat-accumulator-guard` | [/fix/accumulator-guard-resets-on-transient-flicker](https://sboxguide.dev/fix/accumulator-guard-resets-on-transient-flicker) |
 | `g-game-analoglook-needs-mousevisibility-hidden-lock` | [/fix/analoglook-needs-mousevisibility-hidden](https://sboxguide.dev/fix/analoglook-needs-mousevisibility-hidden) |
 | `g-game-buried-vertical-sink-hard-recover` | [/fix/buried-vertical-sink-hard-recover](https://sboxguide.dev/fix/buried-vertical-sink-hard-recover) |
@@ -139,6 +138,7 @@
 | `g-game-single-tick-groundcheck-flicker-re-fires` | [/fix/single-tick-ground-flicker-landing-vfx](https://sboxguide.dev/fix/single-tick-ground-flicker-landing-vfx) |
 | `g-game-smooth-render-mesh-vs-quantized-collision-curb` | [/fix/smooth-render-vs-quantized-collision-curb](https://sboxguide.dev/fix/smooth-render-vs-quantized-collision-curb) |
 | `g-game-stack-seat-visual-head-not-capsule` | [/fix/character-stacking-seat-height-visual-head-not-capsule](https://sboxguide.dev/fix/character-stacking-seat-height-visual-head-not-capsule) |
+| `g-game-static-delegate-orphaned-lambda-throws-after-hotload` | [/fix/static-delegate-orphaned-after-hotload](https://sboxguide.dev/fix/static-delegate-orphaned-after-hotload) |
 | `g-game-steam-p2p-session-never-closed-in-csharp-poisons-pair-on-unclean-exit` | [/fix/steam-p2p-session-poisoned-pair](https://sboxguide.dev/fix/steam-p2p-session-poisoned-pair) |
 | `g-game-stylesheet-many-selectors-simultaneously-dec` | [/fix/font-size-glyph-corruption](https://sboxguide.dev/fix/font-size-glyph-corruption) |
 | `g-game-swept-trace-hitposition-is-surface-endposition-is-shape-center` | [/fix/swept-trace-hitposition-vs-endposition](https://sboxguide.dev/fix/swept-trace-hitposition-vs-endposition) |
@@ -175,7 +175,6 @@
 | `g-rig-naturalistic-mocap-idles-don-t-loop` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
 | `g-rig-pace-looping-locomotion-clips-clip-s` | [/fix/pace-locomotion-clips-by-stride](https://sboxguide.dev/fix/pace-locomotion-clips-by-stride) |
 | `g-rig-physics-shape-coords-same-unit-mesh` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
-| `g-rig-quadruped-leg-swing-sign-is-mirrored` | [/fix/quadruped-leg-swing-sign-mirrored](https://sboxguide.dev/fix/quadruped-leg-swing-sign-mirrored) |
 | `g-rig-scripted-keyframes-keep-quaternion-keys-hemi` | [/fix/quaternion-hemisphere-continuity](https://sboxguide.dev/fix/quaternion-hemisphere-continuity) |
 | `g-rig-scripted-rig-npc-ragdoll-engine-physics` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
 | `g-rig-sequence-only-rig-reseat-visual-not-ik` | [/fix/sequence-only-rig-reseat-visual-not-ik](https://sboxguide.dev/fix/sequence-only-rig-reseat-visual-not-ik) |
@@ -532,7 +531,6 @@
 - `g-game-stale-anchor-guard-disables-anchor-free-valves`
 - `g-game-stale-lobby-setdata-advertise-live-state`
 - `g-game-standing-still-bounce-fall-through-audit`
-- `g-game-static-delegate-orphaned-lambda-throws-after-hotload`
 - `g-game-static-facades-bridge-editor-mcptools-play`
 - `g-game-static-pergen-capture-clear-every-gen`
 - `g-game-static-world-state-survives-play-boundary`
@@ -593,6 +591,7 @@
 - `g-rig-pair-procedural-whole-body-rotation-clip`
 - `g-rig-pitch-compounds-down-bone-chain`
 - `g-rig-primitive-mesh-reuses-armature-and-clips`
+- `g-rig-quadruped-leg-swing-sign-is-mirrored`
 - `g-rig-scripted-lane-ports-to-new-project`
 - `g-rig-silhouette-variants-on-one-skeleton-visual-only`
 - `g-tool-aimed-bot-grabbing-through-scored-best`
