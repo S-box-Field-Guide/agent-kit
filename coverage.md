@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**248 / 733 gotchas articled** (34%). Pack-only: **481**. Backlog (status `none`): **4**.
+**254 / 735 gotchas articled** (35%). Pack-only: **477**. Backlog (status `none`): **4**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 81 | 33 | 47 | 1 | 41% |
 | rigging-animation | 38 | 23 | 15 | 0 | 61% |
-| writing-gameplay | 338 | 92 | 246 | 0 | 27% |
+| writing-gameplay | 338 | 93 | 245 | 0 | 28% |
 | building-ui | 86 | 43 | 42 | 1 | 50% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
-| tooling-environment | 171 | 47 | 122 | 2 | 27% |
-| **Total** | **733** | **248** | **481** | **4** | **34%** |
+| tooling-environment | 173 | 52 | 119 | 2 | 30% |
+| **Total** | **735** | **254** | **477** | **4** | **35%** |
 
 ## Articled gotchas (skip-list)
 
@@ -104,6 +104,7 @@
 | `g-game-join-handshake-host-initiated-joiner-connect-budget-fixed` | [/fix/join-handshake-fixed-connect-budget](https://sboxguide.dev/fix/join-handshake-fixed-connect-budget) |
 | `g-game-join-statics-wiped-by-networked-scene-handoff` | [/fix/join-statics-wiped-scene-handoff](https://sboxguide.dev/fix/join-statics-wiped-scene-handoff) |
 | `g-game-joinlocal-client-reads-host-lobby-data` | [/fix/joinlocal-client-reads-host-networking-data](https://sboxguide.dev/fix/joinlocal-client-reads-host-networking-data) |
+| `g-game-joinlocal-empty-code-rejected-by-wire-verify-devhost-seam` | [/fix/joinlocal-presents-empty-invite-code](https://sboxguide.dev/fix/joinlocal-presents-empty-invite-code) |
 | `g-game-joinlocal-second-instance-recipe` | [/fix/joinlocal-two-peer-testing](https://sboxguide.dev/fix/joinlocal-two-peer-testing) |
 | `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-lobby-connect-must-gate-the-exact-candidate-row-used` | [/fix/lobby-connect-gate-exact-candidate](https://sboxguide.dev/fix/lobby-connect-gate-exact-candidate) |
@@ -184,6 +185,7 @@
 | `g-rig-vmdl-physics-node-schema-copy-citizen` | [/fix/ragdoll-scripted-rig-npc](https://sboxguide.dev/fix/ragdoll-scripted-rig-npc) |
 | `g-tool-angles-struct-fields-lowercase` | [/fix/angles-struct-lowercase-fields](https://sboxguide.dev/fix/angles-struct-lowercase-fields) |
 | `g-tool-array-clone-whitelist-forbidden` | [/fix/array-clone-blocked-whitelist](https://sboxguide.dev/fix/array-clone-blocked-whitelist) |
+| `g-tool-base-menu-transients-error-texture-flood` | [/fix/base-content-error-texture-console-flood](https://sboxguide.dev/fix/base-content-error-texture-console-flood) |
 | `g-tool-boxcollider-center-scale-always` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-tool-cross-assembly-hotreload-missingmethod` | [/fix/cross-assembly-hotreload-missing-method](https://sboxguide.dev/fix/cross-assembly-hotreload-missing-method) |
 | `g-tool-deriving-visual-s-facing-horizontal-velocity` | [/fix/velocity-facing-pendulum-flip](https://sboxguide.dev/fix/velocity-facing-pendulum-flip) |
@@ -197,6 +199,7 @@
 | `g-tool-facingyawoffset-mesh-facing-correction-swaps` | [/fix/facing-yaw-offset-axis-swap](https://sboxguide.dev/fix/facing-yaw-offset-axis-swap) |
 | `g-tool-fixing-source-asset-always-trigger-recompile` | [/fix/failed-asset-recompile-stale-cache](https://sboxguide.dev/fix/failed-asset-recompile-stale-cache) |
 | `g-tool-gameresource-archetype-extension-reserved` | [/fix/gameresource-archetype-extension-reserved](https://sboxguide.dev/fix/gameresource-archetype-extension-reserved) |
+| `g-tool-gameresource-navmesh-getsimplepath-obsolete` | [/fix/gameresource-navmesh-getsimplepath-obsolete](https://sboxguide.dev/fix/gameresource-navmesh-getsimplepath-obsolete) |
 | `g-tool-headless-dotnet-build-skips-sandbox-whitelist` | [/fix/headless-build-skips-sandbox-whitelist](https://sboxguide.dev/fix/headless-build-skips-sandbox-whitelist) |
 | `g-tool-host-project-cannot-compile-library-mounted-scenes` | [/fix/host-project-library-scene-compile-failure](https://sboxguide.dev/fix/host-project-library-scene-compile-failure) |
 | `g-tool-hotload-csharp-edits-apply` | [/fix/editor-hotload-expectations](https://sboxguide.dev/fix/editor-hotload-expectations) |
@@ -208,8 +211,10 @@
 | `g-tool-mcp-port-auto-bumps-scan-dont-pin` | [/fix/mcp-port-auto-bumps-discover-dont-pin](https://sboxguide.dev/fix/mcp-port-auto-bumps-discover-dont-pin) |
 | `g-tool-model-load-missing-vmdl-return-error` | [/fix/model-load-missing-returns-error-mesh](https://sboxguide.dev/fix/model-load-missing-returns-error-mesh) |
 | `g-tool-new-system-random-time-seeded-whitelisted` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
+| `g-tool-no-scene-timescale-global-time-scale-api` | [/fix/no-scene-timescale-api](https://sboxguide.dev/fix/no-scene-timescale-api) |
 | `g-tool-offline-two-assembly-compile-gate-prebuilt-base-library` | [/fix/offline-two-assembly-compile-gate](https://sboxguide.dev/fix/offline-two-assembly-compile-gate) |
 | `g-tool-powershell-5-1-corrupts-utf-8` | [/fix/editing-razor-byte-safe](https://sboxguide.dev/fix/editing-razor-byte-safe) |
+| `g-tool-runinthreadasync-mainthread-block-permanent-deadlock` | [/fix/runinthreadasync-mainthread-deadlocks](https://sboxguide.dev/fix/runinthreadasync-mainthread-deadlocks) |
 | `g-tool-runtime-reflection-also-whitelist-banned` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-s-box-whitelist-enforced-editor-compiler` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-sbox-dedicated-server-local-sbproj` | [/fix/sbox-dedicated-server-local-project](https://sboxguide.dev/fix/sbox-dedicated-server-local-project) |
@@ -224,6 +229,7 @@
 | `g-tool-static-input-gates-leak-across-play` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-tool-static-registry-survives-play-restart-gate-on-live-objects` | [/fix/static-registry-survives-play-restart](https://sboxguide.dev/fix/static-registry-survives-play-restart) |
 | `g-tool-steam-update-s-box-engine-underneath` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
+| `g-tool-stock-playercontroller-no-public-speed-property` | [/fix/playercontroller-no-public-speed-property](https://sboxguide.dev/fix/playercontroller-no-public-speed-property) |
 | `g-tool-structural-razor-edit-hotload-wedge-deregisters-toolset` | [/fix/structural-razor-hotload-deregisters-toolset](https://sboxguide.dev/fix/structural-razor-hotload-deregisters-toolset) |
 | `g-tool-verify-compiles-editor` | [/fix/project-setup-skeleton](https://sboxguide.dev/fix/project-setup-skeleton) |
 | `g-tool-whitelist-http-may-call` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
@@ -434,7 +440,6 @@
 - `g-game-jet-ski-single-point-buoyancy-grid`
 - `g-game-joinlocal-client-convar-probe-unreachable`
 - `g-game-joinlocal-client-rewrites-shared-sbox-log`
-- `g-game-joinlocal-empty-code-rejected-by-wire-verify-devhost-seam`
 - `g-game-keyboardcode-punctuation-is-literal-char`
 - `g-game-kit-collider-child-needs-worldrotation-bar-axis`
 - `g-game-land-vehicle-needs-hard-deck-drowned`
@@ -640,7 +645,6 @@
 - `g-tool-free-penned-ai-widening-public-wander`
 - `g-tool-fresh-play-per-run-determinism`
 - `g-tool-fresh-session-first-save-write-nre-transient`
-- `g-tool-gameresource-navmesh-getsimplepath-obsolete`
 - `g-tool-hotload-migrates-static-readonly-registry`
 - `g-tool-hotload-stale-assettype-registration-duplicate`
 - `g-tool-hotload-static-catalog-lambda-error-delegated`
@@ -661,7 +665,6 @@
 - `g-tool-mcp-restart-loses-bind-race-to-own-predecessor`
 - `g-tool-nearest-best-pickers-need-honest-empty`
 - `g-tool-no-game-side-log-listener-onmessage-internal`
-- `g-tool-no-scene-timescale-global-time-scale-api`
 - `g-tool-one-editor-per-project-mcp-identity`
 - `g-tool-onedrive-worktree-remove-permission-denied`
 - `g-tool-parity-pixel-diff-disable-envmap-probe`
@@ -695,7 +698,6 @@
 - `g-tool-ss-test-harness-paused-at-title-stale-sim-telemetry`
 - `g-tool-stale-exports-permanent-recompile-loop-starves-fresh-editor`
 - `g-tool-static-readonly-frozen-across-hotload`
-- `g-tool-stock-playercontroller-no-public-speed-property`
 - `g-tool-synthetic-impact-pose-invariant-hash`
 - `g-tool-system-text-json-nodes`
 - `g-tool-telemetry-boot-line-gated-behind-debug`
