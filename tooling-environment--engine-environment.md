@@ -234,13 +234,7 @@
 
 - **`new System.Random` (time-seeded) IS whitelisted** — compiles + runs headless. Useful for per-LOAD procedural variation (verified: arched-roof open-pane picker uses `new System.Random(); rng.Next(n)`). Note the earlier "no crypto RNG" gotcha is specifically about `HashCode.GenerateGlobalSeed`/`RandomNumberGenerator`, NOT `System.Random`.
 
-- **Whitelist:** `Http` may call any domain (not raw IPs). Vendored libs need patches: no `System.Console`, no crypto RNG (`HashCode.GenerateGlobalSeed`), no `Environment.NewLine`. `System.Text.Json`, `ArrayPool`, `GameTask.RunInThreadAsync` are all fine. (drive)
-
-- **Hotload:** C# edits apply in ~ms on alt-tab. Network sessions reset on hotload; scene-file changes need a Play restart; new assets sometimes need an editor kick. (drive)
-
-- **Engine console noise is normal**: missing `citizen_clothes/…`, `sfm` sounds, `menu-main.scene` sounds, wheely-bin gibs etc. are broken refs inside Facepunch's own base content — never ours. Vulkan `QueuePresentAndWait`/`VK_TIMEOUT` = driver-level present stall (alt-tab/shader compile), not game code.
-
-- ****Fixing a generator whose bad emitted data a consumer already compensates for =**
+- **Fixing a generator whose bad emitted data a consumer already compensates for = DOUBLE-correction unless the contract is versioned.** The part-kit C# loader corrected the manifest's 180°-yawed `local_bounds_*` inside `BoundsCenterM`; fixing the python emitter to write true values would have silently re-broken every collider centre on new kits (correct data + legacy correction = wrong again). Fix pattern: bump the manifest schema id (`partkit/1` → `/2`), normalize LEGACY data once at load into the true convention, and make every downstream consumer convention-free — never leave a compensating transform inline in a consumer, because the next producer fix can't see it. Equivalence of the v1 path is provable by algebra (−(min+max)/2 on recorded == +(min+max)/2 on normalized) — check that before trusting a normalization refactor.
 
 - **The `NodeClimbOn` routine op dismounts by KICKING OFF the wall (a climb/wall jump away from the face), landing back on the FLOOR — it is NOT a top-mantle onto whatever sits above.** (TickNodeClimb phase 3: `_jumpLatch` then `return State==Ground`.) So an automated MULTI-STAGE climb (climb panel1 → stand on a ledge → climb panel2 off that ledge) is NOT achievable in a single routine: after stage 1 the piloted character is on the ground to the SIDE of the face, never on the ledge, and stage 2's field (based up at ledge height) is then unreachable from the floor. Build the staged structure as an OWNER-PLAYABLE layout feature, cover each stage's climb field with the climb-fields boot audit, and have the automated routine climb the reachable BASE stage only.
 

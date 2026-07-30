@@ -16,7 +16,7 @@
 
 - **`OnAwake` fires synchronously inside `Components.Create<T>`**, before the calling
  code's next line runs. Any spawn helper that does
- `var c = go.Components.Create<Foo>; c.SomeProperty = x;` has already run `OnAwake`
+ `var c = go.Components.Create<Foo>(); c.SomeProperty = x;` has already run `OnAwake`
  with `SomeProperty` at its default — derive per-instance state (hashes, seeded timers,
  waypoint indices) from `[Property]` values in `OnStart` instead, which runs on the first
  enabled frame, safely after the spawn helper's synchronous property assignments land.

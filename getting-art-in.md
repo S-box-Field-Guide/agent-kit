@@ -268,7 +268,7 @@
 - **`PointLight` is a usable game Component even with no sibling precedent and thin XML
  docs.** The engine XML lists no `Radius`/`LightColor` on `Sandbox.PointLight` (only the
  base `Light.LightColor`), and no game project uses it — but the install's EDITOR addons
- do, with the real config: `var l = go.GetOrAddComponent<PointLight>; l.LightColor =
+ do, with the real config: `var l = go.GetOrAddComponent<PointLight>(); l.LightColor =
  color * intensity; l.Radius = units; l.Shadows = false;`
  (`addons/tools/Code/Editor/Clothing/ClothingScene.cs`,
  `addons/tools/Code/WidgetGallery/Examples/SceneRendering.cs`). `LightColor` folds hue AND
