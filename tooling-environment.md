@@ -16,5 +16,5 @@ the table below. The sync appends new bullets to the matching topic sub-file; th
 |---|---|--:|
 | `tooling-environment--editor-mcp.md` | Editor MCP server & tools, screenshots, hotload & static persistence, play-mode harness / autopilot driving | 78 |
 | `tooling-environment--build-compile-whitelist.md` | Whitelist, `dotnet build`, Steam/install health, git & worktrees, OS/encoding traps (original `## Tooling (see tooling.md for detail)`) | 39 |
-| `tooling-environment--engine-environment.md` | Engine-runtime environment & API laws, whitelist/hotload basics, gameplay-adjacent engine gotchas (original `## Engine environment`) | 38 |
+| `tooling-environment--engine-environment.md` | Engine-runtime environment & API laws, whitelist/hotload basics, gameplay-adjacent engine gotchas (original `## Engine environment`) | 39 |
 | `tooling-environment--assets-blender-external.md` | Blender pipelines, external asset packs, asset reuse & export bakes | 13 |

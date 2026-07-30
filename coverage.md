@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**254 / 735 gotchas articled** (35%). Pack-only: **477**. Backlog (status `none`): **4**.
+**260 / 738 gotchas articled** (35%). Pack-only: **474**. Backlog (status `none`): **4**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 81 | 33 | 47 | 1 | 41% |
-| rigging-animation | 38 | 23 | 15 | 0 | 61% |
-| writing-gameplay | 338 | 93 | 245 | 0 | 28% |
-| building-ui | 86 | 43 | 42 | 1 | 50% |
+| rigging-animation | 39 | 24 | 15 | 0 | 62% |
+| writing-gameplay | 338 | 94 | 244 | 0 | 28% |
+| building-ui | 87 | 44 | 42 | 1 | 51% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
-| tooling-environment | 173 | 52 | 119 | 2 | 30% |
-| **Total** | **735** | **254** | **477** | **4** | **35%** |
+| tooling-environment | 174 | 55 | 117 | 2 | 32% |
+| **Total** | **738** | **260** | **474** | **4** | **35%** |
 
 ## Articled gotchas (skip-list)
 
@@ -97,6 +97,7 @@
 | `g-game-grounded-wish-servo-eats-applied-velocity` | [/fix/grounded-wish-servo-eats-applied-velocity](https://sboxguide.dev/fix/grounded-wish-servo-eats-applied-velocity) |
 | `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) |
 | `g-game-heightfield-crest-sawtooth-topcluster` | [/fix/decimated-heightfield-sawtooth-crest-cluster-snap](https://sboxguide.dev/fix/decimated-heightfield-sawtooth-crest-cluster-snap) |
+| `g-game-hidden-lobby-self-query-returns-nothing` | [/fix/hidden-lobby-not-found-by-querylobbies](https://sboxguide.dev/fix/hidden-lobby-not-found-by-querylobbies) |
 | `g-game-host-create-before-networkspawn-clobbers-instance` | [/fix/host-spawn-clobbers-camera-singleton](https://sboxguide.dev/fix/host-spawn-clobbers-camera-singleton) |
 | `g-game-idempotent-world-rebuild-destroyimmediate` | [/fix/idempotent-world-rebuild-destroyimmediate](https://sboxguide.dev/fix/idempotent-world-rebuild-destroyimmediate) |
 | `g-game-input-pressed-edge-latch-onupdate-not-fixedupdate` | [/fix/input-pressed-fixedupdate-drops](https://sboxguide.dev/fix/input-pressed-fixedupdate-drops) |
@@ -162,6 +163,7 @@
 | `g-perf-physics-step-stopwatch-vsync-free` | [/fix/physics-step-stopwatch-vsync-free](https://sboxguide.dev/fix/physics-step-stopwatch-vsync-free) |
 | `g-rig-animated-models-use-modelmodifier` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
 | `g-rig-animgraph-heavier-alternative-needed-cross-f` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
+| `g-rig-attachment-bone-resolve-frame-timing` | [/fix/attachment-bone-resolve-frame-timing](https://sboxguide.dev/fix/attachment-bone-resolve-frame-timing) |
 | `g-rig-blend-duration-comes-vmdl-s-clip` | [/fix/crossfade-without-animgraph](https://sboxguide.dev/fix/crossfade-without-animgraph) |
 | `g-rig-blender-fbx-export-recipe-works` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
 | `g-rig-blender-s-obj-importer-puts-y` | [/fix/rigging-ai-generated-mesh](https://sboxguide.dev/fix/rigging-ai-generated-mesh) |
@@ -187,6 +189,7 @@
 | `g-tool-array-clone-whitelist-forbidden` | [/fix/array-clone-blocked-whitelist](https://sboxguide.dev/fix/array-clone-blocked-whitelist) |
 | `g-tool-base-menu-transients-error-texture-flood` | [/fix/base-content-error-texture-console-flood](https://sboxguide.dev/fix/base-content-error-texture-console-flood) |
 | `g-tool-boxcollider-center-scale-always` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
+| `g-tool-convar-same-value-set-silent-noop` | [/fix/convar-same-value-set-is-silent-noop](https://sboxguide.dev/fix/convar-same-value-set-is-silent-noop) |
 | `g-tool-cross-assembly-hotreload-missingmethod` | [/fix/cross-assembly-hotreload-missing-method](https://sboxguide.dev/fix/cross-assembly-hotreload-missing-method) |
 | `g-tool-deriving-visual-s-facing-horizontal-velocity` | [/fix/velocity-facing-pendulum-flip](https://sboxguide.dev/fix/velocity-facing-pendulum-flip) |
 | `g-tool-dotnet-build-warning-counts-lie-under` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
@@ -206,6 +209,7 @@
 | `g-tool-hotswap-stuck-green-compile-restart-only` | [/fix/hotload-stuck-stale-restart-required](https://sboxguide.dev/fix/hotload-stuck-stale-restart-required) |
 | `g-tool-kenney-s-own-nature-pack-drive` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
 | `g-tool-legacy-asset-move-compiled-payload-and-texture-closure` | [/fix/legacy-asset-move-compiled-payload-and-texture-closure](https://sboxguide.dev/fix/legacy-asset-move-compiled-payload-and-texture-closure) |
+| `g-tool-library-assets-folder-created-after-editor-start-invisible` | [/fix/new-library-assets-folder-needs-editor-restart](https://sboxguide.dev/fix/new-library-assets-folder-needs-editor-restart) |
 | `g-tool-library-folder-discovered-only-via-single-sbproj` | [/fix/library-folder-discovered-only-via-single-sbproj](https://sboxguide.dev/fix/library-folder-discovered-only-via-single-sbproj) |
 | `g-tool-library-seam-must-cover-every-side-effect` | [/fix/library-seam-must-cover-every-side-effect](https://sboxguide.dev/fix/library-seam-must-cover-every-side-effect) |
 | `g-tool-mcp-port-auto-bumps-scan-dont-pin` | [/fix/mcp-port-auto-bumps-discover-dont-pin](https://sboxguide.dev/fix/mcp-port-auto-bumps-discover-dont-pin) |
@@ -235,6 +239,7 @@
 | `g-tool-whitelist-http-may-call` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-win-ssh-session-end-kills-children` | [/fix/win-ssh-session-kills-server](https://sboxguide.dev/fix/win-ssh-session-kills-server) |
 | `g-tool-worktree-csproj-relative-sbox-refs` | [/fix/worktree-csproj-relative-sbox-refs](https://sboxguide.dev/fix/worktree-csproj-relative-sbox-refs) |
+| `g-tool-worktree-missing-gitignored-csproj` | [/fix/git-worktree-missing-gitignored-csproj](https://sboxguide.dev/fix/git-worktree-missing-gitignored-csproj) |
 | `g-ui-absolute-column-auto-height-drops-trailing-children` | [/fix/absolute-column-auto-height-drops-children](https://sboxguide.dev/fix/absolute-column-auto-height-drops-children) |
 | `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet` | [/fix/border-style-solid-scss-parse-error](https://sboxguide.dev/fix/border-style-solid-scss-parse-error) |
 | `g-ui-buildhash-only-on-panelcomponent` | [/fix/buildhash-override-only-compiles-on-panelcomponent](https://sboxguide.dev/fix/buildhash-override-only-compiles-on-panelcomponent) |
@@ -275,6 +280,7 @@
 | `g-ui-sibling-panelcomponent-s-gameobject-have-imp` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-ui-slidercontrol-scientific-notation-style-parse-error` | [/fix/slidercontrol-scientific-notation-style-error](https://sboxguide.dev/fix/slidercontrol-scientific-notation-style-error) |
 | `g-ui-steam-avatar-background-image-avatar-url-scheme` | [/fix/steam-avatar-url-scheme](https://sboxguide.dev/fix/steam-avatar-url-scheme) |
+| `g-ui-struct-default-property-new-skips-optional-constructor` | [/fix/struct-default-property-new-skips-constructor](https://sboxguide.dev/fix/struct-default-property-new-skips-constructor) |
 | `g-ui-sync-owner-proxies-sync-syncflags` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
 | `g-ui-textentry-raw-html-input-house-control` | [/fix/textentry-not-html-input](https://sboxguide.dev/fix/textentry-not-html-input) |
 | `g-ui-write-inside-already-open-razor-code` | [/fix/nested-razor-code-block-rz1010](https://sboxguide.dev/fix/nested-razor-code-block-rz1010) |
@@ -430,7 +436,6 @@
 - `g-game-heightfield-burial-check-catches-neighbour-column`
 - `g-game-heightfield-riser-taller-than-capsule-intangible`
 - `g-game-hex-hash-constant-top-bit-set`
-- `g-game-hidden-lobby-self-query-returns-nothing`
 - `g-game-identity-scale-about-pivot-breaks-determinism-hash`
 - `g-game-impactor-width-from-boxcolliders`
 - `g-game-injected-endpoints-not-vendored-pick-nodes`
@@ -616,7 +621,6 @@
 - `g-tool-clean-compile-stale-tool-dmd`
 - `g-tool-component-property-serialized-into-scene-override`
 - `g-tool-console-buffer-telemetry-flood`
-- `g-tool-convar-same-value-set-silent-noop`
 - `g-tool-copied-trace-exclusion-filters-invert-meanin`
 - `g-tool-coplanar-overlay-ribbons-z-fight-give`
 - `g-tool-custom-mcptool-single-string-arg-wrapper`
@@ -714,7 +718,6 @@
 - `g-tool-wb-worldgen-clean-static-lib-copy-reuse`
 - `g-tool-win-openssh-admin-key-path`
 - `g-tool-windows-python3-store-alias`
-- `g-tool-worktree-missing-gitignored-csproj`
 - `g-tool-worktree-missing-gitignored-csproj-depth-patch`
 - `g-ui-bare-class-selector-matches-descendant-state-class`
 - `g-ui-borderstyle-dashed-standalone-hard-errors`
