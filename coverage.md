@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**262 / 741 gotchas articled** (35%). Pack-only: **475**. Backlog (status `none`): **4**.
+**263 / 742 gotchas articled** (35%). Pack-only: **475**. Backlog (status `none`): **4**.
 
 ## By lane
 
@@ -14,11 +14,11 @@
 | getting-art-in | 81 | 33 | 47 | 1 | 41% |
 | rigging-animation | 39 | 24 | 15 | 0 | 62% |
 | writing-gameplay | 338 | 94 | 244 | 0 | 28% |
-| building-ui | 89 | 46 | 42 | 1 | 52% |
+| building-ui | 90 | 47 | 42 | 1 | 52% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
 | tooling-environment | 175 | 55 | 118 | 2 | 31% |
-| **Total** | **741** | **262** | **475** | **4** | **35%** |
+| **Total** | **742** | **263** | **475** | **4** | **35%** |
 
 ## Articled gotchas (skip-list)
 
@@ -274,6 +274,7 @@
 | `g-ui-razor-tag-resolution-ignores-global-usings` | [/fix/razor-tag-resolution-ignores-global-usings](https://sboxguide.dev/fix/razor-tag-resolution-ignores-global-usings) |
 | `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sboxguide.dev/fix/ref-field-private-field-never-assigns) |
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sboxguide.dev/fix/runtime-texture-ui-panel) |
+| `g-ui-screenpanel-zindex-default-100-tie-order-unordered` | [/fix/screenpanel-zindex-default-100-tie-order-unordered](https://sboxguide.dev/fix/screenpanel-zindex-default-100-tie-order-unordered) |
 | `g-ui-screenpanel-zindex-paint-only-input-falls-through` | [/fix/screenpanel-zindex-paint-only-input](https://sboxguide.dev/fix/screenpanel-zindex-paint-only-input) |
 | `g-ui-scss-child-combinator-universal-selector-never-matches` | [/fix/scss-child-combinator-universal-selector-never-matches](https://sboxguide.dev/fix/scss-child-combinator-universal-selector-never-matches) |
 | `g-ui-scss-undefined-variable-console-warn-only-invisible-panel` | [/fix/scss-undefined-variable-invisible-panel](https://sboxguide.dev/fix/scss-undefined-variable-invisible-panel) |
