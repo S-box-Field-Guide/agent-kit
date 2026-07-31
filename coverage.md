@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**260 / 738 gotchas articled** (35%). Pack-only: **474**. Backlog (status `none`): **4**.
+**262 / 741 gotchas articled** (35%). Pack-only: **475**. Backlog (status `none`): **4**.
 
 ## By lane
 
@@ -14,11 +14,11 @@
 | getting-art-in | 81 | 33 | 47 | 1 | 41% |
 | rigging-animation | 39 | 24 | 15 | 0 | 62% |
 | writing-gameplay | 338 | 94 | 244 | 0 | 28% |
-| building-ui | 87 | 44 | 42 | 1 | 51% |
+| building-ui | 89 | 46 | 42 | 1 | 52% |
 | audio | 11 | 6 | 5 | 0 | 55% |
 | making-it-perform | 8 | 4 | 4 | 0 | 50% |
-| tooling-environment | 174 | 55 | 117 | 2 | 32% |
-| **Total** | **738** | **260** | **474** | **4** | **35%** |
+| tooling-environment | 175 | 55 | 118 | 2 | 31% |
+| **Total** | **741** | **262** | **475** | **4** | **35%** |
 
 ## Articled gotchas (skip-list)
 
@@ -262,6 +262,7 @@
 | `g-ui-json-serialize-deserialize-t` | [/fix/saveload-without-drift](https://sboxguide.dev/fix/saveload-without-drift) |
 | `g-ui-json-serialize-indented-by-default-network-bloat` | [/fix/json-serialize-indents-by-default](https://sboxguide.dev/fix/json-serialize-indents-by-default) |
 | `g-ui-name-classes-after-sandbox-built-ins` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
+| `g-ui-panel-alpha-composites-linear-not-srgb` | [/fix/ui-alpha-composites-linear-not-srgb](https://sboxguide.dev/fix/ui-alpha-composites-linear-not-srgb) |
 | `g-ui-panelcomponent-overrides-ontreebuilt-ontreef` | [/fix/panelcomponent-ontreebuilt-lifecycle](https://sboxguide.dev/fix/panelcomponent-ontreebuilt-lifecycle) |
 | `g-ui-percent-width-flex-child-fill-floats-mid-track` | [/fix/percent-width-fill-floats-mid-track](https://sboxguide.dev/fix/percent-width-fill-floats-mid-track) |
 | `g-ui-radial-gradient-shape-keyword-parses-as-color` | [/fix/radial-gradient-shape-keyword-parses-as-color](https://sboxguide.dev/fix/radial-gradient-shape-keyword-parses-as-color) |
@@ -282,6 +283,7 @@
 | `g-ui-steam-avatar-background-image-avatar-url-scheme` | [/fix/steam-avatar-url-scheme](https://sboxguide.dev/fix/steam-avatar-url-scheme) |
 | `g-ui-struct-default-property-new-skips-optional-constructor` | [/fix/struct-default-property-new-skips-constructor](https://sboxguide.dev/fix/struct-default-property-new-skips-constructor) |
 | `g-ui-sync-owner-proxies-sync-syncflags` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
+| `g-ui-text-line-box-is-one-and-a-half-times-the-declared-line-height` | [/fix/text-line-box-taller-than-line-height](https://sboxguide.dev/fix/text-line-box-taller-than-line-height) |
 | `g-ui-textentry-raw-html-input-house-control` | [/fix/textentry-not-html-input](https://sboxguide.dev/fix/textentry-not-html-input) |
 | `g-ui-write-inside-already-open-razor-code` | [/fix/nested-razor-code-block-rz1010](https://sboxguide.dev/fix/nested-razor-code-block-rz1010) |
 
@@ -710,6 +712,7 @@
 - `g-tool-threshold-pair-event-detectors-die-smooth`
 - `g-tool-title-menu-static-gate-blocks-hud-mcp-capture`
 - `g-tool-typelib-new-component-missing-right-after-load`
+- `g-tool-ui-capture-composites-at-fixed-pixel-block`
 - `g-tool-vendor-global-ns-slice-namespace-wrap`
 - `g-tool-verify-onclick-toast-via-editor-static-bridge`
 - `g-tool-visual-diff-exposure-and-hold`
