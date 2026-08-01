@@ -19,7 +19,7 @@ reference library of verified fixes. **Read the relevant doc before working in a
 
 > **📌 Agents — this pack is split by lane (2026-07). Update your memory:** load `_core.md`
 > **first (always)**, then the **one** `<lane>.md` pack for your task (see `index.md`). There is
-> no longer a single `gotchas.md`. `coverage.md` shows what's covered vs. the backlog.
+> no longer a single combined gotchas file. `coverage.md` shows what's covered vs. the backlog.
 
 ## How to use this skill
 
