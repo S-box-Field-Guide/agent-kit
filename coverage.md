@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**263 / 742 gotchas articled** (35%). Pack-only: **475**. Backlog (status `none`): **4**.
+**263 / 787 gotchas articled** (33%). Pack-only: **520**. Backlog (status `none`): **4**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 81 | 33 | 47 | 1 | 41% |
+| getting-art-in | 89 | 33 | 55 | 1 | 37% |
 | rigging-animation | 39 | 24 | 15 | 0 | 62% |
-| writing-gameplay | 338 | 94 | 244 | 0 | 28% |
-| building-ui | 90 | 47 | 42 | 1 | 52% |
-| audio | 11 | 6 | 5 | 0 | 55% |
-| making-it-perform | 8 | 4 | 4 | 0 | 50% |
-| tooling-environment | 175 | 55 | 118 | 2 | 31% |
-| **Total** | **742** | **263** | **475** | **4** | **35%** |
+| writing-gameplay | 350 | 94 | 256 | 0 | 27% |
+| building-ui | 100 | 47 | 52 | 1 | 47% |
+| audio | 12 | 6 | 6 | 0 | 50% |
+| making-it-perform | 9 | 4 | 5 | 0 | 44% |
+| tooling-environment | 188 | 55 | 131 | 2 | 29% |
+| **Total** | **787** | **263** | **520** | **4** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -292,6 +292,7 @@
 
 - `g-art-bbox-is-a-downstream-contract`
 - `g-art-blender-headless-duplicate-links-mesh-datablock`
+- `g-art-blender-mesh-validate-hides-degenerate-collision-slivers`
 - `g-art-blender-obj-import-yup-lives-in-object-matrix-not-verts`
 - `g-art-bounds-maxs-invisible-nub-not-visible-top`
 - `g-art-camera-screenshot-renders-through-real-scene`
@@ -300,6 +301,7 @@
 - `g-art-correct-sub-part-positions-prove-nothing`
 - `g-art-crossed-card-flat-cross-at-distance`
 - `g-art-cycled-fx-anchor-dominant-end-share-anchored-geometry`
+- `g-art-cycles-spot-at-housing-surface-self-shadows`
 - `g-art-dcc-render-color-not-engine-color`
 - `g-art-dedicated-ambient-light-gradient-fog-compone`
 - `g-art-dent-readability-glossy-paint-vs-static-normals`
@@ -308,12 +310,14 @@
 - `g-art-forge-tripo-vehicle-shaped-mesh-s`
 - `g-art-forge-tripo-wearable-item-returns-whole-character`
 - `g-art-generated-obj-vmdl-recipe-blender`
+- `g-art-generator-helper-axis-and-rot-params-silently-prefer-one`
 - `g-art-lock-camera-exposure-kill-auto-exposure`
 - `g-art-lowpoly-wheel-black-blob`
 - `g-art-make-ground-alive-swap-flat-tile`
 - `g-art-material-load-no-missing-signal`
 - `g-art-materialoverride-replaces-tint-path-box-prop`
 - `g-art-mathf-has-lerp-engine-s`
+- `g-art-mirrored-sign-convention-passes-numeric-gates-invisibly`
 - `g-art-mission-control-s-forge-auto-deliver`
 - `g-art-model-top-ui-markers`
 - `g-art-modelrenderer-tint-multiplies-usable`
@@ -326,14 +330,18 @@
 - `g-art-regenerated-ai-textures-need-editor-kick`
 - `g-art-renderer-tint-dropped-in-reflection-passes`
 - `g-art-rope-endcap-rotation-must-track-swing`
+- `g-art-rotated-primitive-spins-about-own-centre-not-part-pivot`
 - `g-art-s-box-obj-import-plain-y`
 - `g-art-shaders-complex-shader-supports`
 - `g-art-tiling-ground-texture-will-repeat-across`
 - `g-art-transform-local-axis-forward-not-right`
+- `g-art-tread-detail-can-break-exact-diameter-wheel-contract`
+- `g-art-trim-crossing-wheel-opening-is-same-defect-as-collider`
 - `g-art-tripo-pair-isolate-island-centroid-and-ankle-toe-align`
 - `g-art-views-sheet-unmirrored-wheel-face`
 - `g-art-vmat-essentials-shader-shaders`
 - `g-art-vmdl-rendermeshfile-must-live-inside-content`
+- `g-art-wheel-arch-clearance-law-binds-harder-on-short-overhangs`
 - `g-art-wheel-arch-flare-outboard-of-tyre-buries-wheel`
 - `g-art-world-units-into-meters-api-double-scale`
 - `g-art-yaw-rotated-rectangle-s-axis-aligned`
@@ -342,6 +350,7 @@
 - `g-audio-elevenlabs-voices-npc-dialogue-use-tts`
 - `g-audio-freesound-cc0-preview-mp3-no-oauth`
 - `g-audio-speaker-line-cooldown`
+- `g-audio-unbaked-mixer-slot-resolves-null-silent`
 - `g-game-adding-sheer-mesa-cliff-terrain-silently`
 - `g-game-addwater-brush-basin-spill-guard`
 - `g-game-aerial-lattice-dilate-blur-sheet-base`
@@ -397,10 +406,12 @@
 - `g-game-continuous-render-above-blockmax-collision-buries-crest-tops`
 - `g-game-createlobby-transient-fail-under-rapid-rehost-churn`
 - `g-game-crosspass-density-cull-shared-grid-field-not-placed-list`
+- `g-game-crumple-field-anchor-off-struck-surface-dead-air`
 - `g-game-decal-box-splatted-projectile-s-raw`
 - `g-game-decision-vs-kernel-centre`
 - `g-game-declared-analytic-climb-lattice-not-fit-raycast`
 - `g-game-decor-pickup-solid-collider-run-under-embed`
+- `g-game-dedicated-process-never-creates-steam-lobby`
 - `g-game-dedicated-server-unpublished-ident-download-fails`
 - `g-game-deferred-apply-pair-cofromhost-fields-at-capture`
 - `g-game-derived-default-via-sentinel-append-only-seam`
@@ -409,6 +420,8 @@
 - `g-game-deterministic-content-hash-same-spec-same`
 - `g-game-deterministic-world-delta-only-save`
 - `g-game-diagonal-edge-min-width-cull-coverage-holes`
+- `g-game-direction-branch-needs-one-test-per-branch`
+- `g-game-direction-input-from-impulse-not-actor-velocity`
 - `g-game-directional-coast-tilt-floods-world-centre`
 - `g-game-dirty-chunk-remesh-seam-law`
 - `g-game-dirty-remesh-footprint-widest-read`
@@ -427,6 +440,7 @@
 - `g-game-flat-topped-mesas-heightfield-need-two`
 - `g-game-flattest-cell-is-underwater-after-adding-sea`
 - `g-game-forge-tripo-vehicle-meshes-re-exported`
+- `g-game-freeze-kinematic-not-destroy-rigidbody-preserves-dependents`
 - `g-game-freshly-generated-vmat-vmdl`
 - `g-game-gate-airborne-metrics-first-ground-contact`
 - `g-game-gen-pass-routes-against-later-mutated-field`
@@ -440,6 +454,7 @@
 - `g-game-heightfield-riser-taller-than-capsule-intangible`
 - `g-game-hex-hash-constant-top-bit-set`
 - `g-game-identity-scale-about-pivot-breaks-determinism-hash`
+- `g-game-immobility-accumulator-gated-on-throttle-magnitude-never-fires`
 - `g-game-impactor-width-from-boxcolliders`
 - `g-game-injected-endpoints-not-vendored-pick-nodes`
 - `g-game-input-config-bindings-differ-per-project`
@@ -471,6 +486,7 @@
 - `g-game-multiple-panelcomponent-s-gameobject-under-s`
 - `g-game-narrow-impactor-detach-resist`
 - `g-game-nearest-centerline-corridor-stamping-leaves`
+- `g-game-networking-api-corrections-source-verified`
 - `g-game-networkspawn-owner-sim-host-onactive`
 - `g-game-node-seat-overhangs-block-edge-at-corners`
 - `g-game-one-sided-heightfield-lateral-glide-through`
@@ -478,6 +494,8 @@
 - `g-game-out-of-bounds-teleport-observer-needs-hazard-check`
 - `g-game-over-world-ui-name-labels-health`
 - `g-game-packed-vector-axis-convention-drift`
+- `g-game-parked-negative-throttle-engages-reverse`
+- `g-game-per-instance-global-input-unconditional-multi-entity`
 - `g-game-per-part-recentered-dents-seam-cavity`
 - `g-game-pivot-scale-before-fixed-target-blend-moves-the-crossing`
 - `g-game-placed-runtime-structure-savefactory-idempotent`
@@ -522,11 +540,13 @@
 - `g-game-scatter-content-over-traversal-net-needs-zoning`
 - `g-game-sea-level-slider-nothing-until-exceeds`
 - `g-game-self-arming-test-must-await-async-world-build`
+- `g-game-self-crossing-track-position-monotone-cursor`
 - `g-game-self-siting-climb-test-mis-sites-on-treed-voxel-cliffs`
 - `g-game-serial-grade-ladder-obstacle-course`
 - `g-game-session-static-to-scene-component`
 - `g-game-shared-multi-agent-working-tree`
 - `g-game-shared-swingrope-balloon-string-tag-collision`
+- `g-game-sight-line-gate-must-walk-full-occluder-list`
 - `g-game-single-part-point-dent-invisible-hard-hits-spread-patch`
 - `g-game-size-step-up-step-down-glue`
 - `g-game-slalom-weave-position-locked-grip-capped`
@@ -554,6 +574,7 @@
 - `g-game-swing-grab-anchor-needs-visible-dressing`
 - `g-game-swing-pivot-external-moving-anchor-carry`
 - `g-game-synthetic-frontmost-by-face-not-center`
+- `g-game-tag-ancestor-walk-breaks-when-tag-reused-lower`
 - `g-game-tall-boxcollider-building-climb`
 - `g-game-tc-slip-target-above-curve-peak-slide`
 - `g-game-teleport-computed-height-wedges-air-voxel-top`
@@ -589,6 +610,7 @@
 - `g-perf-daynight-sun-shadow-rebuild-not-fps-breaker-at-scale`
 - `g-perf-fixed-extent-fine-grain-quadruples-cells`
 - `g-perf-fps-probe-measurement-hygiene-through-mcp`
+- `g-perf-ladder-window-1-garbage-when-rung-spawns-many-bodies`
 - `g-perf-voxel-grain-cellsize-nearly-free-density`
 - `g-rig-ball-at-pivot-joint-overlap`
 - `g-rig-blender-icosphere-subdivisions-off-by-one`
@@ -607,6 +629,7 @@
 - `g-rig-silhouette-variants-on-one-skeleton-visual-only`
 - `g-tool-aimed-bot-grabbing-through-scored-best`
 - `g-tool-arch-slope-tilt-axis-rotate-about`
+- `g-tool-argparse-leading-dash-coordinate-unreachable`
 - `g-tool-audit-offenders-counts-ticks-not-objects`
 - `g-tool-autocrlf-masks-regen-determinism-check`
 - `g-tool-bar-s-release-aimed-within-spin`
@@ -616,9 +639,11 @@
 - `g-tool-blender-materials-clear-materials-new-name`
 - `g-tool-blender-version-regen-cosmetic-sweep`
 - `g-tool-broken-library-at-load-wedges-package-chain`
+- `g-tool-build-headless-command-seams-for-ui-you-cannot-click`
 - `g-tool-build-time-tag-scans-blind-children`
 - `g-tool-byte-identical-asset-copies-neutralize-path-collision`
 - `g-tool-camera-screenshot-misses-modal-card`
+- `g-tool-camera-screenshot-text-overdraws-measure-with-tint`
 - `g-tool-camera-screenshot-width-height-blank`
 - `g-tool-camera-switches-focus-target-follow-distance`
 - `g-tool-clean-compile-stale-tool-dmd`
@@ -635,6 +660,7 @@
 - `g-tool-editor-clobbers-hand-edited-sbproj-on-save`
 - `g-tool-editor-csproj-graph-base-library-obj-collision`
 - `g-tool-editor-eats-fkeys-in-play-mode`
+- `g-tool-editor-generated-csproj-required-shape-whitelist-blind`
 - `g-tool-editor-hang-vs-crash-kill-relaunch-captured-cli`
 - `g-tool-editor-hotreload-preserves-statics`
 - `g-tool-editor-ignores-external-edits-persisted-sett`
@@ -652,12 +678,17 @@
 - `g-tool-free-penned-ai-widening-public-wander`
 - `g-tool-fresh-play-per-run-determinism`
 - `g-tool-fresh-session-first-save-write-nre-transient`
+- `g-tool-game-csproj-build-gate-excludes-editor-folder`
+- `g-tool-git-archive-autocrlf-corrupts-vendored-bytes`
+- `g-tool-green-compile-status-not-loaded-assembly`
+- `g-tool-harness-last-completed-run-is-stale-in-live-mode`
 - `g-tool-hotload-migrates-static-readonly-registry`
 - `g-tool-hotload-stale-assettype-registration-duplicate`
 - `g-tool-hotload-static-catalog-lambda-error-delegated`
 - `g-tool-hysteresis-lives-consumer-stateless-predicat`
 - `g-tool-inject-after-router-bindparts`
 - `g-tool-input-press-consumed-bottom-fixed-tick`
+- `g-tool-interface-and-implementer-split-across-branches-fails-only-at-merge-compile`
 - `g-tool-library-compiler-omits-implicit-usings`
 - `g-tool-mcp-authored-object-reads-edit-copy-in-play`
 - `g-tool-mcp-bind-fail-no-auto-bump-edit-pref-restart`
@@ -673,7 +704,9 @@
 - `g-tool-nearest-best-pickers-need-honest-empty`
 - `g-tool-no-game-side-log-listener-onmessage-internal`
 - `g-tool-one-editor-per-project-mcp-identity`
+- `g-tool-onedrive-worktree-remove-permission-denied`
 - `g-tool-parity-pixel-diff-disable-envmap-probe`
+- `g-tool-partial-rebuild-must-regenerate-manifest-header`
 - `g-tool-persisted-convar-override-masks-new-defaults`
 - `g-tool-pilot-cannot-aim-throw-camera-yaw-frozen`
 - `g-tool-pilot-nodeclimb-dismount-is-kickoff`
@@ -689,6 +722,7 @@
 - `g-tool-read-console-cap-buries-probe-lines`
 - `g-tool-recovery-maneuver-reverse-then-drive-rehits-wall`
 - `g-tool-regen-clobbers-hand-tuned-values-in-generated-assets`
+- `g-tool-render-rig-absolute-camera-coords-radius-drift`
 - `g-tool-resource-stream-vm-commit-crash-batch-vmdl`
 - `g-tool-reusing-another-project-s-assets-copy`
 - `g-tool-s-box-editor-runs-mcp-server`
@@ -704,6 +738,7 @@
 - `g-tool-ss-test-harness-paused-at-title-stale-sim-telemetry`
 - `g-tool-stale-exports-permanent-recompile-loop-starves-fresh-editor`
 - `g-tool-static-readonly-frozen-across-hotload`
+- `g-tool-subprocess-capture-output-swallows-child-abort`
 - `g-tool-synthetic-impact-pose-invariant-hash`
 - `g-tool-system-text-json-nodes`
 - `g-tool-telemetry-boot-line-gated-behind-debug`
@@ -713,6 +748,7 @@
 - `g-tool-title-menu-static-gate-blocks-hud-mcp-capture`
 - `g-tool-typelib-new-component-missing-right-after-load`
 - `g-tool-ui-capture-composites-at-fixed-pixel-block`
+- `g-tool-ui-geometry-measure-with-a-concmd-not-screenshot-inference`
 - `g-tool-vendor-global-ns-slice-namespace-wrap`
 - `g-tool-verify-onclick-toast-via-editor-static-bridge`
 - `g-tool-visual-diff-exposure-and-hold`
@@ -722,6 +758,7 @@
 - `g-tool-win-openssh-admin-key-path`
 - `g-tool-windows-python3-store-alias`
 - `g-tool-worktree-missing-gitignored-csproj-depth-patch`
+- `g-ui-absolute-percent-fill-needs-position-on-its-own-track`
 - `g-ui-bare-class-selector-matches-descendant-state-class`
 - `g-ui-borderstyle-dashed-standalone-hard-errors`
 - `g-ui-camera-screenshot-s-ui-overlay-renders`
@@ -736,9 +773,12 @@
 - `g-ui-editor-generated-csproj-gitignored`
 - `g-ui-flat-kind-tagged-record-vs-stj-polymorphic-union`
 - `g-ui-flex-end-anchor-drifts-without-fixed-width`
+- `g-ui-focus-written-from-hover-eats-buildhash-rebuild-click`
 - `g-ui-gameresource-attribute-obsolete-use-assettype`
 - `g-ui-global-using-alias-resolves-vendored-name-collision`
 - `g-ui-headless-build-validates-razor-csharp-codegen`
+- `g-ui-inline-svg-markup-renders-empty-use-files`
+- `g-ui-logical-canvas-height-fixed-width-follows-aspect`
 - `g-ui-loose-json-under-assets`
 - `g-ui-mcp-camera-captures-first-screenpanel-only`
 - `g-ui-mouse-visible-true-obsolete`
@@ -747,8 +787,11 @@
 - `g-ui-networking-querylobbies-lobbyinfo-whitelist-clean`
 - `g-ui-no-inline-flex-in-panel-css`
 - `g-ui-overflow-scroll-panel-breaks-even-with-minheight-pins`
+- `g-ui-panel-box-model-is-border-box`
 - `g-ui-radial-gradient-at-position-unsupported`
+- `g-ui-razor-class-attribute-interpolation-emits-no-class`
 - `g-ui-razor-collection-stateful-child-panels-don`
+- `g-ui-razor-email-heuristic-eats-adjacent-interpolation`
 - `g-ui-razor-live-codegen-drops-mixed-text-whitespace`
 - `g-ui-razor-panel-caches-closures-over-retargeted-target`
 - `g-ui-repeating-linear-gradient-unsupported`
@@ -762,7 +805,10 @@
 - `g-ui-text-measure-drifts-across-editor-boots`
 - `g-ui-textentry-focus-survives-in-separate-constant-hash-panel`
 - `g-ui-thumb-source-aspect-must-match-tile-frame`
+- `g-ui-transition-delay-intro-outro-parse-fine`
+- `g-ui-unitless-line-height-misrenders`
 - `g-ui-unquoted-numeric-attr-headless-vs-editor-codegen`
+- `g-ui-weight-named-font-files-are-separate-families`
 - `g-ui-worldspace-nametag-screenprojected-camera`
 
 ## Articles without a gotchas.md source (11)

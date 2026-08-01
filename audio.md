@@ -28,16 +28,14 @@
   stateful SharedState/RunStats).
 - **The event STRING must be the FULL resource path WITH extension (`"sounds/impact/boing_a.sound"`)
   or the BARE filename (`"boing_a"`) — a partial path like `"impact/boing_a"` NEVER resolves**
-  (engine 26.07.08c; muted EVERY custom event in one project for a full day while the compiled
-  `.sound_c` sat healthy on disk). Decompiled contract (`Sandbox.Engine.dll` → `SoundEvent.Find`):
+. Decompiled contract (`Sandbox.Engine.dll` → `SoundEvent.Find`):
   (1) `ResourceLibrary.Get<SoundEvent>(name)` — a cache-HASH lookup keyed by the full
   `ResourcePath` incl. `.sound`; `Resource.FixPath` only normalizes slashes/strips `_c`, it never
   prepends `sounds/` or appends the extension, so partial paths can't hash-match; (2) fallback
   compares `ResourceName` — the bare FILENAME, which never contains `/`. The install's own
   `Sound.Play("cardboard_rustle_loop")` works only via form 2 — generalizing it to
-  `"family/name"` fits NEITHER form. Don't trust "Couldn't find
-  sound event" to mean a missing/uncompiled asset: probe the LIVE editor first (a project-defined
-  `[McpTool]` in `Editor/` that resolves an event name) —
+  `"family/name"` (as the audio-v1 agent did) fits NEITHER form. Don't trust "Couldn't find
+  sound event" to mean a missing/uncompiled asset: probe the LIVE editor first —
   it distinguishes name-form bugs from index/compile bugs in one call, no play mode needed.
   Fix pattern: translate house names at ONE boundary.
 
@@ -74,3 +72,5 @@
   restart required for input config changes to register. Always grep `Input.config` before
   assuming the default binds to anything.
 - **Real recorded CC0 engine/SFX loops drop into a public (MIT) repo with ZERO auth via Freesound's PREVIEW mp3s.** Full-quality WAV/FLAC downloads need OAuth, but every sound page embeds a public 128 kbps preview mp3 — `curl` the page and grep `cdn.freesound.org/previews/<id-prefix>/<id>_<uploaderUserId>-hq.mp3`. The trailing number is the UPLOADER's user id (not the sound id and not guessable), so pull the URL from the page rather than constructing it. 128 kbps is plenty for a re-triggered game loop (the `.mp3` + `.sound` → `.vsnd_c` pipeline is identical to any other source). LICENSE HYGIENE for a public repo: filter the search (`&f=license:"Creative Commons 0"`) but verify EACH file on its page — GPLv2 and CC-BY-NC clips slip into CC0 result lists (both disqualifying: GPL/NC). CC0 needs no attribution but credit the source anyway (ATTRIBUTION.md). Known CC0 matched engine set: Freesound user `FreeCarSoundsGaming` (loop-optimized muscle-idle / car-rev / truck-idle).
+
+- **A sound-mixer slot with no baked pick and no legacy fallback event resolves to null and plays NOTHING, with ZERO log lines anywhere in the chain — a fully wired audio call stack (emitter fires, mixer resolves, play is invoked) can be completely mute behind a perfectly clean console.** Live case: none of a catalog's slots had a legacy event set, so resolving a slot returned an empty result, the play wrapper returned null before ever reaching the engine's own play call, and every loop and one-shot sound in the game was a silent no-op — confirmed live: the engine-loop's own debug line printed a real volume/playing-state pair showing "playing 0" on every actor, and a sibling debug line for a different sound category never printed at ALL because it sits after the null-handle guard. Corollary found the same pass: **slot ids are never validated anywhere in the pipeline** — a typo'd id parses, stores, and silently resolves to nothing, with no warning at any layer. **Rule: when audio is missing from an otherwise-working stack and the console is silent, check whether the mix has actually been BAKED for that slot (and whether a legacy fallback exists) before suspecting the caller, the emitter, or the mixer routing — a clean console is not evidence a slot resolved to anything.**
