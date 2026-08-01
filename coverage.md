@@ -673,7 +673,6 @@
 - `g-tool-nearest-best-pickers-need-honest-empty`
 - `g-tool-no-game-side-log-listener-onmessage-internal`
 - `g-tool-one-editor-per-project-mcp-identity`
-- `g-tool-onedrive-worktree-remove-permission-denied`
 - `g-tool-parity-pixel-diff-disable-envmap-probe`
 - `g-tool-persisted-convar-override-masks-new-defaults`
 - `g-tool-pilot-cannot-aim-throw-camera-yaw-frozen`

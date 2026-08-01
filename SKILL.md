@@ -31,16 +31,19 @@ reference library of verified fixes. **Read the relevant doc before working in a
 
    | If you're working on… | Lane pack | Deeper narrative guide |
    |---|---|---|
-   | New project / scene / build setup | `getting-set-up.md` | `project-setup.md` |
-   | Blender → s&box models, materials, units, axes | `getting-art-in.md` | `asset-pipeline.md`, `ai-assets.md` |
-   | Rig / animate / retarget | `rigging-animation.md` | — |
-   | Gameplay C# — components, movement, save, networking, runtime meshes | `writing-gameplay.md` | `code-patterns.md` |
-   | Razor UI / HUD | `building-ui.md` | `ui-razor.md` |
-   | Sound events | `audio.md` | — |
-   | Perf / collider choice / density | `making-it-perform.md` | — |
-   | Publishing to sbox.game | `publishing-shipping.md` | `publishing.md` |
-   | Coordinating agents to build a game | `ai-assisted-workflow.md` | `ai-assisted-development.md` |
-   | Blender CLI / python generators / dotnet / encoding traps | `tooling-environment.md` | `tooling.md` |
+   | New project / scene / build setup | `getting-set-up.md` | `guides/agent-buildable-project-setup.md` |
+   | Blender → s&box models, materials, units, axes | `getting-art-in.md` | `guides/part-kit-assembly.md`, `guides/world-scale-and-coordinate-limits.md` |
+   | Rig / animate / retarget | `rigging-animation.md` | `guides/character-mounted-assets-live-tuning.md`, `guides/ragdoll-physics.md` |
+   | Gameplay C# — components, movement, save, networking, runtime meshes | `writing-gameplay.md` (router → `writing-gameplay--*.md`) | `guides/networking-methods.md`, `guides/p2p-peer-hosted-servers.md`, `guides/parkour-movement.md`, `guides/delta-log-save.md`, `guides/runtime-terrain-meshing.md`, `guides/decals.md` |
+   | Razor UI / HUD | `building-ui.md` | `guides/first-person-viewmodel.md` |
+   | Sound events | `audio.md` | `guides/vehicle-audio.md`, `guides/voice-proximity-chat.md` |
+   | Perf / collider choice / density | `making-it-perform.md` | `guides/performance-investigation.md` |
+   | Publishing to sbox.game | `publishing-shipping.md` | `guides/library-packages.md` |
+   | Coordinating agents to build a game | `ai-assisted-workflow.md` | `guides/agent-buildable-project-setup.md`, `guides/agent-test-harness.md` |
+   | Blender CLI / python generators / dotnet / encoding traps | `tooling-environment.md` (router → `tooling-environment--*.md`) | — |
+   | Arcade vehicles | `writing-gameplay.md` | `guides/vehicle-physics.md`, `guides/vehicle-audio.md`, `guides/part-kit-assembly.md` |
+
+   `index.md` lists every guide file with a one-line description.
 
 3. **`coverage.md`** is the human view of what's covered vs. the backlog. Lane packs are
    scan-first checklists; the deeper narrative guides give worked examples.
@@ -55,11 +58,13 @@ reference library of verified fixes. **Read the relevant doc before working in a
    - **New assets/inputs need an editor kick or Play restart** — a headless build won't
      surface them.
    - **"Verified in-editor" ≠ "works after publish"** — the whitelist and loose-resource
-     rules diverge at publish time (see `publishing.md`).
+     rules diverge at publish time (see `publishing-shipping.md`).
 
 5. **Verify, don't assume.** After changes, `dotnet build` for compile, then confirm
-   runtime behavior in the editor (or via the editor MCP at `http://127.0.0.1:7269/mcp`
-   if available) — many of these traps only show up at runtime.
+   runtime behavior in the editor (or via the editor MCP if available) — many of these
+   traps only show up at runtime. The editor MCP port is not fixed: it is one
+   engine-global preference with no auto-increment, so discover the live port rather
+   than hardcoding one (`tooling-environment--editor-mcp.md`).
 
 ## What this skill is not
 
