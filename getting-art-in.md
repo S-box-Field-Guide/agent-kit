@@ -304,7 +304,7 @@
  facing with an asymmetric-feature screenshot, never with pivot positions. Related: a documented
  author→engine mapping with determinant −1 (a mirror) is IMPOSSIBLE for a proper-rotation
  export/import pipeline — recompute it, don't consume it.
-- **Unverified: a generated vehicle-shaped mesh's raw bbox can't tell you WHICH horizontal
+- **Unverified: a Forge/Tripo vehicle-shaped mesh's raw bbox can't tell you WHICH horizontal
  axis is length vs width by magnitude alone if the ratio is close — but "length ≥
  width" for any real vehicle is a free constraint, so the LARGEST of the two
  horizontal OBJ-space dimensions is safely assumable to be length** (confirmed by
