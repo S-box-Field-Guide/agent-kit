@@ -36,7 +36,7 @@ cover is:
   systems host-authoritative without breaking single-player.
 
 Baseline owner-simulated pattern is in
-[owner-simulated-networking](owner-simulated-networking).
+[owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking).
 
 ---
 

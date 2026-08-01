@@ -193,10 +193,10 @@ the **compiler wedge** signature is `Success=false` + 0 diagnostics +
 `NeedsBuild=false` → bump a source file's mtime to dirty it; a stale assembly
 silently runs old code — mtime-bump + recheck proves the hotload path.
 
-Traps: see [first-play-compile-checklist](first-play-compile-checklist),
-[dotnet-build-misses-razor-errors](dotnet-build-misses-razor-errors),
-[editor-hotload-expectations](editor-hotload-expectations),
-[stale-assembly-hotload](stale-assembly-hotload).
+Traps: see [first-play-compile-checklist](https://sboxguide.dev/fix/first-play-compile-checklist),
+[dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors),
+[editor-hotload-expectations](https://sboxguide.dev/fix/editor-hotload-expectations),
+[stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload).
 
 ## 8. Screenshot judging (the part everyone gets wrong)
 
@@ -330,5 +330,5 @@ roamer that exercises the world surface at scale:
 | Face-load/jounce A/B reads ~98-99% retention on both variants | Telemetry too coarse (~2 Hz) for a curvature-discontinuity transient a couple of ticks wide — use a finer trace or jounce proxy (suspension load / G-trace) |
 
 Get the compile gate and identity probe right and everything else is iteration.
-Parallel agents need an [ownership map](agent-file-ownership-discipline) before
+Parallel agents need an [ownership map](https://sboxguide.dev/fix/agent-file-ownership-discipline) before
 they share a harness.

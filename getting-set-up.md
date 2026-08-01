@@ -52,7 +52,7 @@
 - References `Sandbox.*.dll` and analyzers out of
   `C:\Program Files (x86)\Steam\steamapps\common\sbox\bin\managed\`.
 - **`dotnet build Code/<project>.csproj` verifies compile without the editor.** Do it constantly.
-- Razor support comes from `Microsoft.NET.Sdk.Razor` — see ui-razor.md for the namespace trap.
+- Razor support comes from `Microsoft.NET.Sdk.Razor` — see `building-ui.md` for the namespace trap.
 
 ## Assembly.cs
 
@@ -105,6 +105,6 @@ JSON list of `{ Name, GroupName, Title, KeyboardCode, GamepadCode }`. Notes:
 2. Write Assembly.cs with the globals + your razor namespace.
 3. Drop in the 4-object scene + a Bootstrap component.
 4. `dotnet build Code/<proj>.csproj` — green before anything else.
-5. Set up `tools/gen_models.py` + `tools/gen_assets.py` from another project's (see asset-pipeline.md).
+5. Set up `tools/gen_models.py` + `tools/gen_assets.py` by copying an existing project's pair (see `getting-art-in.md` for the pipeline they drive).
 6. Start every play session by checking the console for `[yourtag]` log lines —
    prefix all `Log.Info` with a project tag.

@@ -40,8 +40,8 @@ Create the project through the editor so the `.sbproj`, `Assets/`, and `Code/`
 layout match what the compiler and packager expect — a hand-rolled folder tree
 compiles locally and then fails on publish. Get the canonical layout right once.
 
-Traps: see [project-setup-skeleton](project-setup-skeleton) for the folder contract,
-and [sbproj-title-ident-startup](sbproj-title-ident-startup) — set the title and
+Traps: see [project-setup-skeleton](https://sboxguide.dev/fix/project-setup-skeleton) for the folder contract,
+and [sbproj-title-ident-startup](https://sboxguide.dev/fix/sbproj-title-ident-startup) — set the title and
 `Ident` before first launch, because changing the ident later orphans everything
 keyed to it.
 
@@ -52,10 +52,10 @@ does **not** enforce the same rules the editor does. Decide your build gate now:
 the editor's hot-load is the source of truth, and a green terminal build is not a
 green project.
 
-Traps: see [dotnet-build-misses-razor-errors](dotnet-build-misses-razor-errors) —
+Traps: see [dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) —
 Razor/`.razor` errors don't surface in a plain `dotnet build`, so an agent that
 trusts the CLI exit code will report "done" on a project that won't load. Wire your
-[package references clean](package-references-clean-start) before the first sync so
+[package references clean](https://sboxguide.dev/fix/package-references-clean-start) before the first sync so
 the assembly graph is deterministic.
 
 ## 3. Establish globals and services wiring
@@ -64,7 +64,7 @@ Set up your assembly-level globals and service access once, at the root, so ever
 component the agent writes resolves the same way. Ad-hoc `using static` and
 scattered singletons are the usual cause of "works in one file, null in the next."
 
-Traps: see [assembly-cs-globals-setup](assembly-cs-globals-setup) for the
+Traps: see [assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) for the
 `GlobalUsings`/`AssemblyInfo` pattern that keeps globals consistent across files an
 agent generates independently.
 
@@ -76,7 +76,7 @@ the editor's compile output — not the terminal's. This is the single highest-v
 loop for agent-driven work: it converts silent breakage into an immediate, local
 failure the agent can fix in the same turn.
 
-Traps: see [first-play-compile-checklist](first-play-compile-checklist) for the exact
+Traps: see [first-play-compile-checklist](https://sboxguide.dev/fix/first-play-compile-checklist) for the exact
 pre-play sequence.
 
 ## 5. Assign file ownership before parallelizing
@@ -86,8 +86,8 @@ which files/systems, and a rule that no agent edits a file it doesn't own withou
 handoff. Without this, two agents regenerate the same component from different
 assumptions and the last writer wins — silently.
 
-Traps: see [agent-file-ownership-discipline](agent-file-ownership-discipline) for the
-ownership-map convention, and [ai-agents-build-game-in-a-day](ai-agents-build-game-in-a-day)
+Traps: see [agent-file-ownership-discipline](https://sboxguide.dev/fix/agent-file-ownership-discipline) for the
+ownership-map convention, and [ai-agents-build-game-in-a-day](https://sboxguide.dev/fix/ai-agents-build-game-in-a-day)
 for how the spec/ownership/tuning split holds up across a full build.
 
 ## The contract, in one place
