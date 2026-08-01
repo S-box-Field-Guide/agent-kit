@@ -116,7 +116,11 @@ The contract every P2P join flow needs:
 
 ## The FromHost replication trap
 
-A `[Sync(SyncFlags.FromHost)]` field only crosses the wire if its GameObject is **network-active**. "`NetworkMode.Snapshot` converges with no `NetworkSpawn`" is true for **baked-scene** objects (scene-baked identity on every peer) — it is **false** for an object created at **runtime** (`scene.CreateObject()`), which has no cross-peer identity: `Network.Active` stays false, the `FromHost` field never sends, and every joiner waits forever for a value that never arrives.
+A `[Sync(SyncFlags.FromHost)]` field only crosses the wire if its GameObject is **network-active**.
+
+**CORRECTED 2026-07-31 (doc + engine-source verified, engine build 26.07.22):** this section used to say that "`NetworkMode.Snapshot` converges with no `NetworkSpawn`" holds for **baked-scene** objects and is false only for runtime-created ones. The scope limit was too narrow. The official `sync-properties.md` doc: *"`[Sync]` only works when the GameObject has the `NetworkMode.Object` mode. Properties on `NetworkMode.Snapshot` objects are never synced after the initial snapshot to anyone, even if marked with `[Sync]`."* Engine source confirms the mechanism: the `NetworkObject` that carries the sync table is only constructed inside `NetworkSpawn(...)` or on receipt of a create message, so a `Snapshot`-mode object never gets one and `[Sync]` is inert on it. What looked like convergence on deterministically-bootstrapped objects was every peer independently building the same starting value, not live syncing; any field that changes on a `Snapshot` object afterward will silently diverge between peers and stay diverged. `NetworkMode.Object`, entered via `NetworkSpawn()`, is mandatory before `[Sync]` does anything, and is required for any object carrying a `[Sync]` field, not only per-owner objects.
+
+The runtime case is the loudest symptom of that rule: an object created at **runtime** (`scene.CreateObject()`) has no cross-peer identity at all, so `Network.Active` stays false, the `FromHost` field never sends, and every joiner waits forever for a value that never arrives.
 
 **Fix pattern:** the host `NetworkSpawn()`s the singleton (host-owned, same as any host-authored session object), and the joining client does not create a competing local placeholder — it receives the host's proxy and polls that.
 

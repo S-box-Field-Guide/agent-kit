@@ -142,11 +142,31 @@ NPC targets, multiple winners.
 
 ## Load-bearing engine facts
 
-1. **`GameObject.NetworkMode` defaults to `Snapshot`** — objects created
-   identically on every peer by a deterministic bootstrap are networked as part
-   of the scene snapshot: `[Sync]` / `[Sync(SyncFlags.FromHost)]` fields on them
-   converge **with no `NetworkSpawn`**. `NetworkSpawn`/`NetworkMode.Object` is
-   only for per-owner objects (player bodies, transient projectiles).
+1. **`GameObject.NetworkMode` defaults to `Snapshot`.** **CORRECTED 2026-07-31
+   (doc + engine-source verified, engine build 26.07.22):** the original claim
+   here, that `[Sync]` / `[Sync(SyncFlags.FromHost)]` fields on `Snapshot`-mode
+   objects converge with no `NetworkSpawn`, is wrong. The official
+   `sync-properties.md` doc: *"`[Sync]` only works when the GameObject has the
+   `NetworkMode.Object` mode. Properties on `NetworkMode.Snapshot` objects are
+   never synced after the initial snapshot to anyone, even if marked with
+   `[Sync]`."* Engine source confirms the mechanism: the `NetworkObject` that
+   carries the sync table is only constructed inside `NetworkSpawn(...)` or on
+   receipt of a create message, so a `Snapshot`-mode object never gets one and
+   `[Sync]` is inert on it. What looked like convergence on
+   deterministically-bootstrapped objects was every peer independently building
+   the same starting value, not live syncing - any field that changes on a
+   `Snapshot` object afterward will silently diverge between peers and stay
+   diverged. **`NetworkMode.Object`, entered via `NetworkSpawn()`, is mandatory
+   before `[Sync]` does anything** - not limited to per-owner objects (player
+   bodies, transient projectiles) as the retracted claim implied; it is required
+   for any object carrying a `[Sync]` field, full stop. **The 2026-07-14
+   scope-limit finding still holds and now reads as the general rule, not an
+   exception:** a HOST-ONLY singleton created at runtime (`scene.CreateObject()`)
+   has NO cross-peer identity unless it is host-`NetworkSpawn()`ed -
+   `Network.Active` stays false and its FromHost fields NEVER send - and clients
+   must not create a competing local copy
+   (`g-game-fromhost-singleton-must-be-networkspawned-not-runtime-snapshot`; see
+   the [P2P peer-hosted servers](/guides/p2p-peer-hosted-servers) guide).
 2. **The engine does NOT stop a non-host writing a FromHost field locally** —
    the write just gets steamrolled by the next snapshot. The manual guard is
    therefore load-bearing:

@@ -23,17 +23,28 @@
 - `[Sync]` = owner→proxies; `[Sync(SyncFlags.FromHost)]` = host→all; guard sim code with
  `if (IsProxy) return;`. Networked props are runtime-only, never saved to scenes.
 - **`GameObject.NetworkMode` defaults to `Snapshot`** (per-object scene-snapshot
- networking), NOT `Never` — confirmed in `Sandbox.Engine.xml`. A scene-wide singleton
- (world state everyone reads, only the host mutates — chaos meters, day/night clocks,
- run stats) does NOT need `NetworkSpawn`/`NetworkMode.Object`: just let the object's
- `GameObject` build identically on every peer (e.g. from a bootstrap/spawner that
- runs the same at scene load on host and every client, *before* any lobby exists), tag
- the authoritative fields `[Sync(SyncFlags.FromHost)]`, and manually gate every mutation
- with `if (Networking.IsActive && !Networking.IsHost) return;` — the engine does NOT stop
- a non-host from writing a FromHost field locally, it just gets steamrolled by the next
- incoming snapshot, so the manual guard is still load-bearing. This is a different recipe
- from the per-owner-object pattern (`NetworkSpawn(owner)` + `IsProxy` guard) — don't reach
- for `NetworkSpawn` when there's no per-client owner, only one shared host-owned truth.
+ networking), NOT `Never`, confirmed in `Sandbox.Engine.xml`. **CORRECTED 2026-07-31
+ (doc + engine-source verified, engine build 26.07.22):** this bullet used to say that a
+ scene-wide singleton (world state everyone reads, only the host mutates: chaos meters,
+ day/night clocks, run stats) does NOT need `NetworkSpawn`/`NetworkMode.Object`, and that
+ letting the `GameObject` build identically on every peer is enough to converge its
+ `[Sync(SyncFlags.FromHost)]` fields. That is wrong. The official `sync-properties.md`
+ doc: *"`[Sync]` only works when the GameObject has the `NetworkMode.Object` mode.
+ Properties on `NetworkMode.Snapshot` objects are never synced after the initial snapshot
+ to anyone, even if marked with `[Sync]`."* Engine source confirms the mechanism: the
+ `NetworkObject` that carries the sync table is only constructed inside `NetworkSpawn(...)`
+ or on receipt of a create message, so a `Snapshot`-mode object never gets one and
+ `[Sync]` is inert on it. What looked like convergence on deterministically-bootstrapped
+ objects was every peer independently building the same starting value, not live syncing;
+ any field that changes on a `Snapshot` object afterward will silently diverge between
+ peers and stay diverged. `NetworkMode.Object`, entered via `NetworkSpawn()`, is mandatory
+ before `[Sync]` does anything, and it is NOT limited to per-owner objects (player bodies,
+ transient projectiles): it is required for any object carrying a `[Sync]` field, full
+ stop. For one shared host-owned truth that means the host `NetworkSpawn()`s the singleton
+ and clients do not create a competing local copy. Unchanged and still load-bearing: the
+ engine does NOT stop a non-host from writing a FromHost field locally, it just gets
+ steamrolled by the next incoming snapshot, so keep gating every mutation with
+ `if (Networking.IsActive && !Networking.IsHost) return;`.
 
 - `Json.Serialize` / `Json.Deserialize<T>` (Sandbox's) + `FileSystem.Data` for saves —
  missing JSON fields land as defaults, so append-only save evolution is safe. Keep
