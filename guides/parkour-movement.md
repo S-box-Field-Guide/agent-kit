@@ -32,7 +32,7 @@ level-design math that makes it tunable.
 
 The basic kinematic mover (wish-dir from camera yaw, sphere trace + slide-plane
 projection) starts with
-[kinematic-movement-startedsolid](kinematic-movement-startedsolid). This guide
+[kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid). This guide
 is the traversal layer on top.
 
 ## Foundation rules (violate none)
@@ -78,7 +78,7 @@ is the traversal layer on top.
 - **Double jump: set vertical velocity DIRECTLY.** The controller's `Jump()`
   clamps against rising velocity and silently no-ops mid-air — do not "fix" that
   back; write `Velocity.z`. See
-  [double-jump-set-velocity-directly](double-jump-set-velocity-directly). Steer
+  [double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly). Steer
   the second jump toward the held direction.
 - **Refresh rules create routes**: refreshing the double jump on wall touch and
   grapple attach turns walls into route nodes and enables chains.

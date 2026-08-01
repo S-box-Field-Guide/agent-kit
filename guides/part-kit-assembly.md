@@ -60,8 +60,8 @@ No physics shapes on the kit meshes. Code composes simple `BoxCollider`s from
 manifest are cheaper and cleaner than per-poly hulls, and never drift from the
 placement contract. Do NOT infer collision from decorative render bounds and do
 NOT add an indiscriminate concave collider — see
-[model-no-collision](model-no-collision) and
-[scaled-collider-didnt-scale](scaled-collider-didnt-scale).
+[model-no-collision](https://sboxguide.dev/fix/model-no-collision) and
+[scaled-collider-didnt-scale](https://sboxguide.dev/fix/scaled-collider-didnt-scale).
 
 ## 4. Position through ONE tested frame mapping
 
@@ -72,7 +72,7 @@ world-correct while every mesh sits spun in place. So the conversion constants
 and the facing yaw must always flip together, and **position-correctness alone
 proves nothing about frame-correctness** — verify facing with a screenshot + an
 asymmetric-feature probe. See
-[model-imported-wrong-facing](model-imported-wrong-facing).
+[model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing).
 
 ## 5. Assembly is transactional
 
@@ -111,4 +111,4 @@ append-only discipline as every other spec in the house — and the same spirit 
 [spec-replication networking](/guides/networking-methods).
 
 Units reminder: author in meters, convert once at the engine boundary —
-[sbox-units-are-inches](sbox-units-are-inches).
+[sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches).

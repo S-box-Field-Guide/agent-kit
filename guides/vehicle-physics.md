@@ -34,7 +34,7 @@ peaked curves, a torque-curve drivetrain, layered assists, and arcade dials on
 top of a sim core.
 
 Official docs cover `Rigidbody`/`PhysicsBody`/traces; there is no vehicle-physics
-method doc. See [rigidbody-component-api](rigidbody-component-api) for the engine
+method doc. See [rigidbody-component-api](https://sboxguide.dev/fix/rigidbody-component-api) for the engine
 surface.
 
 ## Locked architecture (don't re-litigate these)
@@ -45,7 +45,7 @@ surface.
    separate research track, not the baseline.
 2. **SI units everywhere; convert at the engine boundary**
    (`MetersToUnits = 39.37f`). All internal math in meters/N/kg/s — see
-   [sbox-units-are-inches](sbox-units-are-inches).
+   [sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches).
 3. **Set gravity explicitly** — the stock scene gravity is ~2.2 g and will
    silently wreck every tuned number.
 4. **Deterministic**: no runtime RNG in physics or tests; scripted maneuvers
@@ -275,7 +275,7 @@ adjust*. Rules that made it work:
 - **Spawn at suspension equilibrium height** — `surface + radius` starts the
   springs at full extension and the car porpoises.
 - **`Rotation.FromYaw(+angle)` turns LEFT** — the steering-sign bug; see
-  [rotation-fromyaw-is-ccw](rotation-fromyaw-is-ccw).
+  [rotation-fromyaw-is-ccw](https://sboxguide.dev/fix/rotation-fromyaw-is-ccw).
 - **Recovery / unflip** must re-level against the ground normal and re-freeze
   briefly, or the car re-enters contact mid-correction and carts.
 - **Fall-through** on coarse/stepped collision: size the wheel shapecast and

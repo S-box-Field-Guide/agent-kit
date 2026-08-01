@@ -37,7 +37,7 @@ per-face UVs, and dirty-chunk remesh for a live terrain brush.
 Official docs cover the raw API (`new Mesh(material)`,
 `CreateVertexBuffer/IndexBuffer`,
 `Model.Builder.AddMesh().AddCollisionMesh().Create()`) — this guide is the
-method on top. See also [runtime-world-building-helpers](runtime-world-building-helpers).
+method on top. See also [runtime-world-building-helpers](https://sboxguide.dev/fix/runtime-world-building-helpers).
 
 ## Architecture: grid → mesher → chunks
 
@@ -105,7 +105,7 @@ reads −Z.
 
 Author every pass in **meters**; exactly one `× 39.37` at vertex emission. Two
 conversions (or zero) is the classic scale bug — see
-[sbox-units-are-inches](sbox-units-are-inches).
+[sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches).
 
 ## 3. Collision is NOT the render mesh
 
@@ -190,7 +190,7 @@ never touch the vendored code:
   `Destroy()` is deferred and the destroy queue doesn't process between
   tool-driven regenerations — the superseded world keeps rendering ON TOP of the
   new one. Invisible when specs match, "doubled/wrong world" when they differ.
-  See [edit-mode-destroy-query-lag](edit-mode-destroy-query-lag).
+  See [edit-mode-destroy-query-lag](https://sboxguide.dev/fix/edit-mode-destroy-query-lag).
 - Assert scene invariants on every regen: `worldRootCount == 1`,
   `chunkGOs == expectedChunks`.
 - Budget habit: log a census line (`chunks / tris / ms`) on every rebuild; keep a
@@ -231,7 +231,7 @@ path**, constant-seeded integer-hash value noise only, pure functions of (x, y).
 Same spec = byte-identical grid — provable with a process-independent content
 hash over the grid arrays (with per-array sub-hashes that localize a divergence).
 That hash is what makes regression testing, save-as-delta
-([saveload-without-drift](saveload-without-drift)), and
+([saveload-without-drift](https://sboxguide.dev/fix/saveload-without-drift)), and
 [spec-replication networking](/guides/networking-methods) possible.
 
 Clear any static per-gen capture at the top of every generation.

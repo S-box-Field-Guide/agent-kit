@@ -140,7 +140,7 @@ Scene.Camera.GameObject
 2. Offset a child GameObject by `-bounds.Center` so the per-item offset table places the model's visual **center**, not its origin (AI-generated meshes often have off-center origins).
 3. Keep the forward offset past the camera's `ZNear` (~0.25 m default) — 0.42 m+ is safe.
 
-Per-item offsets are a camera-local data table (forward, left, up in metres + rotation + scale multiplier), tuned per gadget. *(Note: specific offset values are unverified on screen — the architecture is proven but visual tuning requires a live editor session.)*
+Per-item offsets are a camera-local data table (forward, left, up in metres + rotation + scale multiplier), tuned per gadget. **Unverified:** the specific offset values have never been checked on screen. The architecture is proven; the visual tuning needs a live editor session.
 
 ## Part 4 — arms rig + holdtype
 
@@ -155,13 +155,13 @@ _armsAnim.HoldType = holdType;
 _armsAnim.Handedness = handedness;
 ```
 
-Gate the whole arms rig behind a tuning flag. If the preview model doesn't carry the citizen skeleton/animgraph (unconfirmed — it may render in bind pose), fall back to an **item-only** viewmodel: just the gadget at a natural offset, no arms. Item actions are input-driven and never touch the rig, so gameplay is identical regardless.
+Gate the whole arms rig behind a tuning flag. **Unverified:** whether the preview model carries the citizen skeleton/animgraph is unconfirmed, and it may render in bind pose. If it does not, fall back to an **item-only** viewmodel: just the gadget at a natural offset, no arms. Item actions are input-driven and never touch the rig, so gameplay is identical regardless.
 
 ## Part 5 — sway + bob
 
 Composed on the **viewmodel root's** local transform, so arms + item move together and the camera is never touched. Look-sway lags the rig opposite a fast mouse turn and eases back; walk-bob is a `sin` cycle scaled by a **smoothed** horizontal speed (raw fixed-tick position deltas jitter at 50 Hz — smooth the speed or the bob amplitude flickers frame-to-frame), plus a tiny always-on idle breathe.
 
-*(Note: sway/bob feel and amplitudes are code-tuned but unverified on screen — the math is standard FPS viewmodel motion, reasoned starting points.)*
+**Unverified:** the sway/bob feel and amplitudes are code-tuned but have never been checked on screen. The math is standard FPS viewmodel motion, so treat the numbers as reasoned starting points.
 
 ## Gotchas
 

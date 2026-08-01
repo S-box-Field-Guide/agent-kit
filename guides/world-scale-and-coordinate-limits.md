@@ -29,14 +29,14 @@ In-engine facts here carry the engine build they were verified on: the unit conv
 
 This guide exists to kill one recurring confusion: **when someone says "a 20k world", they almost never mean the same thing twice.** "20k" is three different numbers depending on whether it is units, meters, or a folk-rounded Source-1 map-extent, and they are about 1550x apart. Read the units section first; everything else hangs off it.
 
-Cross-refs: the [runtime terrain meshing guide](/guides/runtime-terrain-meshing) (the "grain is free area" sizing lever, which this guide frames in coordinate/units terms but does not restate), and [sbox-units-are-inches](sbox-units-are-inches) (the raw unit atom).
+Cross-refs: the [runtime terrain meshing guide](/guides/runtime-terrain-meshing) (the "grain is free area" sizing lever, which this guide frames in coordinate/units terms but does not restate), and [sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) (the raw unit atom).
 
 ## 1. Units: the one conversion that resolves "20k" (VERIFIED)
 
 s&box measures world space in **units, where 1 unit = 1 inch** (the inherited Source convention). The exact conversion:
 
 - **1 meter = 39.37 units**; **1 unit = 0.0254 m**.
-- Do all design math in SI, convert once at the engine boundary (`const float MetersToUnits = 39.37f`). Two conversions, or zero, is the classic scale bug (see the runtime terrain meshing units note and [sbox-units-are-inches](sbox-units-are-inches)).
+- Do all design math in SI, convert once at the engine boundary (`const float MetersToUnits = 39.37f`). Two conversions, or zero, is the classic scale bug (see the runtime terrain meshing units note and [sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches)).
 
 So "20k" disambiguates to three numbers that are wildly different:
 

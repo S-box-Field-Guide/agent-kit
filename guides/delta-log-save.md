@@ -31,7 +31,7 @@ spec → replay edits in order. Proven with a round-trip suite: grid hash
 byte-identical across save→different-world→load, and pixel-identical
 screenshots.
 
-Companion pieces: [saveload-without-drift](saveload-without-drift),
+Companion pieces: [saveload-without-drift](https://sboxguide.dev/fix/saveload-without-drift),
 [/guides/runtime-terrain-meshing](/guides/runtime-terrain-meshing) (grid as
 truth), [/guides/networking-methods](/guides/networking-methods) (spec
 replication + late join).
