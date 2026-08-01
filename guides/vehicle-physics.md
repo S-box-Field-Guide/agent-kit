@@ -144,7 +144,7 @@ Three findings from making a drift-exit complaint measurable:
    retention. Keep a slip-angle floor so deliberate power-oversteer is untouched.
 3. **Deep-slide momentum scrub is ellipse-rate physics**: the only real lever on
    scrub/recovery depth is the LATERAL curve's tail — which moves every
-   cornering maneuver, so gate it on a battery + owner call.
+   cornering maneuver, so gate it on a full maneuver battery plus a deliberate feel decision.
 
 ## Spin-recovery: the uncovered throttle quadrant
 

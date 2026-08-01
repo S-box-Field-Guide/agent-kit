@@ -39,7 +39,7 @@ constants use, and a draggable-slider panel that dumps C#-ready constant lines
 for paste-back. What you tune on screen is byte-for-byte what the baked constant
 reproduces.
 
-Provenance: shipped and owner-verified live in a voxel-terrain project with six
+Provenance: shipped and verified live in a voxel-terrain project with six
 Tripo-generated traversal gadgets mounted and position-tuned to final values in
 one session.
 
@@ -206,7 +206,7 @@ static Tune SeedFor(ItemKind k)
 Because every entry starts equal to the constant, **opening the panel changes
 nothing until a value is touched.** And because the controller now reads
 `MountTweak.For(kind)` at the EXACT seam it used to read the mounts static --
-same follow methods -- what the owner tunes is byte-for-byte what a constant edit
+same follow methods -- what you tune on screen is byte-for-byte what a constant edit
 will reproduce. No "the panel looked right but the bake drifted" gap.
 
 ### Tabbed panel, hotbar-drives-the-tab
