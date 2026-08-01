@@ -114,14 +114,14 @@
    automatically stay behind the modal just because the modal was created later.
 
 - **A freshly-scaffolded project's `Code/Assembly.cs` can be MISSING `global using System;`
- even though `project-setup.md`'s own template includes it — don't assume the stock
+ even though the project-skeleton guide's own template includes it — don't assume the stock
  scaffold matches the documented template.** Copying vehicle code (`Math.Clamp`,
  `MathF.Abs`, etc. — used throughout without an explicit `System.` prefix, per house
  convention) into a project whose Assembly.cs only had
  `Sandbox`/`System.Collections.Generic`/`System.Linq` produced 57 `CS0103: The name
  'MathF'/'Math' does not exist in the current context` errors across every vehicle file
  in one build. Fix: always check the destination project's Assembly.cs against
- `project-setup.md`'s template (`Sandbox`, `System`, `System.Collections.Generic`,
+ the project-skeleton guide's template (`Sandbox`, `System`, `System.Collections.Generic`,
  `System.Linq`, `System.Threading.Tasks`, plus the project's own razor namespace) before
  transplanting code from another project, not just after the first compile error.
 - **Draggable slider tracks (click-to-jump + drag-to-scrub) on a hand-rolled `PanelComponent`
