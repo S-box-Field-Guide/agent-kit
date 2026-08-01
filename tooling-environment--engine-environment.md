@@ -36,7 +36,7 @@
 - **Deriving a visual's FACING from horizontal velocity flips 180° on any momentum reversal —
  lock facing to an attach-time azimuth for pendulums/oscillators, don't re-derive it each tick.**
  A rope-swing visual that set `fwd = horiz.Normal` snapped the body around every time the
- pendulum reversed (owner: "I go forward then start going backwards and I turn the other way —
+ pendulum reversed (reported symptom: "I go forward then start going backwards and I turn the other way —
  weird; a kid on a swing keeps facing and swings BACKWARD"). Root cause: horizontal velocity's
  SIGN reverses at every arc endpoint, so a velocity-heading facing is discontinuous. Fix: pick a
  facing azimuth ONCE at attach (from the initial swing impulse), hold it constant, and only
@@ -71,7 +71,7 @@
 - **Pure-nearest target selection re-grabs the anchor you just left — score by DIRECTION OF
  TRAVEL and exclude the just-released target briefly.** one project's `NearestGrabpoint` was
  distance-only, so dismounting a swing and grabbing again yanked the character BACK to the same
- anchor even after flinging toward a closer new one (owner: "pulls me back to the thing I just
+ anchor even after flinging toward a closer new one (reported symptom: "pulls me back to the thing I just
  dismounted"). Fix: (a) remember the released anchor and EXCLUDE it from re-selection for a window
  (~0.8 s, longer than the same-anchor debounce cooldown), falling back to it only if nothing else
  is in reach (never a dead grab); (b) bias the score toward travel: `score = dist × (1 −
@@ -154,8 +154,8 @@
  never either length alone** - (physics offset of the root from the feature) minus (measured
  offset of the body part above the root in the ACTIVE clip). The bar-swing weld lifted the
  mesh by the full BarSwingRadius (0.7 m) when the bar_spin clip's hands already sit a measured
- 0.664 m up the body - hands ended 0.66 m PAST the bar (owner: upside-down character, hands on
- nothing). Correct lift = 0.7 - 0.664 = ~0.04 m. Each swing surface plays its OWN clip
+ 0.664 m up the body - hands ended 0.66 m PAST the bar (reported symptom: upside-down character,
+ hands on nothing). Correct lift = 0.7 - 0.664 = ~0.04 m. Each swing surface plays its OWN clip
  (bar_spin vs hm_swing), so each gets its OWN measured constant (tools/measure_hang_pose.py
  measures both).
 
@@ -201,8 +201,8 @@
 
 - **An aimed bot grabbing through a scored "best in reach" selector must hold grab ONLY while
  the intended target is inside hand reach** — holding at intent time catches whichever
- bystander enters the assist window first (11/11 wrong-grabs across three an agent suite
- runs had the wanted element ≥3.5 m away at the steal). Check where the hand-open sphere
+ bystander enters the assist window first (11/11 wrong-grabs across three autopilot harness
+ suite runs had the wanted element ≥3.5 m away at the steal). Check where the hand-open sphere
  trips along the approach: a bystander equidistant at that point coin-flips the selector —
  shrink the window past the crossover.
 
@@ -236,7 +236,7 @@
 
 - **Fixing a generator whose bad emitted data a consumer already compensates for = DOUBLE-correction unless the contract is versioned.** The part-kit C# loader corrected the manifest's 180°-yawed `local_bounds_*` inside `BoundsCenterM`; fixing the python emitter to write true values would have silently re-broken every collider centre on new kits (correct data + legacy correction = wrong again). Fix pattern: bump the manifest schema id (`partkit/1` → `/2`), normalize LEGACY data once at load into the true convention, and make every downstream consumer convention-free — never leave a compensating transform inline in a consumer, because the next producer fix can't see it. Equivalence of the v1 path is provable by algebra (−(min+max)/2 on recorded == +(min+max)/2 on normalized) — check that before trusting a normalization refactor.
 
-- **The `NodeClimbOn` routine op dismounts by KICKING OFF the wall (a climb/wall jump away from the face), landing back on the FLOOR — it is NOT a top-mantle onto whatever sits above.** (TickNodeClimb phase 3: `_jumpLatch` then `return State==Ground`.) So an automated MULTI-STAGE climb (climb panel1 → stand on a ledge → climb panel2 off that ledge) is NOT achievable in a single routine: after stage 1 the piloted character is on the ground to the SIDE of the face, never on the ledge, and stage 2's field (based up at ledge height) is then unreachable from the floor. Build the staged structure as an OWNER-PLAYABLE layout feature, cover each stage's climb field with the climb-fields boot audit, and have the automated routine climb the reachable BASE stage only.
+- **The `NodeClimbOn` routine op dismounts by KICKING OFF the wall (a climb/wall jump away from the face), landing back on the FLOOR — it is NOT a top-mantle onto whatever sits above.** (TickNodeClimb phase 3: `_jumpLatch` then `return State==Ground`.) So an automated MULTI-STAGE climb (climb panel1 → stand on a ledge → climb panel2 off that ledge) is NOT achievable in a single routine: after stage 1 the piloted character is on the ground to the SIDE of the face, never on the ledge, and stage 2's field (based up at ledge height) is then unreachable from the floor. Build the staged structure as a PLAYER-PLAYABLE layout feature, cover each stage's climb field with the climb-fields boot audit, and have the automated routine climb the reachable BASE stage only.
 
 - **A Standalone export differs from the editor/published-client runtime in ways that break editor-built tooling (verified live, engine 26.07.22).** (1) `FileSystem.Data` = `data\.local\<ident>\`, NOT `data\<org>\<ident>\`; (2) logs go to `logs\<ident>.log`, not `sbox*.log`; (3) console `quit` THROWS (kill the process externally — a per-frame quit-retry loop wrote a 102 MB log in minutes); (4) it boots straight into the game (`StandaloneAppSystem.Init` calls `CreateGame`, never `CreateMenu`). Also: `+game <ident>` joins a session but `-rungame <ident>` only opens the package-page modal; game-assembly convars take command-line `+value` at REGISTRATION time (`ConVarSystem.AddConVar` re-reads the command line as each convar registers). → [fix article](/fix/standalone-export-runtime-differs)
 

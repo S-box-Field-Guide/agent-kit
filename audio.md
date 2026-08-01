@@ -28,14 +28,16 @@
   stateful SharedState/RunStats).
 - **The event STRING must be the FULL resource path WITH extension (`"sounds/impact/boing_a.sound"`)
   or the BARE filename (`"boing_a"`) — a partial path like `"impact/boing_a"` NEVER resolves**
-. Decompiled contract (`Sandbox.Engine.dll` → `SoundEvent.Find`):
+  (engine 26.07.08c; muted EVERY custom event in one project for a full day while the compiled
+  `.sound_c` sat healthy on disk). Decompiled contract (`Sandbox.Engine.dll` → `SoundEvent.Find`):
   (1) `ResourceLibrary.Get<SoundEvent>(name)` — a cache-HASH lookup keyed by the full
   `ResourcePath` incl. `.sound`; `Resource.FixPath` only normalizes slashes/strips `_c`, it never
   prepends `sounds/` or appends the extension, so partial paths can't hash-match; (2) fallback
   compares `ResourceName` — the bare FILENAME, which never contains `/`. The install's own
   `Sound.Play("cardboard_rustle_loop")` works only via form 2 — generalizing it to
-  `"family/name"` (as the audio-v1 agent did) fits NEITHER form. Don't trust "Couldn't find
-  sound event" to mean a missing/uncompiled asset: probe the LIVE editor first —
+  `"family/name"` fits NEITHER form. Don't trust "Couldn't find
+  sound event" to mean a missing/uncompiled asset: probe the LIVE editor first (a project-defined
+  `[McpTool]` in `Editor/` that resolves an event name) —
   it distinguishes name-form bugs from index/compile bugs in one call, no play mode needed.
   Fix pattern: translate house names at ONE boundary.
 
