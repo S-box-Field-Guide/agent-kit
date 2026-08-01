@@ -42,7 +42,7 @@
  dynamically and identity-probe rather than pinning a number. Before ANY mutating call,
  identity-probe the endpoint: `editor_status` must name the expected Project AND `search_tools`
  for a project-defined `[McpTool]` prefix must hit, because the project name alone can go stale
- when owners reshuffle ports. If the settings page (Editor Settings, MCP Server) shows Enabled
+ when ports get reshuffled. If the settings page (Editor Settings, MCP Server) shows Enabled
  checked but "Not running", the bind failed on a taken port: set a free port there to restart the
  listener on a port that is actually free.
 
@@ -84,15 +84,15 @@
  `asset_compile`d over the MCP before spawn — but a successful compile returns
  `{"Success":true, "CompiledFile":"…"or""}` where `CompiledFile` is often an EMPTY string
  even on success** (it only fills in when that call actually did the compile vs. finding it
- already up to date). Gate on `Success`, never on a non-empty `CompiledFile`. All 26
- the project starter-prop vmdls + `atlas.vmat` + a flat vmat compiled Success on first
+ already up to date). Gate on `Success`, never on a non-empty `CompiledFile`. All 26 of
+ the project's starter-prop vmdls + `atlas.vmat` + a flat vmat compiled Success on first
  try with zero material/remap defects (the both-names remap rule + white-tex+g_vColorTint
  flat recipe held).
 
 - **`System.Array.Clone()` is BLOCKED by the s&box whitelist, but the headless `dotnet build`
  does NOT enforce the whitelist — so a `(float[])arr.Clone()` snapshot compiles green offline
  and only fails on the in-editor compile (`SB1000: 'System.Array.Clone()' is not allowed when
- whitelist is enabled`).** M4's RiverPass/RoadPass snapshotted the heightfield with `.Clone()`;
+ whitelist is enabled`).** A river/road terrain pass snapshotted the heightfield with `.Clone()`;
  `dotnet build ... --no-incremental` was clean, then `compile_status` over the MCP showed 2
  SB1000 errors. Fix: a plain loop copy (`var c = new float[n]; for(i) c[i]=src[i];`) or
  `Array.Copy` — both whitelist-safe. LESSON: the headless build is necessary but NOT sufficient
@@ -108,7 +108,7 @@
  Plain `.cs` files still error correctly; the gap is specifically Razor codegen.
 
 - **Autopilot progress metrics must be state-gated** - sampling "max height gained" across a
- whole routine counts the ballistic kick-off apex as climb progress (gb_pilot_lab run 1 read
+ whole routine counts the ballistic kick-off apex as climb progress (a pilot-lab run read
  7.2 m on a 4.1 m tower). Gate progress samples on the state that earns them (Climb/WallRun
  only).
 
@@ -143,16 +143,16 @@
  Play→Stop→Play.** A command/report bridge (editor tool POSTs a command into a game-assembly static;
  the play component consumes it and writes a report back) carries STALE state across a play restart —
  a leftover `InCharacterMode = true` made the new session's director skip spawning, so the first
- `wb_walk` no-op'd against a null character. Clear the per-session flags (and drop any un-consumed
+ walk command no-op'd against a null character. Clear the per-session flags (and drop any un-consumed
  command) from the boot singleton's `OnEnabled` (runs synchronously at Create, before any command is
  read). Same family as the Sfx/HideSpot ResetForNewSession lifecycle rule. Also: `System.Threading`
  (`Volatile`/`Interlocked`) is NOT whitelisted in the game assembly — a plain `int` token compare is
  whitelist-safe and torn-read-proof for int on x64, use that for the bridge's command token.
 
 - **Project `[McpTool]`s that take one STRING JSON param are invoked as `{"<paramName>": "<json string>"}`,
- not as the JSON object directly.** `wb_character(string argsJson)` is called with
+ not as the JSON object directly.** A `character(string argsJson)` tool is called with
  `{"argsJson":"{\"op\":\"probe\",\"x\":480}"}` — passing `{"op":"probe",…}` errors "Unknown argument
- 'op'". Same shape as `wb_generate(specJson)` / `wb_brush(opsJson)`. The client's stdout on Windows is
+ 'op'". Same shape as a `generate(specJson)` / `brush(opsJson)` tool. The client's stdout on Windows is
  cp1252 and crashes printing a tool description containing a non-ASCII char (e.g. `∈`) — set
  `PYTHONIOENCODING=utf-8`.
 
@@ -167,7 +167,7 @@
  the in-editor compile of the new source finished — the render "not changing" across a code edit is the tell.
  Also do a clean `unpossess`→`possess` for a fresh run report: a stale bridge report (e.g. reached=3/3 from a
  prior session's 3-waypoint route) surfaces on the first status poll and looks like your new command no-op'd.
- And `wb_walk` arrival is HORIZONTAL-only — a slide/descent leg's target must sit PAST the base of the face or
+ And walk-command arrival is HORIZONTAL-only — a slide/descent leg's target must sit PAST the base of the face or
  it "arrives" mid-descent and ends the leg early.
 
 - **Editor-viewport auto-exposure ADAPTS over wall-clock frames, so two screenshots of a BYTE-IDENTICAL
@@ -181,13 +181,13 @@
  per-channel mean to A's before thresholding, which cancels a uniform tint but preserves a LOCALIZED
  structural difference (a real stale overlapping world is not uniform and survives). Post-normalization
  noise floor across five sweeps: 0.0-0.21%; real structural staleness reads 15-25% (100x). Same family
- as the WbFpsProbe warmup-skip. The grid hash stays the authoritative return-to-start gate; the
+ as an FPS probe's warmup-skip. The grid hash stays the authoritative return-to-start gate; the
  screenshot diff is the coarse structural one.
 
 - **The editor MCP `editor_camera_screenshot` renders through the `editor_camera` GameObject, NOT the
  game "Camera" — so one project camera's Tonemapping/Bloom/exposure components do NOT grade your shots, and
  the editor VIEWPORT's own auto-exposure normalizes overall brightness.** Consequence for a runtime
- lighting grade (the project WbLighting): brightening the sun/ambient/sky uniformly reads as NO change
+ lighting grade: brightening the sun/ambient/sky uniformly reads as NO change
  (auto-exposure claws it back); only COLOUR BALANCE and directional contrast survive. Verified with an
  "orange sun" diagnostic — the terrain went fully orange, proving the DirectionalLight IS driving the
  edit-mode render, but a mild warm-white sun looked identical to cool-white because exposure normalized
@@ -197,10 +197,10 @@
  blue stock skybox + baked envmap + viewport exposure cap it; a genuinely bright grade needs a paler
  skybox material or viewport-exposure control.
 
-- **Shared multi-agent working tree: `git checkout -b` branches off wherever HEAD currently is, which a
- CONCURRENT agent may have moved out from under you.** In the project a vehicle-milestone session
- committed its WIP to `m98-vehicles` and left that branch checked out; a look-pass session that then ran
- `git checkout -b m95c-look-rounds` (intending "off main") silently branched off `m98-vehicles`, stacking
+- **Shared working tree: `git checkout -b` branches off wherever HEAD currently is, which a
+ CONCURRENT writer may have moved out from under you.** In one project a vehicle branch was
+ committed and left checked out; a later `git checkout -b look-rounds` (intending "off main")
+ silently branched off the vehicle branch, stacking
  its commits on top of 5 unrelated vehicle commits. Detect via `git reflog` (the "checkout: moving from X
  to Y" line names the REAL base) and `git log --oneline main..HEAD`. Recover cleanly with
  `git rebase --onto main <real-base>` when the two commit sets touch DISJOINT files (verify with
@@ -217,7 +217,7 @@
  (probe ON) - purely a capture-path artifact. Triage screen-space vs world-space artifacts FIRST by edge
  orientation (world/chunk seams project as DIAGONALS at a 45-deg hero yaw; renderer tiles stay
  screen-axis-aligned even in perspective) and by back-to-back no-change captures (flip-flop = temporal
- race, not content). Guard (tools/wb_gamecam.py): burst-capture, keep the BRIGHTEST frame that has a
+ race, not content). Guard: burst-capture, keep the BRIGHTEST frame that has a
  pixel-level twin among the burst - a mid-flip tiled frame has no twin, so it can never be saved, and
  brightest = the stable play-mode state. Bonus finding: the scene-stock probe box is +/-512 u (~13 m) -
  ~1% of the diorama; resize it to enclose world + cameras (byte-identical render when the probe is on).
@@ -233,13 +233,13 @@
 - **The s&box editor's "Mcp Server Enabled" preference does not reliably persist across editor
  restarts (a force-killed editor never flushes it), and it CANNOT be enabled headlessly — no config
  file, no convar, no CLI flag stores it (verified by byte-searching the install + user profile while
- a sibling editor served MCP).** If the editor restarts, the agent harness is DOWN until a human
- toggles Edit → Preferences → MCP Server (port table: the project 7200, one project 7269). Budget
- for this in any round that spans an editor restart: probe `editor_status` FIRST, and if the port is
- dead, surface one line to the owner ("toggle MCP on") instead of burning the session hunting for a
+ a sibling editor served MCP).** If the editor restarts, the MCP harness is DOWN until a human
+ toggles Edit → Preferences → MCP Server. Budget
+ for this in any run that spans an editor restart: probe `editor_status` FIRST, and if the port is
+ dead, ask for the toggle in one line instead of hunting for a
  bypass — a project-side auto-enable hook is possible in principle (set
  `EditorPreferences.McpServerEnabled` from an `[EditorEvent.Frame]` once-guard in the Editor assembly)
- but is a persistence mechanism the owner must explicitly approve first.
+ but it is a persistence mechanism worth deciding on deliberately.
 
 ## Save / load
 
@@ -264,7 +264,7 @@
   `Velocity with { z = 0 }.Length` for a surface-clamped reading. Better: compute and log
   *both* and flag if they diverge (divergence = the car is airborne or off-world).
 
-- **Migrating process-global world/session STATE off `static` fields onto a scene-owned `Component` (the prereq for host-authoritative multiplayer): keep ONE `public static T Local` pointer to preserve the editor→play handoff — but do NOT name it `Active`.** The state (grid, spec, world root, registries) moves onto instance fields; readers that said `WorldGen.Grid` now say `WorldSession.Local?.Grid`. The static pointer is NOT the shared-state the audit objected to — under deterministic-spec replication each process has exactly ONE local world, so one pointer per process is correct (same role as `.Instance`). Three load-bearing details verified this milestone ( M12.0): (1) **Never name that member `Active`** — `Component.Active` is the engine's enabled flag, so `static X Active` raises CS0108 (hides inherited member) and, in intermediate edit states, `Active = this` fails as "cannot be assigned — read only"; use `Local` / `Instance` / `Current`. (2) **Set the pointer INSIDE the regenerate/build path** (`Local = this;`), not in `OnEnabled` — that reproduces the old "last-generated-wins" static semantics exactly, incl. the editor→play spec handoff: the edit-scene component instance stays alive across the boundary (same process, no assembly reload), so play-mode boot reads the authored spec off `Local` BEFORE it `ResolveFor(playScene)`-creates the fresh play session. (3) The editor MCP tools and the play-mode boot both resolve the session by SCENE (`Scene.GetAllComponents<T>.FirstOrDefault` or create a holder GO), so edit and play each own the right instance. Gate a pure refactor with the grid-hash: byte-identical before/after proves no gen drift. The leftover `[Sync(FromHost)]` on the spec field is the NEXT milestone — don't half-build replication in the de-static pass.
+- **Migrating process-global world/session STATE off `static` fields onto a scene-owned `Component` (the prereq for host-authoritative multiplayer): keep ONE `public static T Local` pointer to preserve the editor→play handoff — but do NOT name it `Active`.** The state (grid, spec, world root, registries) moves onto instance fields; readers that said `WorldGen.Grid` now go through the session component's `Local` pointer. The static pointer is NOT the shared-state the audit objected to — under deterministic-spec replication each process has exactly ONE local world, so one pointer per process is correct (same role as `.Instance`). Three load-bearing details: (1) **Never name that member `Active`** — `Component.Active` is the engine's enabled flag, so `static X Active` raises CS0108 (hides inherited member) and, in intermediate edit states, `Active = this` fails as "cannot be assigned — read only"; use `Local` / `Instance` / `Current`. (2) **Set the pointer INSIDE the regenerate/build path** (`Local = this;`), not in `OnEnabled` — that reproduces the old "last-generated-wins" static semantics exactly, incl. the editor→play spec handoff: the edit-scene component instance stays alive across the boundary (same process, no assembly reload), so play-mode boot reads the authored spec off `Local` BEFORE it `ResolveFor(playScene)`-creates the fresh play session. (3) The editor MCP tools and the play-mode boot both resolve the session by SCENE (`Scene.GetAllComponents<T>.FirstOrDefault` or create a holder GO), so edit and play each own the right instance. Gate a pure refactor with the grid-hash: byte-identical before/after proves no gen drift. The leftover `[Sync(FromHost)]` on the spec field is the NEXT milestone — don't half-build replication in the de-static pass.
 
 - **Frozen-world / session-mode enforcement lives in ONE code choke-point, not in hidden UI - put the explicit mode enum on a menu-level component (NOT the world/session state object) and guard the single regenerate method + the edit driver on it.** M12.3 (``): a `static SessionMode Mode` (Authoring/Hosting/Joining/Joined), reset to Authoring in `OnEnabled` (statics leak across Play->Stop->Play), read by everything that must behave differently while a server is live. The D5 lockdown is enforced in CODE: `WorldSession.Regenerate` returns `Error="world is live - stop server to edit"` when `Mode` is Hosting/Joined (the ONE method every boot/UI/MCP regen funnels through, so no hidden path bypasses it), and `BrushController` refuses to arm off-Authoring - UI hiding of the sliders is cosmetic, the guard is the enforcement (audit lesson). The load-bearing subtlety: the CLIENT's join-time regen must be ALLOWED, so the frozen check keys on Hosting/Joined only and the client regenerates while in the transient `Joining` mode (freeze applies once it flips `Joined` on handshake-OK). "Launch Server" does NOT re-run generation - it re-publishes the already-authored spec (`PublishFrozenSpec` sets the `[Sync(FromHost)]` NetSpecJson), so the frozen guard never fights the freeze itself.
 
