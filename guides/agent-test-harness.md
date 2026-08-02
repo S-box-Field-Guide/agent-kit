@@ -2,7 +2,7 @@
 title: Agent test harness — MCP-driven in-editor playtest automation
 slug: agent-test-harness
 date: "2026-07-13"
-updated: "2026-07-20T12:00:00-04:00"
+updated: "2026-08-02T14:00:00-04:00"
 lanes:
   - tooling-environment
   - ai-assisted-workflow
@@ -15,8 +15,8 @@ summary: >-
   The architecture for letting an agent (or CI) drive the live s&box editor:
   compile-gate, spawn, play, inject input, read telemetry, screenshot, assert,
   and gate a merge on the numbers — with no human at the keyboard.
-verifiedOn: "26.07.15a"
-sourceRev: 0bae76b10a15
+verifiedOn: "26.07.22"
+sourceRev: 0603e1d84353
 relatedFixes:
   - first-play-compile-checklist
   - dotnet-build-misses-razor-errors
@@ -27,6 +27,7 @@ relatedFixes:
 unverified: false
 changelog:
   - { date: "2026-07-20", note: "Added coarse-telemetry trap to operational checklist" }
+  - { date: "2026-08-02", note: "Console buffer depth is build-dependent (~500-2000, not a fixed constant) — harvest the tail and accumulate deduped; added the log-file vs read_console line-format mismatch trap. Re-verified on engine 26.07.22." }
 ---
 
 The method for letting an agent (or CI) drive the live s&box editor: compile-gate,
@@ -156,7 +157,10 @@ One machine-parseable line per unit, one roll-up line per suite:
 Rules: a distinct prefix per producer; the roll-up is THE assertion (`SUITE DONE
 … failed=0` ⇒ green); **audits are standing target-0 invariants that run on every
 mutating step for free**. Failure details must name the exact diverged
-expectation. Console buffer holds ~2000 entries and rolls — read promptly.
+expectation. The console buffer depth is **build-dependent** — measured ~2000 entries
+on one engine build and ~502 on a later one, so treat it as variable, not a fixed
+constant — and it rolls. Don't assume a size: harvest the tail every few seconds and
+accumulate de-duplicated lines so a roll between polls can't lose data.
 
 ## 7. The spec runner (JSON suites + the live loop)
 
@@ -193,10 +197,10 @@ the **compiler wedge** signature is `Success=false` + 0 diagnostics +
 `NeedsBuild=false` → bump a source file's mtime to dirty it; a stale assembly
 silently runs old code — mtime-bump + recheck proves the hotload path.
 
-Traps: see [first-play-compile-checklist](https://sboxguide.dev/fix/first-play-compile-checklist),
-[dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors),
-[editor-hotload-expectations](https://sboxguide.dev/fix/editor-hotload-expectations),
-[stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload).
+Traps: see [first-play-compile-checklist](first-play-compile-checklist),
+[dotnet-build-misses-razor-errors](dotnet-build-misses-razor-errors),
+[editor-hotload-expectations](editor-hotload-expectations),
+[stale-assembly-hotload](stale-assembly-hotload).
 
 ## 8. Screenshot judging (the part everyone gets wrong)
 
@@ -322,7 +326,7 @@ roamer that exercises the world surface at scale:
 | Return-to-start screenshot differs, hash equal | Viewport auto-exposure — settle + normalize |
 | Agent waits forever on a battery | Poll `read_console` for the suite's last line |
 | Progress metrics read 0 mid-run | Autopilot metrics are state-gated |
-| Run tokens missing from `read_console` | Per-tick telemetry floods the console ring -- read the editor log file with a flush delay, or grep for your exact token |
+| Run tokens missing from `read_console` | Per-tick telemetry floods the console ring -- read the editor log file with a flush delay, or grep for your exact token. NOTE: the log-file line format differs from `read_console`'s (`YYYY/MM/DD HH:MM:SS.ffff` + tab + `[channel] msg`, vs `HH:MM:SS [Channel] Level: msg`) — a console-shaped regex parses ZERO lines from the log file and reads as "no data" instead of "wrong parser"; key on the shared `[xx] ` marker so one regex covers both sources |
 | Dent/damage hash flakes despite fresh-play | A driven crash run-up isn't byte-identical -- inject a pinned synthetic impact through the real damage path instead |
 | Just-spawned component hook no-ops on first tick | `OnStart`/bind hasn't run -- gate on bound state + settle-tick floor |
 | Recovery maneuver re-hits the wall / flips | Don't reverse-then-drive -- teleport the damage-preserving object to a clean lane, zero velocity, then measure |
@@ -330,5 +334,5 @@ roamer that exercises the world surface at scale:
 | Face-load/jounce A/B reads ~98-99% retention on both variants | Telemetry too coarse (~2 Hz) for a curvature-discontinuity transient a couple of ticks wide — use a finer trace or jounce proxy (suspension load / G-trace) |
 
 Get the compile gate and identity probe right and everything else is iteration.
-Parallel agents need an [ownership map](https://sboxguide.dev/fix/agent-file-ownership-discipline) before
+Parallel agents need an [ownership map](agent-file-ownership-discipline) before
 they share a harness.
