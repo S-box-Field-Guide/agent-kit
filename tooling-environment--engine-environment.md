@@ -182,9 +182,8 @@
 - **`Angles` struct fields are lowercase `.pitch/.yaw/.roll`, `Vector3` fields are lowercase
  `.x/.y/.z` — do NOT trust capitalized `.Pitch/.Yaw/.Roll` sightings elsewhere in a codebase
  as proof of the struct's own casing.** Grepping this dev folder turns up BOTH casings: the
- lowercase form on `Angles`/`Vector3` themselves (`drive/Code/MapGen/AddressMapBuilder.cs`
- `heading.x, heading.y`; `addons/menu/Code/AvatarEditor/AvatarEditManager.Camera.cs`
- `_angle.yaw`/`_angle.pitch`/`_angle.roll`), and a capitalized form that belongs to unrelated
+ lowercase form on `Angles`/`Vector3` themselves (e.g. `heading.x, heading.y`, and the
+ shipped avatar-editor addon's `_angle.yaw`/`_angle.pitch`/`_angle.roll`), and a capitalized form that belongs to unrelated
  component properties (e.g. `CitizenAnimationHelper.Pitch/Yaw/Roll` are the animation rig's
  own float properties, nothing to do with the `Angles` struct). Confirm field casing against a
  usage of the SPECIFIC type you're touching, not the first case-matching hit in a repo grep —

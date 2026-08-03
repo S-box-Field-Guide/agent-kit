@@ -217,7 +217,7 @@
  (probe ON) - purely a capture-path artifact. Triage screen-space vs world-space artifacts FIRST by edge
  orientation (world/chunk seams project as DIAGONALS at a 45-deg hero yaw; renderer tiles stay
  screen-axis-aligned even in perspective) and by back-to-back no-change captures (flip-flop = temporal
- race, not content). Guard (tools/wb_gamecam.py): burst-capture, keep the BRIGHTEST frame that has a
+ race, not content). Guard: burst-capture, keep the BRIGHTEST frame that has a
  pixel-level twin among the burst - a mid-flip tiled frame has no twin, so it can never be saved, and
  brightest = the stable play-mode state. Bonus finding: the scene-stock probe box is +/-512 u (~13 m) -
  ~1% of the diorama; resize it to enclose world + cameras (byte-identical render when the probe is on).
@@ -330,3 +330,5 @@
 - **`GetAllComponents<T>` (and every `Scene`/`GameObject` component query) does NOT return disabled components** — so a distance cull that flips `ModelRenderer.Enabled=false` and re-queries each frame loses exactly the objects it just disabled: a census under-reports by the culled count, and a re-enable pass can never find its own disabled objects again. Capture renderer references ONCE at spawn and drive `Enabled` off that held list, never off a per-frame query. `ClothingContainer.Apply` adds bone-merged CHILD `SkinnedModelRenderer`s, so capture with `FindMode.Enabled | InSelf | InDescendants` (after clothing is applied), not a self-only query. → [fix article](/fix/disabled-components-invisible-to-getallcomponents)
 
 - **A `public void Reset()` on a Component compiles clean and silently SHADOWS the engine's own `Component.Reset()`** — the only signal is a `CS0114` warning, and a quiet-verbosity gate (`dotnet build -v q`) prints only errors, so green ≠ warning-free. Which `Reset()` runs depends on the call site's compile-time type, so "clear my own state" can silently collide with lifecycle machinery. Don't name a Component method after an engine lifecycle method unless you mean to hook it (use `ResetState`/`Clear`), and read the actual warning list at least once per new Component.
+
+- **On a dressed citizen, `GetAllComponents<SkinnedModelRenderer>().FirstOrDefault()` can return a bone-merged CLOTHING renderer (a hat) instead of the body — silently, non-null.** Citizen clothing attaches as its own bone-merged `SkinnedModelRenderer` sibling/child, so a dressed citizen carries MULTIPLE valid instances and `FirstOrDefault()` returns whichever enumerates first. A sequence probe against a hat reports every clip ABSENT ("model has no sequences" — really "this is a hat"). Select the body renderer explicitly (e.g. the one whose `Model` is `citizen.vmdl`) or hold the root's assigned reference; never grab the first blind. Distinct from a child-renderer lookup returning NULL — this returns a WRONG non-null renderer by enumeration order.

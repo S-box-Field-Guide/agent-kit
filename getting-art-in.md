@@ -138,17 +138,18 @@
 ## Lighting & sky
 
 - **No dedicated ambient-light or gradient-fog component exists in this engine.**
- `DirectionalLight` (a plain Component — "angle" is just `WorldRotation =
- Rotation.From(pitch, yaw, roll)`) folds BOTH hue and intensity into `LightColor`
- (scale the Color itself to dim/brighten, no separate lux field) and exposes
- `SkyColor` as the only ambient/bounce-color knob and `FogMode`/`FogStrength` as
- the only fog knob — there is no `Sandbox.AmbientLight`/scene-wide ambient
- property and no standalone gradient-fog component anywhere in the sibling
- projects. `SkyBox2D.Tint` (Color) IS a real runtime-settable multiply on the sky
- material (confirmed against a `sky.shader` .vmat's own `g_vTint` field — Tint is
- that same hook) with no separate rotation/angle property. A day/night cycle is
- therefore: rotate the sun's GameObject, scale `LightColor`/`SkyColor`, and scale
- `SkyBox2D.Tint` — no other engine surface needed.
+ `DirectionalLight` is a plain Component ("angle" is just `WorldRotation =
+ Rotation.From(pitch, yaw, roll)`); it exposes `LightColor`, plus `SkyColor` as the
+ only ambient/bounce-color knob and `FogMode`/`FogStrength` as the only fog knob —
+ there is no `Sandbox.AmbientLight`/scene-wide ambient property and no standalone
+ gradient-fog component. `SkyBox2D.Tint` (Color) IS a real runtime-settable multiply
+ on the sky material (it maps to the sky shader's own `g_vTint` field), with no
+ separate rotation/angle property. **Correction (26.07.22, live-measured):
+ `DirectionalLight.LightColor` is a HUE control, NOT an intensity/brightness dial —
+ scaling it by any positive scalar from 0.001 to 5.0 renders IDENTICALLY, and only
+ `Color.Black` turns the light off.** A day/night cycle can still rotate the sun's
+ GameObject and scale `SkyColor`/`SkyBox2D.Tint`, but treat directional BRIGHTNESS as
+ an open problem — `LightColor` magnitude does not drive it.
 - **`MathF` has no `Lerp` in this engine's .NET target — use `MathX.Lerp`/
  `MathX.LerpDegrees`** (s&box's own math helper class). `Color.Lerp` does exist
  separately for Color values.
@@ -267,14 +268,16 @@
  TEXTURE defaulting to black.
 - **`PointLight` is a usable game Component even with no sibling precedent and thin XML
  docs.** The engine XML lists no `Radius`/`LightColor` on `Sandbox.PointLight` (only the
- base `Light.LightColor`), and no game project uses it — but the install's EDITOR addons
+ base `Light.LightColor`), and no game project uses it — but the shipped EDITOR addons
  do, with the real config: `var l = go.GetOrAddComponent<PointLight>(); l.LightColor =
- color * intensity; l.Radius = units; l.Shadows = false;`
- (`addons/tools/Code/Editor/Clothing/ClothingScene.cs`,
- `addons/tools/Code/WidgetGallery/Examples/SceneRendering.cs`). `LightColor` folds hue AND
- intensity (multiply the Color to brighten, same as DirectionalLight), `Radius` is reach
- in engine UNITS. When one project-facing API surface looks empty, check what the shipped
- editor tooling calls — it exercises the same runtime components.
+ color * intensity; l.Radius = units; l.Shadows = false;`. `Radius` is reach in engine
+ UNITS, and the editor-addon convention drives brightness by multiplying `LightColor`
+ (`color * intensity`). **Correction (26.07.22): the earlier "same as DirectionalLight"
+ comparison was wrong — `DirectionalLight.LightColor` is hue-only and does NOT dim by
+ magnitude; the `color * intensity` brightness pattern here is a `PointLight` editor-addon
+ convention, not verified-equivalent behavior on DirectionalLight.** When a project-facing
+ API surface looks empty, check what the shipped editor tooling calls — it exercises the
+ same runtime components.
 - **Trajectory/aim previews: sample by ARC LENGTH, not by time.** Even-time samples of a
  ballistic arc bunch at the apex (slow) and spread near the ends (fast) → an ugly uneven
  gap pattern that "swings" as the aim moves. Fix: integrate once at a fine substep with
@@ -412,3 +415,15 @@
 - **Adding tread/sidewall detail geometry to a wheel mesh can silently push its effective radius past an exact-diameter contract the rest of the kit depends on (suspension ride height, arch clearance math, ground contact).** Detail geometry that protrudes outward from the tyre's nominal profile is easy to author without noticing it changed the measured radius, because the base profile still looks like the right diameter in a viewport. Re-measure the wheel's actual bounding radius after adding any tread/sidewall detail, not just after the base revolve/loft — treat "exact diameter" as a post-detail invariant to verify, not a property of the base profile alone.
 
 - **A part-generator helper function that accepts BOTH an `axis=` parameter and a `rot=` parameter can silently prefer one over the other when both are supplied, with no warning that the one you set was ignored.** If a helper's implementation resolves orientation from `axis` first and only falls back to `rot` when `axis` is unset (or vice versa), a caller that passes both — reasonably expecting `rot` to fine-tune the `axis`-implied orientation — gets a part silently oriented by whichever parameter the implementation actually reads. Check the helper's actual precedence before assuming the two parameters compose; if they should compose, that has to be implemented explicitly, it does not fall out of accepting both arguments.
+
+- **`DirectionalLight.LightColor` is a HUE control, not an intensity/brightness dial (26.07.22, live-measured).** Scaling it by any positive scalar from 0.001 to 5.0 renders IDENTICALLY; only `Color.Black` turns the light off — there is no dimming range in between, and writing the color components by hand changes nothing either (engine-side normalization). A day/night BRIGHTNESS ramp built on `LightColor` magnitude is a silent no-op; what actually drives directional brightness (exposure/tonemap or a separate multiplier) is unconfirmed. Use `LightColor` for hue, `SkyColor`/`SkyBox2D.Tint` for ambient/sky shifts.
+
+- **Geometry parented under an `IsStatic` root samples its lighting AT CREATION and never resamples — a runtime write to a light component is invisible on it until the world is rebuilt.** A lighting A/B done by mutating a light live and re-screenshotting static geometry shows NO change no matter the delta, because the static geometry baked its lit appearance once at creation. Any lighting A/B touching `IsStatic` geometry must go through the actual WORLD BUILD/rebuild command, never a live component write, or the comparison silently tests nothing and reads as "no effect".
+
+- **`core/materials/dev/primary_white_emissive.vmat` ships COMPILED in the s&box install with a real self-illum mask wired** (`LightSim_SelfIllumMaskTexture` → the shared white TGA). A code-only project gets a working emissive material for free — point a `MaterialOverride`/`Material.Load` at that install path, no vmat authoring, no asset-compiler run — and it sidesteps the black-default-mask silent-matte trap (a self-illum vmat that never sets `TextureSelfIllumMask` gets a black mask and emits nothing). Caveat (26.07.22): `ModelRenderer.Tint` SCALES this material's self-illum term and the response clips near tint 0.38 — a palette in the usual 0.8–1.0 range renders identical pure white; scale tint well below ~0.38 to get hue back out.
+
+- **A complex-shader vmat authored with `g_flModelTintAmount 1.0` makes `ModelRenderer.Tint` MULTIPLY the material's baked `g_vColorTint`, not replace it — one shared material family yields N distinctly-tinted instances with zero `MaterialOverride` and zero per-instance copies.** A deliberately darker sibling material stays proportionally darker across every tinted instance, as the multiply math predicts. This is the intended, reliable use of the `g_vColorTint × ModelTint` multiply — distinct, meaningful per-instance tints; near-white jitter for "barely-visible variety" is the trap (it amplifies into hue rotation/black crush on flat scatter-prop vmats). Caveat carried from source, not re-verified this pass: reflection passes can drop the per-renderer tint (glossy floors mirror tinted models as white ghosts).
+
+- **Headless Blender (`blender --background --python x.py`) exits 0 even when the driven python script raises (Blender 5.2.0 LTS).** A traceback prints but the PROCESS returns success, so a caller checking only the return code reads a crashed asset build as green — the failure surfaces later as a confusing "missing file" downstream. Fix: have the driven script print a distinctive SENTINEL as its absolute last statement (reachable only if everything above completed), and have the caller treat the sentinel's ABSENCE in captured output as failure — never trust the exit code alone to gate a headless Blender build.
+
+- **`obj.matrix_world` is STALE immediately after setting `obj.scale`/`obj.rotation_euler` — Blender's depsgraph updates lazily, so reading it right after building a primitive validates against the pre-transform (near-identity) matrix, not what you just set (Blender 5.2.0 LTS).** A generator that scaled/rotated a primitive then immediately asserted a geometric property (facing, slope, footprint) via `matrix_world` gets a plausible but WRONG answer with no error. Fix: call `bpy.context.view_layer.update()` after setting object-level transforms and BEFORE reading `matrix_world` (or any world-space value) for a validation check.

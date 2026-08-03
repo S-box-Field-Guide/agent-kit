@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**266 / 806 gotchas articled** (33%). Pack-only: **535**. Backlog (status `none`): **5**.
+**269 / 823 gotchas articled** (33%). Pack-only: **549**. Backlog (status `none`): **5**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 89 | 33 | 55 | 1 | 37% |
-| rigging-animation | 41 | 25 | 16 | 0 | 61% |
-| writing-gameplay | 357 | 96 | 260 | 1 | 27% |
-| building-ui | 101 | 47 | 53 | 1 | 47% |
+| getting-art-in | 95 | 34 | 60 | 1 | 36% |
+| rigging-animation | 42 | 25 | 17 | 0 | 60% |
+| writing-gameplay | 362 | 97 | 264 | 1 | 27% |
+| building-ui | 102 | 48 | 53 | 1 | 47% |
 | audio | 13 | 6 | 7 | 0 | 46% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
-| tooling-environment | 196 | 55 | 139 | 2 | 28% |
-| **Total** | **806** | **266** | **535** | **5** | **33%** |
+| tooling-environment | 200 | 55 | 143 | 2 | 28% |
+| **Total** | **823** | **269** | **549** | **5** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -34,6 +34,7 @@
 | `g-art-colliders-live-model-s-own-frame` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
 | `g-art-complex-shader-no-vertex-color-albedo` | [/fix/per-vertex-color-use-baked-texture-not-complex-shader](https://sboxguide.dev/fix/per-vertex-color-use-baked-texture-not-complex-shader) |
 | `g-art-default-scene-gravity-2-2g` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
+| `g-art-directional-light-color-is-a-hue-not-an-intensity-dial` | [/fix/directional-light-color-is-hue-not-intensity](https://sboxguide.dev/fix/directional-light-color-is-hue-not-intensity) |
 | `g-art-disable-instance-shadows-renderer` | [/fix/disable-instance-shadows](https://sboxguide.dev/fix/disable-instance-shadows) |
 | `g-art-double-tint-flat-color-vmat-override` | [/fix/model-tint-flat-vmat-traps](https://sboxguide.dev/fix/model-tint-flat-vmat-traps) |
 | `g-art-flat-color-materials-constant-color-texturec` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
@@ -94,6 +95,7 @@
 | `g-game-fromhost-singleton-must-be-networkspawned-not-runtime-snapshot` | [/fix/fromhost-singleton-needs-networkspawn](https://sboxguide.dev/fix/fromhost-singleton-needs-networkspawn) |
 | `g-game-full-screen-hud-toasts-banners` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-game-gamepad-bumper-gamepadcode-strings-switchlef` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
+| `g-game-getallcomponents-firstordefault-grabs-clothing-not-body` | [/fix/skinnedmodelrenderer-firstordefault-grabs-clothing](https://sboxguide.dev/fix/skinnedmodelrenderer-firstordefault-grabs-clothing) |
 | `g-game-greedy-voxel-mesher-colours-cliff-skirt` | [/fix/greedy-mesher-cliff-vertical-stripes](https://sboxguide.dev/fix/greedy-mesher-cliff-vertical-stripes) |
 | `g-game-grounded-wish-servo-eats-applied-velocity` | [/fix/grounded-wish-servo-eats-applied-velocity](https://sboxguide.dev/fix/grounded-wish-servo-eats-applied-velocity) |
 | `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) |
@@ -245,6 +247,7 @@
 | `g-tool-worktree-missing-gitignored-csproj` | [/fix/git-worktree-missing-gitignored-csproj](https://sboxguide.dev/fix/git-worktree-missing-gitignored-csproj) |
 | `g-ui-absolute-column-auto-height-drops-trailing-children` | [/fix/absolute-column-auto-height-drops-children](https://sboxguide.dev/fix/absolute-column-auto-height-drops-children) |
 | `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet` | [/fix/border-style-solid-scss-parse-error](https://sboxguide.dev/fix/border-style-solid-scss-parse-error) |
+| `g-ui-box-shadow-inset-paints-outside-the-element` | [/fix/box-shadow-inset-paints-outside](https://sboxguide.dev/fix/box-shadow-inset-paints-outside) |
 | `g-ui-buildhash-only-on-panelcomponent` | [/fix/buildhash-override-only-compiles-on-panelcomponent](https://sboxguide.dev/fix/buildhash-override-only-compiles-on-panelcomponent) |
 | `g-ui-buildhash-razor-re-render-trigger` | [/fix/ui-frozen-buildhash](https://sboxguide.dev/fix/ui-frozen-buildhash) |
 | `g-ui-camera-screenshot-text-blocks-block-font-face-verification` | [/fix/camera-screenshot-cannot-verify-fonts](https://sboxguide.dev/fix/camera-screenshot-cannot-verify-fonts) |
@@ -295,11 +298,14 @@
 
 - `g-art-bbox-is-a-downstream-contract`
 - `g-art-blender-headless-duplicate-links-mesh-datablock`
+- `g-art-blender-headless-exit-0-on-python-exception`
+- `g-art-blender-matrix-world-stale-after-scale-rotation-set`
 - `g-art-blender-mesh-validate-hides-degenerate-collision-slivers`
 - `g-art-blender-obj-import-yup-lives-in-object-matrix-not-verts`
 - `g-art-bounds-maxs-invisible-nub-not-visible-top`
 - `g-art-camera-screenshot-renders-through-real-scene`
 - `g-art-child-visual-inherits-yawed-anchor-rotation`
+- `g-art-complex-shader-model-tint-amount-multiplies-baked-color-tint`
 - `g-art-coplanar-zfight-only-shimmers-across-materials`
 - `g-art-correct-sub-part-positions-prove-nothing`
 - `g-art-crossed-card-flat-cross-at-distance`
@@ -314,6 +320,7 @@
 - `g-art-forge-tripo-wearable-item-returns-whole-character`
 - `g-art-generated-obj-vmdl-recipe-blender`
 - `g-art-generator-helper-axis-and-rot-params-silently-prefer-one`
+- `g-art-install-emissive-vmat-compiled-self-illum-mask`
 - `g-art-lock-camera-exposure-kill-auto-exposure`
 - `g-art-lowpoly-wheel-black-blob`
 - `g-art-make-ground-alive-swap-flat-tile`
@@ -336,6 +343,7 @@
 - `g-art-rotated-primitive-spins-about-own-centre-not-part-pivot`
 - `g-art-s-box-obj-import-plain-y`
 - `g-art-shaders-complex-shader-supports`
+- `g-art-static-root-geometry-samples-lighting-at-creation`
 - `g-art-tiling-ground-texture-will-repeat-across`
 - `g-art-transform-local-axis-forward-not-right`
 - `g-art-tread-detail-can-break-exact-diameter-wheel-contract`
@@ -395,6 +403,7 @@
 - `g-game-climb-node-body-standoff-scales-to-prop-radius`
 - `g-game-climbable-stair-step-rises-1-1`
 - `g-game-closed-loop-maneuver-pd-damping-perturbs-basin`
+- `g-game-closed-polyline-offset-needs-mitred-points-not-per-segment`
 - `g-game-clothing-engine-ships-221-local-citizen`
 - `g-game-coarse-telemetry-hz-misses-face-load-transient`
 - `g-game-code-built-floor-must-cover-every-placement`
@@ -412,6 +421,7 @@
 - `g-game-createlobby-transient-fail-under-rapid-rehost-churn`
 - `g-game-crosspass-density-cull-shared-grid-field-not-placed-list`
 - `g-game-crumple-field-anchor-off-struck-surface-dead-air`
+- `g-game-debug-aim-helper-origin-offset-misses-small-targets`
 - `g-game-decal-box-splatted-projectile-s-raw`
 - `g-game-decision-vs-kernel-centre`
 - `g-game-declared-analytic-climb-lattice-not-fit-raycast`
@@ -444,12 +454,14 @@
 - `g-game-fake-height-jump-needs-trace-z-coupled`
 - `g-game-flat-topped-mesas-heightfield-need-two`
 - `g-game-flattest-cell-is-underwater-after-adding-sea`
+- `g-game-follow-slot-must-be-perpendicular-to-leader-heading`
 - `g-game-forge-tripo-vehicle-meshes-re-exported`
 - `g-game-freeze-kinematic-not-destroy-rigidbody-preserves-dependents`
 - `g-game-freshly-generated-vmat-vmdl`
 - `g-game-gate-airborne-metrics-first-ground-contact`
 - `g-game-gen-pass-routes-against-later-mutated-field`
 - `g-game-getbuttonorigin-getglyph-per-string-action-exist`
+- `g-game-graph-prune-isolated-nodes-leaves-sealed-pockets`
 - `g-game-greedy-meshing-delivers-1`
 - `g-game-grid-raymarch-parallel-axis-overflow`
 - `g-game-ground-overlay-lift-ladder-and-self-crossing-seam`
@@ -622,6 +634,7 @@
 - `g-perf-voxel-grain-cellsize-nearly-free-density`
 - `g-rig-ball-at-pivot-joint-overlap`
 - `g-rig-blender-icosphere-subdivisions-off-by-one`
+- `g-rig-citizen-locomotion-clips-authored-speed-in-blend-value-units`
 - `g-rig-citizen-ragdoll-shape-joint-counts`
 - `g-rig-decor-built-at-distant-bone-floats`
 - `g-rig-fbx-export-not-byte-reproducible`
@@ -651,6 +664,7 @@
 - `g-tool-build-headless-command-seams-for-ui-you-cannot-click`
 - `g-tool-build-time-tag-scans-blind-children`
 - `g-tool-byte-identical-asset-copies-neutralize-path-collision`
+- `g-tool-camera-screenshot-game-view-pads-above-crops-below`
 - `g-tool-camera-screenshot-misses-modal-card`
 - `g-tool-camera-screenshot-text-overdraws-measure-with-tint`
 - `g-tool-camera-screenshot-width-height-blank`
@@ -680,6 +694,7 @@
 - `g-tool-editor-mcp-server-s-enable-port`
 - `g-tool-editor-no-hotload-into-running-play-without-focus`
 - `g-tool-editor-onetime-hotreload-orphans-armed-suite`
+- `g-tool-editor-pool-scene-gutted-behind-green-probe`
 - `g-tool-editor-silent-hotload-race`
 - `g-tool-editor-status-activescene-null-both-modes`
 - `g-tool-editor-status-null-mid-hotload`
@@ -733,9 +748,11 @@
 - `g-tool-publish-live-mutable-static-lists-frame`
 - `g-tool-pure-nearest-target-selection-re-grabs`
 - `g-tool-python-cp1252-emoji-stdout-crash`
+- `g-tool-python-driver-top-level-code-reruns-on-import`
 - `g-tool-python-harness-identity-const-from-home-not-hardcode`
 - `g-tool-race-daylength-for-lit-play-screenshots`
 - `g-tool-read-console-cap-buries-probe-lines`
+- `g-tool-read-console-filter-is-substring-not-anchor`
 - `g-tool-recovery-maneuver-reverse-then-drive-rehits-wall`
 - `g-tool-regen-clobbers-hand-tuned-values-in-generated-assets`
 - `g-tool-render-only-is-not-hash-neutral`

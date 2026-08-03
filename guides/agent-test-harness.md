@@ -2,7 +2,7 @@
 title: Agent test harness — MCP-driven in-editor playtest automation
 slug: agent-test-harness
 date: "2026-07-13"
-updated: "2026-08-02T14:00:00-04:00"
+updated: "2026-08-03T14:00:00-04:00"
 lanes:
   - tooling-environment
   - ai-assisted-workflow
@@ -16,7 +16,7 @@ summary: >-
   compile-gate, spawn, play, inject input, read telemetry, screenshot, assert,
   and gate a merge on the numbers — with no human at the keyboard.
 verifiedOn: "26.07.22"
-sourceRev: 0603e1d84353
+sourceRev: 96ade0391f95
 relatedFixes:
   - first-play-compile-checklist
   - dotnet-build-misses-razor-errors
@@ -28,6 +28,7 @@ unverified: false
 changelog:
   - { date: "2026-07-20", note: "Added coarse-telemetry trap to operational checklist" }
   - { date: "2026-08-02", note: "Console buffer depth is build-dependent (~500-2000, not a fixed constant) — harvest the tail and accumulate deduped; added the log-file vs read_console line-format mismatch trap. Re-verified on engine 26.07.22." }
+  - { date: "2026-08-03", note: "Added trap row: a fresh-worktree editor-pool readiness probe can go green before the first-open asset recompile finishes, loading a scene silently gutted — detect via RootObjectCount vs on-disk GameObjects count plus one (editor camera); an editor restart clears it." }
 ---
 
 The method for letting an agent (or CI) drive the live s&box editor: compile-gate,
@@ -332,6 +333,7 @@ roamer that exercises the world surface at scale:
 | Recovery maneuver re-hits the wall / flips | Don't reverse-then-drive -- teleport the damage-preserving object to a clean lane, zero velocity, then measure |
 | New maneuver "unknown" / stale logic in live editor | `static readonly` dict value migrates across hotload -- rename the field to force a fresh dict |
 | Face-load/jounce A/B reads ~98-99% retention on both variants | Telemetry too coarse (~2 Hz) for a curvature-discontinuity transient a couple of ticks wide — use a finer trace or jounce proxy (suspension load / G-trace) |
+| Scene opened right after a fresh-worktree editor-pool launch loads with most root objects missing, no error | Readiness probe (identity + toolset + component) went green before the worktree's first-open asset recompile finished. Restart the editor (the second open is clean); gate fresh-worktree pool launches on a scene-content check (`list_scenes[].RootObjectCount` vs the `.scene` source's GameObjects count **plus one** for the editor camera), not toolset + identity alone |
 
 Get the compile gate and identity probe right and everything else is iteration.
 Parallel agents need an [ownership map](agent-file-ownership-discipline) before

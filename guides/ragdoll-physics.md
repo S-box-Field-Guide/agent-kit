@@ -2,7 +2,7 @@
 title: "Ragdoll physics — scripted-rig NPC crumple without authored collapse clips"
 slug: ragdoll-physics
 date: "2026-07-17T09:14:00-04:00"
-updated: "2026-07-17T09:14:00-04:00"
+updated: "2026-08-03T14:00:00-04:00"
 lanes:
   - writing-gameplay
   - rigging-animation
@@ -17,9 +17,11 @@ summary: >-
   author a physics skeleton in the vmdl, toggle Sandbox.ModelPhysics at runtime,
   and hand bone control back for stand-up. No authored collapse clips needed.
 verifiedOn: "26.07.15a"
-sourceRev: null
+sourceRev: d23b33f3f132
 relatedFixes: []
 unverified: false
+changelog:
+  - { date: "2026-08-03", note: "Added the mechanism for why hand-posing bones is unsound: SetBoneTransform routes to the engine SetPhysicsBone (ragdoll write path) and expects to drive the whole physics skeleton; a passthrough probe confirms driving a subset shatters the skin." }
 ---
 
 The method for making a non-citizen NPC crumple, faint, and tumble via engine physics — so
@@ -37,6 +39,11 @@ component on/off at runtime.
   per rig covers daze, knockout, death, blast-shove — all the same toggle.
 - **Do not pose bones from C# to fake it.** Per-bone `SetBoneTransform` posing is
   documented-unsound; ragdoll is pure engine physics so you never touch bones by hand.
+  The reason: `SetBoneTransform` routes to the engine's `SetPhysicsBone`, so it IS this
+  system's write path and expects to drive the WHOLE physics skeleton. Driving a subset
+  while the rest stays animation-driven shatters the skin — verified by a passthrough
+  probe that writes each bone's animated transform straight back unchanged and breaks
+  anyway, proving the write itself is the fault.
 - **This IS `Sandbox.ModelPhysics`** — the same engine component the citizen ragdoll uses.
   The only difference is that you author the vmdl's physics nodes (from bone lengths)
   instead of inheriting citizen's hand-tuned prefab.
