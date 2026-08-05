@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**269 / 823 gotchas articled** (33%). Pack-only: **549**. Backlog (status `none`): **5**.
+**275 / 841 gotchas articled** (33%). Pack-only: **551**. Backlog (status `none`): **15**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 95 | 34 | 60 | 1 | 36% |
+| getting-art-in | 103 | 35 | 64 | 4 | 34% |
 | rigging-animation | 42 | 25 | 17 | 0 | 60% |
-| writing-gameplay | 362 | 97 | 264 | 1 | 27% |
-| building-ui | 102 | 48 | 53 | 1 | 47% |
-| audio | 13 | 6 | 7 | 0 | 46% |
+| writing-gameplay | 367 | 100 | 263 | 4 | 27% |
+| building-ui | 102 | 49 | 52 | 1 | 48% |
+| audio | 13 | 7 | 6 | 0 | 54% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
-| tooling-environment | 200 | 55 | 143 | 2 | 28% |
-| **Total** | **823** | **269** | **549** | **5** | **33%** |
+| tooling-environment | 205 | 55 | 144 | 6 | 27% |
+| **Total** | **841** | **275** | **551** | **15** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -37,6 +37,7 @@
 | `g-art-directional-light-color-is-a-hue-not-an-intensity-dial` | [/fix/directional-light-color-is-hue-not-intensity](https://sboxguide.dev/fix/directional-light-color-is-hue-not-intensity) |
 | `g-art-disable-instance-shadows-renderer` | [/fix/disable-instance-shadows](https://sboxguide.dev/fix/disable-instance-shadows) |
 | `g-art-double-tint-flat-color-vmat-override` | [/fix/model-tint-flat-vmat-traps](https://sboxguide.dev/fix/model-tint-flat-vmat-traps) |
+| `g-art-engine-ships-render-quality-profiles-that-cap-your-scene` | [/fix/engine-render-quality-profiles-cap-your-scene](https://sboxguide.dev/fix/engine-render-quality-profiles-cap-your-scene) |
 | `g-art-flat-color-materials-constant-color-texturec` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
 | `g-art-high-key-chalky-bright-near-white` | [/fix/high-key-chalky-sky-needs-texture-and-tonemapping](https://sboxguide.dev/fix/high-key-chalky-sky-needs-texture-and-tonemapping) |
 | `g-art-instance-modelrenderer-tint-flat` | [/fix/model-tint-flat-vmat-traps](https://sboxguide.dev/fix/model-tint-flat-vmat-traps) |
@@ -63,6 +64,7 @@
 | `g-audio-playing-sound-fully-static` | [/fix/playing-sound-static-api](https://sboxguide.dev/fix/playing-sound-static-api) |
 | `g-audio-sound-event-file-plain-json-author` | [/fix/authoring-sound-events-by-hand](https://sboxguide.dev/fix/authoring-sound-events-by-hand) |
 | `g-audio-soundevent-has-looping-field` | [/fix/soundevent-no-looping-field](https://sboxguide.dev/fix/soundevent-no-looping-field) |
+| `g-audio-unbaked-mixer-slot-resolves-null-silent` | [/fix/unbaked-mixer-slot-resolves-null-silent](https://sboxguide.dev/fix/unbaked-mixer-slot-resolves-null-silent) |
 | `g-audio-voice-input-action-not-universal` | [/fix/voice-input-action-missing-config](https://sboxguide.dev/fix/voice-input-action-missing-config) |
 | `g-game-air-flicker-resets-defeat-accumulator-guard` | [/fix/accumulator-guard-resets-on-transient-flicker](https://sboxguide.dev/fix/accumulator-guard-resets-on-transient-flicker) |
 | `g-game-analoglook-needs-mousevisibility-hidden-lock` | [/fix/analoglook-needs-mousevisibility-hidden](https://sboxguide.dev/fix/analoglook-needs-mousevisibility-hidden) |
@@ -74,6 +76,8 @@
 | `g-game-climate-bands-scale-with-amplitude` | [/fix/climate-bands-scale-with-amplitude](https://sboxguide.dev/fix/climate-bands-scale-with-amplitude) |
 | `g-game-climb-lattice-from-collision-block-max-not-render` | [/fix/derive-character-geometry-from-collision-not-render-mesh](https://sboxguide.dev/fix/derive-character-geometry-from-collision-not-render-mesh) |
 | `g-game-component-active-real-inherited-member` | [/fix/component-active-naming-shadow](https://sboxguide.dev/fix/component-active-naming-shadow) |
+| `g-game-component-reset-method-shadows-engine-reset` | [/fix/component-reset-method-shadows-engine-reset](https://sboxguide.dev/fix/component-reset-method-shadows-engine-reset) |
+| `g-game-console-focus-starves-every-game-input-read` | [/fix/console-focus-starves-game-input](https://sboxguide.dev/fix/console-focus-starves-game-input) |
 | `g-game-createlobby-async-gate-mode-not-isactive-and-unpossess-on-end` | [/fix/createlobby-async-gate-on-mode](https://sboxguide.dev/fix/createlobby-async-gate-on-mode) |
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
 | `g-game-decal-color-is-lit-albedo-pale-tints-wash-out` | [/fix/decal-color-lit-albedo-washes-out](https://sboxguide.dev/fix/decal-color-lit-albedo-washes-out) |
@@ -84,6 +88,7 @@
 | `g-game-decal-projects-onto-runtime-model-renderers` | [/fix/decal-projects-onto-runtime-model-renderers](https://sboxguide.dev/fix/decal-projects-onto-runtime-model-renderers) |
 | `g-game-dedicated-server-needs-dotnet-runtime` | [/fix/dedicated-server-dotnet-runtime](https://sboxguide.dev/fix/dedicated-server-dotnet-runtime) |
 | `g-game-dedicated-server-unpublished-package-join-fails` | [/fix/dedicated-server-unpublished-package-join-fails](https://sboxguide.dev/fix/dedicated-server-unpublished-package-join-fails) |
+| `g-game-destroy-is-deferred-drop-exclusive-claims-first` | [/fix/destroy-is-deferred-clear-exclusive-claims-first](https://sboxguide.dev/fix/destroy-is-deferred-clear-exclusive-claims-first) |
 | `g-game-devhost-stream-skips-loose-data-files` | [/fix/devhost-stream-skips-loose-data](https://sboxguide.dev/fix/devhost-stream-skips-loose-data) |
 | `g-game-disabled-components-invisible-to-getallcomponents` | [/fix/disabled-components-invisible-to-getallcomponents](https://sboxguide.dev/fix/disabled-components-invisible-to-getallcomponents) |
 | `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
@@ -273,6 +278,7 @@
 | `g-ui-percent-width-flex-child-fill-floats-mid-track` | [/fix/percent-width-fill-floats-mid-track](https://sboxguide.dev/fix/percent-width-fill-floats-mid-track) |
 | `g-ui-radial-gradient-shape-keyword-parses-as-color` | [/fix/radial-gradient-shape-keyword-parses-as-color](https://sboxguide.dev/fix/radial-gradient-shape-keyword-parses-as-color) |
 | `g-ui-razor-computed-text-renders-blank-or-blocks-density` | [/fix/razor-text-renders-blank-density-modes](https://sboxguide.dev/fix/razor-text-renders-blank-density-modes) |
+| `g-ui-razor-email-heuristic-eats-adjacent-interpolation` | [/fix/razor-literal-glued-to-expression-parses-as-email](https://sboxguide.dev/fix/razor-literal-glued-to-expression-parses-as-email) |
 | `g-ui-razor-files-go-global-namespace` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
 | `g-ui-razor-fragment-flex-gap-undermeasures-height` | [/fix/razor-fragment-flex-gap-undermeasures-height](https://sboxguide.dev/fix/razor-fragment-flex-gap-undermeasures-height) |
 | `g-ui-razor-loose-png-blank-in-package` | [/fix/loose-png-in-razor-css-blank-in-published-build](https://sboxguide.dev/fix/loose-png-in-razor-css-blank-in-published-build) |
@@ -314,6 +320,7 @@
 - `g-art-dcc-render-color-not-engine-color`
 - `g-art-dedicated-ambient-light-gradient-fog-compone`
 - `g-art-dent-readability-glossy-paint-vs-static-normals`
+- `g-art-derived-tile-cache-cap-silent-authored-fallback`
 - `g-art-dlo-not-pillar-not-windshield`
 - `g-art-equirect-sky-lower-hemisphere-void`
 - `g-art-forge-tripo-vehicle-shaped-mesh-s`
@@ -322,8 +329,10 @@
 - `g-art-generator-helper-axis-and-rot-params-silently-prefer-one`
 - `g-art-install-emissive-vmat-compiled-self-illum-mask`
 - `g-art-lock-camera-exposure-kill-auto-exposure`
+- `g-art-low-sun-in-a-street-canyon-puts-no-shadow-on-the-ground`
 - `g-art-lowpoly-wheel-black-blob`
 - `g-art-make-ground-alive-swap-flat-tile`
+- `g-art-material-copies-survive-rebuild-break-draw-ab`
 - `g-art-material-load-no-missing-signal`
 - `g-art-materialoverride-replaces-tint-path-box-prop`
 - `g-art-mathf-has-lerp-engine-s`
@@ -345,6 +354,7 @@
 - `g-art-shaders-complex-shader-supports`
 - `g-art-static-root-geometry-samples-lighting-at-creation`
 - `g-art-tiling-ground-texture-will-repeat-across`
+- `g-art-tonemapping-exposure-fields-inert-curve-is-the-dial`
 - `g-art-transform-local-axis-forward-not-right`
 - `g-art-tread-detail-can-break-exact-diameter-wheel-contract`
 - `g-art-trim-crossing-wheel-opening-is-same-defect-as-collider`
@@ -362,7 +372,6 @@
 - `g-audio-freesound-cc0-preview-mp3-no-oauth`
 - `g-audio-no-project-authorable-mixer-bus-system`
 - `g-audio-speaker-line-cooldown`
-- `g-audio-unbaked-mixer-slot-resolves-null-silent`
 - `g-game-adding-sheer-mesa-cliff-terrain-silently`
 - `g-game-addwater-brush-basin-spill-guard`
 - `g-game-aerial-lattice-dilate-blur-sheet-base`
@@ -413,7 +422,6 @@
 - `g-game-collision-listener-surface`
 - `g-game-collisionmesh-shell-walls-shapecast-wheel`
 - `g-game-compile-status-returns-isbuilding-compilers`
-- `g-game-component-reset-method-shadows-engine-reset`
 - `g-game-compound-child-colliders-shift-inertia-not-mass`
 - `g-game-constant-face-atlas-uv-positive-trick`
 - `g-game-containment-settle-lowers-water-alternated-m`
@@ -699,6 +707,7 @@
 - `g-tool-editor-status-activescene-null-both-modes`
 - `g-tool-editor-status-null-mid-hotload`
 - `g-tool-ensure-stopped-return-value-must-drive-ownership-flag`
+- `g-tool-evidence-camera-bypasses-the-post-process-grade`
 - `g-tool-export-bake-editor-digestion-drain`
 - `g-tool-failed-compile-empties-typelibrary-missingcomponent`
 - `g-tool-filesystem-data-multifile-api-whitelisted`
@@ -825,7 +834,6 @@
 - `g-ui-radial-gradient-at-position-unsupported`
 - `g-ui-razor-class-attribute-interpolation-emits-no-class`
 - `g-ui-razor-collection-stateful-child-panels-don`
-- `g-ui-razor-email-heuristic-eats-adjacent-interpolation`
 - `g-ui-razor-live-codegen-drops-mixed-text-whitespace`
 - `g-ui-razor-panel-caches-closures-over-retargeted-target`
 - `g-ui-repeating-linear-gradient-unsupported`
