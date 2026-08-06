@@ -3,7 +3,7 @@
 > Lane pack. Load `_core.md` first, then this file. Denser than the full articles by design;
 > for a matching bullet's full write-up, follow that gotcha's article link in `coverage.md`
 > (full articles live on the Field Guide website, not in this pack). Sanitized public
-> advice; unverified material is either held back or carries an explicit **Unverified:** label. The sync appends new bullets here.
+> advice; unverified material is held privately until verified. The sync appends new bullets here.
 
 This lane is split into flat topic sub-files (every bullet moved verbatim — nothing
 dropped or rewritten). Load `_core.md`, then the sub-file(s) matching your task from

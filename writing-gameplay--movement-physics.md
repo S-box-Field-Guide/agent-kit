@@ -96,11 +96,17 @@
 
 - **Rigidbody component API**: `.Gravity`
  (bool), `.MassOverride` (kg, set-only override), `.Mass` (kg, read), `.Velocity`,
- `.MotionEnabled`, `.PhysicsBody` (nullable → `.MassCenter`, `.AutoSleep`),
- `.ApplyForce(force)`, `.ApplyForceAt(pos, force)` (whole-step), `.ApplyImpulseAt`.
- A dynamic prop = ModelRenderer + non-static BoxCollider (`c.Static = false`) + Rigidbody.
- A drag-toward-hold-point spring: `force = offset * K * body.Mass`, cap magnitude so heavy
- props resist a single puller.
+ `.MotionEnabled`, `.PhysicsBody` (`PhysicsBody?` → `.MassCenter`, `.AutoSleep` [set-only]),
+ `.Sleeping`, `.SleepThreshold`, `.ApplyForce(force)`, `.ApplyForceAt(pos, force)` (whole-step),
+ `.ApplyImpulseAt`. A dynamic prop = ModelRenderer + non-static BoxCollider (`c.Static = false`)
+ + Rigidbody. A drag-toward-hold-point spring: `force = offset * K * body.Mass`, cap magnitude so
+ heavy props resist a single puller.
+ **26.08.05:** `.PhysicsBody` now reads non-null on the SAME TICK `Components.Create<Rigidbody>()`
+ returns (the old ≤26.07.22 null-same-tick trap is fixed; confirmed edit mode + editor play
+ session), so `.PhysicsBody.AutoSleep = false` can be set immediately — but `AutoSleep` is now
+ SET-ONLY (reading it fails to compile, CS0154). `.Sleeping`'s setter is per-body while its getter
+ reads scene-wide, so a per-instance sleep census must read velocity or `PhysicsBody` state
+ directly.
 
 - **A single-tick GroundCheck flicker re-fires landing visuals mid-run.** A trace-based
  ground controller that, on a failed GroundCheck, flips to Air and runs the Air tick in
