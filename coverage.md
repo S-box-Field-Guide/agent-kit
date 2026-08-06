@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**275 / 841 gotchas articled** (33%). Pack-only: **551**. Backlog (status `none`): **15**.
+**278 / 841 gotchas articled** (33%). Pack-only: **548**. Backlog (status `none`): **15**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 103 | 35 | 64 | 4 | 34% |
 | rigging-animation | 42 | 25 | 17 | 0 | 60% |
-| writing-gameplay | 367 | 100 | 263 | 4 | 27% |
-| building-ui | 102 | 49 | 52 | 1 | 48% |
+| writing-gameplay | 367 | 102 | 261 | 4 | 28% |
+| building-ui | 102 | 50 | 51 | 1 | 49% |
 | audio | 13 | 7 | 6 | 0 | 54% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 205 | 55 | 144 | 6 | 27% |
-| **Total** | **841** | **275** | **551** | **15** | **33%** |
+| **Total** | **841** | **278** | **548** | **15** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -97,6 +97,7 @@
 | `g-game-editor-viewport-auto-exposure-adapts-over` | [/fix/editor-auto-exposure-screenshot-diff](https://sboxguide.dev/fix/editor-auto-exposure-screenshot-diff) |
 | `g-game-first-person-hide-player-enumerate-every` | [/fix/first-person-hide-all-renderers](https://sboxguide.dev/fix/first-person-hide-all-renderers) |
 | `g-game-flat-decal-geometry-clear-surface-below` | [/fix/runtime-world-building-helpers](https://sboxguide.dev/fix/runtime-world-building-helpers) |
+| `g-game-freeze-kinematic-not-destroy-rigidbody-preserves-dependents` | [/fix/freeze-physics-actor-kinematic-not-destroy](https://sboxguide.dev/fix/freeze-physics-actor-kinematic-not-destroy) |
 | `g-game-fromhost-singleton-must-be-networkspawned-not-runtime-snapshot` | [/fix/fromhost-singleton-needs-networkspawn](https://sboxguide.dev/fix/fromhost-singleton-needs-networkspawn) |
 | `g-game-full-screen-hud-toasts-banners` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-game-gamepad-bumper-gamepadcode-strings-switchlef` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
@@ -154,6 +155,7 @@
 | `g-game-swept-trace-hitposition-is-surface-endposition-is-shape-center` | [/fix/swept-trace-hitposition-vs-endposition](https://sboxguide.dev/fix/swept-trace-hitposition-vs-endposition) |
 | `g-game-sync-component-created-after-networkspawn-never-pairs` | [/fix/sync-component-after-networkspawn-never-pairs](https://sboxguide.dev/fix/sync-component-after-networkspawn-never-pairs) |
 | `g-game-system-array-clone-blocked` | [/fix/array-clone-blocked-whitelist](https://sboxguide.dev/fix/array-clone-blocked-whitelist) |
+| `g-game-tag-ancestor-walk-breaks-when-tag-reused-lower` | [/fix/tag-ancestor-walk-breaks-on-reuse](https://sboxguide.dev/fix/tag-ancestor-walk-breaks-on-reuse) |
 | `g-game-tag-inheritance-culls-child-renderers` | [/fix/tag-inheritance-culls-child-renderers](https://sboxguide.dev/fix/tag-inheritance-culls-child-renderers) |
 | `g-game-teleport-body-over-geometry-fixed-offset` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
 | `g-game-textentry-ontextedited-action-string` | [/fix/textentry-ontextedited-needs-block-lambda](https://sboxguide.dev/fix/textentry-ontextedited-needs-block-lambda) |
@@ -274,6 +276,7 @@
 | `g-ui-json-serialize-indented-by-default-network-bloat` | [/fix/json-serialize-indents-by-default](https://sboxguide.dev/fix/json-serialize-indents-by-default) |
 | `g-ui-name-classes-after-sandbox-built-ins` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
 | `g-ui-panel-alpha-composites-linear-not-srgb` | [/fix/ui-alpha-composites-linear-not-srgb](https://sboxguide.dev/fix/ui-alpha-composites-linear-not-srgb) |
+| `g-ui-panel-box-model-is-border-box` | [/fix/panel-box-model-is-border-box](https://sboxguide.dev/fix/panel-box-model-is-border-box) |
 | `g-ui-panelcomponent-overrides-ontreebuilt-ontreef` | [/fix/panelcomponent-ontreebuilt-lifecycle](https://sboxguide.dev/fix/panelcomponent-ontreebuilt-lifecycle) |
 | `g-ui-percent-width-flex-child-fill-floats-mid-track` | [/fix/percent-width-fill-floats-mid-track](https://sboxguide.dev/fix/percent-width-fill-floats-mid-track) |
 | `g-ui-radial-gradient-shape-keyword-parses-as-color` | [/fix/radial-gradient-shape-keyword-parses-as-color](https://sboxguide.dev/fix/radial-gradient-shape-keyword-parses-as-color) |
@@ -464,7 +467,6 @@
 - `g-game-flattest-cell-is-underwater-after-adding-sea`
 - `g-game-follow-slot-must-be-perpendicular-to-leader-heading`
 - `g-game-forge-tripo-vehicle-meshes-re-exported`
-- `g-game-freeze-kinematic-not-destroy-rigidbody-preserves-dependents`
 - `g-game-freshly-generated-vmat-vmdl`
 - `g-game-gate-airborne-metrics-first-ground-contact`
 - `g-game-gen-pass-routes-against-later-mutated-field`
@@ -601,7 +603,6 @@
 - `g-game-swing-grab-anchor-needs-visible-dressing`
 - `g-game-swing-pivot-external-moving-anchor-carry`
 - `g-game-synthetic-frontmost-by-face-not-center`
-- `g-game-tag-ancestor-walk-breaks-when-tag-reused-lower`
 - `g-game-tall-boxcollider-building-climb`
 - `g-game-tc-slip-target-above-curve-peak-slide`
 - `g-game-teleport-computed-height-wedges-air-voxel-top`
@@ -830,7 +831,6 @@
 - `g-ui-networking-querylobbies-lobbyinfo-whitelist-clean`
 - `g-ui-no-inline-flex-in-panel-css`
 - `g-ui-overflow-scroll-panel-breaks-even-with-minheight-pins`
-- `g-ui-panel-box-model-is-border-box`
 - `g-ui-radial-gradient-at-position-unsupported`
 - `g-ui-razor-class-attribute-interpolation-emits-no-class`
 - `g-ui-razor-collection-stateful-child-panels-don`
