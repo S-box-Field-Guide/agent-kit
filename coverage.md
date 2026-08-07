@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**278 / 841 gotchas articled** (33%). Pack-only: **548**. Backlog (status `none`): **15**.
+**281 / 854 gotchas articled** (33%). Pack-only: **559**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 103 | 35 | 64 | 4 | 34% |
-| rigging-animation | 42 | 25 | 17 | 0 | 60% |
-| writing-gameplay | 367 | 102 | 261 | 4 | 28% |
-| building-ui | 102 | 50 | 51 | 1 | 49% |
+| getting-art-in | 105 | 36 | 65 | 4 | 34% |
+| rigging-animation | 48 | 25 | 23 | 0 | 52% |
+| writing-gameplay | 368 | 103 | 262 | 3 | 28% |
+| building-ui | 104 | 51 | 52 | 1 | 49% |
 | audio | 13 | 7 | 6 | 0 | 54% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
-| tooling-environment | 205 | 55 | 144 | 6 | 27% |
-| **Total** | **841** | **278** | **548** | **15** | **33%** |
+| tooling-environment | 207 | 55 | 146 | 6 | 27% |
+| **Total** | **854** | **281** | **559** | **14** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -47,6 +47,7 @@
 | `g-art-modelcollider-s-physics-hull-also-follow` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-art-new-shader-committed-without-shaderc-fails-first-load` | [/fix/commit-shader-c-with-new-shader-source](https://sboxguide.dev/fix/commit-shader-c-with-new-shader-source) |
 | `g-art-obj-importer-auto-converts-y-up` | [/fix/blender-headless-pipeline](https://sboxguide.dev/fix/blender-headless-pipeline) |
+| `g-art-pointlight-shadows-true-renders-black` | [/fix/pointlight-shadows-renders-black](https://sboxguide.dev/fix/pointlight-shadows-renders-black) |
 | `g-art-prefer-hand-sized-boxcollider-s-over` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-art-recovery-forge-delivery-fails` | [/fix/forge-failed-delivery-glb-recovery](https://sboxguide.dev/fix/forge-failed-delivery-glb-recovery) |
 | `g-art-s-box-load-raw-obj-glb` | [/fix/sbox-wont-load-obj-glb](https://sboxguide.dev/fix/sbox-wont-load-obj-glb) |
@@ -117,6 +118,7 @@
 | `g-game-joinlocal-empty-code-rejected-by-wire-verify-devhost-seam` | [/fix/joinlocal-presents-empty-invite-code](https://sboxguide.dev/fix/joinlocal-presents-empty-invite-code) |
 | `g-game-joinlocal-second-instance-recipe` | [/fix/joinlocal-two-peer-testing](https://sboxguide.dev/fix/joinlocal-two-peer-testing) |
 | `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
+| `g-game-keyboard-pressed-refires-on-os-auto-repeat` | [/fix/input-pressed-refires-on-key-repeat](https://sboxguide.dev/fix/input-pressed-refires-on-key-repeat) |
 | `g-game-lobby-connect-must-gate-the-exact-candidate-row-used` | [/fix/lobby-connect-gate-exact-candidate](https://sboxguide.dev/fix/lobby-connect-gate-exact-candidate) |
 | `g-game-lobby-game-metadata-set-once-survives-host-game-switch` | [/fix/lobby-metadata-survives-game-switch](https://sboxguide.dev/fix/lobby-metadata-survives-game-switch) |
 | `g-game-manual-visual-smoother-fights-fixedupdate-interpolation` | [/fix/manual-visual-smoother-fights-interpolation](https://sboxguide.dev/fix/manual-visual-smoother-fights-interpolation) |
@@ -284,6 +286,7 @@
 | `g-ui-razor-email-heuristic-eats-adjacent-interpolation` | [/fix/razor-literal-glued-to-expression-parses-as-email](https://sboxguide.dev/fix/razor-literal-glued-to-expression-parses-as-email) |
 | `g-ui-razor-files-go-global-namespace` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
 | `g-ui-razor-fragment-flex-gap-undermeasures-height` | [/fix/razor-fragment-flex-gap-undermeasures-height](https://sboxguide.dev/fix/razor-fragment-flex-gap-undermeasures-height) |
+| `g-ui-razor-if-debug-is-always-false` | [/fix/razor-if-debug-always-false](https://sboxguide.dev/fix/razor-if-debug-always-false) |
 | `g-ui-razor-loose-png-blank-in-package` | [/fix/loose-png-in-razor-css-blank-in-published-build](https://sboxguide.dev/fix/loose-png-in-razor-css-blank-in-published-build) |
 | `g-ui-razor-panel-needs-frames-to-paint-before-sync-block` | [/fix/razor-panel-needs-frames-before-sync-block](https://sboxguide.dev/fix/razor-panel-needs-frames-before-sync-block) |
 | `g-ui-razor-tag-resolution-ignores-global-usings` | [/fix/razor-tag-resolution-ignores-global-usings](https://sboxguide.dev/fix/razor-tag-resolution-ignores-global-usings) |
@@ -339,6 +342,7 @@
 - `g-art-material-load-no-missing-signal`
 - `g-art-materialoverride-replaces-tint-path-box-prop`
 - `g-art-mathf-has-lerp-engine-s`
+- `g-art-mip-chain-erases-detail-finer-than-the-object-it-represents`
 - `g-art-mirrored-sign-convention-passes-numeric-gates-invisibly`
 - `g-art-mission-control-s-forge-auto-deliver`
 - `g-art-model-top-ui-markers`
@@ -426,6 +430,7 @@
 - `g-game-collisionmesh-shell-walls-shapecast-wheel`
 - `g-game-compile-status-returns-isbuilding-compilers`
 - `g-game-compound-child-colliders-shift-inertia-not-mass`
+- `g-game-connection-stats-zero-local-session`
 - `g-game-constant-face-atlas-uv-positive-trick`
 - `g-game-containment-settle-lowers-water-alternated-m`
 - `g-game-continuous-render-above-blockmax-collision-buries-crest-tops`
@@ -643,21 +648,27 @@
 - `g-perf-voxel-grain-cellsize-nearly-free-density`
 - `g-rig-ball-at-pivot-joint-overlap`
 - `g-rig-blender-icosphere-subdivisions-off-by-one`
+- `g-rig-boneoverride-persists-until-cleared`
+- `g-rig-citizen-helper-bones-diverge-under-override`
 - `g-rig-citizen-locomotion-clips-authored-speed-in-blend-value-units`
 - `g-rig-citizen-ragdoll-shape-joint-counts`
 - `g-rig-decor-built-at-distant-bone-floats`
 - `g-rig-fbx-export-not-byte-reproducible`
 - `g-rig-geodesic-weights-wrong-for-primitive-segments`
+- `g-rig-getparentspacebone-always-rest-pose`
 - `g-rig-headless-workbench-preview-render-gotchas`
 - `g-rig-held-prop-weld-via-trygetbonetransform`
+- `g-rig-model-set-before-useanimgraph-switch`
 - `g-rig-new-npc-clip-add-humanoid-clips`
 - `g-rig-opt-additive-authoring-editing-read-rig-library`
 - `g-rig-pair-procedural-whole-body-rotation-clip`
 - `g-rig-pitch-compounds-down-bone-chain`
 - `g-rig-primitive-mesh-reuses-armature-and-clips`
 - `g-rig-quadruped-leg-swing-sign-is-mirrored`
+- `g-rig-ragdoll-tow-heaviest-body-not-grip-limb`
 - `g-rig-scripted-lane-ports-to-new-project`
 - `g-rig-silhouette-variants-on-one-skeleton-visual-only`
+- `g-rig-twobone-ik-no-pole-needs-custom-solve`
 - `g-tool-aimed-bot-grabbing-through-scored-best`
 - `g-tool-arch-slope-tilt-axis-rotate-about`
 - `g-tool-argparse-leading-dash-coordinate-unreachable`
@@ -665,6 +676,7 @@
 - `g-tool-autocrlf-masks-regen-determinism-check`
 - `g-tool-bar-s-release-aimed-within-spin`
 - `g-tool-blender-5-2-compositor-api-removed`
+- `g-tool-blender-bevel-uv-last-bit-noise`
 - `g-tool-blender-headless-hang-factory-startup`
 - `g-tool-blender-headless-opaque-floor-render-recipe`
 - `g-tool-blender-materials-clear-materials-new-name`
@@ -718,6 +730,7 @@
 - `g-tool-game-csproj-build-gate-excludes-editor-folder`
 - `g-tool-get-component-type-blind-to-static-class`
 - `g-tool-git-archive-autocrlf-corrupts-vendored-bytes`
+- `g-tool-global-output-path-props-poison-base-addon`
 - `g-tool-green-compile-status-not-loaded-assembly`
 - `g-tool-harness-last-completed-run-is-stale-in-live-mode`
 - `g-tool-hotload-migrates-static-readonly-registry`
@@ -802,6 +815,7 @@
 - `g-tool-win-openssh-admin-key-path`
 - `g-tool-windows-python3-store-alias`
 - `g-tool-worktree-missing-gitignored-csproj-depth-patch`
+- `g-ui-absolute-child-of-unpositioned-box-lands-on-screen`
 - `g-ui-absolute-percent-fill-needs-position-on-its-own-track`
 - `g-ui-bare-class-selector-matches-descendant-state-class`
 - `g-ui-borderstyle-dashed-standalone-hard-errors`
