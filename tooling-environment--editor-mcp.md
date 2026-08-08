@@ -47,7 +47,7 @@
  `data/local/<ident>/settings.json` on disk while the editor runs is silently ignored - a
  benchmark launched after flipping QualityPreset 0->2 externally still printed `preset=Low`.
  No stock ConVar flips quality in-process either. Headless preset changes need an in-game
- Video-tab click or a project `[ConVar]`-backed setter (planned: gb_quality_preset).
+ Video-tab click or a project `[ConVar]`-backed setter (planned: a project-prefixed quality-preset convar).
 
 - **The engine ships its own built-in `[McpTool]`s as readable C# source, not just compiled
  DLLs — read it before inventing a pattern.** `<path> Files (x86)\Steam\steamapps\common\
