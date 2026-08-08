@@ -27,6 +27,7 @@ Long-form build-order guides for common systems. These are the "how do I archite
 |---|---|---|
 | Agent-buildable project setup | `guides/agent-buildable-project-setup.md` | Fresh project skeleton an agent can build in |
 | Agent test harness | `guides/agent-test-harness.md` | MCP-driven in-editor playtest automation |
+| Agent animation authoring | `guides/agent-animation-authoring.md` | Owner authors hero poses, agents build motion to a numeric definition of done |
 | Character-mounted assets | `guides/character-mounted-assets-live-tuning.md` | Mounting models on player rig with live-tuning |
 | Decals | `guides/decals.md` | Projection, determinism, and performance for Sandbox.Decal |
 | Delta-log save | `guides/delta-log-save.md` | Append-only delta save for large procedural worlds |

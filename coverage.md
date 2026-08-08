@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**281 / 854 gotchas articled** (33%). Pack-only: **559**. Backlog (status `none`): **14**.
+**283 / 866 gotchas articled** (33%). Pack-only: **568**. Backlog (status `none`): **15**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 105 | 36 | 65 | 4 | 34% |
-| rigging-animation | 48 | 25 | 23 | 0 | 52% |
-| writing-gameplay | 368 | 103 | 262 | 3 | 28% |
-| building-ui | 104 | 51 | 52 | 1 | 49% |
+| getting-art-in | 107 | 36 | 66 | 5 | 34% |
+| rigging-animation | 49 | 25 | 24 | 0 | 51% |
+| writing-gameplay | 372 | 103 | 266 | 3 | 28% |
+| building-ui | 106 | 53 | 52 | 1 | 50% |
 | audio | 13 | 7 | 6 | 0 | 54% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
-| tooling-environment | 207 | 55 | 146 | 6 | 27% |
-| **Total** | **854** | **281** | **559** | **14** | **33%** |
+| tooling-environment | 210 | 55 | 149 | 6 | 26% |
+| **Total** | **866** | **283** | **568** | **15** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -268,6 +268,7 @@
 | `g-ui-editor-codegen-requires-constant-property-initializer` | [/fix/editor-codegen-needs-constant-property-initializer](https://sboxguide.dev/fix/editor-codegen-needs-constant-property-initializer) |
 | `g-ui-flex-basis-wins-over-width-collapses-fixed-column` | [/fix/flex-basis-collapses-fixed-column](https://sboxguide.dev/fix/flex-basis-collapses-fixed-column) |
 | `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sboxguide.dev/fix/flex-grow-percentage-child-feedback-loop) |
+| `g-ui-flex-spacer-clips-later-siblings-off-column-end` | [/fix/flex-spacer-clips-trailing-siblings](https://sboxguide.dev/fix/flex-spacer-clips-trailing-siblings) |
 | `g-ui-font-glyph-corruption-is-cumulative-text-count-not-just-font-size` | [/fix/font-glyph-corruption-cumulative-text-count](https://sboxguide.dev/fix/font-glyph-corruption-cumulative-text-count) |
 | `g-ui-font-glyph-corruption-shared-font-size-value-still-triggers` | [/fix/font-glyph-corruption-shared-font-size-value-still-triggers](https://sboxguide.dev/fix/font-glyph-corruption-shared-font-size-value-still-triggers) |
 | `g-ui-freshly-scaffolded-project-s-code-assembly` | [/fix/scaffold-missing-global-usings](https://sboxguide.dev/fix/scaffold-missing-global-usings) |
@@ -279,6 +280,7 @@
 | `g-ui-name-classes-after-sandbox-built-ins` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
 | `g-ui-panel-alpha-composites-linear-not-srgb` | [/fix/ui-alpha-composites-linear-not-srgb](https://sboxguide.dev/fix/ui-alpha-composites-linear-not-srgb) |
 | `g-ui-panel-box-model-is-border-box` | [/fix/panel-box-model-is-border-box](https://sboxguide.dev/fix/panel-box-model-is-border-box) |
+| `g-ui-panel-zindex-paints-but-does-not-order-the-click` | [/fix/zindex-paints-but-does-not-order-clicks](https://sboxguide.dev/fix/zindex-paints-but-does-not-order-clicks) |
 | `g-ui-panelcomponent-overrides-ontreebuilt-ontreef` | [/fix/panelcomponent-ontreebuilt-lifecycle](https://sboxguide.dev/fix/panelcomponent-ontreebuilt-lifecycle) |
 | `g-ui-percent-width-flex-child-fill-floats-mid-track` | [/fix/percent-width-fill-floats-mid-track](https://sboxguide.dev/fix/percent-width-fill-floats-mid-track) |
 | `g-ui-radial-gradient-shape-keyword-parses-as-color` | [/fix/radial-gradient-shape-keyword-parses-as-color](https://sboxguide.dev/fix/radial-gradient-shape-keyword-parses-as-color) |
@@ -333,6 +335,7 @@
 - `g-art-forge-tripo-wearable-item-returns-whole-character`
 - `g-art-generated-obj-vmdl-recipe-blender`
 - `g-art-generator-helper-axis-and-rot-params-silently-prefer-one`
+- `g-art-import-rotation-ignored-by-physicshullfile`
 - `g-art-install-emissive-vmat-compiled-self-illum-mask`
 - `g-art-lock-camera-exposure-kill-auto-exposure`
 - `g-art-low-sun-in-a-street-canyon-puts-no-shadow-on-the-ground`
@@ -401,6 +404,7 @@
 - `g-game-cadence-tuned-streak-window-misses-other-rhythms`
 - `g-game-camera-from-impact-point`
 - `g-game-camera-occlusion-thrashes-swing-anchor`
+- `g-game-camera-transform-is-not-the-view`
 - `g-game-candidate-selector-s-nearest-reach-fallback`
 - `g-game-capsule-band-caps-shrink-ends`
 - `g-game-catch-poll-misses-1tick-transition-latch-edge`
@@ -486,12 +490,14 @@
 - `g-game-heightfield-burial-check-catches-neighbour-column`
 - `g-game-heightfield-riser-taller-than-capsule-intangible`
 - `g-game-hex-hash-constant-top-bit-set`
+- `g-game-hitbox-limb-capsules-straddle-centerline`
 - `g-game-identity-scale-about-pivot-breaks-determinism-hash`
 - `g-game-immobility-accumulator-gated-on-throttle-magnitude-never-fires`
 - `g-game-impactor-width-from-boxcolliders`
 - `g-game-injected-endpoints-not-vendored-pick-nodes`
 - `g-game-input-config-bindings-differ-per-project`
 - `g-game-input-escapepressed-real-getset-consumable`
+- `g-game-input-harness-scene-order-and-fixed-step`
 - `g-game-invisible-grab-point-registration-phantom-sp`
 - `g-game-jet-ski-single-point-buoyancy-grid`
 - `g-game-joinlocal-client-convar-probe-unreachable`
@@ -619,6 +625,7 @@
 - `g-game-tower-platform-geometry-isolated-swing-web`
 - `g-game-trace-ground-snap-adds-fixed-offset`
 - `g-game-trace-hit-exposes-physics-body`
+- `g-game-trace-hitbox-null-without-usehitboxes`
 - `g-game-translucent-splat-models-dev-box-vmdl`
 - `g-game-translucent-water-film-over-bright-warm`
 - `g-game-two-special-case-water-rules-correct`
@@ -658,6 +665,7 @@
 - `g-rig-getparentspacebone-always-rest-pose`
 - `g-rig-headless-workbench-preview-render-gotchas`
 - `g-rig-held-prop-weld-via-trygetbonetransform`
+- `g-rig-hyphen-in-sequence-name-is-dropped-by-the-model-compiler`
 - `g-rig-model-set-before-useanimgraph-switch`
 - `g-rig-new-npc-clip-add-humanoid-clips`
 - `g-rig-opt-additive-authoring-editing-read-rig-library`
@@ -697,6 +705,7 @@
 - `g-tool-console-line-format-differs-from-log-file-format`
 - `g-tool-copied-trace-exclusion-filters-invert-meanin`
 - `g-tool-coplanar-overlay-ribbons-z-fight-give`
+- `g-tool-custom-asset-extension-registration-race`
 - `g-tool-custom-mcptool-single-string-arg-wrapper`
 - `g-tool-deterministic-regen-autocrlf-phantom-diff`
 - `g-tool-driven-approach-dent-hash-nondeterministic`
@@ -737,6 +746,7 @@
 - `g-tool-hotload-stale-assettype-registration-duplicate`
 - `g-tool-hotload-static-catalog-lambda-error-delegated`
 - `g-tool-hysteresis-lives-consumer-stateless-predicat`
+- `g-tool-identical-worktree-subpaths-hide-wrong-root-write`
 - `g-tool-inject-after-router-bindparts`
 - `g-tool-input-press-consumed-bottom-fixed-tick`
 - `g-tool-interface-and-implementer-split-across-branches-fails-only-at-merge-compile`
@@ -754,6 +764,7 @@
 - `g-tool-mcp-restart-loses-bind-race-to-own-predecessor`
 - `g-tool-mcp-two-call-straddles-decay-window`
 - `g-tool-metadata-only-decompile-safe-ground-truth`
+- `g-tool-navmesh-isgenerating-not-set-for-tile-regen`
 - `g-tool-nearest-best-pickers-need-honest-empty`
 - `g-tool-no-game-side-log-listener-onmessage-internal`
 - `g-tool-one-editor-per-project-mcp-identity`
