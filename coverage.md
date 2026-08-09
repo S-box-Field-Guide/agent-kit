@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**283 / 866 gotchas articled** (33%). Pack-only: **568**. Backlog (status `none`): **15**.
+**285 / 866 gotchas articled** (33%). Pack-only: **567**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 107 | 36 | 66 | 5 | 34% |
-| rigging-animation | 49 | 25 | 24 | 0 | 51% |
+| getting-art-in | 107 | 36 | 67 | 4 | 34% |
+| rigging-animation | 49 | 26 | 23 | 0 | 53% |
 | writing-gameplay | 372 | 103 | 266 | 3 | 28% |
-| building-ui | 106 | 53 | 52 | 1 | 50% |
+| building-ui | 106 | 54 | 51 | 1 | 51% |
 | audio | 13 | 7 | 6 | 0 | 54% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 210 | 55 | 149 | 6 | 26% |
-| **Total** | **866** | **283** | **568** | **15** | **33%** |
+| **Total** | **866** | **285** | **567** | **14** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -186,6 +186,7 @@
 | `g-rig-citizen-combat-animgraph-params` | [/fix/citizen-combat-animgraph-params](https://sboxguide.dev/fix/citizen-combat-animgraph-params) |
 | `g-rig-citizen-holdtype-aim-ik-param-map` | [/fix/citizen-holdtype-aim-ik-param-map](https://sboxguide.dev/fix/citizen-holdtype-aim-ik-param-map) |
 | `g-rig-direct-playback-needs-useanimgraph-off-first` | [/fix/direct-sequence-playback-needs-useanimgraph-off-first](https://sboxguide.dev/fix/direct-sequence-playback-needs-useanimgraph-off-first) |
+| `g-rig-hyphen-in-sequence-name-is-dropped-by-the-model-compiler` | [/fix/hyphen-in-sequence-name-dropped-by-model-compiler](https://sboxguide.dev/fix/hyphen-in-sequence-name-dropped-by-model-compiler) |
 | `g-rig-mixamo-mocap-retargets-onto-npc-lane` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
 | `g-rig-model-compiler-sanitizes` | [/fix/bone-name-dot-to-underscore](https://sboxguide.dev/fix/bone-name-dot-to-underscore) |
 | `g-rig-naturalistic-mocap-idles-don-t-loop` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
@@ -254,6 +255,7 @@
 | `g-tool-win-ssh-session-end-kills-children` | [/fix/win-ssh-session-kills-server](https://sboxguide.dev/fix/win-ssh-session-kills-server) |
 | `g-tool-worktree-csproj-relative-sbox-refs` | [/fix/worktree-csproj-relative-sbox-refs](https://sboxguide.dev/fix/worktree-csproj-relative-sbox-refs) |
 | `g-tool-worktree-missing-gitignored-csproj` | [/fix/git-worktree-missing-gitignored-csproj](https://sboxguide.dev/fix/git-worktree-missing-gitignored-csproj) |
+| `g-ui-absolute-child-of-unpositioned-box-lands-on-screen` | [/fix/absolute-child-escapes-unpositioned-panel](https://sboxguide.dev/fix/absolute-child-escapes-unpositioned-panel) |
 | `g-ui-absolute-column-auto-height-drops-trailing-children` | [/fix/absolute-column-auto-height-drops-children](https://sboxguide.dev/fix/absolute-column-auto-height-drops-children) |
 | `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet` | [/fix/border-style-solid-scss-parse-error](https://sboxguide.dev/fix/border-style-solid-scss-parse-error) |
 | `g-ui-box-shadow-inset-paints-outside-the-element` | [/fix/box-shadow-inset-paints-outside](https://sboxguide.dev/fix/box-shadow-inset-paints-outside) |
@@ -353,6 +355,7 @@
 - `g-art-obj-import-flips-v-atlas-uv`
 - `g-art-open-top-citizen-feet-below-tub`
 - `g-art-per-part-checks-miss-assembled-slope-sign`
+- `g-art-physicsshapelist-multiple-tagged-hull-children-compile`
 - `g-art-playground-kit-author-engine-map`
 - `g-art-pointlight-usable-game-component-even-siblin`
 - `g-art-pydata-mesh-no-uv-layer-drops-vt`
@@ -665,7 +668,6 @@
 - `g-rig-getparentspacebone-always-rest-pose`
 - `g-rig-headless-workbench-preview-render-gotchas`
 - `g-rig-held-prop-weld-via-trygetbonetransform`
-- `g-rig-hyphen-in-sequence-name-is-dropped-by-the-model-compiler`
 - `g-rig-model-set-before-useanimgraph-switch`
 - `g-rig-new-npc-clip-add-humanoid-clips`
 - `g-rig-opt-additive-authoring-editing-read-rig-library`
@@ -826,7 +828,6 @@
 - `g-tool-win-openssh-admin-key-path`
 - `g-tool-windows-python3-store-alias`
 - `g-tool-worktree-missing-gitignored-csproj-depth-patch`
-- `g-ui-absolute-child-of-unpositioned-box-lands-on-screen`
 - `g-ui-absolute-percent-fill-needs-position-on-its-own-track`
 - `g-ui-bare-class-selector-matches-descendant-state-class`
 - `g-ui-borderstyle-dashed-standalone-hard-errors`
