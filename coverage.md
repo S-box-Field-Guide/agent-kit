@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**285 / 866 gotchas articled** (33%). Pack-only: **567**. Backlog (status `none`): **14**.
+**286 / 866 gotchas articled** (33%). Pack-only: **566**. Backlog (status `none`): **14**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 107 | 36 | 67 | 4 | 34% |
 | rigging-animation | 49 | 26 | 23 | 0 | 53% |
-| writing-gameplay | 372 | 103 | 266 | 3 | 28% |
+| writing-gameplay | 372 | 104 | 265 | 3 | 28% |
 | building-ui | 106 | 54 | 51 | 1 | 51% |
 | audio | 13 | 7 | 6 | 0 | 54% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 210 | 55 | 149 | 6 | 26% |
-| **Total** | **866** | **285** | **567** | **14** | **33%** |
+| **Total** | **866** | **286** | **566** | **14** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -165,6 +165,7 @@
 | `g-game-trace-api-works` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
 | `g-game-trace-based-kinematic-controller-has-collide` | [/fix/trace-kinematic-no-trigger](https://sboxguide.dev/fix/trace-kinematic-no-trigger) |
 | `g-game-trace-based-movement-trap-player-permanently` | [/fix/kinematic-movement-startedsolid](https://sboxguide.dev/fix/kinematic-movement-startedsolid) |
+| `g-game-trace-hitbox-null-without-usehitboxes` | [/fix/trace-hitbox-requires-usehitboxes](https://sboxguide.dev/fix/trace-hitbox-requires-usehitboxes) |
 | `g-game-viewmodel-parallel-cosmetic-copy-for-fp` | [/fix/viewmodel-parallel-cosmetic-copy](https://sboxguide.dev/fix/viewmodel-parallel-cosmetic-copy) |
 | `g-game-visible-cursor-mouse-input-routing-no-raw-bypass` | [/fix/visible-cursor-mouse-input-routing-gates](https://sboxguide.dev/fix/visible-cursor-mouse-input-routing-gates) |
 | `g-game-whitespace-immediately-adjacent-tag-expressi` | [/fix/razor-whitespace-tag-boundary-collapse](https://sboxguide.dev/fix/razor-whitespace-tag-boundary-collapse) |
@@ -628,7 +629,6 @@
 - `g-game-tower-platform-geometry-isolated-swing-web`
 - `g-game-trace-ground-snap-adds-fixed-offset`
 - `g-game-trace-hit-exposes-physics-body`
-- `g-game-trace-hitbox-null-without-usehitboxes`
 - `g-game-translucent-splat-models-dev-box-vmdl`
 - `g-game-translucent-water-film-over-bright-warm`
 - `g-game-two-special-case-water-rules-correct`
