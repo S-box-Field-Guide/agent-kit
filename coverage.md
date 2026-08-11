@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**286 / 866 gotchas articled** (33%). Pack-only: **566**. Backlog (status `none`): **14**.
+**288 / 866 gotchas articled** (33%). Pack-only: **564**. Backlog (status `none`): **14**.
 
 ## By lane
 
@@ -14,11 +14,11 @@
 | getting-art-in | 107 | 36 | 67 | 4 | 34% |
 | rigging-animation | 49 | 26 | 23 | 0 | 53% |
 | writing-gameplay | 372 | 104 | 265 | 3 | 28% |
-| building-ui | 106 | 54 | 51 | 1 | 51% |
-| audio | 13 | 7 | 6 | 0 | 54% |
+| building-ui | 106 | 55 | 50 | 1 | 52% |
+| audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 210 | 55 | 149 | 6 | 26% |
-| **Total** | **866** | **286** | **566** | **14** | **33%** |
+| **Total** | **866** | **288** | **564** | **14** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -62,6 +62,7 @@
 | `g-art-vmdl-rendermeshfile-compiles-clean-has-zero` | [/fix/model-no-collision](https://sboxguide.dev/fix/model-no-collision) |
 | `g-audio-event-string-full-resource-path-extension` | [/fix/custom-sound-wont-play](https://sboxguide.dev/fix/custom-sound-wont-play) |
 | `g-audio-mp3-valid-source-audio-asset-wav` | [/fix/authoring-sound-events-by-hand](https://sboxguide.dev/fix/authoring-sound-events-by-hand) |
+| `g-audio-no-project-authorable-mixer-bus-system` | [/fix/sbox-has-no-mixer-bus-system](https://sboxguide.dev/fix/sbox-has-no-mixer-bus-system) |
 | `g-audio-playing-sound-fully-static` | [/fix/playing-sound-static-api](https://sboxguide.dev/fix/playing-sound-static-api) |
 | `g-audio-sound-event-file-plain-json-author` | [/fix/authoring-sound-events-by-hand](https://sboxguide.dev/fix/authoring-sound-events-by-hand) |
 | `g-audio-soundevent-has-looping-field` | [/fix/soundevent-no-looping-field](https://sboxguide.dev/fix/soundevent-no-looping-field) |
@@ -280,6 +281,7 @@
 | `g-ui-jetbrains-mono-consolas-shipped-s-box` | [/fix/engine-monospace-roboto-mono](https://sboxguide.dev/fix/engine-monospace-roboto-mono) |
 | `g-ui-json-serialize-deserialize-t` | [/fix/saveload-without-drift](https://sboxguide.dev/fix/saveload-without-drift) |
 | `g-ui-json-serialize-indented-by-default-network-bloat` | [/fix/json-serialize-indents-by-default](https://sboxguide.dev/fix/json-serialize-indents-by-default) |
+| `g-ui-logical-canvas-height-fixed-width-follows-aspect` | [/fix/screenpanel-canvas-is-height-fixed](https://sboxguide.dev/fix/screenpanel-canvas-is-height-fixed) |
 | `g-ui-name-classes-after-sandbox-built-ins` | [/fix/assembly-cs-globals-setup](https://sboxguide.dev/fix/assembly-cs-globals-setup) |
 | `g-ui-panel-alpha-composites-linear-not-srgb` | [/fix/ui-alpha-composites-linear-not-srgb](https://sboxguide.dev/fix/ui-alpha-composites-linear-not-srgb) |
 | `g-ui-panel-box-model-is-border-box` | [/fix/panel-box-model-is-border-box](https://sboxguide.dev/fix/panel-box-model-is-border-box) |
@@ -384,7 +386,6 @@
 - `g-audio-elevenlabs-sfx-cost-character-cost-response`
 - `g-audio-elevenlabs-voices-npc-dialogue-use-tts`
 - `g-audio-freesound-cc0-preview-mp3-no-oauth`
-- `g-audio-no-project-authorable-mixer-bus-system`
 - `g-audio-speaker-line-cooldown`
 - `g-game-adding-sheer-mesa-cliff-terrain-silently`
 - `g-game-addwater-brush-basin-spill-guard`
@@ -848,7 +849,6 @@
 - `g-ui-global-using-alias-resolves-vendored-name-collision`
 - `g-ui-headless-build-validates-razor-csharp-codegen`
 - `g-ui-inline-svg-markup-renders-empty-use-files`
-- `g-ui-logical-canvas-height-fixed-width-follows-aspect`
 - `g-ui-loose-json-under-assets`
 - `g-ui-mcp-camera-captures-first-screenpanel-only`
 - `g-ui-mouse-visible-true-obsolete`
