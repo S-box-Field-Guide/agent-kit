@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**288 / 866 gotchas articled** (33%). Pack-only: **564**. Backlog (status `none`): **14**.
+**290 / 866 gotchas articled** (33%). Pack-only: **562**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 107 | 36 | 67 | 4 | 34% |
+| getting-art-in | 107 | 37 | 66 | 4 | 35% |
 | rigging-animation | 49 | 26 | 23 | 0 | 53% |
-| writing-gameplay | 372 | 104 | 265 | 3 | 28% |
+| writing-gameplay | 372 | 105 | 264 | 3 | 28% |
 | building-ui | 106 | 55 | 50 | 1 | 52% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 210 | 55 | 149 | 6 | 26% |
-| **Total** | **866** | **288** | **564** | **14** | **33%** |
+| **Total** | **866** | **290** | **562** | **14** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -40,6 +40,7 @@
 | `g-art-engine-ships-render-quality-profiles-that-cap-your-scene` | [/fix/engine-render-quality-profiles-cap-your-scene](https://sboxguide.dev/fix/engine-render-quality-profiles-cap-your-scene) |
 | `g-art-flat-color-materials-constant-color-texturec` | [/fix/kenney-cc0-import](https://sboxguide.dev/fix/kenney-cc0-import) |
 | `g-art-high-key-chalky-bright-near-white` | [/fix/high-key-chalky-sky-needs-texture-and-tonemapping](https://sboxguide.dev/fix/high-key-chalky-sky-needs-texture-and-tonemapping) |
+| `g-art-import-rotation-ignored-by-physicshullfile` | [/fix/import-rotation-ignored-by-physicshullfile](https://sboxguide.dev/fix/import-rotation-ignored-by-physicshullfile) |
 | `g-art-instance-modelrenderer-tint-flat` | [/fix/model-tint-flat-vmat-traps](https://sboxguide.dev/fix/model-tint-flat-vmat-traps) |
 | `g-art-meters-authored-waypoint-position-arrays-aud` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
 | `g-art-meters-units-mixups-travel-packs-sweep` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
@@ -138,6 +139,7 @@
 | `g-game-python-s-open-path-w-windows` | [/fix/powershell-mojibake-utf8](https://sboxguide.dev/fix/powershell-mojibake-utf8) |
 | `g-game-quit-teardown-inside-disconnectscope-networking-still-active` | [/fix/quit-teardown-networking-still-active](https://sboxguide.dev/fix/quit-teardown-networking-still-active) |
 | `g-game-rebuild-multisubmesh-material-order` | [/fix/rebuild-multisubmesh-material-order](https://sboxguide.dev/fix/rebuild-multisubmesh-material-order) |
+| `g-game-renderer-sceneobject-null-until-live-shadow-noop` | [/fix/skinnedmodelrenderer-sceneobject-null-until-live](https://sboxguide.dev/fix/skinnedmodelrenderer-sceneobject-null-until-live) |
 | `g-game-rigidbody-component-api` | [/fix/rigidbody-component-api](https://sboxguide.dev/fix/rigidbody-component-api) |
 | `g-game-rolling-slopes-idempotent-ground-snap-still` | [/fix/ground-snap-pops-on-rolling-slopes](https://sboxguide.dev/fix/ground-snap-pops-on-rolling-slopes) |
 | `g-game-rotation-fromyaw-angle-left` | [/fix/rotation-fromyaw-is-ccw](https://sboxguide.dev/fix/rotation-fromyaw-is-ccw) |
@@ -340,7 +342,6 @@
 - `g-art-forge-tripo-wearable-item-returns-whole-character`
 - `g-art-generated-obj-vmdl-recipe-blender`
 - `g-art-generator-helper-axis-and-rot-params-silently-prefer-one`
-- `g-art-import-rotation-ignored-by-physicshullfile`
 - `g-art-install-emissive-vmat-compiled-self-illum-mask`
 - `g-art-lock-camera-exposure-kill-auto-exposure`
 - `g-art-low-sun-in-a-street-canyon-puts-no-shadow-on-the-ground`
@@ -566,7 +567,6 @@
 - `g-game-relief-span-not-slope-is-the-flat-read`
 - `g-game-render-only-hinge-pose-via-child-go`
 - `g-game-renderer-retarget-keeps-source-cache`
-- `g-game-renderer-sceneobject-null-until-live-shadow-noop`
 - `g-game-replicate-record-as-json-string-poll-not-hook`
 - `g-game-rescue-state-write-stomped-by-caller-tick`
 - `g-game-rest-position-spacing-cannot-clear-swinging`
