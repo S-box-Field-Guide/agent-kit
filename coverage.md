@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**290 / 866 gotchas articled** (33%). Pack-only: **562**. Backlog (status `none`): **14**.
+**292 / 866 gotchas articled** (34%). Pack-only: **560**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 107 | 37 | 66 | 4 | 35% |
+| getting-art-in | 107 | 38 | 65 | 4 | 36% |
 | rigging-animation | 49 | 26 | 23 | 0 | 53% |
-| writing-gameplay | 372 | 105 | 264 | 3 | 28% |
+| writing-gameplay | 372 | 106 | 263 | 3 | 28% |
 | building-ui | 106 | 55 | 50 | 1 | 52% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 210 | 55 | 149 | 6 | 26% |
-| **Total** | **866** | **290** | **562** | **14** | **33%** |
+| **Total** | **866** | **292** | **560** | **14** | **34%** |
 
 ## Articled gotchas (skip-list)
 
@@ -56,6 +56,7 @@
 | `g-art-scene-triangle-overload` | [/fix/decimating-ai-meshes](https://sboxguide.dev/fix/decimating-ai-meshes) |
 | `g-art-shaders-complex-shader-compiled` | [/fix/shader-template-field-discovery](https://sboxguide.dev/fix/shader-template-field-discovery) |
 | `g-art-sky-hard-swap-pops-weighted-blend-fix` | [/fix/sky-hard-swap-pops-weighted-blend-fix](https://sboxguide.dev/fix/sky-hard-swap-pops-weighted-blend-fix) |
+| `g-art-static-root-geometry-samples-lighting-at-creation` | [/fix/static-root-geometry-lighting-baked-at-creation](https://sboxguide.dev/fix/static-root-geometry-lighting-baked-at-creation) |
 | `g-art-trajectory-aim-previews-sample-arc-length` | [/fix/trajectory-preview-arc-length-sampling](https://sboxguide.dev/fix/trajectory-preview-arc-length-sampling) |
 | `g-art-vector3-right-0-1-0-x` | [/fix/vector3-right-is-negative-y](https://sboxguide.dev/fix/vector3-right-is-negative-y) |
 | `g-art-vmdl-collision-tags-inert-on-modelcollider` | [/fix/vmdl-per-shape-collision-tags-inert-on-modelcollider](https://sboxguide.dev/fix/vmdl-per-shape-collision-tags-inert-on-modelcollider) |
@@ -132,6 +133,7 @@
 | `g-game-onawake-fires-synchronously-inside-component` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-game-ondisable-nulled-singleton-breaks-on-demand-repossess` | [/fix/ondisable-singleton-blocks-readopt](https://sboxguide.dev/fix/ondisable-singleton-blocks-readopt) |
 | `g-game-orient-flat-decal-box-hit-normal` | [/fix/orient-decal-to-hit-normal](https://sboxguide.dev/fix/orient-decal-to-hit-normal) |
+| `g-game-per-instance-global-input-unconditional-multi-entity` | [/fix/component-input-read-fires-every-instance](https://sboxguide.dev/fix/component-input-read-fires-every-instance) |
 | `g-game-perched-lakes-ignore-sea-level-drain-by-basin-gate` | [/fix/perched-lakes-ignore-sea-level-drain](https://sboxguide.dev/fix/perched-lakes-ignore-sea-level-drain) |
 | `g-game-prefer-runtime-world-building-over-giant` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
 | `g-game-proxy-overhead-ui-anchored-off-non-synced-owner-field-freezes` | [/fix/proxy-overhead-ui-frozen-at-spawn](https://sboxguide.dev/fix/proxy-overhead-ui-frozen-at-spawn) |
@@ -369,7 +371,6 @@
 - `g-art-rotated-primitive-spins-about-own-centre-not-part-pivot`
 - `g-art-s-box-obj-import-plain-y`
 - `g-art-shaders-complex-shader-supports`
-- `g-art-static-root-geometry-samples-lighting-at-creation`
 - `g-art-tiling-ground-texture-will-repeat-across`
 - `g-art-tonemapping-exposure-fields-inert-curve-is-the-dial`
 - `g-art-transform-local-axis-forward-not-right`
@@ -540,7 +541,6 @@
 - `g-game-over-world-ui-name-labels-health`
 - `g-game-packed-vector-axis-convention-drift`
 - `g-game-parked-negative-throttle-engages-reverse`
-- `g-game-per-instance-global-input-unconditional-multi-entity`
 - `g-game-per-part-recentered-dents-seam-cavity`
 - `g-game-pivot-scale-before-fixed-target-blend-moves-the-crossing`
 - `g-game-placed-runtime-structure-savefactory-idempotent`
