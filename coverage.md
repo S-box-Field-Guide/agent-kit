@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**292 / 866 gotchas articled** (34%). Pack-only: **560**. Backlog (status `none`): **14**.
+**294 / 884 gotchas articled** (33%). Pack-only: **576**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 107 | 38 | 65 | 4 | 36% |
-| rigging-animation | 49 | 26 | 23 | 0 | 53% |
-| writing-gameplay | 372 | 106 | 263 | 3 | 28% |
+| getting-art-in | 113 | 39 | 70 | 4 | 35% |
+| rigging-animation | 51 | 26 | 25 | 0 | 51% |
+| writing-gameplay | 381 | 107 | 271 | 3 | 28% |
 | building-ui | 106 | 55 | 50 | 1 | 52% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
-| tooling-environment | 210 | 55 | 149 | 6 | 26% |
-| **Total** | **866** | **292** | **560** | **14** | **34%** |
+| tooling-environment | 211 | 55 | 150 | 6 | 26% |
+| **Total** | **884** | **294** | **576** | **14** | **33%** |
 
 ## Articled gotchas (skip-list)
 
@@ -46,6 +46,7 @@
 | `g-art-meters-units-mixups-travel-packs-sweep` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
 | `g-art-model-facing-geometry-built` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
 | `g-art-modelcollider-s-physics-hull-also-follow` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
+| `g-art-modelrenderer-tint-over-one-wraps-a-byte` | [/fix/modelrenderer-tint-over-one-renders-dark](https://sboxguide.dev/fix/modelrenderer-tint-over-one-renders-dark) |
 | `g-art-new-shader-committed-without-shaderc-fails-first-load` | [/fix/commit-shader-c-with-new-shader-source](https://sboxguide.dev/fix/commit-shader-c-with-new-shader-source) |
 | `g-art-obj-importer-auto-converts-y-up` | [/fix/blender-headless-pipeline](https://sboxguide.dev/fix/blender-headless-pipeline) |
 | `g-art-pointlight-shadows-true-renders-black` | [/fix/pointlight-shadows-renders-black](https://sboxguide.dev/fix/pointlight-shadows-renders-black) |
@@ -112,6 +113,7 @@
 | `g-game-heightfield-crest-sawtooth-topcluster` | [/fix/decimated-heightfield-sawtooth-crest-cluster-snap](https://sboxguide.dev/fix/decimated-heightfield-sawtooth-crest-cluster-snap) |
 | `g-game-hidden-lobby-self-query-returns-nothing` | [/fix/hidden-lobby-not-found-by-querylobbies](https://sboxguide.dev/fix/hidden-lobby-not-found-by-querylobbies) |
 | `g-game-host-create-before-networkspawn-clobbers-instance` | [/fix/host-spawn-clobbers-camera-singleton](https://sboxguide.dev/fix/host-spawn-clobbers-camera-singleton) |
+| `g-game-icameramodifier-overwrites-editor-viewport` | [/fix/icameramodifier-overwrites-editor-viewport](https://sboxguide.dev/fix/icameramodifier-overwrites-editor-viewport) |
 | `g-game-idempotent-world-rebuild-destroyimmediate` | [/fix/idempotent-world-rebuild-destroyimmediate](https://sboxguide.dev/fix/idempotent-world-rebuild-destroyimmediate) |
 | `g-game-input-pressed-edge-latch-onupdate-not-fixedupdate` | [/fix/input-pressed-fixedupdate-drops](https://sboxguide.dev/fix/input-pressed-fixedupdate-drops) |
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
@@ -319,6 +321,7 @@
 
 ## Pack-only gotchas (in the checklist, no full article)
 
+- `g-art-atlas-object-field-only-reads-right-at-its-own-tile-size`
 - `g-art-bbox-is-a-downstream-contract`
 - `g-art-blender-headless-duplicate-links-mesh-datablock`
 - `g-art-blender-headless-exit-0-on-python-exception`
@@ -328,6 +331,7 @@
 - `g-art-bounds-maxs-invisible-nub-not-visible-top`
 - `g-art-camera-screenshot-renders-through-real-scene`
 - `g-art-child-visual-inherits-yawed-anchor-rotation`
+- `g-art-compensated-import-frame-defect-is-a-one-pass-fix`
 - `g-art-complex-shader-model-tint-amount-multiplies-baked-color-tint`
 - `g-art-coplanar-zfight-only-shimmers-across-materials`
 - `g-art-correct-sub-part-positions-prove-nothing`
@@ -344,6 +348,7 @@
 - `g-art-forge-tripo-wearable-item-returns-whole-character`
 - `g-art-generated-obj-vmdl-recipe-blender`
 - `g-art-generator-helper-axis-and-rot-params-silently-prefer-one`
+- `g-art-gradient-fog-has-no-opacity-ceiling`
 - `g-art-install-emissive-vmat-compiled-self-illum-mask`
 - `g-art-lock-camera-exposure-kill-auto-exposure`
 - `g-art-low-sun-in-a-street-canyon-puts-no-shadow-on-the-ground`
@@ -359,6 +364,7 @@
 - `g-art-model-top-ui-markers`
 - `g-art-modelrenderer-tint-multiplies-usable`
 - `g-art-obj-import-flips-v-atlas-uv`
+- `g-art-opaque-plug-in-a-window-aperture-passes-every-gate`
 - `g-art-open-top-citizen-feet-below-tub`
 - `g-art-per-part-checks-miss-assembled-slope-sign`
 - `g-art-physicsshapelist-multiple-tagged-hull-children-compile`
@@ -370,6 +376,7 @@
 - `g-art-rope-endcap-rotation-must-track-swing`
 - `g-art-rotated-primitive-spins-about-own-centre-not-part-pivot`
 - `g-art-s-box-obj-import-plain-y`
+- `g-art-second-render-material-splits-physicshullfile-elements`
 - `g-art-shaders-complex-shader-supports`
 - `g-art-tiling-ground-texture-will-repeat-across`
 - `g-art-tonemapping-exposure-fields-inert-curve-is-the-dial`
@@ -399,6 +406,7 @@
 - `g-game-autograpple-field-range-spawn-teleport-trap`
 - `g-game-autopilot-partial-measurement-mode`
 - `g-game-autopilot-progress-metrics-state-gated`
+- `g-game-baked-navmesh-does-not-follow-a-door-leaf`
 - `g-game-below-surface-tunnel-check-false-pos-on-wall-climb`
 - `g-game-belowsurface-invariant-false-fires-under-overhang`
 - `g-game-bfs-reachability-only-tests-start`
@@ -413,6 +421,7 @@
 - `g-game-camera-occlusion-thrashes-swing-anchor`
 - `g-game-camera-transform-is-not-the-view`
 - `g-game-candidate-selector-s-nearest-reach-fallback`
+- `g-game-cannot-bind-in-start-to-a-component-another-start-creates`
 - `g-game-capsule-band-caps-shrink-ends`
 - `g-game-catch-poll-misses-1tick-transition-latch-edge`
 - `g-game-catch-radius-near-miss-band`
@@ -491,6 +500,7 @@
 - `g-game-greedy-meshing-delivers-1`
 - `g-game-grid-raymarch-parallel-axis-overflow`
 - `g-game-ground-overlay-lift-ladder-and-self-crossing-seam`
+- `g-game-ground-skin-thickness-is-a-budget-the-things-on-it-spend`
 - `g-game-ground-vehicle-fall-through-audit-coarse`
 - `g-game-handbrake-jturn-layout-aware-fwd-rwd`
 - `g-game-headroom-sphere-probe-clips-terrace-steps`
@@ -531,6 +541,9 @@
 - `g-game-mover-rides-visual-heightfield-not-coarse-collision`
 - `g-game-multiple-panelcomponent-s-gameobject-under-s`
 - `g-game-narrow-impactor-detach-resist`
+- `g-game-navmesh-bounds-is-a-readback-custombounds-is-the-switch`
+- `g-game-navmesh-opening-clearance-is-eroded-in-whole-cells`
+- `g-game-navmeshpath-partial-still-ends-at-the-requested-target`
 - `g-game-nearest-centerline-corridor-stamping-leaves`
 - `g-game-networking-api-corrections-source-verified`
 - `g-game-networkspawn-owner-sim-host-onactive`
@@ -576,6 +589,7 @@
 - `g-game-rotated-slab-sinks-through-floor`
 - `g-game-rotation-lookat-single-arg-guards-only-exact-vertical`
 - `g-game-runoff-vs-runin-engagement-gate-is-vertical-not-directional`
+- `g-game-runtime-created-component-updates-after-the-authored-ones`
 - `g-game-runtime-scene-load-onstart-build`
 - `g-game-s-box-edit-mode-envmapprobe-ambient`
 - `g-game-s-box-editor-s-mcp-server`
@@ -630,6 +644,7 @@
 - `g-game-tower-platform-geometry-isolated-swing-web`
 - `g-game-trace-ground-snap-adds-fixed-offset`
 - `g-game-trace-hit-exposes-physics-body`
+- `g-game-trace-resumed-inside-a-solid-hits-at-its-own-start`
 - `g-game-translucent-splat-models-dev-box-vmdl`
 - `g-game-translucent-water-film-over-bright-warm`
 - `g-game-two-special-case-water-rules-correct`
@@ -657,9 +672,11 @@
 - `g-perf-fps-probe-measurement-hygiene-through-mcp`
 - `g-perf-ladder-window-1-garbage-when-rung-spawns-many-bodies`
 - `g-perf-voxel-grain-cellsize-nearly-free-density`
+- `g-rig-animfile-node-has-no-import-rotation`
 - `g-rig-ball-at-pivot-joint-overlap`
 - `g-rig-blender-icosphere-subdivisions-off-by-one`
 - `g-rig-boneoverride-persists-until-cleared`
+- `g-rig-citizen-body-aim-is-a-look-direction-not-the-pitch-yaw-floats`
 - `g-rig-citizen-helper-bones-diverge-under-override`
 - `g-rig-citizen-locomotion-clips-authored-speed-in-blend-value-units`
 - `g-rig-citizen-ragdoll-shape-joint-counts`
@@ -723,6 +740,7 @@
 - `g-tool-editor-hotreload-preserves-statics`
 - `g-tool-editor-ignores-external-edits-persisted-sett`
 - `g-tool-editor-inmemory-scene-clobbers-disk-scene-edit`
+- `g-tool-editor-loads-game-resources-without-the-resources-glob`
 - `g-tool-editor-mcp-no-open-scene-play-active-tab`
 - `g-tool-editor-mcp-server-s-enable-port`
 - `g-tool-editor-no-hotload-into-running-play-without-focus`

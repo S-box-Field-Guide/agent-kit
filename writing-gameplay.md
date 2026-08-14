@@ -19,3 +19,4 @@ the table below. The sync appends new bullets to the matching topic sub-file; th
 | `writing-gameplay--patterns-lifecycle.md` | Component lifecycle, statics & session reset, save/load, scene JSON, editor-bridge/MCP & test-harness patterns (original `## Component lifecycle`, `## Save / load`) | 63 |
 | `writing-gameplay--networking-multiplayer.md` | Lobbies & joins, `[Sync]`/NetworkSpawn, host authority, dedicated servers, published-build joins | 30 |
 | `writing-gameplay--input-camera-ui.md` | Input actions & devices, cameras & occlusion, HUD/Razor UI (original `## Input`) | 29 |
+| `writing-gameplay--ai-navmesh.md` | Navmesh generation & agent clearance, bounds, pathfinding status, world-representation staleness (doors) for AI agents | 4 |

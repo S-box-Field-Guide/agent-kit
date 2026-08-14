@@ -9,7 +9,7 @@
 | Getting set up | `getting-set-up.md` | New project skeleton, compile verification. | 0 | 0 |
 | Getting art in | `getting-art-in.md` | Blender/AI mesh → in-game, correct scale & facing. | 79 | 31 |
 | Rigging & animation | `rigging-animation.md` | Blends, ragdolls, retargeting mocap. | 35 | 23 |
-| Writing gameplay | `writing-gameplay.md` (router → sub-files `writing-gameplay--movement-physics.md`, `--world-gen-terrain.md`, `--patterns-lifecycle.md`, `--networking-multiplayer.md`, `--input-camera-ui.md`) | Components, movement, save/load, networking, runtime meshes. | 338 | 81 |
+| Writing gameplay | `writing-gameplay.md` (router → sub-files `writing-gameplay--movement-physics.md`, `--world-gen-terrain.md`, `--patterns-lifecycle.md`, `--networking-multiplayer.md`, `--input-camera-ui.md`, `--ai-navmesh.md`) | Components, movement, save/load, networking, runtime meshes, AI navmesh. | 342 | 85 |
 | Building UI | `building-ui.md` | Razor HUD that re-renders. The BuildHash trap. | 80 | 30 |
 | Audio | `audio.md` | .sound events by hand, looping, 3D positional. | 11 | 6 |
 | Making it perform | `making-it-perform.md` | Triangle census, collider choice, density limits. | 8 | 4 |
