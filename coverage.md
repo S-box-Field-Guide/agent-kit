@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**294 / 884 gotchas articled** (33%). Pack-only: **576**. Backlog (status `none`): **14**.
+**297 / 886 gotchas articled** (34%). Pack-only: **575**. Backlog (status `none`): **14**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 113 | 39 | 70 | 4 | 35% |
 | rigging-animation | 51 | 26 | 25 | 0 | 51% |
-| writing-gameplay | 381 | 107 | 271 | 3 | 28% |
+| writing-gameplay | 383 | 110 | 270 | 3 | 29% |
 | building-ui | 106 | 55 | 50 | 1 | 52% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 211 | 55 | 150 | 6 | 26% |
-| **Total** | **884** | **294** | **576** | **14** | **33%** |
+| **Total** | **886** | **297** | **575** | **14** | **34%** |
 
 ## Articled gotchas (skip-list)
 
@@ -82,6 +82,7 @@
 | `g-game-climb-lattice-from-collision-block-max-not-render` | [/fix/derive-character-geometry-from-collision-not-render-mesh](https://sboxguide.dev/fix/derive-character-geometry-from-collision-not-render-mesh) |
 | `g-game-component-active-real-inherited-member` | [/fix/component-active-naming-shadow](https://sboxguide.dev/fix/component-active-naming-shadow) |
 | `g-game-component-reset-method-shadows-engine-reset` | [/fix/component-reset-method-shadows-engine-reset](https://sboxguide.dev/fix/component-reset-method-shadows-engine-reset) |
+| `g-game-connection-stats-zero-local-session` | [/fix/connection-stats-read-zero-on-loopback](https://sboxguide.dev/fix/connection-stats-read-zero-on-loopback) |
 | `g-game-console-focus-starves-every-game-input-read` | [/fix/console-focus-starves-game-input](https://sboxguide.dev/fix/console-focus-starves-game-input) |
 | `g-game-createlobby-async-gate-mode-not-isactive-and-unpossess-on-end` | [/fix/createlobby-async-gate-on-mode](https://sboxguide.dev/fix/createlobby-async-gate-on-mode) |
 | `g-game-custom-components-scene-json` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
@@ -91,6 +92,7 @@
 | `g-game-decal-parented-to-bone-follows-and-reprojects-animated-mesh` | [/fix/decal-follows-animated-character-via-bone-repin](https://sboxguide.dev/fix/decal-follows-animated-character-via-bone-repin) |
 | `g-game-decal-projection-depth-must-span-clothing-shell` | [/fix/decal-projection-depth-must-span-clothing-shell](https://sboxguide.dev/fix/decal-projection-depth-must-span-clothing-shell) |
 | `g-game-decal-projects-onto-runtime-model-renderers` | [/fix/decal-projects-onto-runtime-model-renderers](https://sboxguide.dev/fix/decal-projects-onto-runtime-model-renderers) |
+| `g-game-dedicated-process-never-creates-steam-lobby` | [/fix/dedicated-server-never-creates-steam-lobby](https://sboxguide.dev/fix/dedicated-server-never-creates-steam-lobby) |
 | `g-game-dedicated-server-needs-dotnet-runtime` | [/fix/dedicated-server-dotnet-runtime](https://sboxguide.dev/fix/dedicated-server-dotnet-runtime) |
 | `g-game-dedicated-server-unpublished-package-join-fails` | [/fix/dedicated-server-unpublished-package-join-fails](https://sboxguide.dev/fix/dedicated-server-unpublished-package-join-fails) |
 | `g-game-destroy-is-deferred-drop-exclusive-claims-first` | [/fix/destroy-is-deferred-clear-exclusive-claims-first](https://sboxguide.dev/fix/destroy-is-deferred-clear-exclusive-claims-first) |
@@ -122,6 +124,7 @@
 | `g-game-joinlocal-client-reads-host-lobby-data` | [/fix/joinlocal-client-reads-host-networking-data](https://sboxguide.dev/fix/joinlocal-client-reads-host-networking-data) |
 | `g-game-joinlocal-empty-code-rejected-by-wire-verify-devhost-seam` | [/fix/joinlocal-presents-empty-invite-code](https://sboxguide.dev/fix/joinlocal-presents-empty-invite-code) |
 | `g-game-joinlocal-second-instance-recipe` | [/fix/joinlocal-two-peer-testing](https://sboxguide.dev/fix/joinlocal-two-peer-testing) |
+| `g-game-joinlocal-target-is-the-55333-socket-owner` | [/fix/joinlocal-peer-joins-55333-socket-owner](https://sboxguide.dev/fix/joinlocal-peer-joins-55333-socket-owner) |
 | `g-game-jump-controller-clamps-against-rising-veloci` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-keyboard-pressed-refires-on-os-auto-repeat` | [/fix/input-pressed-refires-on-key-repeat](https://sboxguide.dev/fix/input-pressed-refires-on-key-repeat) |
 | `g-game-lobby-connect-must-gate-the-exact-candidate-row-used` | [/fix/lobby-connect-gate-exact-candidate](https://sboxguide.dev/fix/lobby-connect-gate-exact-candidate) |
@@ -450,7 +453,7 @@
 - `g-game-collisionmesh-shell-walls-shapecast-wheel`
 - `g-game-compile-status-returns-isbuilding-compilers`
 - `g-game-compound-child-colliders-shift-inertia-not-mass`
-- `g-game-connection-stats-zero-local-session`
+- `g-game-connection-ping-and-message-counts-work-on-loopback`
 - `g-game-constant-face-atlas-uv-positive-trick`
 - `g-game-containment-settle-lowers-water-alternated-m`
 - `g-game-continuous-render-above-blockmax-collision-buries-crest-tops`
@@ -462,7 +465,6 @@
 - `g-game-decision-vs-kernel-centre`
 - `g-game-declared-analytic-climb-lattice-not-fit-raycast`
 - `g-game-decor-pickup-solid-collider-run-under-embed`
-- `g-game-dedicated-process-never-creates-steam-lobby`
 - `g-game-dedicated-server-unpublished-ident-download-fails`
 - `g-game-deferred-apply-pair-cofromhost-fields-at-capture`
 - `g-game-derived-default-via-sentinel-append-only-seam`
