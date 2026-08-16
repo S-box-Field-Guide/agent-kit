@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**297 / 886 gotchas articled** (34%). Pack-only: **575**. Backlog (status `none`): **14**.
+**300 / 887 gotchas articled** (34%). Pack-only: **573**. Backlog (status `none`): **14**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 113 | 39 | 70 | 4 | 35% |
 | rigging-animation | 51 | 26 | 25 | 0 | 51% |
-| writing-gameplay | 383 | 110 | 270 | 3 | 29% |
-| building-ui | 106 | 55 | 50 | 1 | 52% |
+| writing-gameplay | 383 | 112 | 268 | 3 | 29% |
+| building-ui | 107 | 56 | 50 | 1 | 52% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 211 | 55 | 150 | 6 | 26% |
-| **Total** | **886** | **297** | **575** | **14** | **34%** |
+| **Total** | **887** | **300** | **573** | **14** | **34%** |
 
 ## Articled gotchas (skip-list)
 
@@ -75,6 +75,7 @@
 | `g-game-analoglook-needs-mousevisibility-hidden-lock` | [/fix/analoglook-needs-mousevisibility-hidden](https://sboxguide.dev/fix/analoglook-needs-mousevisibility-hidden) |
 | `g-game-buried-vertical-sink-hard-recover` | [/fix/buried-vertical-sink-hard-recover](https://sboxguide.dev/fix/buried-vertical-sink-hard-recover) |
 | `g-game-camera-follows-raw-fixedtick-feet-model-sawtooths` | [/fix/camera-fixedtick-position-sawtooth-jitter](https://sboxguide.dev/fix/camera-fixedtick-position-sawtooth-jitter) |
+| `g-game-camera-transform-is-not-the-view` | [/fix/camera-modifiers-run-against-drawing-camera](https://sboxguide.dev/fix/camera-modifiers-run-against-drawing-camera) |
 | `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sboxguide.dev/fix/white-noise-hash-terrain-shade) |
 | `g-game-child-renderer-lookup-noop-anim` | [/fix/child-renderer-lookup-noop-anim](https://sboxguide.dev/fix/child-renderer-lookup-noop-anim) |
 | `g-game-client-instance-claim-grabs-host-character` | [/fix/client-singleton-claim-grabs-host](https://sboxguide.dev/fix/client-singleton-claim-grabs-host) |
@@ -151,6 +152,7 @@
 | `g-game-rolling-slopes-idempotent-ground-snap-still` | [/fix/ground-snap-pops-on-rolling-slopes](https://sboxguide.dev/fix/ground-snap-pops-on-rolling-slopes) |
 | `g-game-rotation-fromyaw-angle-left` | [/fix/rotation-fromyaw-is-ccw](https://sboxguide.dev/fix/rotation-fromyaw-is-ccw) |
 | `g-game-rpc-broadcast-on-non-networked-object-runs-local-only` | [/fix/rpc-broadcast-non-networked-runs-local](https://sboxguide.dev/fix/rpc-broadcast-non-networked-runs-local) |
+| `g-game-runtime-created-component-updates-after-the-authored-ones` | [/fix/runtime-component-updates-last](https://sboxguide.dev/fix/runtime-component-updates-last) |
 | `g-game-runtime-meshes-mesh-model` | [/fix/heavy-work-no-hitches](https://sboxguide.dev/fix/heavy-work-no-hitches) |
 | `g-game-runtime-world-root-torn-down-gameobject` | [/fix/deferred-destroy-edit-mode-overlap](https://sboxguide.dev/fix/deferred-destroy-edit-mode-overlap) |
 | `g-game-scene-getallcomponents-t-return-disabled-com` | [/fix/getallcomponents-skips-disabled](https://sboxguide.dev/fix/getallcomponents-skips-disabled) |
@@ -310,6 +312,7 @@
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sboxguide.dev/fix/runtime-texture-ui-panel) |
 | `g-ui-screenpanel-zindex-default-100-tie-order-unordered` | [/fix/screenpanel-zindex-default-100-tie-order-unordered](https://sboxguide.dev/fix/screenpanel-zindex-default-100-tie-order-unordered) |
 | `g-ui-screenpanel-zindex-paint-only-input-falls-through` | [/fix/screenpanel-zindex-paint-only-input](https://sboxguide.dev/fix/screenpanel-zindex-paint-only-input) |
+| `g-ui-scroll-panel-outbids-child-drag-controls` | [/fix/scroll-container-steals-child-drag](https://sboxguide.dev/fix/scroll-container-steals-child-drag) |
 | `g-ui-scss-child-combinator-universal-selector-never-matches` | [/fix/scss-child-combinator-universal-selector-never-matches](https://sboxguide.dev/fix/scss-child-combinator-universal-selector-never-matches) |
 | `g-ui-scss-undefined-variable-console-warn-only-invisible-panel` | [/fix/scss-undefined-variable-invisible-panel](https://sboxguide.dev/fix/scss-undefined-variable-invisible-panel) |
 | `g-ui-scss-undefined-variable-kills-whole-panel-silently` | [/fix/undefined-scss-variable-kills-whole-panel](https://sboxguide.dev/fix/undefined-scss-variable-kills-whole-panel) |
@@ -422,7 +425,6 @@
 - `g-game-cadence-tuned-streak-window-misses-other-rhythms`
 - `g-game-camera-from-impact-point`
 - `g-game-camera-occlusion-thrashes-swing-anchor`
-- `g-game-camera-transform-is-not-the-view`
 - `g-game-candidate-selector-s-nearest-reach-fallback`
 - `g-game-cannot-bind-in-start-to-a-component-another-start-creates`
 - `g-game-capsule-band-caps-shrink-ends`
@@ -591,7 +593,6 @@
 - `g-game-rotated-slab-sinks-through-floor`
 - `g-game-rotation-lookat-single-arg-guards-only-exact-vertical`
 - `g-game-runoff-vs-runin-engagement-gate-is-vertical-not-directional`
-- `g-game-runtime-created-component-updates-after-the-authored-ones`
 - `g-game-runtime-scene-load-onstart-build`
 - `g-game-s-box-edit-mode-envmapprobe-ambient`
 - `g-game-s-box-editor-s-mcp-server`
