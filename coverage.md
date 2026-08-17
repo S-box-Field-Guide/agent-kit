@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**300 / 887 gotchas articled** (34%). Pack-only: **573**. Backlog (status `none`): **14**.
+**303 / 887 gotchas articled** (34%). Pack-only: **570**. Backlog (status `none`): **14**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 113 | 39 | 70 | 4 | 35% |
 | rigging-animation | 51 | 26 | 25 | 0 | 51% |
-| writing-gameplay | 383 | 112 | 268 | 3 | 29% |
-| building-ui | 107 | 56 | 50 | 1 | 52% |
+| writing-gameplay | 383 | 113 | 267 | 3 | 30% |
+| building-ui | 107 | 58 | 48 | 1 | 54% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 211 | 55 | 150 | 6 | 26% |
-| **Total** | **887** | **300** | **573** | **14** | **34%** |
+| **Total** | **887** | **303** | **570** | **14** | **34%** |
 
 ## Articled gotchas (skip-list)
 
@@ -131,6 +131,7 @@
 | `g-game-lobby-connect-must-gate-the-exact-candidate-row-used` | [/fix/lobby-connect-gate-exact-candidate](https://sboxguide.dev/fix/lobby-connect-gate-exact-candidate) |
 | `g-game-lobby-game-metadata-set-once-survives-host-game-switch` | [/fix/lobby-metadata-survives-game-switch](https://sboxguide.dev/fix/lobby-metadata-survives-game-switch) |
 | `g-game-manual-visual-smoother-fights-fixedupdate-interpolation` | [/fix/manual-visual-smoother-fights-interpolation](https://sboxguide.dev/fix/manual-visual-smoother-fights-interpolation) |
+| `g-game-networking-api-corrections-source-verified` | [/fix/networking-api-facts-verified-against-build](https://sboxguide.dev/fix/networking-api-facts-verified-against-build) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sboxguide.dev/fix/new-razor-scss-not-applied-until-restart) |
 | `g-game-noclip-trace-based-kinematic-controller-stat` | [/fix/noclip-trace-controller-state](https://sboxguide.dev/fix/noclip-trace-controller-state) |
@@ -270,6 +271,7 @@
 | `g-tool-worktree-missing-gitignored-csproj` | [/fix/git-worktree-missing-gitignored-csproj](https://sboxguide.dev/fix/git-worktree-missing-gitignored-csproj) |
 | `g-ui-absolute-child-of-unpositioned-box-lands-on-screen` | [/fix/absolute-child-escapes-unpositioned-panel](https://sboxguide.dev/fix/absolute-child-escapes-unpositioned-panel) |
 | `g-ui-absolute-column-auto-height-drops-trailing-children` | [/fix/absolute-column-auto-height-drops-children](https://sboxguide.dev/fix/absolute-column-auto-height-drops-children) |
+| `g-ui-absolute-percent-fill-needs-position-on-its-own-track` | [/fix/absolute-percent-fill-needs-position-on-track](https://sboxguide.dev/fix/absolute-percent-fill-needs-position-on-track) |
 | `g-ui-border-style-solid-scss-parse-error-aborts-stylesheet` | [/fix/border-style-solid-scss-parse-error](https://sboxguide.dev/fix/border-style-solid-scss-parse-error) |
 | `g-ui-box-shadow-inset-paints-outside-the-element` | [/fix/box-shadow-inset-paints-outside](https://sboxguide.dev/fix/box-shadow-inset-paints-outside) |
 | `g-ui-buildhash-only-on-panelcomponent` | [/fix/buildhash-override-only-compiles-on-panelcomponent](https://sboxguide.dev/fix/buildhash-override-only-compiles-on-panelcomponent) |
@@ -284,6 +286,7 @@
 | `g-ui-flex-basis-wins-over-width-collapses-fixed-column` | [/fix/flex-basis-collapses-fixed-column](https://sboxguide.dev/fix/flex-basis-collapses-fixed-column) |
 | `g-ui-flex-grow-track-holding` | [/fix/flex-grow-percentage-child-feedback-loop](https://sboxguide.dev/fix/flex-grow-percentage-child-feedback-loop) |
 | `g-ui-flex-spacer-clips-later-siblings-off-column-end` | [/fix/flex-spacer-clips-trailing-siblings](https://sboxguide.dev/fix/flex-spacer-clips-trailing-siblings) |
+| `g-ui-focus-written-from-hover-eats-buildhash-rebuild-click` | [/fix/focus-from-hover-rebuilds-panel-and-eats-click](https://sboxguide.dev/fix/focus-from-hover-rebuilds-panel-and-eats-click) |
 | `g-ui-font-glyph-corruption-is-cumulative-text-count-not-just-font-size` | [/fix/font-glyph-corruption-cumulative-text-count](https://sboxguide.dev/fix/font-glyph-corruption-cumulative-text-count) |
 | `g-ui-font-glyph-corruption-shared-font-size-value-still-triggers` | [/fix/font-glyph-corruption-shared-font-size-value-still-triggers](https://sboxguide.dev/fix/font-glyph-corruption-shared-font-size-value-still-triggers) |
 | `g-ui-freshly-scaffolded-project-s-code-assembly` | [/fix/scaffold-missing-global-usings](https://sboxguide.dev/fix/scaffold-missing-global-usings) |
@@ -549,7 +552,6 @@
 - `g-game-navmesh-opening-clearance-is-eroded-in-whole-cells`
 - `g-game-navmeshpath-partial-still-ends-at-the-requested-target`
 - `g-game-nearest-centerline-corridor-stamping-leaves`
-- `g-game-networking-api-corrections-source-verified`
 - `g-game-networkspawn-owner-sim-host-onactive`
 - `g-game-node-seat-overhangs-block-edge-at-corners`
 - `g-game-one-sided-heightfield-lateral-glide-through`
@@ -850,7 +852,6 @@
 - `g-tool-win-openssh-admin-key-path`
 - `g-tool-windows-python3-store-alias`
 - `g-tool-worktree-missing-gitignored-csproj-depth-patch`
-- `g-ui-absolute-percent-fill-needs-position-on-its-own-track`
 - `g-ui-bare-class-selector-matches-descendant-state-class`
 - `g-ui-borderstyle-dashed-standalone-hard-errors`
 - `g-ui-camera-screenshot-s-ui-overlay-renders`
@@ -865,7 +866,6 @@
 - `g-ui-editor-generated-csproj-gitignored`
 - `g-ui-flat-kind-tagged-record-vs-stj-polymorphic-union`
 - `g-ui-flex-end-anchor-drifts-without-fixed-width`
-- `g-ui-focus-written-from-hover-eats-buildhash-rebuild-click`
 - `g-ui-gameresource-attribute-obsolete-use-assettype`
 - `g-ui-global-using-alias-resolves-vendored-name-collision`
 - `g-ui-headless-build-validates-razor-csharp-codegen`
