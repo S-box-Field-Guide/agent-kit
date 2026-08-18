@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**303 / 887 gotchas articled** (34%). Pack-only: **570**. Backlog (status `none`): **14**.
+**306 / 887 gotchas articled** (34%). Pack-only: **567**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 113 | 39 | 70 | 4 | 35% |
+| getting-art-in | 113 | 40 | 69 | 4 | 35% |
 | rigging-animation | 51 | 26 | 25 | 0 | 51% |
-| writing-gameplay | 383 | 113 | 267 | 3 | 30% |
+| writing-gameplay | 383 | 114 | 266 | 3 | 30% |
 | building-ui | 107 | 58 | 48 | 1 | 54% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
-| tooling-environment | 211 | 55 | 150 | 6 | 26% |
-| **Total** | **887** | **303** | **570** | **14** | **34%** |
+| tooling-environment | 211 | 56 | 149 | 6 | 27% |
+| **Total** | **887** | **306** | **567** | **14** | **34%** |
 
 ## Articled gotchas (skip-list)
 
@@ -55,6 +55,7 @@
 | `g-art-s-box-load-raw-obj-glb` | [/fix/sbox-wont-load-obj-glb](https://sboxguide.dev/fix/sbox-wont-load-obj-glb) |
 | `g-art-s-box-units-inches` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
 | `g-art-scene-triangle-overload` | [/fix/decimating-ai-meshes](https://sboxguide.dev/fix/decimating-ai-meshes) |
+| `g-art-second-render-material-splits-physicshullfile-elements` | [/fix/second-render-material-is-a-collision-change](https://sboxguide.dev/fix/second-render-material-is-a-collision-change) |
 | `g-art-shaders-complex-shader-compiled` | [/fix/shader-template-field-discovery](https://sboxguide.dev/fix/shader-template-field-discovery) |
 | `g-art-sky-hard-swap-pops-weighted-blend-fix` | [/fix/sky-hard-swap-pops-weighted-blend-fix](https://sboxguide.dev/fix/sky-hard-swap-pops-weighted-blend-fix) |
 | `g-art-static-root-geometry-samples-lighting-at-creation` | [/fix/static-root-geometry-lighting-baked-at-creation](https://sboxguide.dev/fix/static-root-geometry-lighting-baked-at-creation) |
@@ -118,6 +119,7 @@
 | `g-game-host-create-before-networkspawn-clobbers-instance` | [/fix/host-spawn-clobbers-camera-singleton](https://sboxguide.dev/fix/host-spawn-clobbers-camera-singleton) |
 | `g-game-icameramodifier-overwrites-editor-viewport` | [/fix/icameramodifier-overwrites-editor-viewport](https://sboxguide.dev/fix/icameramodifier-overwrites-editor-viewport) |
 | `g-game-idempotent-world-rebuild-destroyimmediate` | [/fix/idempotent-world-rebuild-destroyimmediate](https://sboxguide.dev/fix/idempotent-world-rebuild-destroyimmediate) |
+| `g-game-input-harness-scene-order-and-fixed-step` | [/fix/input-harness-scene-order-and-fixed-step](https://sboxguide.dev/fix/input-harness-scene-order-and-fixed-step) |
 | `g-game-input-pressed-edge-latch-onupdate-not-fixedupdate` | [/fix/input-pressed-fixedupdate-drops](https://sboxguide.dev/fix/input-pressed-fixedupdate-drops) |
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-join-handshake-host-initiated-joiner-connect-budget-fixed` | [/fix/join-handshake-fixed-connect-budget](https://sboxguide.dev/fix/join-handshake-fixed-connect-budget) |
@@ -269,6 +271,7 @@
 | `g-tool-win-ssh-session-end-kills-children` | [/fix/win-ssh-session-kills-server](https://sboxguide.dev/fix/win-ssh-session-kills-server) |
 | `g-tool-worktree-csproj-relative-sbox-refs` | [/fix/worktree-csproj-relative-sbox-refs](https://sboxguide.dev/fix/worktree-csproj-relative-sbox-refs) |
 | `g-tool-worktree-missing-gitignored-csproj` | [/fix/git-worktree-missing-gitignored-csproj](https://sboxguide.dev/fix/git-worktree-missing-gitignored-csproj) |
+| `g-tool-worktree-missing-gitignored-csproj-depth-patch` | [/fix/worktree-headless-build-csproj-and-shared-output](https://sboxguide.dev/fix/worktree-headless-build-csproj-and-shared-output) |
 | `g-ui-absolute-child-of-unpositioned-box-lands-on-screen` | [/fix/absolute-child-escapes-unpositioned-panel](https://sboxguide.dev/fix/absolute-child-escapes-unpositioned-panel) |
 | `g-ui-absolute-column-auto-height-drops-trailing-children` | [/fix/absolute-column-auto-height-drops-children](https://sboxguide.dev/fix/absolute-column-auto-height-drops-children) |
 | `g-ui-absolute-percent-fill-needs-position-on-its-own-track` | [/fix/absolute-percent-fill-needs-position-on-track](https://sboxguide.dev/fix/absolute-percent-fill-needs-position-on-track) |
@@ -385,7 +388,6 @@
 - `g-art-rope-endcap-rotation-must-track-swing`
 - `g-art-rotated-primitive-spins-about-own-centre-not-part-pivot`
 - `g-art-s-box-obj-import-plain-y`
-- `g-art-second-render-material-splits-physicshullfile-elements`
 - `g-art-shaders-complex-shader-supports`
 - `g-art-tiling-ground-texture-will-repeat-across`
 - `g-art-tonemapping-exposure-fields-inert-curve-is-the-dial`
@@ -521,7 +523,6 @@
 - `g-game-injected-endpoints-not-vendored-pick-nodes`
 - `g-game-input-config-bindings-differ-per-project`
 - `g-game-input-escapepressed-real-getset-consumable`
-- `g-game-input-harness-scene-order-and-fixed-step`
 - `g-game-invisible-grab-point-registration-phantom-sp`
 - `g-game-jet-ski-single-point-buoyancy-grid`
 - `g-game-joinlocal-client-convar-probe-unreachable`
@@ -851,7 +852,6 @@
 - `g-tool-wb-worldgen-clean-static-lib-copy-reuse`
 - `g-tool-win-openssh-admin-key-path`
 - `g-tool-windows-python3-store-alias`
-- `g-tool-worktree-missing-gitignored-csproj-depth-patch`
 - `g-ui-bare-class-selector-matches-descendant-state-class`
 - `g-ui-borderstyle-dashed-standalone-hard-errors`
 - `g-ui-camera-screenshot-s-ui-overlay-renders`
