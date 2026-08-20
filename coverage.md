@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**306 / 887 gotchas articled** (34%). Pack-only: **567**. Backlog (status `none`): **14**.
+**307 / 887 gotchas articled** (35%). Pack-only: **566**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 113 | 40 | 69 | 4 | 35% |
-| rigging-animation | 51 | 26 | 25 | 0 | 51% |
+| rigging-animation | 51 | 27 | 24 | 0 | 53% |
 | writing-gameplay | 383 | 114 | 266 | 3 | 30% |
 | building-ui | 107 | 58 | 48 | 1 | 54% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 211 | 56 | 149 | 6 | 27% |
-| **Total** | **887** | **306** | **567** | **14** | **34%** |
+| **Total** | **887** | **307** | **566** | **14** | **35%** |
 
 ## Articled gotchas (skip-list)
 
@@ -199,6 +199,7 @@
 | `g-rig-bone-heat-auto-weights-fail-wholesale` | [/fix/rigging-ai-generated-mesh](https://sboxguide.dev/fix/rigging-ai-generated-mesh) |
 | `g-rig-bone-procedural-override-setbonetransform-un` | [/fix/setbonetransform-silently-noop](https://sboxguide.dev/fix/setbonetransform-silently-noop) |
 | `g-rig-citizen-addon-source-vmdl-schema-reference` | [/fix/fbx-export-recipe](https://sboxguide.dev/fix/fbx-export-recipe) |
+| `g-rig-citizen-body-aim-is-a-look-direction-not-the-pitch-yaw-floats` | [/fix/citizen-body-aim-set-look-direction](https://sboxguide.dev/fix/citizen-body-aim-set-look-direction) |
 | `g-rig-citizen-combat-animgraph-params` | [/fix/citizen-combat-animgraph-params](https://sboxguide.dev/fix/citizen-combat-animgraph-params) |
 | `g-rig-citizen-holdtype-aim-ik-param-map` | [/fix/citizen-holdtype-aim-ik-param-map](https://sboxguide.dev/fix/citizen-holdtype-aim-ik-param-map) |
 | `g-rig-direct-playback-needs-useanimgraph-off-first` | [/fix/direct-sequence-playback-needs-useanimgraph-off-first](https://sboxguide.dev/fix/direct-sequence-playback-needs-useanimgraph-off-first) |
@@ -682,7 +683,6 @@
 - `g-rig-ball-at-pivot-joint-overlap`
 - `g-rig-blender-icosphere-subdivisions-off-by-one`
 - `g-rig-boneoverride-persists-until-cleared`
-- `g-rig-citizen-body-aim-is-a-look-direction-not-the-pitch-yaw-floats`
 - `g-rig-citizen-helper-bones-diverge-under-override`
 - `g-rig-citizen-locomotion-clips-authored-speed-in-blend-value-units`
 - `g-rig-citizen-ragdoll-shape-joint-counts`
