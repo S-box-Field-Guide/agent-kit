@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**307 / 887 gotchas articled** (35%). Pack-only: **566**. Backlog (status `none`): **14**.
+**308 / 887 gotchas articled** (35%). Pack-only: **565**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 113 | 40 | 69 | 4 | 35% |
+| getting-art-in | 113 | 41 | 68 | 4 | 36% |
 | rigging-animation | 51 | 27 | 24 | 0 | 53% |
 | writing-gameplay | 383 | 114 | 266 | 3 | 30% |
 | building-ui | 107 | 58 | 48 | 1 | 54% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 211 | 56 | 149 | 6 | 27% |
-| **Total** | **887** | **307** | **566** | **14** | **35%** |
+| **Total** | **887** | **308** | **565** | **14** | **35%** |
 
 ## Articled gotchas (skip-list)
 
@@ -49,6 +49,7 @@
 | `g-art-modelrenderer-tint-over-one-wraps-a-byte` | [/fix/modelrenderer-tint-over-one-renders-dark](https://sboxguide.dev/fix/modelrenderer-tint-over-one-renders-dark) |
 | `g-art-new-shader-committed-without-shaderc-fails-first-load` | [/fix/commit-shader-c-with-new-shader-source](https://sboxguide.dev/fix/commit-shader-c-with-new-shader-source) |
 | `g-art-obj-importer-auto-converts-y-up` | [/fix/blender-headless-pipeline](https://sboxguide.dev/fix/blender-headless-pipeline) |
+| `g-art-physicsshapelist-multiple-tagged-hull-children-compile` | [/fix/physicsshapelist-multiple-tagged-hulls](https://sboxguide.dev/fix/physicsshapelist-multiple-tagged-hulls) |
 | `g-art-pointlight-shadows-true-renders-black` | [/fix/pointlight-shadows-renders-black](https://sboxguide.dev/fix/pointlight-shadows-renders-black) |
 | `g-art-prefer-hand-sized-boxcollider-s-over` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-art-recovery-forge-delivery-fails` | [/fix/forge-failed-delivery-glb-recovery](https://sboxguide.dev/fix/forge-failed-delivery-glb-recovery) |
@@ -380,7 +381,6 @@
 - `g-art-opaque-plug-in-a-window-aperture-passes-every-gate`
 - `g-art-open-top-citizen-feet-below-tub`
 - `g-art-per-part-checks-miss-assembled-slope-sign`
-- `g-art-physicsshapelist-multiple-tagged-hull-children-compile`
 - `g-art-playground-kit-author-engine-map`
 - `g-art-pointlight-usable-game-component-even-siblin`
 - `g-art-pydata-mesh-no-uv-layer-drops-vt`
