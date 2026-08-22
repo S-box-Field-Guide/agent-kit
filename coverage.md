@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**308 / 887 gotchas articled** (35%). Pack-only: **565**. Backlog (status `none`): **14**.
+**311 / 887 gotchas articled** (35%). Pack-only: **562**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 113 | 41 | 68 | 4 | 36% |
+| getting-art-in | 113 | 42 | 67 | 4 | 37% |
 | rigging-animation | 51 | 27 | 24 | 0 | 53% |
-| writing-gameplay | 383 | 114 | 266 | 3 | 30% |
+| writing-gameplay | 383 | 116 | 264 | 3 | 30% |
 | building-ui | 107 | 58 | 48 | 1 | 54% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 211 | 56 | 149 | 6 | 27% |
-| **Total** | **887** | **308** | **565** | **14** | **35%** |
+| **Total** | **887** | **311** | **562** | **14** | **35%** |
 
 ## Articled gotchas (skip-list)
 
@@ -42,6 +42,7 @@
 | `g-art-high-key-chalky-bright-near-white` | [/fix/high-key-chalky-sky-needs-texture-and-tonemapping](https://sboxguide.dev/fix/high-key-chalky-sky-needs-texture-and-tonemapping) |
 | `g-art-import-rotation-ignored-by-physicshullfile` | [/fix/import-rotation-ignored-by-physicshullfile](https://sboxguide.dev/fix/import-rotation-ignored-by-physicshullfile) |
 | `g-art-instance-modelrenderer-tint-flat` | [/fix/model-tint-flat-vmat-traps](https://sboxguide.dev/fix/model-tint-flat-vmat-traps) |
+| `g-art-low-sun-in-a-street-canyon-puts-no-shadow-on-the-ground` | [/fix/low-sun-street-canyon-no-ground-shadow](https://sboxguide.dev/fix/low-sun-street-canyon-no-ground-shadow) |
 | `g-art-meters-authored-waypoint-position-arrays-aud` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
 | `g-art-meters-units-mixups-travel-packs-sweep` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
 | `g-art-model-facing-geometry-built` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
@@ -75,6 +76,7 @@
 | `g-audio-voice-input-action-not-universal` | [/fix/voice-input-action-missing-config](https://sboxguide.dev/fix/voice-input-action-missing-config) |
 | `g-game-air-flicker-resets-defeat-accumulator-guard` | [/fix/accumulator-guard-resets-on-transient-flicker](https://sboxguide.dev/fix/accumulator-guard-resets-on-transient-flicker) |
 | `g-game-analoglook-needs-mousevisibility-hidden-lock` | [/fix/analoglook-needs-mousevisibility-hidden](https://sboxguide.dev/fix/analoglook-needs-mousevisibility-hidden) |
+| `g-game-baked-navmesh-does-not-follow-a-door-leaf` | [/fix/baked-navmesh-does-not-follow-doors](https://sboxguide.dev/fix/baked-navmesh-does-not-follow-doors) |
 | `g-game-buried-vertical-sink-hard-recover` | [/fix/buried-vertical-sink-hard-recover](https://sboxguide.dev/fix/buried-vertical-sink-hard-recover) |
 | `g-game-camera-follows-raw-fixedtick-feet-model-sawtooths` | [/fix/camera-fixedtick-position-sawtooth-jitter](https://sboxguide.dev/fix/camera-fixedtick-position-sawtooth-jitter) |
 | `g-game-camera-transform-is-not-the-view` | [/fix/camera-modifiers-run-against-drawing-camera](https://sboxguide.dev/fix/camera-modifiers-run-against-drawing-camera) |
@@ -134,6 +136,7 @@
 | `g-game-lobby-connect-must-gate-the-exact-candidate-row-used` | [/fix/lobby-connect-gate-exact-candidate](https://sboxguide.dev/fix/lobby-connect-gate-exact-candidate) |
 | `g-game-lobby-game-metadata-set-once-survives-host-game-switch` | [/fix/lobby-metadata-survives-game-switch](https://sboxguide.dev/fix/lobby-metadata-survives-game-switch) |
 | `g-game-manual-visual-smoother-fights-fixedupdate-interpolation` | [/fix/manual-visual-smoother-fights-interpolation](https://sboxguide.dev/fix/manual-visual-smoother-fights-interpolation) |
+| `g-game-navmesh-opening-clearance-is-eroded-in-whole-cells` | [/fix/navmesh-opening-clearance-agent-radius](https://sboxguide.dev/fix/navmesh-opening-clearance-agent-radius) |
 | `g-game-networking-api-corrections-source-verified` | [/fix/networking-api-facts-verified-against-build](https://sboxguide.dev/fix/networking-api-facts-verified-against-build) |
 | `g-game-new-input-actions-added-input` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-new-razor-scss-created` | [/fix/new-razor-scss-not-applied-until-restart](https://sboxguide.dev/fix/new-razor-scss-not-applied-until-restart) |
@@ -365,7 +368,6 @@
 - `g-art-gradient-fog-has-no-opacity-ceiling`
 - `g-art-install-emissive-vmat-compiled-self-illum-mask`
 - `g-art-lock-camera-exposure-kill-auto-exposure`
-- `g-art-low-sun-in-a-street-canyon-puts-no-shadow-on-the-ground`
 - `g-art-lowpoly-wheel-black-blob`
 - `g-art-make-ground-alive-swap-flat-tile`
 - `g-art-material-copies-survive-rebuild-break-draw-ab`
@@ -418,7 +420,6 @@
 - `g-game-autograpple-field-range-spawn-teleport-trap`
 - `g-game-autopilot-partial-measurement-mode`
 - `g-game-autopilot-progress-metrics-state-gated`
-- `g-game-baked-navmesh-does-not-follow-a-door-leaf`
 - `g-game-below-surface-tunnel-check-false-pos-on-wall-climb`
 - `g-game-belowsurface-invariant-false-fires-under-overhang`
 - `g-game-bfs-reachability-only-tests-start`
@@ -551,7 +552,6 @@
 - `g-game-multiple-panelcomponent-s-gameobject-under-s`
 - `g-game-narrow-impactor-detach-resist`
 - `g-game-navmesh-bounds-is-a-readback-custombounds-is-the-switch`
-- `g-game-navmesh-opening-clearance-is-eroded-in-whole-cells`
 - `g-game-navmeshpath-partial-still-ends-at-the-requested-target`
 - `g-game-nearest-centerline-corridor-stamping-leaves`
 - `g-game-networkspawn-owner-sim-host-onactive`
