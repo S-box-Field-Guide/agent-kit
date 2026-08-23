@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**311 / 887 gotchas articled** (35%). Pack-only: **562**. Backlog (status `none`): **14**.
+**313 / 887 gotchas articled** (35%). Pack-only: **560**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 113 | 42 | 67 | 4 | 37% |
+| getting-art-in | 113 | 43 | 66 | 4 | 38% |
 | rigging-animation | 51 | 27 | 24 | 0 | 53% |
-| writing-gameplay | 383 | 116 | 264 | 3 | 30% |
+| writing-gameplay | 383 | 117 | 263 | 3 | 31% |
 | building-ui | 107 | 58 | 48 | 1 | 54% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 211 | 56 | 149 | 6 | 27% |
-| **Total** | **887** | **311** | **562** | **14** | **35%** |
+| **Total** | **887** | **313** | **560** | **14** | **35%** |
 
 ## Articled gotchas (skip-list)
 
@@ -45,6 +45,7 @@
 | `g-art-low-sun-in-a-street-canyon-puts-no-shadow-on-the-ground` | [/fix/low-sun-street-canyon-no-ground-shadow](https://sboxguide.dev/fix/low-sun-street-canyon-no-ground-shadow) |
 | `g-art-meters-authored-waypoint-position-arrays-aud` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
 | `g-art-meters-units-mixups-travel-packs-sweep` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
+| `g-art-mip-chain-erases-detail-finer-than-the-object-it-represents` | [/fix/mip-chain-erases-fine-texture-detail](https://sboxguide.dev/fix/mip-chain-erases-fine-texture-detail) |
 | `g-art-model-facing-geometry-built` | [/fix/model-imported-wrong-facing](https://sboxguide.dev/fix/model-imported-wrong-facing) |
 | `g-art-modelcollider-s-physics-hull-also-follow` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-art-modelrenderer-tint-over-one-wraps-a-byte` | [/fix/modelrenderer-tint-over-one-renders-dark](https://sboxguide.dev/fix/modelrenderer-tint-over-one-renders-dark) |
@@ -115,6 +116,7 @@
 | `g-game-gamepad-bumper-gamepadcode-strings-switchlef` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-getallcomponents-firstordefault-grabs-clothing-not-body` | [/fix/skinnedmodelrenderer-firstordefault-grabs-clothing](https://sboxguide.dev/fix/skinnedmodelrenderer-firstordefault-grabs-clothing) |
 | `g-game-greedy-voxel-mesher-colours-cliff-skirt` | [/fix/greedy-mesher-cliff-vertical-stripes](https://sboxguide.dev/fix/greedy-mesher-cliff-vertical-stripes) |
+| `g-game-ground-overlay-lift-ladder-and-self-crossing-seam` | [/fix/ground-overlays-z-fight-each-other-and-self](https://sboxguide.dev/fix/ground-overlays-z-fight-each-other-and-self) |
 | `g-game-grounded-wish-servo-eats-applied-velocity` | [/fix/grounded-wish-servo-eats-applied-velocity](https://sboxguide.dev/fix/grounded-wish-servo-eats-applied-velocity) |
 | `g-game-headless-dotnet-build-code-project` | [/fix/dotnet-build-misses-razor-errors](https://sboxguide.dev/fix/dotnet-build-misses-razor-errors) |
 | `g-game-heightfield-crest-sawtooth-topcluster` | [/fix/decimated-heightfield-sawtooth-crest-cluster-snap](https://sboxguide.dev/fix/decimated-heightfield-sawtooth-crest-cluster-snap) |
@@ -374,7 +376,6 @@
 - `g-art-material-load-no-missing-signal`
 - `g-art-materialoverride-replaces-tint-path-box-prop`
 - `g-art-mathf-has-lerp-engine-s`
-- `g-art-mip-chain-erases-detail-finer-than-the-object-it-represents`
 - `g-art-mirrored-sign-convention-passes-numeric-gates-invisibly`
 - `g-art-mission-control-s-forge-auto-deliver`
 - `g-art-model-top-ui-markers`
@@ -510,7 +511,6 @@
 - `g-game-graph-prune-isolated-nodes-leaves-sealed-pockets`
 - `g-game-greedy-meshing-delivers-1`
 - `g-game-grid-raymarch-parallel-axis-overflow`
-- `g-game-ground-overlay-lift-ladder-and-self-crossing-seam`
 - `g-game-ground-skin-thickness-is-a-budget-the-things-on-it-spend`
 - `g-game-ground-vehicle-fall-through-audit-coarse`
 - `g-game-handbrake-jturn-layout-aware-fwd-rwd`
