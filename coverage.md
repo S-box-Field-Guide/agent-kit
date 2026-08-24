@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**313 / 887 gotchas articled** (35%). Pack-only: **560**. Backlog (status `none`): **14**.
+**315 / 887 gotchas articled** (36%). Pack-only: **558**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 113 | 43 | 66 | 4 | 38% |
-| rigging-animation | 51 | 27 | 24 | 0 | 53% |
+| rigging-animation | 51 | 28 | 23 | 0 | 55% |
 | writing-gameplay | 383 | 117 | 263 | 3 | 31% |
 | building-ui | 107 | 58 | 48 | 1 | 54% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
-| tooling-environment | 211 | 56 | 149 | 6 | 27% |
-| **Total** | **887** | **313** | **560** | **14** | **35%** |
+| tooling-environment | 211 | 57 | 148 | 6 | 27% |
+| **Total** | **887** | **315** | **558** | **14** | **36%** |
 
 ## Articled gotchas (skip-list)
 
@@ -208,6 +208,7 @@
 | `g-rig-citizen-body-aim-is-a-look-direction-not-the-pitch-yaw-floats` | [/fix/citizen-body-aim-set-look-direction](https://sboxguide.dev/fix/citizen-body-aim-set-look-direction) |
 | `g-rig-citizen-combat-animgraph-params` | [/fix/citizen-combat-animgraph-params](https://sboxguide.dev/fix/citizen-combat-animgraph-params) |
 | `g-rig-citizen-holdtype-aim-ik-param-map` | [/fix/citizen-holdtype-aim-ik-param-map](https://sboxguide.dev/fix/citizen-holdtype-aim-ik-param-map) |
+| `g-rig-citizen-locomotion-clips-authored-speed-in-blend-value-units` | [/fix/citizen-locomotion-clips-authored-speed-blend-value](https://sboxguide.dev/fix/citizen-locomotion-clips-authored-speed-blend-value) |
 | `g-rig-direct-playback-needs-useanimgraph-off-first` | [/fix/direct-sequence-playback-needs-useanimgraph-off-first](https://sboxguide.dev/fix/direct-sequence-playback-needs-useanimgraph-off-first) |
 | `g-rig-hyphen-in-sequence-name-is-dropped-by-the-model-compiler` | [/fix/hyphen-in-sequence-name-dropped-by-model-compiler](https://sboxguide.dev/fix/hyphen-in-sequence-name-dropped-by-model-compiler) |
 | `g-rig-mixamo-mocap-retargets-onto-npc-lane` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
@@ -241,6 +242,7 @@
 | `g-tool-fixing-source-asset-always-trigger-recompile` | [/fix/failed-asset-recompile-stale-cache](https://sboxguide.dev/fix/failed-asset-recompile-stale-cache) |
 | `g-tool-gameresource-archetype-extension-reserved` | [/fix/gameresource-archetype-extension-reserved](https://sboxguide.dev/fix/gameresource-archetype-extension-reserved) |
 | `g-tool-gameresource-navmesh-getsimplepath-obsolete` | [/fix/gameresource-navmesh-getsimplepath-obsolete](https://sboxguide.dev/fix/gameresource-navmesh-getsimplepath-obsolete) |
+| `g-tool-green-compile-status-not-loaded-assembly` | [/fix/green-compile-status-not-loaded-assembly](https://sboxguide.dev/fix/green-compile-status-not-loaded-assembly) |
 | `g-tool-headless-dotnet-build-skips-sandbox-whitelist` | [/fix/headless-build-skips-sandbox-whitelist](https://sboxguide.dev/fix/headless-build-skips-sandbox-whitelist) |
 | `g-tool-host-project-cannot-compile-library-mounted-scenes` | [/fix/host-project-library-scene-compile-failure](https://sboxguide.dev/fix/host-project-library-scene-compile-failure) |
 | `g-tool-hotload-csharp-edits-apply` | [/fix/editor-hotload-expectations](https://sboxguide.dev/fix/editor-hotload-expectations) |
@@ -684,7 +686,6 @@
 - `g-rig-blender-icosphere-subdivisions-off-by-one`
 - `g-rig-boneoverride-persists-until-cleared`
 - `g-rig-citizen-helper-bones-diverge-under-override`
-- `g-rig-citizen-locomotion-clips-authored-speed-in-blend-value-units`
 - `g-rig-citizen-ragdoll-shape-joint-counts`
 - `g-rig-decor-built-at-distant-bone-floats`
 - `g-rig-fbx-export-not-byte-reproducible`
@@ -767,7 +768,6 @@
 - `g-tool-get-component-type-blind-to-static-class`
 - `g-tool-git-archive-autocrlf-corrupts-vendored-bytes`
 - `g-tool-global-output-path-props-poison-base-addon`
-- `g-tool-green-compile-status-not-loaded-assembly`
 - `g-tool-harness-last-completed-run-is-stale-in-live-mode`
 - `g-tool-hotload-migrates-static-readonly-registry`
 - `g-tool-hotload-stale-assettype-registration-duplicate`
