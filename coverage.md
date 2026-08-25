@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**315 / 887 gotchas articled** (36%). Pack-only: **558**. Backlog (status `none`): **14**.
+**318 / 887 gotchas articled** (36%). Pack-only: **555**. Backlog (status `none`): **14**.
 
 ## By lane
 
@@ -14,11 +14,11 @@
 | getting-art-in | 113 | 43 | 66 | 4 | 38% |
 | rigging-animation | 51 | 28 | 23 | 0 | 55% |
 | writing-gameplay | 383 | 117 | 263 | 3 | 31% |
-| building-ui | 107 | 58 | 48 | 1 | 54% |
+| building-ui | 107 | 59 | 47 | 1 | 55% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
-| tooling-environment | 211 | 57 | 148 | 6 | 27% |
-| **Total** | **887** | **315** | **558** | **14** | **36%** |
+| tooling-environment | 211 | 59 | 146 | 6 | 28% |
+| **Total** | **887** | **318** | **555** | **14** | **36%** |
 
 ## Articled gotchas (skip-list)
 
@@ -230,6 +230,7 @@
 | `g-tool-boxcollider-center-scale-always` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-tool-convar-same-value-set-silent-noop` | [/fix/convar-same-value-set-is-silent-noop](https://sboxguide.dev/fix/convar-same-value-set-is-silent-noop) |
 | `g-tool-cross-assembly-hotreload-missingmethod` | [/fix/cross-assembly-hotreload-missing-method](https://sboxguide.dev/fix/cross-assembly-hotreload-missing-method) |
+| `g-tool-custom-asset-extension-registration-race` | [/fix/custom-asset-extension-registration-race](https://sboxguide.dev/fix/custom-asset-extension-registration-race) |
 | `g-tool-deriving-visual-s-facing-horizontal-velocity` | [/fix/velocity-facing-pendulum-flip](https://sboxguide.dev/fix/velocity-facing-pendulum-flip) |
 | `g-tool-dotnet-build-warning-counts-lie-under` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-editor-compiler-crash-internally-nullreferen` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
@@ -242,6 +243,7 @@
 | `g-tool-fixing-source-asset-always-trigger-recompile` | [/fix/failed-asset-recompile-stale-cache](https://sboxguide.dev/fix/failed-asset-recompile-stale-cache) |
 | `g-tool-gameresource-archetype-extension-reserved` | [/fix/gameresource-archetype-extension-reserved](https://sboxguide.dev/fix/gameresource-archetype-extension-reserved) |
 | `g-tool-gameresource-navmesh-getsimplepath-obsolete` | [/fix/gameresource-navmesh-getsimplepath-obsolete](https://sboxguide.dev/fix/gameresource-navmesh-getsimplepath-obsolete) |
+| `g-tool-global-output-path-props-poison-base-addon` | [/fix/output-path-override-poisons-engine-base-addon](https://sboxguide.dev/fix/output-path-override-poisons-engine-base-addon) |
 | `g-tool-green-compile-status-not-loaded-assembly` | [/fix/green-compile-status-not-loaded-assembly](https://sboxguide.dev/fix/green-compile-status-not-loaded-assembly) |
 | `g-tool-headless-dotnet-build-skips-sandbox-whitelist` | [/fix/headless-build-skips-sandbox-whitelist](https://sboxguide.dev/fix/headless-build-skips-sandbox-whitelist) |
 | `g-tool-host-project-cannot-compile-library-mounted-scenes` | [/fix/host-project-library-scene-compile-failure](https://sboxguide.dev/fix/host-project-library-scene-compile-failure) |
@@ -338,6 +340,7 @@
 | `g-ui-sync-owner-proxies-sync-syncflags` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
 | `g-ui-text-line-box-is-one-and-a-half-times-the-declared-line-height` | [/fix/text-line-box-taller-than-line-height](https://sboxguide.dev/fix/text-line-box-taller-than-line-height) |
 | `g-ui-textentry-raw-html-input-house-control` | [/fix/textentry-not-html-input](https://sboxguide.dev/fix/textentry-not-html-input) |
+| `g-ui-transition-delay-intro-outro-parse-fine` | [/fix/razor-scss-transition-delay-intro-outro](https://sboxguide.dev/fix/razor-scss-transition-delay-intro-outro) |
 | `g-ui-write-inside-already-open-razor-code` | [/fix/nested-razor-code-block-rz1010](https://sboxguide.dev/fix/nested-razor-code-block-rz1010) |
 
 ## Pack-only gotchas (in the checklist, no full article)
@@ -732,7 +735,6 @@
 - `g-tool-console-line-format-differs-from-log-file-format`
 - `g-tool-copied-trace-exclusion-filters-invert-meanin`
 - `g-tool-coplanar-overlay-ribbons-z-fight-give`
-- `g-tool-custom-asset-extension-registration-race`
 - `g-tool-custom-mcptool-single-string-arg-wrapper`
 - `g-tool-deterministic-regen-autocrlf-phantom-diff`
 - `g-tool-driven-approach-dent-hash-nondeterministic`
@@ -767,7 +769,6 @@
 - `g-tool-game-csproj-build-gate-excludes-editor-folder`
 - `g-tool-get-component-type-blind-to-static-class`
 - `g-tool-git-archive-autocrlf-corrupts-vendored-bytes`
-- `g-tool-global-output-path-props-poison-base-addon`
 - `g-tool-harness-last-completed-run-is-stale-in-live-mode`
 - `g-tool-hotload-migrates-static-readonly-registry`
 - `g-tool-hotload-stale-assettype-registration-duplicate`
@@ -895,7 +896,6 @@
 - `g-ui-text-measure-drifts-across-editor-boots`
 - `g-ui-textentry-focus-survives-in-separate-constant-hash-panel`
 - `g-ui-thumb-source-aspect-must-match-tile-frame`
-- `g-ui-transition-delay-intro-outro-parse-fine`
 - `g-ui-unitless-line-height-misrenders`
 - `g-ui-unquoted-numeric-attr-headless-vs-editor-codegen`
 - `g-ui-weight-named-font-files-are-separate-families`
