@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**318 / 887 gotchas articled** (36%). Pack-only: **555**. Backlog (status `none`): **14**.
+**321 / 887 gotchas articled** (36%). Pack-only: **552**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 113 | 43 | 66 | 4 | 38% |
-| rigging-animation | 51 | 28 | 23 | 0 | 55% |
-| writing-gameplay | 383 | 117 | 263 | 3 | 31% |
+| rigging-animation | 51 | 29 | 22 | 0 | 57% |
+| writing-gameplay | 383 | 119 | 261 | 3 | 31% |
 | building-ui | 107 | 59 | 47 | 1 | 55% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 211 | 59 | 146 | 6 | 28% |
-| **Total** | **887** | **318** | **555** | **14** | **36%** |
+| **Total** | **887** | **321** | **552** | **14** | **36%** |
 
 ## Articled gotchas (skip-list)
 
@@ -110,11 +110,13 @@
 | `g-game-editor-viewport-auto-exposure-adapts-over` | [/fix/editor-auto-exposure-screenshot-diff](https://sboxguide.dev/fix/editor-auto-exposure-screenshot-diff) |
 | `g-game-first-person-hide-player-enumerate-every` | [/fix/first-person-hide-all-renderers](https://sboxguide.dev/fix/first-person-hide-all-renderers) |
 | `g-game-flat-decal-geometry-clear-surface-below` | [/fix/runtime-world-building-helpers](https://sboxguide.dev/fix/runtime-world-building-helpers) |
+| `g-game-follow-slot-must-be-perpendicular-to-leader-heading` | [/fix/follow-slot-perpendicular-to-leader-heading](https://sboxguide.dev/fix/follow-slot-perpendicular-to-leader-heading) |
 | `g-game-freeze-kinematic-not-destroy-rigidbody-preserves-dependents` | [/fix/freeze-physics-actor-kinematic-not-destroy](https://sboxguide.dev/fix/freeze-physics-actor-kinematic-not-destroy) |
 | `g-game-fromhost-singleton-must-be-networkspawned-not-runtime-snapshot` | [/fix/fromhost-singleton-needs-networkspawn](https://sboxguide.dev/fix/fromhost-singleton-needs-networkspawn) |
 | `g-game-full-screen-hud-toasts-banners` | [/fix/building-sbox-hud](https://sboxguide.dev/fix/building-sbox-hud) |
 | `g-game-gamepad-bumper-gamepadcode-strings-switchlef` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
 | `g-game-getallcomponents-firstordefault-grabs-clothing-not-body` | [/fix/skinnedmodelrenderer-firstordefault-grabs-clothing](https://sboxguide.dev/fix/skinnedmodelrenderer-firstordefault-grabs-clothing) |
+| `g-game-graph-prune-isolated-nodes-leaves-sealed-pockets` | [/fix/waypoint-graph-prune-by-connected-component](https://sboxguide.dev/fix/waypoint-graph-prune-by-connected-component) |
 | `g-game-greedy-voxel-mesher-colours-cliff-skirt` | [/fix/greedy-mesher-cliff-vertical-stripes](https://sboxguide.dev/fix/greedy-mesher-cliff-vertical-stripes) |
 | `g-game-ground-overlay-lift-ladder-and-self-crossing-seam` | [/fix/ground-overlays-z-fight-each-other-and-self](https://sboxguide.dev/fix/ground-overlays-z-fight-each-other-and-self) |
 | `g-game-grounded-wish-servo-eats-applied-velocity` | [/fix/grounded-wish-servo-eats-applied-velocity](https://sboxguide.dev/fix/grounded-wish-servo-eats-applied-velocity) |
@@ -209,6 +211,7 @@
 | `g-rig-citizen-combat-animgraph-params` | [/fix/citizen-combat-animgraph-params](https://sboxguide.dev/fix/citizen-combat-animgraph-params) |
 | `g-rig-citizen-holdtype-aim-ik-param-map` | [/fix/citizen-holdtype-aim-ik-param-map](https://sboxguide.dev/fix/citizen-holdtype-aim-ik-param-map) |
 | `g-rig-citizen-locomotion-clips-authored-speed-in-blend-value-units` | [/fix/citizen-locomotion-clips-authored-speed-blend-value](https://sboxguide.dev/fix/citizen-locomotion-clips-authored-speed-blend-value) |
+| `g-rig-citizen-ragdoll-shape-joint-counts` | [/fix/citizen-ragdoll-shape-and-joint-counts](https://sboxguide.dev/fix/citizen-ragdoll-shape-and-joint-counts) |
 | `g-rig-direct-playback-needs-useanimgraph-off-first` | [/fix/direct-sequence-playback-needs-useanimgraph-off-first](https://sboxguide.dev/fix/direct-sequence-playback-needs-useanimgraph-off-first) |
 | `g-rig-hyphen-in-sequence-name-is-dropped-by-the-model-compiler` | [/fix/hyphen-in-sequence-name-dropped-by-model-compiler](https://sboxguide.dev/fix/hyphen-in-sequence-name-dropped-by-model-compiler) |
 | `g-rig-mixamo-mocap-retargets-onto-npc-lane` | [/fix/mixamo-retarget-custom-rig](https://sboxguide.dev/fix/mixamo-retarget-custom-rig) |
@@ -507,13 +510,11 @@
 - `g-game-fake-height-jump-needs-trace-z-coupled`
 - `g-game-flat-topped-mesas-heightfield-need-two`
 - `g-game-flattest-cell-is-underwater-after-adding-sea`
-- `g-game-follow-slot-must-be-perpendicular-to-leader-heading`
 - `g-game-forge-tripo-vehicle-meshes-re-exported`
 - `g-game-freshly-generated-vmat-vmdl`
 - `g-game-gate-airborne-metrics-first-ground-contact`
 - `g-game-gen-pass-routes-against-later-mutated-field`
 - `g-game-getbuttonorigin-getglyph-per-string-action-exist`
-- `g-game-graph-prune-isolated-nodes-leaves-sealed-pockets`
 - `g-game-greedy-meshing-delivers-1`
 - `g-game-grid-raymarch-parallel-axis-overflow`
 - `g-game-ground-skin-thickness-is-a-budget-the-things-on-it-spend`
@@ -689,7 +690,6 @@
 - `g-rig-blender-icosphere-subdivisions-off-by-one`
 - `g-rig-boneoverride-persists-until-cleared`
 - `g-rig-citizen-helper-bones-diverge-under-override`
-- `g-rig-citizen-ragdoll-shape-joint-counts`
 - `g-rig-decor-built-at-distant-bone-floats`
 - `g-rig-fbx-export-not-byte-reproducible`
 - `g-rig-geodesic-weights-wrong-for-primitive-segments`
