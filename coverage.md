@@ -5,20 +5,20 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**321 / 887 gotchas articled** (36%). Pack-only: **552**. Backlog (status `none`): **14**.
+**324 / 887 gotchas articled** (37%). Pack-only: **549**. Backlog (status `none`): **14**.
 
 ## By lane
 
 | Lane | Gotchas | Articled | Pack-only | Backlog | Coverage |
 |---|--:|--:|--:|--:|--:|
-| getting-art-in | 113 | 43 | 66 | 4 | 38% |
+| getting-art-in | 113 | 44 | 65 | 4 | 39% |
 | rigging-animation | 51 | 29 | 22 | 0 | 57% |
-| writing-gameplay | 383 | 119 | 261 | 3 | 31% |
+| writing-gameplay | 383 | 120 | 260 | 3 | 31% |
 | building-ui | 107 | 59 | 47 | 1 | 55% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
-| tooling-environment | 211 | 59 | 146 | 6 | 28% |
-| **Total** | **887** | **321** | **552** | **14** | **36%** |
+| tooling-environment | 211 | 60 | 145 | 6 | 28% |
+| **Total** | **887** | **324** | **549** | **14** | **37%** |
 
 ## Articled gotchas (skip-list)
 
@@ -55,6 +55,7 @@
 | `g-art-pointlight-shadows-true-renders-black` | [/fix/pointlight-shadows-renders-black](https://sboxguide.dev/fix/pointlight-shadows-renders-black) |
 | `g-art-prefer-hand-sized-boxcollider-s-over` | [/fix/capsule-vs-box-collider-choice](https://sboxguide.dev/fix/capsule-vs-box-collider-choice) |
 | `g-art-recovery-forge-delivery-fails` | [/fix/forge-failed-delivery-glb-recovery](https://sboxguide.dev/fix/forge-failed-delivery-glb-recovery) |
+| `g-art-rotated-primitive-spins-about-own-centre-not-part-pivot` | [/fix/rotated-primitive-spins-about-own-origin](https://sboxguide.dev/fix/rotated-primitive-spins-about-own-origin) |
 | `g-art-s-box-load-raw-obj-glb` | [/fix/sbox-wont-load-obj-glb](https://sboxguide.dev/fix/sbox-wont-load-obj-glb) |
 | `g-art-s-box-units-inches` | [/fix/sbox-units-are-inches](https://sboxguide.dev/fix/sbox-units-are-inches) |
 | `g-art-scene-triangle-overload` | [/fix/decimating-ai-meshes](https://sboxguide.dev/fix/decimating-ai-meshes) |
@@ -103,6 +104,7 @@
 | `g-game-dedicated-server-unpublished-package-join-fails` | [/fix/dedicated-server-unpublished-package-join-fails](https://sboxguide.dev/fix/dedicated-server-unpublished-package-join-fails) |
 | `g-game-destroy-is-deferred-drop-exclusive-claims-first` | [/fix/destroy-is-deferred-clear-exclusive-claims-first](https://sboxguide.dev/fix/destroy-is-deferred-clear-exclusive-claims-first) |
 | `g-game-devhost-stream-skips-loose-data-files` | [/fix/devhost-stream-skips-loose-data](https://sboxguide.dev/fix/devhost-stream-skips-loose-data) |
+| `g-game-direction-input-from-impulse-not-actor-velocity` | [/fix/collision-direction-from-impulse-not-velocity](https://sboxguide.dev/fix/collision-direction-from-impulse-not-velocity) |
 | `g-game-disabled-components-invisible-to-getallcomponents` | [/fix/disabled-components-invisible-to-getallcomponents](https://sboxguide.dev/fix/disabled-components-invisible-to-getallcomponents) |
 | `g-game-double-jump-set-velocity-z-directly` | [/fix/double-jump-set-velocity-directly](https://sboxguide.dev/fix/double-jump-set-velocity-directly) |
 | `g-game-edit-mode-gameobject` | [/fix/edit-mode-destroy-query-lag](https://sboxguide.dev/fix/edit-mode-destroy-query-lag) |
@@ -238,6 +240,7 @@
 | `g-tool-dotnet-build-warning-counts-lie-under` | [/fix/dotnet-build-vs-whitelist](https://sboxguide.dev/fix/dotnet-build-vs-whitelist) |
 | `g-tool-editor-compiler-crash-internally-nullreferen` | [/fix/stale-assembly-hotload](https://sboxguide.dev/fix/stale-assembly-hotload) |
 | `g-tool-editor-filesystem-ambiguous-sandbox-editor` | [/fix/editor-filesystem-ambiguity](https://sboxguide.dev/fix/editor-filesystem-ambiguity) |
+| `g-tool-editor-generated-csproj-required-shape-whitelist-blind` | [/fix/offline-dotnet-build-misses-sbox-whitelist](https://sboxguide.dev/fix/offline-dotnet-build-misses-sbox-whitelist) |
 | `g-tool-editor-verifies-checked-out-tree-not-worktree-branch` | [/fix/editor-verifies-checked-out-tree-not-worktree-branch](https://sboxguide.dev/fix/editor-verifies-checked-out-tree-not-worktree-branch) |
 | `g-tool-engine-console-noise-normal` | [/fix/first-play-compile-checklist](https://sboxguide.dev/fix/first-play-compile-checklist) |
 | `g-tool-engine-ships-own-built-mcptool-s` | [/fix/engine-mcptool-source-reference](https://sboxguide.dev/fix/engine-mcptool-source-reference) |
@@ -398,7 +401,6 @@
 - `g-art-regenerated-ai-textures-need-editor-kick`
 - `g-art-renderer-tint-dropped-in-reflection-passes`
 - `g-art-rope-endcap-rotation-must-track-swing`
-- `g-art-rotated-primitive-spins-about-own-centre-not-part-pivot`
 - `g-art-s-box-obj-import-plain-y`
 - `g-art-shaders-complex-shader-supports`
 - `g-art-tiling-ground-texture-will-repeat-across`
@@ -492,7 +494,6 @@
 - `g-game-deterministic-world-delta-only-save`
 - `g-game-diagonal-edge-min-width-cull-coverage-holes`
 - `g-game-direction-branch-needs-one-test-per-branch`
-- `g-game-direction-input-from-impulse-not-actor-velocity`
 - `g-game-directional-coast-tilt-floods-world-centre`
 - `g-game-dirty-chunk-remesh-seam-law`
 - `g-game-dirty-remesh-footprint-widest-read`
@@ -744,7 +745,6 @@
 - `g-tool-editor-clobbers-hand-edited-sbproj-on-save`
 - `g-tool-editor-csproj-graph-base-library-obj-collision`
 - `g-tool-editor-eats-fkeys-in-play-mode`
-- `g-tool-editor-generated-csproj-required-shape-whitelist-blind`
 - `g-tool-editor-hang-vs-crash-kill-relaunch-captured-cli`
 - `g-tool-editor-hotreload-preserves-statics`
 - `g-tool-editor-ignores-external-edits-persisted-sett`
