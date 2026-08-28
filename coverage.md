@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**324 / 887 gotchas articled** (37%). Pack-only: **549**. Backlog (status `none`): **14**.
+**326 / 887 gotchas articled** (37%). Pack-only: **547**. Backlog (status `none`): **14**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 113 | 44 | 65 | 4 | 39% |
 | rigging-animation | 51 | 29 | 22 | 0 | 57% |
-| writing-gameplay | 383 | 120 | 260 | 3 | 31% |
+| writing-gameplay | 383 | 122 | 258 | 3 | 32% |
 | building-ui | 107 | 59 | 47 | 1 | 55% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 211 | 60 | 145 | 6 | 28% |
-| **Total** | **887** | **324** | **549** | **14** | **37%** |
+| **Total** | **887** | **326** | **547** | **14** | **37%** |
 
 ## Articled gotchas (skip-list)
 
@@ -128,6 +128,7 @@
 | `g-game-host-create-before-networkspawn-clobbers-instance` | [/fix/host-spawn-clobbers-camera-singleton](https://sboxguide.dev/fix/host-spawn-clobbers-camera-singleton) |
 | `g-game-icameramodifier-overwrites-editor-viewport` | [/fix/icameramodifier-overwrites-editor-viewport](https://sboxguide.dev/fix/icameramodifier-overwrites-editor-viewport) |
 | `g-game-idempotent-world-rebuild-destroyimmediate` | [/fix/idempotent-world-rebuild-destroyimmediate](https://sboxguide.dev/fix/idempotent-world-rebuild-destroyimmediate) |
+| `g-game-immobility-accumulator-gated-on-throttle-magnitude-never-fires` | [/fix/timeout-accumulator-gated-on-control-signal-never-fires](https://sboxguide.dev/fix/timeout-accumulator-gated-on-control-signal-never-fires) |
 | `g-game-input-harness-scene-order-and-fixed-step` | [/fix/input-harness-scene-order-and-fixed-step](https://sboxguide.dev/fix/input-harness-scene-order-and-fixed-step) |
 | `g-game-input-pressed-edge-latch-onupdate-not-fixedupdate` | [/fix/input-pressed-fixedupdate-drops](https://sboxguide.dev/fix/input-pressed-fixedupdate-drops) |
 | `g-game-input-usingcontroller-real-public-bool` | [/fix/input-config-bindings](https://sboxguide.dev/fix/input-config-bindings) |
@@ -171,6 +172,7 @@
 | `g-game-scene-getallcomponents-t-return-disabled-com` | [/fix/getallcomponents-skips-disabled](https://sboxguide.dev/fix/getallcomponents-skips-disabled) |
 | `g-game-scene-json-details` | [/fix/four-object-scene-bootstrap](https://sboxguide.dev/fix/four-object-scene-bootstrap) |
 | `g-game-second-same-account-instance-contests-p2p-rendezvous` | [/fix/second-same-account-instance-contests-p2p-rendezvous](https://sboxguide.dev/fix/second-same-account-instance-contests-p2p-rendezvous) |
+| `g-game-self-crossing-track-position-monotone-cursor` | [/fix/self-crossing-track-needs-monotone-cursor](https://sboxguide.dev/fix/self-crossing-track-needs-monotone-cursor) |
 | `g-game-session-reset-static-facades-component-their` | [/fix/component-lifecycle-onawake-onstart](https://sboxguide.dev/fix/component-lifecycle-onawake-onstart) |
 | `g-game-single-tick-groundcheck-flicker-re-fires` | [/fix/single-tick-ground-flicker-landing-vfx](https://sboxguide.dev/fix/single-tick-ground-flicker-landing-vfx) |
 | `g-game-smooth-render-mesh-vs-quantized-collision-curb` | [/fix/smooth-render-vs-quantized-collision-curb](https://sboxguide.dev/fix/smooth-render-vs-quantized-collision-curb) |
@@ -527,7 +529,6 @@
 - `g-game-hex-hash-constant-top-bit-set`
 - `g-game-hitbox-limb-capsules-straddle-centerline`
 - `g-game-identity-scale-about-pivot-breaks-determinism-hash`
-- `g-game-immobility-accumulator-gated-on-throttle-magnitude-never-fires`
 - `g-game-impactor-width-from-boxcolliders`
 - `g-game-injected-endpoints-not-vendored-pick-nodes`
 - `g-game-input-config-bindings-differ-per-project`
@@ -613,7 +614,6 @@
 - `g-game-scatter-content-over-traversal-net-needs-zoning`
 - `g-game-sea-level-slider-nothing-until-exceeds`
 - `g-game-self-arming-test-must-await-async-world-build`
-- `g-game-self-crossing-track-position-monotone-cursor`
 - `g-game-self-siting-climb-test-mis-sites-on-treed-voxel-cliffs`
 - `g-game-serial-grade-ladder-obstacle-course`
 - `g-game-session-static-to-scene-component`
