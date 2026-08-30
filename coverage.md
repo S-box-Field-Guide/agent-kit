@@ -5,7 +5,7 @@
 > in the skill pack only, `article` = has a full Field Guide article). The sync never
 > re-drafts an `article` gotcha, so duplicates can't happen by construction.
 
-**326 / 887 gotchas articled** (37%). Pack-only: **547**. Backlog (status `none`): **14**.
+**329 / 887 gotchas articled** (37%). Pack-only: **544**. Backlog (status `none`): **14**.
 
 ## By lane
 
@@ -13,12 +13,12 @@
 |---|--:|--:|--:|--:|--:|
 | getting-art-in | 113 | 44 | 65 | 4 | 39% |
 | rigging-animation | 51 | 29 | 22 | 0 | 57% |
-| writing-gameplay | 383 | 122 | 258 | 3 | 32% |
-| building-ui | 107 | 59 | 47 | 1 | 55% |
+| writing-gameplay | 383 | 123 | 257 | 3 | 32% |
+| building-ui | 107 | 61 | 45 | 1 | 57% |
 | audio | 13 | 8 | 5 | 0 | 62% |
 | making-it-perform | 9 | 4 | 5 | 0 | 44% |
 | tooling-environment | 211 | 60 | 145 | 6 | 28% |
-| **Total** | **887** | **326** | **547** | **14** | **37%** |
+| **Total** | **887** | **329** | **544** | **14** | **37%** |
 
 ## Articled gotchas (skip-list)
 
@@ -82,6 +82,7 @@
 | `g-game-buried-vertical-sink-hard-recover` | [/fix/buried-vertical-sink-hard-recover](https://sboxguide.dev/fix/buried-vertical-sink-hard-recover) |
 | `g-game-camera-follows-raw-fixedtick-feet-model-sawtooths` | [/fix/camera-fixedtick-position-sawtooth-jitter](https://sboxguide.dev/fix/camera-fixedtick-position-sawtooth-jitter) |
 | `g-game-camera-transform-is-not-the-view` | [/fix/camera-modifiers-run-against-drawing-camera](https://sboxguide.dev/fix/camera-modifiers-run-against-drawing-camera) |
+| `g-game-cannot-bind-in-start-to-a-component-another-start-creates` | [/fix/bind-lazily-to-onstart-created-component](https://sboxguide.dev/fix/bind-lazily-to-onstart-created-component) |
 | `g-game-cell-white-noise-hash-wrong-driver` | [/fix/white-noise-hash-terrain-shade](https://sboxguide.dev/fix/white-noise-hash-terrain-shade) |
 | `g-game-child-renderer-lookup-noop-anim` | [/fix/child-renderer-lookup-noop-anim](https://sboxguide.dev/fix/child-renderer-lookup-noop-anim) |
 | `g-game-client-instance-claim-grabs-host-character` | [/fix/client-singleton-claim-grabs-host](https://sboxguide.dev/fix/client-singleton-claim-grabs-host) |
@@ -313,6 +314,7 @@
 | `g-ui-font-glyph-corruption-shared-font-size-value-still-triggers` | [/fix/font-glyph-corruption-shared-font-size-value-still-triggers](https://sboxguide.dev/fix/font-glyph-corruption-shared-font-size-value-still-triggers) |
 | `g-ui-freshly-scaffolded-project-s-code-assembly` | [/fix/scaffold-missing-global-usings](https://sboxguide.dev/fix/scaffold-missing-global-usings) |
 | `g-ui-gameobject-networkmode-defaults-snapshot` | [/fix/owner-simulated-networking](https://sboxguide.dev/fix/owner-simulated-networking) |
+| `g-ui-gameresource-attribute-obsolete-use-assettype` | [/fix/gameresource-attribute-obsolete-use-assettype](https://sboxguide.dev/fix/gameresource-attribute-obsolete-use-assettype) |
 | `g-ui-interface-based-scene-scans-unreliable` | [/fix/interface-scan-returns-nothing](https://sboxguide.dev/fix/interface-scan-returns-nothing) |
 | `g-ui-jetbrains-mono-consolas-shipped-s-box` | [/fix/engine-monospace-roboto-mono](https://sboxguide.dev/fix/engine-monospace-roboto-mono) |
 | `g-ui-json-serialize-deserialize-t` | [/fix/saveload-without-drift](https://sboxguide.dev/fix/saveload-without-drift) |
@@ -335,6 +337,7 @@
 | `g-ui-razor-tag-resolution-ignores-global-usings` | [/fix/razor-tag-resolution-ignores-global-usings](https://sboxguide.dev/fix/razor-tag-resolution-ignores-global-usings) |
 | `g-ui-ref-field-bare-private-field-silently` | [/fix/ref-field-private-field-never-assigns](https://sboxguide.dev/fix/ref-field-private-field-never-assigns) |
 | `g-ui-runtime-texture-ui-panel` | [/fix/runtime-texture-ui-panel](https://sboxguide.dev/fix/runtime-texture-ui-panel) |
+| `g-ui-same-line-doc-comment-swallows-field-decl` | [/fix/xml-doc-comment-same-line-swallows-field](https://sboxguide.dev/fix/xml-doc-comment-same-line-swallows-field) |
 | `g-ui-screenpanel-zindex-default-100-tie-order-unordered` | [/fix/screenpanel-zindex-default-100-tie-order-unordered](https://sboxguide.dev/fix/screenpanel-zindex-default-100-tie-order-unordered) |
 | `g-ui-screenpanel-zindex-paint-only-input-falls-through` | [/fix/screenpanel-zindex-paint-only-input](https://sboxguide.dev/fix/screenpanel-zindex-paint-only-input) |
 | `g-ui-scroll-panel-outbids-child-drag-controls` | [/fix/scroll-container-steals-child-drag](https://sboxguide.dev/fix/scroll-container-steals-child-drag) |
@@ -446,7 +449,6 @@
 - `g-game-camera-from-impact-point`
 - `g-game-camera-occlusion-thrashes-swing-anchor`
 - `g-game-candidate-selector-s-nearest-reach-fallback`
-- `g-game-cannot-bind-in-start-to-a-component-another-start-creates`
 - `g-game-capsule-band-caps-shrink-ends`
 - `g-game-catch-poll-misses-1tick-transition-latch-edge`
 - `g-game-catch-radius-near-miss-band`
@@ -867,7 +869,6 @@
 - `g-ui-editor-generated-csproj-gitignored`
 - `g-ui-flat-kind-tagged-record-vs-stj-polymorphic-union`
 - `g-ui-flex-end-anchor-drifts-without-fixed-width`
-- `g-ui-gameresource-attribute-obsolete-use-assettype`
 - `g-ui-global-using-alias-resolves-vendored-name-collision`
 - `g-ui-headless-build-validates-razor-csharp-codegen`
 - `g-ui-inline-svg-markup-renders-empty-use-files`
@@ -886,7 +887,6 @@
 - `g-ui-razor-panel-caches-closures-over-retargeted-target`
 - `g-ui-repeating-linear-gradient-unsupported`
 - `g-ui-runtime-clipboard-api-reachable-game-code`
-- `g-ui-same-line-doc-comment-swallows-field-decl`
 - `g-ui-same-shape-type-collision-green-compile-hides-binding`
 - `g-ui-scenepanel-renderscene-multipart-selfframing`
 - `g-ui-scenepanel-ui-3d-model-preview-world`
