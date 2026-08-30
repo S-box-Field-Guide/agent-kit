@@ -58,4 +58,4 @@ attribution. Code snippets are provided as-is for you to use freely.
 
 Building something in s&box, or got questions about a gotcha? Join the Field Guide
 Discord — share what you're working on, report traps we haven't documented, and help
-keep the guide sharp: **[discord.gg/JfrwFtn9T](https://discord.gg/JfrwFtn9T)**
+keep the guide sharp: **[discord.gg/WeGJnwQP7C](https://discord.gg/WeGJnwQP7C)**
